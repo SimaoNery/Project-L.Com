@@ -8,9 +8,9 @@ int counter = 0;
 int hook_id = 0;
 
 int (timer_set_frequency)(uint8_t timer, uint32_t freq) {
-  if (timer > 2 || timer < 0) return 1;
+  if (timer > 2) return 1;
 
-  // First, lets see what are the 4 LSB of the timer, making sure we dont change them
+  // First, lets see what are the 4 LSB of the timer, making sure we dont change them 
   uint8_t current_config;
   if (timer_get_conf(timer, &current_config) != 0) return 1;
   
@@ -20,7 +20,7 @@ int (timer_set_frequency)(uint8_t timer, uint32_t freq) {
   // mask for the 4 MSB we need _ _ timer 00 01 10 
   // _ _ for LSB, MSB or LSB followed by MSB
   uint8_t mask = ((timer << 2) | 0x3) << 4;
-
+ 
   current_config = current_config | mask;
 
   // Tell controller which timer we want to configure
@@ -44,6 +44,7 @@ int (timer_subscribe_int)(uint8_t *bit_no) {
 
   if (bit_no == NULL) return 1;
 
+  // irq_set to be used to identify the device 
   *bit_no = BIT(hook_id);
 
   return sys_irqsetpolicy(TIMER0_IRQ, IRQ_REENABLE, &hook_id);
@@ -59,7 +60,7 @@ void (timer_int_handler)() {
 
 int (timer_get_conf)(uint8_t timer, uint8_t *st) {
   // First check if the inputs are correct 3 timers and st not NULL
-  if (timer > 2 || timer < 0 || st == NULL) return 1;
+  if (timer > 2 || st == NULL) return 1;
 
   // Build the Read-Back Command 1110___0 "_" to be filled with the respective timer 1 if it is the timer we want 0 otherwise
   uint8_t readBackCmd;
@@ -70,13 +71,12 @@ int (timer_get_conf)(uint8_t timer, uint8_t *st) {
   if (send) return 1;
 
   // Read from the timer port: 0x40 + timer
-  int res = util_sys_inb(TIMER_0 + timer, st);
-  return res;
+  return util_sys_inb(TIMER_0 + timer, st);
 }
 
 int (timer_display_conf)(uint8_t timer, uint8_t st,
                         enum timer_status_field field) {
-  if (timer > 2 || timer < 0) return 1;
+  if (timer > 2) return 1;
 
   union timer_status_field_val val;
   uint8_t bits5_4;

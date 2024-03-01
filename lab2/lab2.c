@@ -33,7 +33,6 @@ int main(int argc, char *argv[])
 
 int(timer_test_read_config)(uint8_t timer, enum timer_status_field field)
 {
-  /* To be implemented by the students */
   uint8_t i;
 
   int get_conf = timer_get_conf(timer, &i);
@@ -61,6 +60,7 @@ int(timer_test_int)(uint8_t time)
   int r;
 
   // Subscribe interrupt on timer 0 (works at 60 Hz -> 60 interrupts per second)
+  // irq_set is passed to timer_subscribe_int 
   if (timer_subscribe_int(&irq_set) != 0)
     return 1;
 
@@ -85,13 +85,16 @@ int(timer_test_int)(uint8_t time)
         break; /* no other notifications expected: do nothing */
       }
 
+      // Counter is incremented on every interrupt of timer 0 (at 60 Hz)
+      // Counter == 60 corresponds to 1 second
+      // If counter == 0 the program just started 
       if (counter % 60 == 0 && counter != 0) {
         timer_print_elapsed_time();
         time--;
       }
     }
     else
-    { /* received a standard message, not a notification */
+    { /* received a standard message, not a notification*/
       /* no standard messages expected: do nothing */
     }
   }

@@ -9,6 +9,7 @@ int hook_id = 0;
 
 int (timer_set_frequency)(uint8_t timer, uint32_t freq) {
   if (timer > 2) return 1;
+  if (freq < 19 || freq > TIMER_FREQ) return 1;
 
   // First, lets see what are the 4 LSB of the timer, making sure we dont change them 
   uint8_t current_config;

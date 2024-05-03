@@ -3,6 +3,8 @@
 #include <stdint.h>
 #include <stdio.h>
 
+#include "project.h"
+
 int main(int argc, char *argv[]) {
   // sets the language of LCF messages (can be either EN-US or PT-PT)
   lcf_set_language("EN-US");
@@ -26,3 +28,22 @@ int main(int argc, char *argv[]) {
 
   return 0;
 }
+
+int (main_loop)(
+  if(project_start() != 0) {
+    printf("Error: Problems occured while trying to start the project! \n");
+    return 1;
+  }
+
+  if(project_loop() != 0) {
+    printf("Error: Problems occured while trying to run the project! \n");
+    return 1;
+  }
+
+  if(project_stop() != 0) {
+    printf("Error: Problems occured while trying to stop the project! \n");
+    return 1;
+  }
+
+  return 0;
+)

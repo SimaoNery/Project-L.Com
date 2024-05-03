@@ -8,7 +8,7 @@ PROG=proj
 .PATH: ${.CURDIR}/controllers/video
 
 # source code files to be compiled  serial_pPOrt.Port.c
-SRCS = 	timer.c utils.c graphics.c keyboard.c mouse.c main.c KBC.c
+SRCS = 	utils.c timer.c KBC.c keyboard.c mouse.c graphics.c project.c main.c
 
 # ./controllers/keyboardMouse/KBC.c
 

@@ -6,11 +6,29 @@
 #include <stdio.h>
 
 #include "drivers/timer/timer.h"
-#include "drivers/mouse_keyboard/KBC.H"
+#include "drivers/mouse_keyboard/KBC.h"
 #include "drivers/mouse_keyboard/keyboard.h"
 #include "drivers/mouse_keyboard/mouse.h"
 #include "drivers/video/graphics.h"
-#include "sprites/sprite.h"
+#include "visuals/sprite.h"
+
+typedef enum {
+    MAIN_MENU,
+    HOUSE_PLANT,
+    SECURITY_CAMERA,
+    DISPLAY_MESSAGE,
+    HELP,
+} project_state;
+
+//Sprites we will use
+//extern Sprite *normalCursor;
+//extern Sprite *clickCursor;
+extern Sprite *titleText;
+//extern Sprite *controlShellText;
+//extern Sprite *housePlantText;
+//extern Sprite *securityCameraText;
+//extern Sprite *displayMessageText;
+//extern Sprite *helpText;
 
 //Will load the xpm, subscribe drivers and changes video mode to graphics mode 
 //return 0 if successfull and 1 otherwise

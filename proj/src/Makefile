@@ -1,17 +1,18 @@
 # name of the program (Minix service)
 PROG=proj
 
-.PATH: ${.CURDIR}/controllers/
-.PATH: ${.CURDIR}/controllers/mouse_keyboard
-.PATH: ${.CURDIR}/controllers/serial_port
-.PATH: ${.CURDIR}/controllers/timer
-.PATH: ${.CURDIR}/controllers/video
+.PATH: ${.CURDIR}/drivers/
+.PATH: ${.CURDIR}/drivers/mouse_keyboard
+.PATH: ${.CURDIR}/drivers/timer
+.PATH: ${.CURDIR}/drivers/video
+.PATH: ${.CURDIR}/visuals/
+.PATH: ${.CURDIR}/visuals/xpm_files
 .PATH: ${.CURDIR}/controllers/real_time_clock
+.PATH: ${.CURDIR}/controllers/serial_port
 
-# source code files to be compiled  serial_pPOrt.Port.c
-SRCS = timer.c utils.c graphics.c keyboard.c mouse.c main.c KBC.c real_time_clock.c
 
-# ./controllers/keyboardMouse/KBC.c
+# source code files to be compiled 
+SRCS = 	utils.c timer.c KBC.c keyboard.c mouse.c graphics.c sprite.c project.c main.c real_time_clock.c
 
 # additional compilation flags
 # "-Wall -Wextra -Werror -I . -std=c11 -Wno-unused-parameter" are already set

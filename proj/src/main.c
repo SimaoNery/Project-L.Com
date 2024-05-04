@@ -4,19 +4,20 @@
 #include <stdio.h>
 
 
-#include "controllers/real_time_clock/real_time_clock.h"
+#include "project.h"
 
-int (main)(int argc, char *argv[]) {
+int main(int argc, char *argv[]) {
   // sets the language of LCF messages (can be either EN-US or PT-PT)
   lcf_set_language("EN-US");
 
   // enables to log function invocations that are being "wrapped" by LCF
   // [comment this out if you don't want/need/ it]
-  lcf_trace_calls("/home/lcom/labs/proj/src/trace.txt");
+
+  //lcf_trace_calls("/home/lcom/labs/proj/src/trace.txt");
 
   // enables to save the output of printf function calls on a file
   // [comment this out if you don't want/need it]
-  lcf_log_output("/home/lcom/labs/proj/src/output.txt");
+  //lcf_log_output("/home/lcom/labs/proj/src/output.txt");
 
   // handles control over to LCF
   // [LCF handles command line arguments and invokes the right function]
@@ -30,7 +31,26 @@ int (main)(int argc, char *argv[]) {
   return 0;
 }
 
+int (proj_main_loop)() {
+  if(project_start() != 0) {
+    printf("Error: Problems occured while trying to start the project! \n");
+    return 1;
+  }
 
-int (proj_main_loop) (int argc, char *argv[]) {
+  /*if(project_loop() != 0) {
+    printf("Error: Problems occured while trying to run the project! \n");
+    return 1;
+  }*/
+  
+  vg_draw_rectangle(50, 60, 50, 50, 0xFFFF);
+
+  sleep(10);
+
+  if(project_stop() != 0) {
+    printf("Error: Problems occured while trying to stop the project! \n");
+    return 1;
+  }
+
+  printf("Success!!! \n");
   return 0;
 }

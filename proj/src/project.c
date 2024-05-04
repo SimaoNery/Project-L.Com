@@ -1,18 +1,19 @@
 #include "project.h"
 
 uint8_t irq_timer, irq_keyboard, irq_mouse;
+uint16_t resolution = RES_1024_768;
 project_state state = MAIN_MENU;
 
 int (project_start)() {
     //setup video buffer
-    if(map_frame_buffer(VBE_MODE_SET) != 0) {
+    if(map_frame_buffer(resolution) != 0) {
         printf("Error: Problems occured while trying to map video memory! \n");
         return 1;
     }
 
 
     //set graphics to video mode
-    if(vg_set_graphics_mode(VBE_MODE_SET) != 0) {
+    if(vg_set_graphics_mode(resolution) != 0) {
         printf("Error: Problems occured while trying to change graphics to video mode! \n");
         return 1;
     }
@@ -109,12 +110,17 @@ int (draw_manager)() {
 }
 
 int (draw_main_menu)() {
+    if(draw_sprite(wagnerzim) != 0) {
+        printf("Error: Problems occured while drawing -wagnerzim- sprite! \n");     
+        return 1;   
+    }
+
     if(draw_sprite(titleText) != 0){
         printf("Error: Problems occured while drawing -titleText- sprite! \n");
         return 1;
     }
 
-    /*if(draw_sprite(controlShellText) != 0){
+    if(draw_sprite(controlShellText) != 0){
         printf("Error: Problems occured while drawing -controlShellText- sprite! \n");
         return 1;
     }
@@ -137,7 +143,12 @@ int (draw_main_menu)() {
     if(draw_sprite(helpText) != 0) {
         printf("Error: Problems occured while drawing -helpText- sprite! \n");     
         return 1;   
-    }*/
+    }
+
+     if(draw_sprite(numberZero) != 0) {
+        printf("Error: Problems occured while drawing -numberZero- sprite! \n");     
+        return 1;   
+    }
 
     return 0;
 }

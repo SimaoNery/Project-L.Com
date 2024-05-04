@@ -9,6 +9,8 @@ PROG=proj
 .PATH: ${.CURDIR}/drivers/serial_port
 .PATH: ${.CURDIR}/visuals/
 .PATH: ${.CURDIR}/visuals/xpm_files
+.PATH: ${.CURDIR}/visuals/xpm_files/numbers
+
 
 # source code files to be compiled 
 SRCS = 	utils.c timer.c KBC.c keyboard.c mouse.c graphics.c sprite.c project.c main.c real_time_clock.c

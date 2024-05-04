@@ -41,8 +41,11 @@ int (proj_main_loop)() {
     printf("Error: Problems occured while trying to run the project! \n");
     return 1;
   }*/
-  
-  vg_draw_rectangle(50, 60, 50, 50, 0xFFFF);
+
+  if(draw_main_menu() != 0) {
+    printf("Error: Problems occured while trying to draw the main menu! \n");
+    return 1;
+  }
 
   sleep(10);
 

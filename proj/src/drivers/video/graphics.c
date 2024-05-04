@@ -1,6 +1,6 @@
 #include "graphics.h"
 
-static vbe_mode_info_t vmi_p;
+vbe_mode_info_t vmi_p;
 uint8_t *video_mem;
 
 int(normalize_color)(uint32_t color, uint32_t *normalized_color) {

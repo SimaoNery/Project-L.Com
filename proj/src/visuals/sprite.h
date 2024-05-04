@@ -5,6 +5,13 @@
 
 #include "../drivers/video/graphics.h"
 #include "xpm_files/TitleText.xpm"
+#include "xpm_files/ControlShellButton.xpm"
+#include "xpm_files/HousePlantButton.xpm"
+#include "xpm_files/SecurityCameraButton.xpm"
+#include "xpm_files/DisplayMessage.xpm"
+#include "xpm_files/HelpButton.xpm"
+#include "xpm_files/numbers/number0.xpm"
+#include "xpm_files/WagneirimDoMercadjim.xpm"
 
 typedef struct {
     int x, y; //current position
@@ -12,15 +19,19 @@ typedef struct {
     uint32_t *map; //the pixmap
 } Sprite;
 
+extern vbe_mode_info_t vmi_p;
+
 //Sprites we will use
 //Sprite *normalCursor;
 //Sprite *clickCursor;
+Sprite *wagnerzim;
 Sprite *titleText;
-//Sprite *controlShellText;
-//Sprite *housePlantText;
-//Sprite *securityCameraText;
-//Sprite *displayMessageText;
-//Sprite *helpText;
+Sprite *controlShellText;
+Sprite *housePlantText;
+Sprite *securityCameraText;
+Sprite *displayMessageText;
+Sprite *helpText;
+Sprite *numberZero;
 
 //Creates a new sprite drom XPM "pic" in the specified position
 Sprite* (create_sprite)(xpm_map_t pic, int x, int y);

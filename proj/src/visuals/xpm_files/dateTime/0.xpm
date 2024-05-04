@@ -1,0 +1,21 @@
+/* XPM */
+static char * zero_xpm[] = {
+"15 15 2 1",
+" 	c #FFFFFE",
+"a	c #000000",
+"  aaaaaaaaaaaa ",
+"  aaaaaaaaaaaa ",
+"  aaaaaaaaaaaa ",
+"  aaa      aaa ",
+"  aaa      aaa ",
+"  aaa      aaa ",
+"  aaa      aaa ",
+"  aaa      aaa ",
+"  aaa      aaa ",
+"  aaa      aaa ",
+"  aaa      aaa ",
+"  aaa      aaa ",
+"  aaaaaaaaaaaa ",
+"  aaaaaaaaaaaa ",
+"  aaaaaaaaaaaa "};
+

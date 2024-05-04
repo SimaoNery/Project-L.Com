@@ -5,14 +5,14 @@ project_state state = MAIN_MENU;
 
 int (project_start)() {
     //setup video buffer
-    if(map_frame_buffer(VBE_MODE_SET) != 0) {
+    if(map_frame_buffer(RES_1024_768) != 0) {
         printf("Error: Problems occured while trying to map video memory! \n");
         return 1;
     }
 
 
     //set graphics to video mode
-    if(vg_set_graphics_mode(VBE_MODE_SET) != 0) {
+    if(vg_set_graphics_mode(RES_1024_768) != 0) {
         printf("Error: Problems occured while trying to change graphics to video mode! \n");
         return 1;
     }

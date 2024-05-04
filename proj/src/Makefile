@@ -6,9 +6,10 @@ PROG=proj
 .PATH: ${.CURDIR}/controllers/serial_port
 .PATH: ${.CURDIR}/controllers/timer
 .PATH: ${.CURDIR}/controllers/video
+.PATH: ${.CURDIR}/controllers/real_time_clock
 
 # source code files to be compiled  serial_pPOrt.Port.c
-SRCS = 	timer.c utils.c graphics.c keyboard.c mouse.c main.c KBC.c
+SRCS = timer.c utils.c graphics.c keyboard.c mouse.c main.c KBC.c real_time_clock.c
 
 # ./controllers/keyboardMouse/KBC.c
 

@@ -5,11 +5,10 @@ PROG=proj
 .PATH: ${.CURDIR}/drivers/mouse_keyboard
 .PATH: ${.CURDIR}/drivers/timer
 .PATH: ${.CURDIR}/drivers/video
+.PATH: ${.CURDIR}/drivers/real_time_clock
+.PATH: ${.CURDIR}/drivers/serial_port
 .PATH: ${.CURDIR}/visuals/
 .PATH: ${.CURDIR}/visuals/xpm_files
-.PATH: ${.CURDIR}/controllers/real_time_clock
-.PATH: ${.CURDIR}/controllers/serial_port
-
 
 # source code files to be compiled 
 SRCS = 	utils.c timer.c KBC.c keyboard.c mouse.c graphics.c sprite.c project.c main.c real_time_clock.c

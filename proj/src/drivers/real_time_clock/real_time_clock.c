@@ -55,7 +55,6 @@ uint8_t transform_to_bcd(uint8_t binary_number) {
 
 
 int rtc_set_alarm(uint8_t hours, uint8_t minutes, uint8_t seconds) {
-    
     if (rtc_is_binary()) {
         if (rtc_set_config(HOURS_ALARM, hours)) return 1;
         if (rtc_set_config(MINUTES_ALARM, minutes)) return 1;

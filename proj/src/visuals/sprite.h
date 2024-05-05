@@ -10,8 +10,10 @@
 #include "xpm_files/SecurityCameraButton.xpm"
 #include "xpm_files/DisplayMessage.xpm"
 #include "xpm_files/HelpButton.xpm"
-#include "xpm_files/dateTime/0.xpm"
-#include "xpm_files/WagneirimDoMercadjim.xpm"
+#include "xpm_files/Untitled.xpm"
+//#include "xpm_files/zezoca.xpm"
+//#include "xpm_files/little.xpm"
+
 
 typedef struct {
     int x, y; //current position
@@ -24,14 +26,15 @@ extern vbe_mode_info_t vmi_p;
 //Sprites we will use
 //Sprite *normalCursor;
 //Sprite *clickCursor;
-Sprite *wagnerzim;
-Sprite *titleText;
+/*Sprite *titleText;
 Sprite *controlShellText;
 Sprite *housePlantText;
 Sprite *securityCameraText;
-Sprite *displayMessageText;
-Sprite *helpText;
-Sprite *numberZero;
+Sprite *displayMessageText;*/
+//Sprite *helpText;
+//Sprite *numberZero;
+
+Sprite *MainMenu;
 
 //Creates a new sprite drom XPM "pic" in the specified position
 Sprite* (create_sprite)(xpm_map_t pic, int x, int y);

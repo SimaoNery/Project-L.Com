@@ -65,14 +65,16 @@ int(map_frame_buffer)(uint16_t mode) {
 
 int(vg_draw_pixel)(uint16_t x, uint16_t y, uint32_t color) {
   if (x > vmi_p.XResolution || y > vmi_p.YResolution) {
-    return 1;
+    return 0;
   }
   
   unsigned int bytes = ((vmi_p.BitsPerPixel + 7) / 8);
   unsigned int idx = (vmi_p.XResolution * y + x) * bytes;
 
-  if (memcpy(&video_mem[idx], &color, bytes) == NULL)
+  if (memcpy(&video_mem[idx], &color, bytes) == NULL){
     return 1;
+  }
+  
 
   return 0;
 }

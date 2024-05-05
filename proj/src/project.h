@@ -23,14 +23,14 @@ typedef enum {
 //Sprites we will use
 //extern Sprite *normalCursor;
 //extern Sprite *clickCursor;
-extern Sprite *wagnerzim;
-extern Sprite *titleText;
+/*extern Sprite *titleText;
 extern Sprite *controlShellText;
 extern Sprite *housePlantText;
 extern Sprite *securityCameraText;
-extern Sprite *displayMessageText;
-extern Sprite *helpText;
-extern Sprite *numberZero;
+extern Sprite *displayMessageText;*/
+//extern Sprite *helpText;
+//extern Sprite *numberZero;
+extern Sprite *MainMenu;
 
 //Will load the xpm, subscribe drivers and changes video mode to graphics mode 
 //return 0 if successfull and 1 otherwise

@@ -40,47 +40,47 @@ int (destroy_all_sprites)() {
     }
 
     if(destroy_sprite(clickCursor) != 0) {
-        printf("Error: problems occured while truing to destroy -clickCursor- sprite! \n");
+        printf("Error: problems occured while trying to destroy -clickCursor- sprite! \n");
         return 1;
     }*/
 
-    if(destroy_sprite(wagnerzim) != 0) {
-        printf("Error: problems occured while truing to destroy -wagnerzim- sprite! \n");
-        return 1;
-    }
-
-    if(destroy_sprite(titleText) != 0) {
-        printf("Error: problems occured while truing to destroy -titleText- sprite! \n");
+    /*if(destroy_sprite(titleText) != 0) {
+        printf("Error: problems occured while trying to destroy -titleText- sprite! \n");
         return 1;
     }
 
     if(destroy_sprite(controlShellText) != 0) {
-        printf("Error: problems occured while truing to destroy -controlShellText- sprite! \n");
+        printf("Error: problems occured while trying to destroy -controlShellText- sprite! \n");
         return 1;
     }
 
     if(destroy_sprite(housePlantText) != 0) {
-        printf("Error: problems occured while truing to destroy -housePlantText- sprite! \n");
+        printf("Error: problems occured while trying to destroy -housePlantText- sprite! \n");
         return 1;
     }
 
     if(destroy_sprite(securityCameraText) != 0) {
-        printf("Error: problems occured while truing to destroy -securityCameraText- sprite! \n");
+        printf("Error: problems occured while trying to destroy -securityCameraText- sprite! \n");
         return 1;
     }
 
     if(destroy_sprite(displayMessageText) != 0) {
-        printf("Error: problems occured while truing to destroy -displayMessageText- sprite! \n");
+        printf("Error: problems occured while trying to destroy -displayMessageText- sprite! \n");
         return 1;
     }
 
     if(destroy_sprite(helpText) != 0) {
-        printf("Error: problems occured while truing to destroy -helpText- sprite! \n");
+        printf("Error: problems occured while trying to destroy -helpText- sprite! \n");
         return 1;
-    }
+    }*/
 
-    if(destroy_sprite(numberZero) != 0) {
-        printf("Error: problems occured while truing to destroy -numberZero- sprite! \n");
+    /*if(destroy_sprite(numberZero) != 0) {
+        printf("Error: problems occured while trying to destroy -numberZero- sprite! \n");
+        return 1;
+    }*/
+
+    if(destroy_sprite(MainMenu) != 0) {
+        printf("Problems while derstroying main menu \n");
         return 1;
     }
 
@@ -103,8 +103,8 @@ int (draw_sprite)(Sprite *sp) {
 }
 
 int (load_sprites)() {
-    int initial_margin = 10;
-    int buttons_margin = vmi_p.YResolution / 20;
+    //int initial_margin = 10;
+    //int buttons_margin = vmi_p.YResolution / 20;
 
     /*normalCursor = create_sprite();
     if(normalCursor == NULL) {
@@ -118,13 +118,7 @@ int (load_sprites)() {
         return 1;
     }*/
 
-    wagnerzim = create_sprite((xpm_map_t)XPM_Wagnerzim, (initial_margin), initial_margin);
-    if(wagnerzim== NULL) {
-        printf("Error: Problems occured while trying to load -wagnerzim- sprite! \n");
-        return 1;
-    }
-
-    titleText = create_sprite((xpm_map_t)XPM_TitleText, (vmi_p.XResolution / 5 + 35), initial_margin);
+    /*titleText = create_sprite((xpm_map_t)XPM_TitleText, (vmi_p.XResolution / 5 + 35), initial_margin);
     if(titleText == NULL) {
         printf("Error: Problems occured while trying to load -titleText- sprite! \n");
         return 1;
@@ -152,17 +146,23 @@ int (load_sprites)() {
      if(displayMessageText == NULL) {
         printf("Error: Problems occured while trying to load -displayMessageText- sprite! \n");
         return 1;
-    }
+    }*/
 
-    helpText = create_sprite((xpm_map_t) XPM_HelpButton, (vmi_p.XResolution / 3), (initial_margin + 5*titleText->height + 5*buttons_margin));
+    /*helpText = create_sprite((xpm_map_t) XPM_HelpButton, (vmi_p.XResolution / 3), (25));
      if(helpText == NULL) {
         printf("Error: Problems occured while trying to load -helpText- sprite! \n");
         return 1;
-    }
+    }*/
 
-    numberZero = create_sprite((xpm_map_t) XPM_Zero, (25), (initial_margin + 3*titleText->height + 3*buttons_margin));
+    /*numberZero = create_sprite((xpm_map_t) XPM_Zero, (25), (initial_margin + 3*titleText->height + 3*buttons_margin));
      if(helpText == NULL) {
         printf("Error: Problems occured while trying to load -helpText- sprite! \n");
+        return 1;
+    }*/
+
+    MainMenu = create_sprite((xpm_map_t)Untitled_xpm, 0, 0);
+    if(MainMenu == NULL) {
+        printf("Main Menu is null \n");
         return 1;
     }
 

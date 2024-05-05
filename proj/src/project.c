@@ -1,7 +1,7 @@
 #include "project.h"
 
 uint8_t irq_timer, irq_keyboard, irq_mouse;
-uint16_t resolution = RES_1024_768;
+uint16_t resolution = RES_1152_864;
 project_state state = MAIN_MENU;
 
 int (project_start)() {
@@ -109,13 +109,13 @@ int (draw_manager)() {
     return 0;
 }
 
-int (draw_main_menu)() {
-    if(draw_sprite(wagnerzim) != 0) {
-        printf("Error: Problems occured while drawing -wagnerzim- sprite! \n");     
-        return 1;   
+int (draw_main_menu)() { 
+    if(draw_sprite(MainMenu) != 0) {
+        printf("Error: couldnt draw MainMenu \n");
+        return 1;
     }
 
-    if(draw_sprite(titleText) != 0){
+    /*if(draw_sprite(titleText) != 0){
         printf("Error: Problems occured while drawing -titleText- sprite! \n");
         return 1;
     }
@@ -143,12 +143,7 @@ int (draw_main_menu)() {
     if(draw_sprite(helpText) != 0) {
         printf("Error: Problems occured while drawing -helpText- sprite! \n");     
         return 1;   
-    }
-
-     if(draw_sprite(numberZero) != 0) {
-        printf("Error: Problems occured while drawing -numberZero- sprite! \n");     
-        return 1;   
-    }
+    }*/
 
     return 0;
 }

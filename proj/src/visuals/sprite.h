@@ -10,7 +10,7 @@
 #include "xpm_files/SecurityCameraButton.xpm"
 #include "xpm_files/DisplayMessage.xpm"
 #include "xpm_files/HelpButton.xpm"
-#include "xpm_files/numbers/number0.xpm"
+#include "xpm_files/dateTime/0.xpm"
 #include "xpm_files/WagneirimDoMercadjim.xpm"
 
 typedef struct {

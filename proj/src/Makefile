@@ -10,11 +10,15 @@ PROG=proj
 .PATH: ${.CURDIR}/handlers/
 .PATH: ${.CURDIR}/visuals/
 .PATH: ${.CURDIR}/visuals/xpm_files
-.PATH: ${.CURDIR}/visuals/xpm_files/numbers
+.PATH: ${.CURDIR}/visuals/xpm_files/dateTime
+.PATH: ${.CURDIR}/visuals/xpm_files/RES_800_600
+.PATH: ${.CURDIR}/visuals/xpm_files/RES_800_600/buttons
+.PATH: ${.CURDIR}/visuals/xpm_files/RES_1152_864
+.PATH: ${.CURDIR}/visuals/xpm_files/RES_1152_864/buttons
 
 
 # source code files to be compiled 
-SRCS = 	utils.c timer.c KBC.c keyboard.c mouse.c graphics.c sprite.c project.c main.c real_time_clock.c timer_handler.c keyboard_handler.c mouse_handler.c real_time_clock_handler.c serial_port.c
+SRCS = 	utils.c timer.c KBC.c keyboard.c mouse.c graphics.c draw.c sprite.c project.c main.c real_time_clock.c timer_handler.c keyboard_handler.c mouse_handler.c real_time_clock_handler.c serial_port.c
 
 # additional compilation flags
 # "-Wall -Wextra -Werror -I . -std=c11 -Wno-unused-parameter" are already set

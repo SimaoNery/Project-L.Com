@@ -109,6 +109,11 @@ int (project_start)() {
 
 int (project_loop)() {
 
+  if(draw_main_menu() != 0) {
+    printf("Error: Problems occured while trying to draw the main menu! \n");
+    return 1;
+  }
+
   int page_state = MAIN_MENU;
   int ipc_status;
   message msg;

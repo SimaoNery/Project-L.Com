@@ -37,18 +37,10 @@ int (proj_main_loop)() {
     return 1;
   }
 
-  /*if(project_loop() != 0) {
+  if(project_loop() != 0) {
     printf("Error: Problems occured while trying to run the project! \n");
-    return 1;
-  }*/
-
-  if(draw_main_menu() != 0) {
-    printf("Error: Problems occured while trying to draw the main menu! \n");
-    return 1;
+  return 1;
   }
-
-  sleep(10);
-  
 
   if(project_stop() != 0) {
     printf("Error: Problems occured while trying to stop the project! \n");

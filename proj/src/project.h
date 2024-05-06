@@ -16,6 +16,7 @@
 #include "handlers/real_time_clock_handler.h"
 #include "handlers/serial_port_handler.h"
 #include "visuals/sprite.h"
+#include "visuals/draw.h"
 
 #define MAIN_MENU 0
 #define HOUSE_PLANT 1

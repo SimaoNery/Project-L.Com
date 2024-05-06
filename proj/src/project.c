@@ -41,16 +41,16 @@ static const handler_t real_time_clock_handler[] = {
     {real_time_clock_help_handler}
 };
 
-static const handler_t serial_port_handler[] = {
+/*static const handler_t serial_port_handler[] = {
     {serial_port_main_menu_handler},
     {serial_port_house_plant_handler},
     {serial_port_security_camera_handler},
     {serial_port_display_message_handler},
     {serial_port_settings_handler},
     {serial_port_help_handler}
-};
+};*/
 
-int irq_timer, irq_keyboard, irq_mouse, irq_real_time_clock; //irq_serial_port;
+uint8_t irq_timer, irq_keyboard, irq_mouse, irq_real_time_clock; //irq_serial_port;
 uint16_t resolution = RES_1152_864;
 bool running = true;
 
@@ -67,7 +67,7 @@ int (project_start)() {
         return 1;
     }
 
-    if(load_sprites() != 0) {
+    if(load_sprites_1152x864() != 0) {
         printf("Error: A problem occured while loading project sprites! \n");
         return 1;
     }

@@ -45,32 +45,37 @@ int (destroy_all_sprites)() {
     }*/
 
     if(destroy_sprite(controlShellButton) != 0) {
-        printf("Error: problems occured while trying to destroy -controlShellText- sprite! \n");
+        printf("Error: problems occured while trying to destroy -controlShellButton- sprite! \n");
         return 1;
     }
 
     if(destroy_sprite(housePlantButton) != 0) {
-        printf("Error: problems occured while trying to destroy -housePlantText- sprite! \n");
+        printf("Error: problems occured while trying to destroy -housePlantButton- sprite! \n");
         return 1;
     }
 
     if(destroy_sprite(securityCameraButton) != 0) {
-        printf("Error: problems occured while trying to destroy -securityCameraText- sprite! \n");
+        printf("Error: problems occured while trying to destroy -securityCameraButton- sprite! \n");
         return 1;
     }
 
     if(destroy_sprite(displayMessageButton) != 0) {
-        printf("Error: problems occured while trying to destroy -displayMessageText- sprite! \n");
+        printf("Error: problems occured while trying to destroy -displayMessageButton- sprite! \n");
         return 1;
     }
 
     if(destroy_sprite(helpButton) != 0) {
-        printf("Error: problems occured while trying to destroy -helpText- sprite! \n");
+        printf("Error: problems occured while trying to destroy -helpButton- sprite! \n");
         return 1;
     }
 
-    if(destroy_sprite(MainMenu) != 0) {
-        printf("Problems while derstroying main menu \n");
+    if(destroy_sprite(settingsButton) != 0) {
+        printf("Error: problems occured while trying to destroy -settingsButton- sprite! \n");
+        return 1;
+    }
+
+    if(destroy_sprite(mainMenu) != 0) {
+        printf("Error: problems occured while trying to destroy -MainMenu- sprite! \n");
         return 1;
     }
 
@@ -92,7 +97,7 @@ int (draw_sprite)(Sprite *sp) {
     return 0;
 }
 
-int (load_sprites)() {
+int (load_sprites_1152x864)() {
     /*normalCursor = create_sprite();
     if(normalCursor == NULL) {
         printf("Error: Problems occured while trying to load -normalCursor- sprite! \n");
@@ -105,82 +110,105 @@ int (load_sprites)() {
         return 1;
     }*/
 
-    controlShellButton_1152x864 = create_sprite((xpm_map_t)XPM_ControlShellButton, (vmi_p.XResolution / 3), (initial_margin + titleText->height + buttons_margin));
-     if(controlShellText == NULL) {
-        printf("Error: Problems occured while trying to load -controlShellText- sprite! \n");
+    controlShellButton = create_sprite((xpm_map_t)control_shell_1152_864_xpm, 112, 332);
+     if(controlShellButton == NULL) {
+        printf("Error: Problems occured while trying to load -controlShellButton- sprite! \n");
         return 1;
     }
 
-    controlShellButton_800x600 = create_sprite((xpm_map_t)XPM_ControlShellButton, (vmi_p.XResolution / 3), (initial_margin + titleText->height + buttons_margin));
-     if(controlShellText == NULL) {
-        printf("Error: Problems occured while trying to load -controlShellText- sprite! \n");
+    housePlantButton = create_sprite((xpm_map_t)house_plant_1152_864_xpm, 112, 660);
+     if(housePlantButton == NULL) {
+        printf("Error: Problems occured while trying to load -housePlantButton- sprite! \n");
         return 1;
     }
 
-    housePlantButton_1152x864 = create_sprite((xpm_map_t)XPM_HousePlantButton, (vmi_p.XResolution / 3), (initial_margin + 2*titleText->height + 2*buttons_margin));
-     if(housePlantText == NULL) {
-        printf("Error: Problems occured while trying to load -housePlantText- sprite! \n");
+    securityCameraButton = create_sprite((xpm_map_t) security_camera_1152_864_xpm, 112, 496);
+     if(securityCameraButton == NULL) {
+        printf("Error: Problems occured while trying to load -securityCameraButton- sprite! \n");
         return 1;
     }
 
-     housePlantButton_800x600 = create_sprite((xpm_map_t)XPM_HousePlantButton, (vmi_p.XResolution / 3), (initial_margin + 2*titleText->height + 2*buttons_margin));
-     if(housePlantText == NULL) {
-        printf("Error: Problems occured while trying to load -housePlantText- sprite! \n");
+    displayMessageButton = create_sprite((xpm_map_t) display_message_1152_864_xpm, 656, 332);
+     if(displayMessageButton == NULL) {
+        printf("Error: Problems occured while trying to load -displayMessageButton- sprite! \n");
         return 1;
     }
 
-
-    securityCameraButton_1152x864 = create_sprite((xpm_map_t) XPM_SecurityCameraButton, (vmi_p.XResolution / 3), (initial_margin + 3*titleText->height + 3*buttons_margin));
-     if(securityCameraText == NULL) {
-        printf("Error: Problems occured while trying to load -securityCameraText- sprite! \n");
+    helpButton = create_sprite((xpm_map_t) help_1152_864_xpm, 656, 660);
+     if(helpButton == NULL) {
+        printf("Error: Problems occured while trying to load -helpButton- sprite! \n");
         return 1;
     }
 
-    securityCameraButton_800x600 = create_sprite((xpm_map_t) XPM_SecurityCameraButton, (vmi_p.XResolution / 3), (initial_margin + 3*titleText->height + 3*buttons_margin));
-    if(securityCameraText == NULL) {
-        printf("Error: Problems occured while trying to load -securityCameraText- sprite! \n");
+    settingsButton = create_sprite((xpm_map_t) settings_1152_864_xpm, 656, 496);
+     if(helpButton == NULL) {
+        printf("Error: Problems occured while trying to load -settingsButton- sprite! \n");
         return 1;
     }
 
-    displayMessageButton_1152x864 = create_sprite((xpm_map_t) XPM_DisplayMessageButton, (vmi_p.XResolution / 3), (initial_margin + 4*titleText->height + 4*buttons_margin));
-     if(displayMessageText == NULL) {
-        printf("Error: Problems occured while trying to load -displayMessageText- sprite! \n");
-        return 1;
-    }
-
-    displayMessageButton_800x600 = create_sprite((xpm_map_t) XPM_DisplayMessageButton, (vmi_p.XResolution / 3), (initial_margin + 4*titleText->height + 4*buttons_margin));
-     if(displayMessageText == NULL) {
-        printf("Error: Problems occured while trying to load -displayMessageText- sprite! \n");
-        return 1;
-    }
-
-    helpButton_1152x864 = create_sprite((xpm_map_t) XPM_HelpButton, (vmi_p.XResolution / 3), (25));
-     if(helpText == NULL) {
-        printf("Error: Problems occured while trying to load -helpText- sprite! \n");
-        return 1;
-    }
-
-    helpButton_800x600 = create_sprite((xpm_map_t) XPM_HelpButton, (vmi_p.XResolution / 3), (25));
-     if(helpText == NULL) {
-        printf("Error: Problems occured while trying to load -helpText- sprite! \n");
-        return 1;
-    }
-
-    MainMenu_1152x864 = create_sprite((xpm_map_t)Untitled_xpm, 0, 0);
-    if(MainMenu == NULL) {
-        printf("Main Menu is null \n");
-        return 1;
-    }
-
-    MainMenu_800x600 = create_sprite((xpm_map_t)    Untitled_xpm, 0, 0);
-    if(MainMenu == NULL) {
-        printf("Main Menu is null \n");
+    mainMenu = create_sprite((xpm_map_t)main_menu_1152_864_xpm, 0, 0);
+    if(mainMenu == NULL) {
+        printf("Error: Problems occured while trying to load -mainMenu- sprite! \n");
         return 1;
     }
 
     return 0;
 }
 
-int (animate_sprite)(Sprite *sp) {
+int (load_sprites_800x600)() {
+    /*normalCursor = create_sprite();
+    if(normalCursor == NULL) {
+        printf("Error: Problems occured while trying to load -normalCursor- sprite! \n");
+        return 1;
+    }
+
+    clickCursor = create_sprite();
+     if(clickCursor == NULL) {
+        printf("Error: Problems occured while trying to load -clickCursor- sprite! \n");
+        return 1;
+    }*/
+
+    controlShellButton = create_sprite((xpm_map_t)control_shell_button_800_600_xpm, 78, 231);
+     if(controlShellButton == NULL) {
+        printf("Error: Problems occured while trying to load -controlShellText- sprite! \n");
+        return 1;
+    }
+
+     housePlantButton = create_sprite((xpm_map_t)house_plant_button_800_600_xpm, 78, 458);
+     if(housePlantButton == NULL) {
+        printf("Error: Problems occured while trying to load -housePlantText- sprite! \n");
+        return 1;
+    }
+
+    securityCameraButton = create_sprite((xpm_map_t) security_camera_button_800_600_xpm, 78, 344);
+    if(securityCameraButton == NULL) {
+        printf("Error: Problems occured while trying to load -securityCameraText- sprite! \n");
+        return 1;
+    }
+
+    displayMessageButton = create_sprite((xpm_map_t) display_message_button_800_600_xpm, 456, 231);
+     if(displayMessageButton == NULL) {
+        printf("Error: Problems occured while trying to load -displayMessageText- sprite! \n");
+        return 1;
+    }
+
+    helpButton = create_sprite((xpm_map_t) help_800_600_xpm, 456, 458);
+     if(helpButton == NULL) {
+        printf("Error: Problems occured while trying to load -helpText- sprite! \n");
+        return 1;
+    }
+
+    settingsButton = create_sprite((xpm_map_t) settings_800_600_xpm, 456, 344);
+     if(settingsButton == NULL) {
+        printf("Error: Problems occured while trying to load -helpText- sprite! \n");
+        return 1;
+    }
+
+    mainMenu = create_sprite((xpm_map_t)main_menu_800_600_xpm, 0, 0);
+    if(mainMenu == NULL) {
+        printf("Main Menu is null \n");
+        return 1;
+    }    
+
     return 0;
 }

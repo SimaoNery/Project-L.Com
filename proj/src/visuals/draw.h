@@ -5,35 +5,29 @@
 
 #include "sprite.h"
 
-Sprite *MainMenu_1152x864;
-Sprite *controlShellButton_1152x864;
-Sprite *housePlantButton_1152x864;
-Sprite *securityCameraButton_1152x864;
-Sprite *displayMessageButton_1152x864;
+Sprite *mainMenu;
+Sprite *controlShellButton;
+Sprite *housePlantButton;
+Sprite *securityCameraButton;
+Sprite *displayMessageButton;
 Sprite *helpButton;
+Sprite *settingsButton;
 
-Sprite *MainMenu_800x600;
-Sprite *controlShellButton_800x600;
-Sprite *housePlantButton_800x600;
-Sprite *securityCameraButton_800x600;
-Sprite *displayMessageButton_800x600;
-Sprite *helpButton_800x600;
+int draw_main_menu();
 
-int draw_mainMenu();
+int draw_control_shell();
 
-int draw_controlShell();
+int draw_display_message();
 
-int draw_displayMessage();
-
-int draw_securityCamera();
+int draw_security_camera();
 
 int draw_settings();
 
-int draw_housePlant();
+int draw_house_plant();
 
 int draw_help();
 
-int draw_buttons();
+int draw_main_buttons();
 
 
 

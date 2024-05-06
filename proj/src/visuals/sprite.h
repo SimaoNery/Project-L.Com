@@ -4,13 +4,22 @@
 #include <lcom/lcf.h>
 
 #include "../drivers/video/graphics.h"
-#include "xpm_files/TitleText.xpm"
-#include "xpm_files/ControlShellButton.xpm"
-#include "xpm_files/HousePlantButton.xpm"
-#include "xpm_files/SecurityCameraButton.xpm"
-#include "xpm_files/DisplayMessage.xpm"
-#include "xpm_files/HelpButton.xpm"
-#include "xpm_files/Untitled.xpm"
+
+#include "xpm_files/RES_800_600/main_menu_800_600.xpm"
+#include "xpm_files/RES_800_600/buttons/control_shell_button_800_600.xpm"
+#include "xpm_files/RES_800_600/buttons/display_message_button_800_600.xpm"
+#include "xpm_files/RES_800_600/buttons/help_800_600.xpm"
+#include "xpm_files/RES_800_600/buttons/house_plant_button_800_600.xpm"
+#include "xpm_files/RES_800_600/buttons/security_camera_button_800_600.xpm"
+#include "xpm_files/RES_800_600/buttons/settings_800_600.xpm"
+
+#include "xpm_files/RES_1152_864/main_menu_1152_864.xpm"
+#include "xpm_files/RES_1152_864/buttons/control_shell_1152_864.xpm"
+#include "xpm_files/RES_1152_864/buttons/display_message_1152_864.xpm"
+#include "xpm_files/RES_1152_864/buttons/help_1152_864.xpm"
+#include "xpm_files/RES_1152_864/buttons/house_plant_1152_864.xpm"
+#include "xpm_files/RES_1152_864/buttons/security_camera_1152_864.xpm"
+#include "xpm_files/RES_1152_864/buttons/settings_1152_864.xpm"
 
 
 typedef struct {
@@ -26,19 +35,13 @@ extern vbe_mode_info_t vmi_p;
 //Sprite *normalCursor;
 //Sprite *clickCursor;
 
-Sprite *MainMenu_1152x864;
-Sprite *controlShellButton_1152x864;
-Sprite *housePlantButton_1152x864;
-Sprite *securityCameraButton_1152x864;
-Sprite *displayMessageButton_1152x864;
-Sprite *helpButton_1152x864;
-
-Sprite *MainMenu_800x600;
-Sprite *controlShellButton_800x600;
-Sprite *housePlantButton_800x600;
-Sprite *securityCameraButton_800x600;
-Sprite *displayMessageButton_800x600;
-Sprite *helpButton_800x600;
+Sprite *mainMenu;
+Sprite *controlShellButton;
+Sprite *housePlantButton;
+Sprite *securityCameraButton;
+Sprite *displayMessageButton;
+Sprite *helpButton;
+Sprite *settingsButton;
 
 //Creates a new sprite drom XPM "pic" in the specified position
 Sprite* (create_sprite)(xpm_map_t pic, int x, int y);
@@ -53,7 +56,9 @@ int (destroy_all_sprites)();
 int (draw_sprite)(Sprite *sp);
 
 //Loads the sprites
-int (load_sprites)();
+int (load_sprites_1152x864)();
+
+int (load_sprites_800x600)();
 
 //Will animate the button when hover
 int (animate_sprite)(Sprite *sp);

@@ -141,14 +141,14 @@ int rtc_get_time() {
     return 0;
 }
 
-int rtc_subscribe_interrupts(uint8_t *bit_no) {
+int rtc_subscribe_int(uint8_t *bit_no) {
     if (bit_no == NULL) return 1;
     *bit_no = BIT(rtc_hook_id);
     return sys_irqsetpolicy(IRQ_RTC, IRQ_REENABLE, &rtc_hook_id);
 
 }
 
-int rtc_unsubscribe_interrupts() {
+int rtc_unsubscribe_int() {
     return sys_irqrmpolicy(&rtc_hook_id);
 }
 

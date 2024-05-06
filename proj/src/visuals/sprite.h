@@ -11,8 +11,6 @@
 #include "xpm_files/DisplayMessage.xpm"
 #include "xpm_files/HelpButton.xpm"
 #include "xpm_files/Untitled.xpm"
-//#include "xpm_files/zezoca.xpm"
-//#include "xpm_files/little.xpm"
 
 
 typedef struct {

@@ -1,51 +1,106 @@
 #include "project.h"
 
-uint8_t irq_timer, irq_keyboard, irq_mouse;
+struct handler
+{
+  void (*handler)(int irq);
+};
+
+static const handler_t timer_handler[] = {
+    {timer_main_menu_handler},
+    {timer_house_plant_handler},
+    {timer_security_camera_handler},
+    {timer_display_message_handler},
+    {timer_settings_handler},
+    {timer_help_handler}
+};
+
+static const handler_t keyboard_handler[] = {
+    {keyboard_main_menu_handler},
+    {keyboard_house_plant_handler},
+    {keyboard_security_camera_handler},
+    {keyboard_display_message_handler},
+    {keyboard_settings_handler},
+    {keyboard_help_handler}
+};
+
+static const handler_t mouse_handler[] = {
+    {mouse_main_menu_handler},
+    {mouse_house_plant_handler},
+    {mouse_security_camera_handler},
+    {mouse_display_message_handler},
+    {mouse_settings_handler},
+    {mouse_help_handler}
+};
+
+static const handler_t real_time_clock_handler[] = {
+    {real_time_clock_main_menu_handler},
+    {real_time_clock_house_plant_handler},
+    {real_time_clock_security_camera_handler},
+    {real_time_clock_display_message_handler},
+    {real_time_clock_settings_handler},
+    {real_time_clock_help_handler}
+};
+
+static const handler_t serial_port_handler[] = {
+    {serial_port_main_menu_handler},
+    {serial_port_house_plant_handler},
+    {serial_port_security_camera_handler},
+    {serial_port_display_message_handler},
+    {serial_port_settings_handler},
+    {serial_port_help_handler}
+};
+
+int irq_timer, irq_keyboard, irq_mouse, irq_real_time_clock; //irq_serial_port;
 uint16_t resolution = RES_1152_864;
-project_state state = MAIN_MENU;
+bool running = true;
+
 
 int (project_start)() {
-    //setup video buffer
+
     if(map_frame_buffer(resolution) != 0) {
-        printf("Error: Problems occured while trying to map video memory! \n");
+        printf("Error: A problem occured while trying to map video memory! \n");
         return 1;
     }
 
-
-    //set graphics to video mode
     if(vg_set_graphics_mode(resolution) != 0) {
-        printf("Error: Problems occured while trying to change graphics to video mode! \n");
+        printf("Error: A problem occured while trying to change graphics to video mode! \n");
         return 1;
     }
 
+    if(load_sprites() != 0) {
+        printf("Error: A problem occured while loading project sprites! \n");
+        return 1;
+    }
 
-    //Subscribe interrupts
     if(timer_subscribe_int(&irq_timer) != 0) {
-        printf("Error: Problems occured while trying to subscribe timer interrupts! \n");
+        printf("Error: A problem occured while trying to subscribe timer interrupts! \n");
         return 1;
     }
 
     if(kbc_subscribe_int(&irq_keyboard) != 0) {
-        printf("Error: Problems occured while trying to subscribe keyboard interrupts! \n");
+        printf("Error: A problem occured while trying to subscribe keyboard interrupts! \n");
         return 1;
     }
 
     if(mouse_subscribe_int(&irq_mouse) != 0) {
-        printf("Error: Problems occured while trying to subscribe mouse interrupts! \n");
+        printf("Error: A problem occured while trying to subscribe mouse interrupts! \n");
         return 1;
     }
-    
 
-    //set timer 0 frequency
+    if(rtc_subscribe_int(&irq_real_time_clock) != 0) {
+        printf("Error: A problem occured while trying to subscribe real time clock interrupts! \n");
+        return 1;
+    }
+
+    /*
+    if(sp_subscribe_int(&irq_serial_port) != 0) {
+        printf("Error: A problem occured while trying to subscribe serial port interrupts! \n");
+        return 1;
+    }
+    */
+
     if(timer_set_frequency(0, 60) != 0) {
-        printf("Error: Problems occured while trying to set timer 0 frequency! \n");
-        return 1;
-    }
-
-
-    //load sprites
-    if(load_sprites() != 0) {
-        printf("Error: Problems occured while loading project sprites! \n");
+        printf("Error: A problem occured while trying to set timer 0 frequency! \n");
         return 1;
     }
 
@@ -53,113 +108,91 @@ int (project_start)() {
 }
 
 int (project_loop)() {
-   return 0;
+
+  int page_state = MAIN_MENU;
+  int ipc_status;
+  message msg;
+  
+  while (running) {
+    if( driver_receive(ANY, &msg, &ipc_status) != 0 ) {
+      printf("Error");
+      continue;
+    }
+
+    if(is_ipc_notify(ipc_status)) {
+      switch(_ENDPOINT_P(msg.m_source)){
+        case HARDWARE:
+
+          if (msg.m_notify.interrupts & irq_timer) {
+            timer_handler[page_state].handler(irq_timer);
+          }
+
+          if (msg.m_notify.interrupts & irq_keyboard) {
+            keyboard_handler[page_state].handler(irq_keyboard);
+          }
+
+          if (msg.m_notify.interrupts & irq_mouse) {
+            mouse_handler[page_state].handler(irq_mouse);
+          }
+
+          if (msg.m_notify.interrupts & irq_real_time_clock) {
+            real_time_clock_handler[page_state].handler(irq_real_time_clock);
+          }
+
+          /*  
+          if (msg.m_notify.interrupts & irq_serial_port) {
+            serial_port_handler[page_state].handler(serial_port_handler);
+          }
+          */
+         
+        break;
+      default:
+        break;
+      }
+    }  
+  }
+
+  return 0;
 }
 
 int (project_stop)() {
-    if(vg_exit() != 0) {
-        printf("Error: Problems occured while trying to go back to text mode! \n");
-        return 1;
-    }
 
     if(timer_unsubscribe_int() != 0) {
-        printf("Error: Problems occured while trying to unsubscribe timer interrupts! \n");
+        printf("Error: A problem occured while trying to unsubscribe timer interrupts! \n");
         return 1;
     }
 
     if(kbc_unsubscribe_int() != 0) {
-        printf("Error: Problems occured while trying to unsubcribe keyboard interrupts! \n");
+        printf("Error: A problem occured while trying to unsubcribe keyboard interrupts! \n");
         return 1;
     }
 
     if(mouse_unsubscribe_int() != 0) {
-        printf("Error: Problems occured while trying to unsubscribe mouse interrupts! \n");
+        printf("Error: A problem occured while trying to unsubscribe mouse interrupts! \n");
+        return 1;
+    }
+
+    if(rtc_unsubscribe_int() != 0) {
+        printf("Error: A problem occured while trying to unsubscribe real time clock interrupts! \n");
+        return 1;
+    }
+
+    /*
+    if(sp_unsubscribe_int() != 0) {
+        printf("Error: A problem occured while trying to unsubscribe serial port interrupts! \n");
+        return 1;
+    }
+    */
+
+    if(vg_exit() != 0) {
+        printf("Error: A problem occured while trying to go back to text mode! \n");
         return 1;
     }
 
     if(destroy_all_sprites() != 0) {
-        printf("Error: Problems occured while destroying all sprites! \n");
+        printf("Error: A problem occured while destroying all sprites! \n");
         return 1;
     }
 
-    return 0;
-}
-
-int (draw_manager)() {
-    switch(state) {
-        case MAIN_MENU:
-            draw_main_menu();
-            break;
-        case HOUSE_PLANT:
-            draw_house_plant();
-            break;
-        case SECURITY_CAMERA:
-            draw_security_camera();
-            break;
-        case DISPLAY_MESSAGE:
-            draw_display_message();
-            break;
-        case HELP:
-            draw_help();
-            break;
-        default:
-            break;
-    }
-
-    return 0;
-}
-
-int (draw_main_menu)() { 
-    if(draw_sprite(MainMenu) != 0) {
-        printf("Error: couldnt draw MainMenu \n");
-        return 1;
-    }
-
-    /*if(draw_sprite(titleText) != 0){
-        printf("Error: Problems occured while drawing -titleText- sprite! \n");
-        return 1;
-    }
-
-    if(draw_sprite(controlShellText) != 0){
-        printf("Error: Problems occured while drawing -controlShellText- sprite! \n");
-        return 1;
-    }
-    
-    if(draw_sprite(housePlantText) != 0){
-        printf("Error: Problems occured while drawing -housePlantText- sprite! \n");
-        return 1;
-    }
-    
-    if(draw_sprite(securityCameraText) != 0){
-        printf("Error: Problems occured while drawing -securityCameraText- sprite! \n");
-        return 1;
-    }
-    
-    if(draw_sprite(displayMessageText) != 0){
-        printf("Error: Problems occured while drawing -displayMessageText- sprite! \n");
-        return 1;
-    }
-
-    if(draw_sprite(helpText) != 0) {
-        printf("Error: Problems occured while drawing -helpText- sprite! \n");     
-        return 1;   
-    }*/
-
-    return 0;
-}
-
-int (draw_house_plant)() {
-    return 0;
-}
-
-int (draw_security_camera)() {
-    return 0;
-}
-
-int (draw_display_message)() {
-    return 0;
-}
-
-int (draw_help)() {
     return 0;
 }

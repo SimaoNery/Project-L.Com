@@ -15,8 +15,8 @@ typedef struct {
 } real_time_info;
 
 
-int rtc_subscribe_interrupts(uint8_t *bit_no);
-int rtc_unsubscribe_interrupts();
+int rtc_subscribe_int(uint8_t *bit_no);
+int rtc_unsubscribe_int();
 int rtc_get_config(uint8_t reg, uint8_t *config);
 int rtc_set_config(uint8_t reg, uint8_t config);
 int rtc_get_time();

@@ -1,6 +1,6 @@
 #include "graphics.h"
 
-vbe_mode_info_t vmi_p;
+
 uint8_t *video_mem;
 
 int(normalize_color)(uint32_t color, uint32_t *normalized_color) {
@@ -72,6 +72,7 @@ int(vg_draw_pixel)(uint16_t x, uint16_t y, uint32_t color) {
   unsigned int idx = (vmi_p.XResolution * y + x) * bytes;
 
   if (memcpy(&video_mem[idx], &color, bytes) == NULL){
+    vg_exit();
     return 1;
   }
   

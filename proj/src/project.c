@@ -53,6 +53,7 @@ static const handler_t real_time_clock_handler[] = {
 uint8_t irq_timer, irq_keyboard, irq_mouse, irq_real_time_clock; //irq_serial_port;
 uint16_t resolution = RES_1152_864;
 bool running = true;
+uint8_t page_state = MAIN_MENU;
 
 
 int (project_start)() {
@@ -109,12 +110,11 @@ int (project_start)() {
 
 int (project_loop)() {
 
-  if(draw_main_menu() != 0) {
+  if(draw_page() != 0) {
     printf("Error: Problems occured while trying to draw the main menu! \n");
     return 1;
   }
 
-  int page_state = MAIN_MENU;
   int ipc_status;
   message msg;
   

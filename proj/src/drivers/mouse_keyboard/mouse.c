@@ -4,7 +4,7 @@ int mouse_hook_id = 3;
 uint8_t output_buffer;
 uint8_t packet_bytes [3];
 int packet_number = 0;
-struct packet packet;
+extern vbe_mode_info_t vmi_p;
 
 int (mouse_subscribe_int)(uint8_t *bit_no) {
     if (bit_no == NULL) return 1;
@@ -35,19 +35,17 @@ void (mouse_ih)() {
 }
 
 void (parse_bytes_to_packet)() {
-    packet.bytes[0] = packet_bytes[0];
-    packet.bytes[1] = packet_bytes[1];
-    packet.bytes[2] = packet_bytes[2];
+    mouse_packet.right_button = (packet_bytes[0] >> 1) & 0x01;
+    mouse_packet.left_button = packet_bytes[0] & 0x01;
+
+    if (packet_bytes[0] & BIT(6) || packet_bytes[0] & BIT(7)) return;
+    int16_t x_coordinates = mouse_packet.x + ((packet_bytes[0] & BIT(4)) ? (0xFF00 | packet_bytes[1]) : packet_bytes[1]);
+    int16_t y_coordinates = mouse_packet.y - ((packet_bytes[0] & BIT(5)) ? (0xFF00 | packet_bytes[2]) : packet_bytes[2]);
     
-    packet.mb = (packet_bytes[0] >> 2) & 0x01;
-    packet.rb = (packet_bytes[0] >> 1) & 0x01;
-    packet.lb = packet_bytes[0] & 0x01;
+    if (x_coordinates < 0 || x_coordinates > vmi_p.XResolution || y_coordinates < 0 || y_coordinates > vmi_p.YResolution) return;
 
-    packet.x_ov = (packet_bytes[0] >> 6) & 0x01;
-    packet.y_ov = (packet_bytes[0] >> 7) & 0x01;
-
-    packet.delta_y = ((packet_bytes[0] >> 5) & 0x01) ? 0xFF00 | packet_bytes[2] : 0x0000 | packet_bytes[2];
-    packet.delta_x = ((packet_bytes[0] >> 4) & 0x01) ? 0xFF00 | packet_bytes[1] : 0x0000 | packet_bytes[1];
+    mouse_packet.x = x_coordinates;
+    mouse_packet.y = y_coordinates;
 }
 
 int (write_mouse_cmd)(uint8_t cmd) {

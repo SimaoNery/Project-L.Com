@@ -34,11 +34,11 @@ int (destroy_sprite)(Sprite *sp) {
 }
 
 int (destroy_all_sprites)() {
-    /*if(destroy_sprite(normalCursor) != 0) {
+    if(destroy_sprite(normalCursor) != 0) {
         printf("Error: problems occured while truing to destroy -normalCursor- sprite! \n");
         return 1;
     }
-
+    /*
     if(destroy_sprite(clickCursor) != 0) {
         printf("Error: problems occured while trying to destroy -clickCursor- sprite! \n");
         return 1;
@@ -88,7 +88,8 @@ int (draw_sprite)(Sprite *sp) {
     for(int i = 0; i < sp->width; i++) {
         for(int j = 0; j < sp->height; j++) {
             uint32_t color = sp->map[sp->width * j + i];
-            if(color == xpm_transparency_color(XPM_8_8_8_8)) continue;
+            if(color == TRANSPARENT_COLOR) continue;
+            else if (color == 0xFFFFFF && sp->hover) color = 0xFDED84;
 
             vg_draw_pixel(sp->x + i, sp->y + j, color);
         }
@@ -98,12 +99,12 @@ int (draw_sprite)(Sprite *sp) {
 }
 
 int (load_sprites_1152x864)() {
-    /*normalCursor = create_sprite();
+    normalCursor = create_sprite((xpm_map_t)mouse_pointer_1152_864_xpm, 100, 100);
     if(normalCursor == NULL) {
         printf("Error: Problems occured while trying to load -normalCursor- sprite! \n");
         return 1;
     }
-
+    /*
     clickCursor = create_sprite();
      if(clickCursor == NULL) {
         printf("Error: Problems occured while trying to load -clickCursor- sprite! \n");

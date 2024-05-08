@@ -4,6 +4,7 @@
 #include <lcom/lcf.h>
 
 #include "sprite.h"
+#include "../project.h"
 
 Sprite *mainMenu;
 Sprite *controlShellButton;
@@ -12,6 +13,9 @@ Sprite *securityCameraButton;
 Sprite *displayMessageButton;
 Sprite *helpButton;
 Sprite *settingsButton;
+Sprite *normalCursor;
+
+int draw_page();
 
 int draw_main_menu();
 

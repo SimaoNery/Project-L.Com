@@ -1,7 +1,7 @@
 /* XPM */
 static char * security_camera_1152_864_xpm[] = {
 "386 123 1346 2",
-"  	c #3EA2FF",
+"  	c #000004",
 ". 	c #3EA1FE",
 "+ 	c #3DA1FF",
 "@ 	c #3EA2FE",

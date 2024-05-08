@@ -20,6 +20,9 @@
 #include "xpm_files/RES_1152_864/buttons/house_plant_1152_864.xpm"
 #include "xpm_files/RES_1152_864/buttons/security_camera_1152_864.xpm"
 #include "xpm_files/RES_1152_864/buttons/settings_1152_864.xpm"
+#include "xpm_files/RES_1152_864/mouse/mouse_pointer_1152_864.xpm"
+
+#define TRANSPARENT_COLOR 4
 
 
 typedef struct {
@@ -32,7 +35,7 @@ typedef struct {
 extern vbe_mode_info_t vmi_p;
 
 //Sprites we will use
-//Sprite *normalCursor;
+Sprite *normalCursor;
 //Sprite *clickCursor;
 
 Sprite *mainMenu;

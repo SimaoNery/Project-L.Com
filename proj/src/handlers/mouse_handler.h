@@ -4,6 +4,7 @@
 #include <lcom/lcf.h>
 #include <stdint.h>
 #include <stdio.h>
+#include "project.h"
 
 void mouse_main_menu_handler (int irq_mouse);
 void mouse_house_plant_handler (int irq_mouse);

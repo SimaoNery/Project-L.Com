@@ -14,7 +14,6 @@ void (kbc_int_handler)();
 
 int (kbc_restore)();
 
-
 #endif /* _LCOM_KEYBOARD_H_ */
 
 

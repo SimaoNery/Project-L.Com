@@ -10,6 +10,7 @@
 #include "drivers/mouse_keyboard/keyboard.h"
 #include "drivers/mouse_keyboard/mouse.h"
 #include "drivers/real_time_clock/real_time_clock.h"
+#include "drivers/serial_port/serial.h"
 #include "handlers/timer_handler.h"
 #include "handlers/keyboard_handler.h"
 #include "handlers/mouse_handler.h"

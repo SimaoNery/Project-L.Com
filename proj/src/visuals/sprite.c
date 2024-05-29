@@ -42,7 +42,8 @@ int (destroy_all_sprites)() {
     if(destroy_sprite(clickCursor) != 0) {
         printf("Error: problems occured while trying to destroy -clickCursor- sprite! \n");
         return 1;
-    }*/
+    }
+    */
 
     if(destroy_sprite(controlShellButton) != 0) {
         printf("Error: problems occured while trying to destroy -controlShellButton- sprite! \n");

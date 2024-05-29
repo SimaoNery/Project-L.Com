@@ -14,7 +14,7 @@ extern Sprite *settingsButton;
 extern Sprite *normalCursor;
 
 
-void mouse_main_menu_handler (int irq_mouse) {
+void mouse_main_menu_handler () {
   mouse_ih();
   if (packet_number == 3) {
     parse_bytes_to_packet();
@@ -75,15 +75,17 @@ void mouse_main_menu_handler (int irq_mouse) {
   
 }
 
-void mouse_house_plant_handler (int irq_mouse) {}
+void mouse_control_shell_handler () {}
 
-void mouse_security_camera_handler (int irq_mouse) {}
+void mouse_house_plant_handler () {}
 
-void mouse_display_message_handler (int irq_mouse) {}
+void mouse_security_camera_handler () {}
 
-void mouse_settings_handler (int irq_mouse) {}
+void mouse_display_message_handler () {}
 
-void mouse_help_handler (int irq_mouse) {}
+void mouse_settings_handler () {}
+
+void mouse_help_handler () {}
 
 
 

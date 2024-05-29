@@ -2,11 +2,12 @@
 
 struct handler
 {
-  void (*handler)(int irq);
+  void (*handler)();
 };
 
 static const handler_t timer_handler[] = {
     {timer_main_menu_handler},
+    {timer_control_shell_handler},
     {timer_house_plant_handler},
     {timer_security_camera_handler},
     {timer_display_message_handler},
@@ -16,6 +17,7 @@ static const handler_t timer_handler[] = {
 
 static const handler_t keyboard_handler[] = {
     {keyboard_main_menu_handler},
+    {keyboard_control_shell_handler},
     {keyboard_house_plant_handler},
     {keyboard_security_camera_handler},
     {keyboard_display_message_handler},
@@ -25,6 +27,7 @@ static const handler_t keyboard_handler[] = {
 
 static const handler_t mouse_handler[] = {
     {mouse_main_menu_handler},
+    {mouse_control_shell_handler},
     {mouse_house_plant_handler},
     {mouse_security_camera_handler},
     {mouse_display_message_handler},
@@ -34,6 +37,7 @@ static const handler_t mouse_handler[] = {
 
 static const handler_t real_time_clock_handler[] = {
     {real_time_clock_main_menu_handler},
+    {real_time_clock_control_shell_handler},
     {real_time_clock_house_plant_handler},
     {real_time_clock_security_camera_handler},
     {real_time_clock_display_message_handler},
@@ -127,21 +131,23 @@ int (project_loop)() {
     if(is_ipc_notify(ipc_status)) {
       switch(_ENDPOINT_P(msg.m_source)){
         case HARDWARE:
-
           if (msg.m_notify.interrupts & irq_timer) {
-            timer_handler[page_state].handler(irq_timer);
+
+            timer_handler[page_state].handler();
           }
 
           if (msg.m_notify.interrupts & irq_keyboard) {
-            keyboard_handler[page_state].handler(irq_keyboard);
+            printf("tecladjim\n");
+            keyboard_handler[page_state].handler();
           }
 
           if (msg.m_notify.interrupts & irq_mouse) {
-            mouse_handler[page_state].handler(irq_mouse);
+            mouse_handler[page_state].handler();
           }
 
           if (msg.m_notify.interrupts & irq_real_time_clock) {
-            real_time_clock_handler[page_state].handler(irq_real_time_clock);
+            printf("real time shit\n");
+            real_time_clock_handler[page_state].handler();
           }
 
           /*  

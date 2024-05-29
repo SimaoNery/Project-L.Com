@@ -54,7 +54,12 @@ int draw_main_menu() {
 }
 
 int draw_control_shell() {
+  if (vg_exit() != 0) return 1;
+
+  printf("Welcome to the Wagner's House Control shell. Write a command or --help for more information \n");
+
   return 0;
+  
 }
 
 int draw_display_message() {

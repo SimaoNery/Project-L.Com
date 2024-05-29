@@ -6,12 +6,13 @@
 #include <stdio.h>
 #include "project.h"
 
-void keyboard_main_menu_handler (int irq_keyboard);
-void keyboard_house_plant_handler (int irq_keyboard);
-void keyboard_security_camera_handler (int irq_keyboard);
-void keyboard_display_message_handler (int irq_keyboard);
-void keyboard_settings_handler (int irq_keyboard);
-void keyboard_help_handler (int irq_keyboard);
+void keyboard_main_menu_handler ();
+void keyboard_control_shell_handler ();
+void keyboard_house_plant_handler ();
+void keyboard_security_camera_handler ();
+void keyboard_display_message_handler ();
+void keyboard_settings_handler ();
+void keyboard_help_handler ();
 
 #endif /*_KEYBOARD_HANDLER_H_*/
 

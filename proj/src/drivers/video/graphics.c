@@ -29,6 +29,24 @@ int(vg_set_graphics_mode)(uint16_t mode) {
   return 0;
 }
 
+
+int(vg_set_text_mode)(uint16_t mode) {
+
+  reg86_t r;
+  memset(&r, 0, sizeof(r));
+  r.intno = BIOS_VIDEOCARD_SERV;
+  r.ax = VBE_MODE_SET;
+
+  r.bx = mode | LINEAR_FB;
+
+  if (sys_int86(&r)) {
+    printf("vg_set_graphics_mode: sys_int86() failed\n");
+    return 1;
+  }
+
+  return 0;
+}
+
 int(map_frame_buffer)(uint16_t mode) {
 
   memset(&vmi_p, 0, sizeof(vmi_p));

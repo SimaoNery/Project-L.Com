@@ -13,6 +13,7 @@ void keyboard_security_camera_handler ();
 void keyboard_display_message_handler ();
 void keyboard_settings_handler ();
 void keyboard_help_handler ();
+void translate_scancode(uint8_t scancode);
 
 #endif /*_KEYBOARD_HANDLER_H_*/
 

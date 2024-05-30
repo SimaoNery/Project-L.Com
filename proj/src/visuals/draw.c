@@ -13,7 +13,7 @@ int draw_page() {
       draw_house_plant();
       break;
     case SECURITY_CAMERA:
-      draw_control_shell();
+      draw_security_camera();
       break;
     case DISPLAY_MESSAGE:
       draw_display_message();
@@ -51,7 +51,7 @@ int draw_main_menu() {
 int draw_control_shell() {
   if (vg_exit() != 0) return 1;
 
-  printf("Welcome to the Wagner's House Control shell. Write a command or --help for more information \n");
+  printf("Welcome to Wagner's House Control Shell!\nYour house's devices are at the distance of a command.\nType help for a list of commands or exit to leave the shell.\nminix$ ");
 
   return 0;
   
@@ -62,6 +62,22 @@ int draw_display_message() {
 }
 
 int draw_security_camera() {
+  
+  if (draw_sprite(mainMenu) != 0) {
+    printf("Error: Problems occured while trying to draw -mainMenu- sprite! \n");
+    return 1;
+  }
+
+  if (draw_main_buttons() != 0) {
+    printf("Error: Problems occured while trying to draw Main Menu buttons! \n");
+    return 1;
+  }
+
+  if (draw_sprite(normalCursor) != 0) {
+    printf("Error: Problems occured while trying to draw the mouse pointer! \n");
+    return 1;
+  }
+  printf("conaça");
   return 0;
 }
 

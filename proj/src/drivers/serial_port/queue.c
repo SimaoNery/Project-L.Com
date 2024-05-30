@@ -85,4 +85,3 @@ void clear_queue(queue_t *q) {
 bool is_empty(queue_t *q) {
     return (q->count == 0);
 }
-

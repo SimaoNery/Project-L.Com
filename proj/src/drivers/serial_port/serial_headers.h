@@ -26,7 +26,6 @@
 #define SER_PARITY_ERR 0x04
 #define SER_FRAME_ERR 0x08
 
-
 #define NO_INT_PENDING 0x01
 #define INT_PENDING 0x0E
 #define CHAR_TIMEOUT_FIFO 0x0C
@@ -37,4 +36,3 @@
 #define SERIAL_PORT_HOOK_ID 7
 
 #endif 
-

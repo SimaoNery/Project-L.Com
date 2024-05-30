@@ -22,4 +22,3 @@ void clear_queue(queue_t *q);
 bool is_empty(queue_t *q);
 
 #endif /* _QUEUE_H_ */
-

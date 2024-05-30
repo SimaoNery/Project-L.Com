@@ -1,12 +1,11 @@
 #ifndef _SERIAL_H_
 #define _SERIAL_H_
 
+#include "queue.h"
+#include "serial_headers.h"
+#include <lcom/lcf.h>
 #include <stdint.h>
 #include <stdio.h>
-#include <lcom/lcf.h>
-#include "serial_headers.h"
-#include "queue.h"
-
 
 int serial_initial_config();
 

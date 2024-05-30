@@ -1,13 +1,15 @@
 #ifndef _MOSQUITTO_C_
 #define _MOSQUITTO_C_
 
-#include <stdlib.h>
-#include "../mosquitto_headers.h"
 #include "../headers.h"
+#include "../mosquitto_headers.h"
+#include <arpa/inet.h>
+#include <mosquitto.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <sys/socket.h>
 #include <unistd.h>
-#include <mosquitto.h>
 
 #define MQTT_HOST
 

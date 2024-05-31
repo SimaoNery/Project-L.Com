@@ -75,13 +75,25 @@ void mouse_main_menu_handler () {
   
 }
 
-void mouse_control_shell_handler () {}
+void mouse_control_shell_handler () {
+  mouse_ih();
+  parse_bytes_to_packet();
+}
 
-void mouse_house_plant_handler () {}
+void mouse_house_plant_handler () {
+  mouse_ih();
+  parse_bytes_to_packet();
+}
 
-void mouse_security_camera_handler () {}
+void mouse_security_camera_handler () {
+  mouse_ih();
+  parse_bytes_to_packet();
+}
 
-void mouse_display_message_handler () {}
+void mouse_display_message_handler () {
+  mouse_ih();
+  parse_bytes_to_packet();
+}
 
 void mouse_settings_handler () {
   mouse_ih();

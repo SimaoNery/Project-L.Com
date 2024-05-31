@@ -26,6 +26,9 @@
 #define SETTINGS 5
 #define HELP 6
 
+#define SMALL_RESOLUTION 51;
+#define BIG_RESOLUTION 52;
+
 struct handler;
 typedef struct handler handler_t;
 

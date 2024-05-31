@@ -13,6 +13,9 @@
 #include "xpm_files/RES_800_600/buttons/security_camera_button_800_600.xpm"
 #include "xpm_files/RES_800_600/buttons/settings_800_600.xpm"
 #include "xpm_files/RES_800_600/mouse/mouse_pointer_800_600.xpm"
+#include "xpm_files/RES_800_600/settings_page_800_600.xpm"
+#include "xpm_files/RES_800_600/buttons/big_resolution_800_600.xpm"
+#include "xpm_files/RES_800_600/buttons/small_resolution_800_600.xpm"
 
 #include "xpm_files/RES_1152_864/main_menu_1152_864.xpm"
 #include "xpm_files/RES_1152_864/buttons/control_shell_1152_864.xpm"
@@ -22,6 +25,9 @@
 #include "xpm_files/RES_1152_864/buttons/security_camera_1152_864.xpm"
 #include "xpm_files/RES_1152_864/buttons/settings_1152_864.xpm"
 #include "xpm_files/RES_1152_864/mouse/mouse_pointer_1152_864.xpm"
+#include "xpm_files/RES_1152_864/settings_page_1152_864.xpm"
+#include "xpm_files/RES_1152_864/buttons/big_resolution_1152_864.xpm"
+#include "xpm_files/RES_1152_864/buttons/small_resolution_1152_864.xpm"
 
 #define TRANSPARENT_COLOR 4
 
@@ -39,13 +45,20 @@ extern vbe_mode_info_t vmi_p;
 Sprite *normalCursor;
 //Sprite *clickCursor;
 
+//Pages
 Sprite *mainMenu;
+Sprite *settingsPage;
+
+
+//Buttons
 Sprite *controlShellButton;
 Sprite *housePlantButton;
 Sprite *securityCameraButton;
 Sprite *displayMessageButton;
 Sprite *helpButton;
 Sprite *settingsButton;
+Sprite *smallResolutionButton;
+Sprite *bigResolutionButton;
 
 //Creates a new sprite drom XPM "pic" in the specified position
 Sprite* (create_sprite)(xpm_map_t pic, int x, int y);

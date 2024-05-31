@@ -24,7 +24,10 @@ void keyboard_security_camera_handler () {}
 
 void keyboard_display_message_handler () {}
 
-void keyboard_settings_handler () {}
+void keyboard_settings_handler () {
+  kbc_int_handler();
+  if (out_buf == 0x81) running = false;
+}
 
 void keyboard_help_handler () {}
 

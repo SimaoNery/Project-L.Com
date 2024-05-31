@@ -83,7 +83,36 @@ void mouse_security_camera_handler () {}
 
 void mouse_display_message_handler () {}
 
-void mouse_settings_handler () {}
+void mouse_settings_handler () {
+  mouse_ih();
+  if (packet_number == 3) {
+    parse_bytes_to_packet();
+
+    normalCursor->x = mouse_packet.x;
+    normalCursor->y = mouse_packet.y;
+
+  
+    if (mouse_packet.x >= smallResolutionButton->x && mouse_packet.x <= smallResolutionButton->x + smallResolutionButton->width && mouse_packet.y >= smallResolutionButton->y && mouse_packet.y <= smallResolutionButton->y + smallResolutionButton->height)  {
+      //if (mouse_packet.left_button) page_state = SMALL_RESOLUTION;
+      smallResolutionButton->hover = true;
+    }
+
+    else if (mouse_packet.x >= bigResolutionButton->x && mouse_packet.x <= bigResolutionButton->x + bigResolutionButton->width && mouse_packet.y >= bigResolutionButton->y && mouse_packet.y <= bigResolutionButton->y + bigResolutionButton->height)  {
+      //if (mouse_packet.left_button) page_state = BIG_RESOLUTION;
+      bigResolutionButton->hover = true;
+    }
+
+    else {
+
+      smallResolutionButton->hover = false;
+      bigResolutionButton->hover = false;
+      
+    }
+    packet_number = 0;
+    draw_page();
+  }
+
+}
 
 void mouse_help_handler () {}
 

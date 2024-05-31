@@ -71,6 +71,26 @@ int draw_security_camera() {
 }
 
 int draw_settings() {
+  if(draw_sprite(settingsPage) != 0) {
+    printf("Error: Problems occured while trying to draw -settingsPage- sprite! \n");
+    return 1;
+  }
+
+  if(draw_settings_buttons() != 0) {
+    printf("Error: Problems occured while trying to draw Settings Page Buttons! \n");
+    return 1;
+  }
+
+  if (draw_sprite(normalCursor) != 0) {
+    printf("Error: Problems occured while trying to draw the mouse pointer! \n");
+    return 1;
+  }
+
+  if(swap_buffers() != 0) {
+    printf("Error: Problems occured while trying yo swap buffers! \n");
+    return 1;
+  }
+
   return 0;
 }
 
@@ -110,6 +130,20 @@ int draw_main_buttons() {
 
   if (draw_sprite(settingsButton) != 0) {
     printf("Error: Problems occured trying to draw -settingsButton- sprite! \n");
+    return 1;
+  };
+
+  return 0;
+}
+
+int draw_settings_buttons() {
+  if (draw_sprite(smallResolutionButton) != 0) {
+    printf("Error: Problems occured trying to draw -smallResolutionButton- sprite! \n");
+    return 1;
+  };
+
+  if (draw_sprite(bigResolutionButton) != 0) {
+    printf("Error: Problems occured trying to draw -bigResolutionButton- sprite! \n");
     return 1;
   };
 

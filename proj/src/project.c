@@ -137,7 +137,6 @@ int (project_loop)() {
           }
 
           if (msg.m_notify.interrupts & irq_keyboard) {
-            printf("tecladjim\n");
             keyboard_handler[page_state].handler();
           }
 
@@ -146,7 +145,6 @@ int (project_loop)() {
           }
 
           if (msg.m_notify.interrupts & irq_real_time_clock) {
-            printf("real time shit\n");
             real_time_clock_handler[page_state].handler();
           }
 

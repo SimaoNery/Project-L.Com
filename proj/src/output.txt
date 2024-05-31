@@ -1,8 +1,16 @@
 Welcome to Wagner's House Control Shell!
 Your house's devices are at the distance of a command.
 Type help for a list of commands or exit to leave the shell.
-minix$ boasd peesssoal DLNALSDKLKAJQOIJQEKPOKPKskaskasmkakASNDJADNmfnandjanlkexit
+minix$ boas boas m
 
+boas: not found
+minix$ sdasdqweqw
 
+sdasdqweqw: not found
+minix$ qweqw     lights_on
 
-		!@
+dnqjwq
+minix$ horn_on
+
+dnqjwq
+minix$ 

@@ -6,6 +6,7 @@
 #include <stdio.h>
 
 #include "CMD.h"
+#include "drivers/serial_port/serial.h"
 
 void lights_on(char* args[]);
 void lights_off(char* args[]);

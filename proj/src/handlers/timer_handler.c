@@ -28,21 +28,19 @@ void timer_control_shell_handler () {
         counter_b[i] = 0;
         blink_counter[i] = 0;
 
-        command &= BIT(i);
-        //send command
-        printf("Time has ended");
+        command &= ~(BIT(i));
+        send_serial_port_msg(command);
       }
     }
     if (blink_time[i]) {
 
       counter_b[i]++;
-      if (counter_b[i] / 60 == blink_counter[i]) {
+      if (counter_b[i] / 30 == blink_counter[i]) {
 
         counter_b[i] = 0;
 
         command ^= BIT(i);
-        //send command
-        printf("Blink");
+        send_serial_port_msg(command);
       }
 
     }

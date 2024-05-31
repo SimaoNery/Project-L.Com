@@ -83,7 +83,6 @@ void lights_on(char *args[]) {
         char *string_part;
 
         uint32_t time = strtod(args[i], &string_part);
-
         if (time > 0) {
           if ((strcmp(string_part, "s") == 0) || (strlen(string_part) == 0)) {
             if (time <= 86400) {
@@ -100,13 +99,14 @@ void lights_on(char *args[]) {
               printf("Please provide a time in seconds up to 86400 and no more than that.");
               return;
             }
-          } else if (strcmp(string_part, "m")) {
+          } else if (strcmp(string_part, "m") == 0) {
             if (time <= 1440) {
               time *= 60;
               for (int i = 0; i < 5; i++) {
                 if (command_aux & lights[i]) {
                   lights_counter_aux[i] = time;
                   count_time_aux[i] = true;
+                  
                 }
               }
               parsing_time = false;
@@ -117,9 +117,9 @@ void lights_on(char *args[]) {
               return;
             }
             
-          } else if (strcmp(string_part, "h")) {
+          } else if (strcmp(string_part, "h") == 0) {
             if (time <= 24) {
-              time*=3600;
+              time *= 3600;
               for (int i = 0; i < 5; i++) {
                 if (command_aux & lights[i]) {
                   lights_counter_aux[i] = time;
@@ -153,7 +153,7 @@ void lights_on(char *args[]) {
 
         if (time > 0) {
           if ((strcmp(string_part, "s") == 0) || (strlen(string_part) == 0)) {
-            if (time <= 5) {
+            if (time <= 300) {
               for (int i = 0; i < 5; i++) {
                 if (command_aux & lights[i]) {
                   blink_counter_aux[i] = time;
@@ -165,22 +165,29 @@ void lights_on(char *args[]) {
               parsing_args = true;
             }
             else {
-              printf("Please provide a period in seconds up to 5 and no more than that.");
+              printf("Please provide a period in seconds up to 300 and no more than that.");
               return;
             }
-          } /*else if (strcmp(string_part, "s")) {
-            if (time <= 1440) {
-              blink_counter = time * 1000;
-              blink = true;
+          } else if (strcmp(string_part, "m") == 0) {
+ 
+            if (time <= 5) {
+              time *= 60;
+              for (int i = 0; i < 5; i++) {
+                if (command_aux & lights[i]) {
+                  blink_counter_aux[i] = time;
+                  blink_time_aux[i] = true;
+                }
+              }
 
               parsing_time = false;
+              parsing_args = true;
             }
             else {
-              printf("Please provide a period in seconds up to 5 seconds and no more than that.");
+              printf("Please provide a period in minutes up to 5 and no more than that.");
               break;
             }
             
-          }*/ else {
+          } else {
             printf("%s is not a valid unit of time", string_part);
             return;
           }
@@ -196,7 +203,7 @@ void lights_on(char *args[]) {
     
   }
   command |= command_aux;
-  //send command
+  send_serial_port_msg(command);
 
   for (int i = 0; i < 5; i++) {
     if (count_time_aux[i]) {
@@ -225,7 +232,7 @@ void lights_off(char *args[]) {
       turn_off[i] = true;
 
     }
-    command = 0;
+    command_aux = 0;
   }
 
   for (int i = 0; args[i] != NULL; i++) {
@@ -273,6 +280,6 @@ void lights_off(char *args[]) {
   }
 
   command = command_aux;
-  //send command
+  send_serial_port_msg(command);
 }
 

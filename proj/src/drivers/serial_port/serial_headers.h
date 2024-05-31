@@ -31,8 +31,6 @@
 #define CHAR_TIMEOUT_FIFO 0x0C
 #define FIFO_CLEAR 0x07
 
-#define ATTEMPTS 15
-
 #define SERIAL_PORT_HOOK_ID 7
 
 #endif

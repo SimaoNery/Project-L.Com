@@ -30,6 +30,9 @@ int draw_page() {
 }
 
 int draw_main_menu() {
+
+  clear_back_buffer();
+
   if (draw_sprite(mainMenu) != 0) {
     printf("Error: Problems occured while trying to draw -mainMenu- sprite! \n");
     return 1;
@@ -44,6 +47,8 @@ int draw_main_menu() {
     printf("Error: Problems occured while trying to draw the mouse pointer! \n");
     return 1;
   }
+
+  back_buffer_to_video_mem();
 
   return 0;
 }

@@ -158,13 +158,13 @@ int (load_sprites_1152x864)() {
 }
 
 int (load_sprites_800x600)() {
-    /*normalCursor = create_sprite();
+    normalCursor = create_sprite((xpm_map_t)mouse_pointer_800_600_xpm, 0, 0);
     if(normalCursor == NULL) {
         printf("Error: Problems occured while trying to load -normalCursor- sprite! \n");
         return 1;
     }
 
-    clickCursor = create_sprite();
+    /*clickCursor = create_sprite();
      if(clickCursor == NULL) {
         printf("Error: Problems occured while trying to load -clickCursor- sprite! \n");
         return 1;

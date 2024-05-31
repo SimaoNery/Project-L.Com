@@ -55,7 +55,7 @@ static const handler_t real_time_clock_handler[] = {
 };*/
 
 uint8_t irq_timer, irq_keyboard, irq_mouse, irq_real_time_clock; //irq_serial_port;
-uint16_t resolution = RES_1152_864;
+uint16_t resolution = RES_800_600;
 bool running = true;
 uint8_t page_state = MAIN_MENU;
 
@@ -72,7 +72,7 @@ int (project_start)() {
         return 1;
     }
 
-    if(load_sprites_1152x864() != 0) {
+    if(load_sprites_800x600() != 0) {
         printf("Error: A problem occured while loading project sprites! \n");
         return 1;
     }

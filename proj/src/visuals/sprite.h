@@ -12,6 +12,7 @@
 #include "xpm_files/RES_800_600/buttons/house_plant_button_800_600.xpm"
 #include "xpm_files/RES_800_600/buttons/security_camera_button_800_600.xpm"
 #include "xpm_files/RES_800_600/buttons/settings_800_600.xpm"
+#include "xpm_files/RES_800_600/mouse/mouse_pointer_800_600.xpm"
 
 #include "xpm_files/RES_1152_864/main_menu_1152_864.xpm"
 #include "xpm_files/RES_1152_864/buttons/control_shell_1152_864.xpm"
@@ -62,9 +63,6 @@ int (draw_sprite)(Sprite *sp);
 int (load_sprites_1152x864)();
 
 int (load_sprites_800x600)();
-
-//Will animate the button when hover
-int (animate_sprite)(Sprite *sp);
 
 
 #endif

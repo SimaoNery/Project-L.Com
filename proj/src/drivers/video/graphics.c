@@ -2,9 +2,12 @@
 
 
 uint8_t *video_mem;
+uint8_t *front_buffer;
 uint8_t *back_buffer;
 
 unsigned int vram_size;
+
+bool buffer = false;
 
 int(normalize_color)(uint32_t color, uint32_t *normalized_color) {
   if (normalized_color == NULL)
@@ -67,27 +70,21 @@ int(map_frame_buffer)(uint16_t mode) {
   vram_size = vmi_p.XResolution * vmi_p.YResolution * ((vmi_p.BitsPerPixel + 7) / 8);
 
   mr.mr_base = vram_base;
-  mr.mr_limit = mr.mr_base + vram_size;
+  mr.mr_limit = mr.mr_base + vram_size * 2;
 
   if (sys_privctl(SELF, SYS_PRIV_ADD_MEM, &mr)) {
     panic("sys_privctl (ADD_MEM) failed\n");
     return 1;
   }
 
-  video_mem = vm_map_phys(SELF, (void *) mr.mr_base, vram_size); 
-
+  video_mem = vm_map_phys(SELF, (void *) mr.mr_base, vram_size * 2); 
   if(video_mem == NULL) {
     panic("couldn't map video memory");
     return 1;
   }
 
-  back_buffer = (uint8_t*)malloc(vram_size);
-  
-  if (back_buffer == NULL) {
-    printf("Error: Problems occured while trying to allocate memory! \n");
-    
-    return 1;
-  }
+  front_buffer = video_mem;
+  back_buffer = video_mem + vram_size;
 
   return 0;
 }
@@ -115,8 +112,46 @@ int (clear_back_buffer)() {
   return 0;
 }
 
-int(back_buffer_to_video_mem)() {
-  if(memcpy(video_mem, back_buffer, vram_size) != 0) return 1;
+int (set_display_start)() {
+  reg86_t r;
+  memset(&r, 0, sizeof(r));
+
+  r.intno = BIOS_VIDEOCARD_SERV;
+
+
+  r.ax = 0x4F07;
+
+  r.bh = 0x00;
+  r.bl = 0x80;
+
+  r.cx = 0x00;
+  r.dx = buffer ? 0x00: vmi_p.YResolution;
+
+
+  if (sys_int86(&r)) {
+    printf("vg_set_graphics_mode: sys_int86() failed\n");
+    return 1;
+  }
+
+  buffer = !buffer;
+
+  return 0;
+}
+
+int (swap_buffers)() {
+  if(set_display_start() != 0) {
+    printf("Error: Problems occured while trying to set display start! \n");
+    return 1;
+  } 
+
+  uint8_t *temp = front_buffer;
+  front_buffer = back_buffer;
+  back_buffer = temp;
+
+  if(clear_back_buffer() != 0) {
+    printf("Error: Problems occured whilr trying to clean back buffer! \n");
+    return 1;
+  }
 
   return 0;
 }

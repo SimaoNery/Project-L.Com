@@ -30,14 +30,11 @@ int draw_page() {
 }
 
 int draw_main_menu() {
-
-  clear_back_buffer();
-
   if (draw_sprite(mainMenu) != 0) {
     printf("Error: Problems occured while trying to draw -mainMenu- sprite! \n");
     return 1;
   }
-
+   
   if (draw_main_buttons() != 0) {
     printf("Error: Problems occured while trying to draw Main Menu buttons! \n");
     return 1;
@@ -48,7 +45,10 @@ int draw_main_menu() {
     return 1;
   }
 
-  back_buffer_to_video_mem();
+  if(swap_buffers() != 0) {
+    printf("Error: Problems occured while trying to swap buffers! \n");
+    return 1;
+  }
 
   return 0;
 }

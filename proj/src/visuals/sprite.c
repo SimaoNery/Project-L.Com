@@ -80,6 +80,21 @@ int (destroy_all_sprites)() {
         return 1;
     }
 
+    if(destroy_sprite(settingsPage) != 0) {
+        printf("Error: problems occured while trying to destroy -settingsPage- sprite! \n");
+        return 1;
+    }
+
+    if(destroy_sprite(smallResolutionButton) != 0) {
+        printf("Error: problems occured while trying to destroy -smallResolutionButton- sprite! \n");
+        return 1;
+    }
+
+    if(destroy_sprite(bigResolutionButton) != 0) {
+        printf("Error: problems occured while trying to destroy -bigResolutionButton- sprite! \n");
+        return 1;
+    }
+
     return 0;
 }
 
@@ -154,17 +169,35 @@ int (load_sprites_1152x864)() {
         return 1;
     }
 
+    settingsPage = create_sprite((xpm_map_t)settings_page_1152_864_xpm, 0, 0);
+    if(settingsPage == NULL) {
+        printf("Error: Problems occured while trying to load -settingsPage- sprite! \n");
+        return 1;
+    }
+
+    smallResolutionButton = create_sprite((xpm_map_t)small_resolution_button_1152_864_xpm, 117, 503);
+    if(smallResolutionButton == NULL) {
+        printf("Error: Problems occured while trying to load -smallResolutionButton- sprite! \n");
+        return 1;
+    }
+
+    bigResolutionButton = create_sprite((xpm_map_t)big_resolution_button_1152_864_xpm, 649, 503);
+    if(bigResolutionButton == NULL) {
+        printf("Error: Problems occured while trying to load -bigResolutionButton- sprite! \n");
+        return 1;
+    }
+
     return 0;
 }
 
 int (load_sprites_800x600)() {
-    /*normalCursor = create_sprite();
+    normalCursor = create_sprite((xpm_map_t)mouse_pointer_800_600_xpm, 0, 0);
     if(normalCursor == NULL) {
         printf("Error: Problems occured while trying to load -normalCursor- sprite! \n");
         return 1;
     }
 
-    clickCursor = create_sprite();
+    /*clickCursor = create_sprite();
      if(clickCursor == NULL) {
         printf("Error: Problems occured while trying to load -clickCursor- sprite! \n");
         return 1;
@@ -208,9 +241,46 @@ int (load_sprites_800x600)() {
 
     mainMenu = create_sprite((xpm_map_t)main_menu_800_600_xpm, 0, 0);
     if(mainMenu == NULL) {
-        printf("Main Menu is null \n");
+        printf("Error: Problems occured while trying to load -mainMenu- sprite! \n");
         return 1;
     }    
+
+    settingsPage = create_sprite((xpm_map_t)settings_page_800_600_xpm, 0, 0);
+    if(settingsPage == NULL) {
+        printf("Error: Problems occured while trying to load -settingsPage- sprite! \n");
+        return 1;
+    }
+
+    smallResolutionButton = create_sprite((xpm_map_t)small_resolution_button_800_600_xpm, 61, 384);
+    if(settingsPage == NULL) {
+        printf("Error: Problems occured while trying to load -settingsPage- sprite! \n");
+        return 1;
+    }
+
+
+    bigResolutionButton = create_sprite((xpm_map_t)big_resolution_button_800_600_xpm, 474, 384);
+    if(settingsPage == NULL) {
+        printf("Error: Problems occured while trying to load -settingsPage- sprite! \n");
+        return 1;
+    }
+
+
+    return 0;
+}
+
+int (load_sprites)(int res) {
+    if(res == RES_800_600) {
+        if(load_sprites_800x600() != 0) {
+            printf("Error: Problems occured while trying to load 800x600 sprites! \n");
+            return 1;
+        }
+    }
+    else {
+        if(load_sprites_1152x864() != 0) {
+            printf("Error: Problems occured while trying to load 1152x864 sprites! \n");
+            return 1;
+        }
+    }
 
     return 0;
 }

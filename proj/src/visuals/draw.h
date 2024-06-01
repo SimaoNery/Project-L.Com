@@ -6,15 +6,6 @@
 #include "sprite.h"
 #include "../project.h"
 
-Sprite *mainMenu;
-Sprite *controlShellButton;
-Sprite *housePlantButton;
-Sprite *securityCameraButton;
-Sprite *displayMessageButton;
-Sprite *helpButton;
-Sprite *settingsButton;
-Sprite *normalCursor;
-
 int draw_page();
 
 int draw_main_menu();
@@ -33,6 +24,6 @@ int draw_help();
 
 int draw_main_buttons();
 
-
+int draw_settings_buttons();
 
 #endif

@@ -128,7 +128,7 @@ void serial_port_int_handler() {
     printf("No interrupt pending\n");
     return;
   }
-  if (interrupt_ident & INT_PENDING == CHAR_TIMEOUT_FIFO) {
+  if ((interrupt_ident & INT_PENDING) == CHAR_TIMEOUT_FIFO) {
     while (read_serial_port_msg())
       ;
   }

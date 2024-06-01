@@ -4,6 +4,7 @@
 #include <lcom/lcf.h>
 #include <stdint.h>
 #include <stdio.h>
+#include "command_line/lights.h"
 
 void timer_main_menu_handler ();
 void timer_control_shell_handler ();

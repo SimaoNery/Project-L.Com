@@ -5,6 +5,7 @@
 #include <stdint.h>
 #include <stdio.h>
 #include "project.h"
+#include "command_line/command_line.h"
 
 void keyboard_main_menu_handler ();
 void keyboard_control_shell_handler ();

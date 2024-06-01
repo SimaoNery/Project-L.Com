@@ -59,12 +59,11 @@ uint16_t resolution = RES_1152_864;
 bool running = true;
 uint8_t page_state = MAIN_MENU;
 
-
 int (project_start)() {
 
     if(map_frame_buffer(resolution) != 0) {
-        printf("Error: A problem occured while trying to map video memory! \n");
-        return 1;
+      printf("Error: Problems occured while trying to map frame buffer! \n");
+      return 1;
     }
 
     if(vg_set_graphics_mode(resolution) != 0) {
@@ -72,7 +71,7 @@ int (project_start)() {
         return 1;
     }
 
-    if(load_sprites_1152x864() != 0) {
+    if(load_sprites(resolution) != 0) {
         printf("Error: A problem occured while loading project sprites! \n");
         return 1;
     }
@@ -141,7 +140,6 @@ int (project_loop)() {
           }
 
           if (msg.m_notify.interrupts & irq_keyboard) {
-            printf("tecladjim\n");
             keyboard_handler[page_state].handler();
           }
 
@@ -150,7 +148,6 @@ int (project_loop)() {
           }
 
           if (msg.m_notify.interrupts & irq_real_time_clock) {
-            printf("real time shit\n");
             real_time_clock_handler[page_state].handler();
           }
 
@@ -200,7 +197,11 @@ int (project_stop)() {
         return 1;
     }
 
-    if(vg_exit()) {
+    if(unmap_frame_buffer(resolution) != 0) {
+      printf("Error: Problems occured while trying to clear all buffers!\n");
+    }
+
+    if(vg_exit() != 0) {
         printf("Error: A problem occured while trying to go back to text mode! \n");
         return 1;
     }

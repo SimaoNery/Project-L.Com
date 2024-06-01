@@ -37,7 +37,6 @@
 #define IBF 0x02
 #define KBD_READ_STATUS_OK 0xE1
 
-#define ATTEMPTS 5
 #define DELAY_US 20000
 
 #define ACK 0xFA

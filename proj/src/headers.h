@@ -31,6 +31,7 @@
 #define CAMERA_STREAM 0x72
 #define CAMERA_STOP 0x70
 
+#define ATTEMPTS 15
 
 /* ___SOCKET___ */
 #define SERVER_IP "127.0.0.1"

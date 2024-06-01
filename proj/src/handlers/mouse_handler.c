@@ -75,15 +75,57 @@ void mouse_main_menu_handler () {
   
 }
 
-void mouse_control_shell_handler () {}
+void mouse_control_shell_handler () {
+  mouse_ih();
+  parse_bytes_to_packet();
+}
 
-void mouse_house_plant_handler () {}
+void mouse_house_plant_handler () {
+  mouse_ih();
+  parse_bytes_to_packet();
+}
 
-void mouse_security_camera_handler () {}
+void mouse_security_camera_handler () {
+  mouse_ih();
+  parse_bytes_to_packet();
+}
 
-void mouse_display_message_handler () {}
+void mouse_display_message_handler () {
+  mouse_ih();
+  parse_bytes_to_packet();
+}
 
-void mouse_settings_handler () {}
+void mouse_settings_handler () {
+  mouse_ih();
+  if (packet_number == 3) {
+    parse_bytes_to_packet();
+
+    normalCursor->x = mouse_packet.x;
+    normalCursor->y = mouse_packet.y;
+
+  
+    if (mouse_packet.x >= smallResolutionButton->x && mouse_packet.x <= smallResolutionButton->x + smallResolutionButton->width && mouse_packet.y >= smallResolutionButton->y && mouse_packet.y <= smallResolutionButton->y + smallResolutionButton->height)  {
+      smallResolutionButton->hover = true;
+      if (mouse_packet.left_button) change_resolution(RES_800_600);
+    }
+
+    else if (mouse_packet.x >= bigResolutionButton->x && mouse_packet.x <= bigResolutionButton->x + bigResolutionButton->width && mouse_packet.y >= bigResolutionButton->y && mouse_packet.y <= bigResolutionButton->y + bigResolutionButton->height)  {
+      bigResolutionButton->hover = true;
+      if (mouse_packet.left_button) change_resolution(RES_1152_864);
+    }
+
+    else {
+
+      smallResolutionButton->hover = false;
+      bigResolutionButton->hover = false;
+      
+    }
+
+    packet_number = 0;
+    draw_page();
+  }
+
+}
 
 void mouse_help_handler () {}
 

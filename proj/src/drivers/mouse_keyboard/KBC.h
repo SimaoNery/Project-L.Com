@@ -4,6 +4,7 @@
 #include <minix/sysutil.h>
 #include <lcom/lcf.h>
 #include "i8042.h"
+#include "headers.h"
 
 int (get_kbc_status)(uint8_t *status);
 

@@ -6,20 +6,6 @@
 #include "sprite.h"
 #include "../project.h"
 
-Sprite *mainMenu;
-Sprite *settingsPage;
-
-Sprite *controlShellButton;
-Sprite *housePlantButton;
-Sprite *securityCameraButton;
-Sprite *displayMessageButton;
-Sprite *helpButton;
-Sprite *settingsButton;
-Sprite *smallResolutionButton;
-Sprite *bigResolutionButton;
-
-Sprite *normalCursor;
-
 int draw_page();
 
 int draw_main_menu();

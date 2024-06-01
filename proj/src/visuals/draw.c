@@ -1,6 +1,7 @@
 #include "draw.h"
 
 extern uint8_t page_state;
+extern uint16_t resolution;
 
 int draw_page() {
   switch (page_state) {
@@ -45,8 +46,8 @@ int draw_main_menu() {
     return 1;
   }
 
-  if(swap_buffers() != 0) {
-    printf("Error: Problems occured while trying to swap buffers! \n");
+  if(buffering_method() != 0) {
+    printf("Error detecting buffering method! \n");
     return 1;
   }
 
@@ -102,8 +103,8 @@ int draw_settings() {
     return 1;
   }
 
-  if(swap_buffers() != 0) {
-    printf("Error: Problems occured while trying yo swap buffers! \n");
+  if(buffering_method() != 0) {
+    printf("Error detecting buffering method! \n");
     return 1;
   }
 

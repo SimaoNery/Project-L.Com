@@ -55,16 +55,15 @@ static const handler_t real_time_clock_handler[] = {
 };*/
 
 uint8_t irq_timer, irq_keyboard, irq_mouse, irq_real_time_clock; //irq_serial_port;
-uint16_t resolution = RES_800_600;
+uint16_t resolution = RES_1152_864;
 bool running = true;
 uint8_t page_state = MAIN_MENU;
-
 
 int (project_start)() {
 
     if(map_frame_buffer(resolution) != 0) {
-        printf("Error: A problem occured while trying to map video memory! \n");
-        return 1;
+      printf("Error: Problems occured while trying to map frame buffer! \n");
+      return 1;
     }
 
     if(vg_set_graphics_mode(resolution) != 0) {
@@ -72,7 +71,7 @@ int (project_start)() {
         return 1;
     }
 
-    if(load_sprites_800x600() != 0) {
+    if(load_sprites(resolution) != 0) {
         printf("Error: A problem occured while loading project sprites! \n");
         return 1;
     }
@@ -192,6 +191,10 @@ int (project_stop)() {
         return 1;
     }
     */
+
+    if(unmap_frame_buffer(resolution) != 0) {
+      printf("Error: Problems occured while trying to clear all buffers!\n");
+    }
 
     if(vg_exit() != 0) {
         printf("Error: A problem occured while trying to go back to text mode! \n");

@@ -105,13 +105,13 @@ void mouse_settings_handler () {
 
   
     if (mouse_packet.x >= smallResolutionButton->x && mouse_packet.x <= smallResolutionButton->x + smallResolutionButton->width && mouse_packet.y >= smallResolutionButton->y && mouse_packet.y <= smallResolutionButton->y + smallResolutionButton->height)  {
-      //if (mouse_packet.left_button) page_state = SMALL_RESOLUTION;
       smallResolutionButton->hover = true;
+      if (mouse_packet.left_button) change_resolution(RES_800_600);
     }
 
     else if (mouse_packet.x >= bigResolutionButton->x && mouse_packet.x <= bigResolutionButton->x + bigResolutionButton->width && mouse_packet.y >= bigResolutionButton->y && mouse_packet.y <= bigResolutionButton->y + bigResolutionButton->height)  {
-      //if (mouse_packet.left_button) page_state = BIG_RESOLUTION;
       bigResolutionButton->hover = true;
+      if (mouse_packet.left_button) change_resolution(RES_1152_864);
     }
 
     else {
@@ -120,6 +120,7 @@ void mouse_settings_handler () {
       bigResolutionButton->hover = false;
       
     }
+
     packet_number = 0;
     draw_page();
   }

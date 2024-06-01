@@ -73,8 +73,9 @@ int (destroy_all_sprites)();
 int (draw_sprite)(Sprite *sp);
 
 //Loads the sprites
-int (load_sprites_1152x864)();
+int (load_sprites)(int res);
 
+int (load_sprites_1152x864)();
 int (load_sprites_800x600)();
 
 

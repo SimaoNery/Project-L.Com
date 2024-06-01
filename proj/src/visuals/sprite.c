@@ -267,3 +267,20 @@ int (load_sprites_800x600)() {
 
     return 0;
 }
+
+int (load_sprites)(int res) {
+    if(res == RES_800_600) {
+        if(load_sprites_800x600() != 0) {
+            printf("Error: Problems occured while trying to load 800x600 sprites! \n");
+            return 1;
+        }
+    }
+    else {
+        if(load_sprites_1152x864() != 0) {
+            printf("Error: Problems occured while trying to load 1152x864 sprites! \n");
+            return 1;
+        }
+    }
+
+    return 0;
+}

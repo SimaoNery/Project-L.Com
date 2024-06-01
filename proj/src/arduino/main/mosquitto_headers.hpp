@@ -4,7 +4,7 @@
         - Macros to be sent and their meaning
  */
 
-#define MQTT_HOST "172.20.10.8"
+#define MQTT_HOST "192.168.1.65"
 #define MQTT_PORT 8443
 
 
@@ -23,7 +23,6 @@
 #define HUMIDITY_TOPIC_RX "humidity_topic_rx"
 #define DECIBEL_TOPIC_RX "decibel_topic_rx"
 #define CAMERA_PHOTO_TOPIC_RX "camera_photo_topic_rx"
-#define CAMERA_STREAM_TOPIC_RX "camera_stream_topic_rx"
 
 /* ___LIGHT_TOPIC_MESSAGES___ */
 

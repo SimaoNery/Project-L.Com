@@ -1,8 +1,6 @@
 // Connection
-#define wifi_ssid "Wagner"
-#define wifi_password "123456789"
-#define MQTT_HOST "172.20.10.8"
-#define MQTT_PORT 1883
+#define wifi_ssid "MEO-285EF0"
+#define wifi_password "5e214fe1e9"
 
 // Camara Pins
 #define PWDN_GPIO_NUM     32
@@ -25,14 +23,12 @@
 // Pins
 #define PIN_LIGHT_1 12
 #define PIN_LIGHT_2 13
-#define PIN_LIGHT_3 15
-#define PIN_LIGHT_4 14
-#define PIN_LIGHT_5 2
-#define PIN_BUZZER_1 16
-#define PIN_BUZZER_2 17
-#define PIN_Motor 18
-#define PIN_HUMIDITY_AND_TEMPERATURE 19
-#define PIN_DECIBEL 20
+#define PIN_LIGHT_3 14
+#define PIN_LIGHT_4 15
+#define PIN_LIGHT_5 16
+#define PIN_BUZZER_1 0
+#define PIN_BUZZER_2 4
+#define PIN_HUMIDITY_AND_TEMPERATURE 4
 
 // topics
 #define LIGHT_TOPIC "light_topic"
@@ -46,4 +42,6 @@
 #define STREAM_TOPIC "stream_topic"
 #define HUMIDITY_TOPIC_RX "humidity_topic_rx"
 #define DECIBEL_TOPIC_RX "decibel_topic_rx"
+
+#define DHTTYPE DHT11 
 

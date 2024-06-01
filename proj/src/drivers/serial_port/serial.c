@@ -22,6 +22,19 @@ int serial_initial_config() {
     return 1;
   }
 
+  uint8_t lcr = 0;
+  if (util_sys_inb(COM1_BASE_REG + LCR, &lcr)) {
+    printf("Failed sys_inb LCR\n");
+    return 1;
+  }
+
+  lcr |= 0x0B;
+  lcr &= 0xCB;
+  if (sys_outb(COM1_BASE_REG + LCR, lcr)) {
+    printf("Failed sys_outb LCR\n");
+    return 1;
+  }
+
   return 0;
 }
 

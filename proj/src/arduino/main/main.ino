@@ -1,11 +1,15 @@
 #include "esp_headers.h"
+#include "mosquitto_headers.hpp"
 #include <Arduino.h>
+#include <DHT.h>
 #include <PubSubClient.h>
 #include <WiFi.h>
 #include <esp_camera.h>
 
 WiFiClient espClient;
 PubSubClient client(espClient);
+
+//DHT dht(DHTPin, DHTTYPE);
 
 void setup() {
   pinMode(PIN_LIGHT_1, OUTPUT);
@@ -15,9 +19,6 @@ void setup() {
   pinMode(PIN_LIGHT_5, OUTPUT);
   pinMode(PIN_BUZZER_1, OUTPUT);
   pinMode(PIN_BUZZER_2, OUTPUT);
-  pinMode(PIN_Motor, OUTPUT);
-  pinMode(PIN_DECIBEL, INPUT);
-  pinMode(PIN_HUMIDITY_AND_TEMPERATURE, INPUT);
 
   Serial.begin(115200);
 
@@ -50,14 +51,16 @@ void setup() {
   config.fb_count = 1;
 
   // Camera Init
+  /*
   esp_err_t err = esp_camera_init(&config);
   if (err != ESP_OK) {
     Serial.printf("Camera init failed with error 0x%x", err);
     return;
-  }
+  }*/
 
   // Configure Mosquitto
   connect_mqtt();
+  //dht.begin();
 }
 
 typedef struct {
@@ -71,8 +74,31 @@ static const on_message_t on_message[] = {
   {MOTOR_TOPIC, turn_motor},
   {HUMIDITY_SENSOR_TOPIC, turn_humidity_sensor},
   {DECIBEL_SENSOR_TOPIC, turn_decibel_sensor},
-  {PICTURE_TOPIC, take_picture},
-  {STREAM_TOPIC, stream_video}};
+  {PICTURE_TOPIC, take_picture}};
+
+  int pow(int exp) {
+    if (exp == 0) return 1;
+    
+    int res = 1; 
+
+    for (int i = 0; i < exp; i++) {
+        res *= 2;
+    }
+
+    return res;
+}
+
+int binaryToInt(const String bin) {
+    int res = 0;
+    int length = bin.length();
+    
+    for (int i = 0; i < length; i++) {
+        int bit = bin[length - 1 - i] - '0';
+        res += bit * pow(i);
+    }
+
+    return res;
+}
 
 String mosquittoMessage(byte *bytes, unsigned int length) {
   String binary = "";
@@ -83,100 +109,139 @@ String mosquittoMessage(byte *bytes, unsigned int length) {
 }
 
 void take_picture(byte *payload, unsigned int length) {
-  camera_fb_t *fb = esp_camerza_fb_get();
+  Serial.println("Photo requested");
+  /*
+  camera_fb_t *fb = esp_camera_fb_get();
   if (fb) {
     // Send the picture over MQTT
     client.publish(PICTURE_TOPIC, fb->buf, fb->len);
     esp_camera_fb_return(fb);
-  }
+  }*/
 }
 
 void turn_decibel_sensor(byte *payload, unsigned int length) {
-  // Arduino Uno
+  //Serial.println("Decibel requested");
+  /*
+  uint8_t msg = 0x00;
+  Serial.write(msg);
+
+  int attempts = 10;
+
+  while(attempts--) {
+    if (Serial.available() > 0) {
+      String requestString = Serial.readStringUntil('\n');
+      if (requestString.length() >= 2) {
+        client.publish(DECIBEL_TOPIC_RX, requestString);
+        return;
+      } 
+    }
+    delay(100);
+  }*/
 }
 
 void turn_humidity_sensor(byte *payload, unsigned int length) {
-  // Arduino Uno
-
   /*
+  float humidity = dht.readHumidity();
+  float temperature = dht.readTemperature();
+
   if (isnan(humidity) || isnan(temperature)) {
-    client.publish(HUMIDITY_SENSOR_TOPIC, "Failed to read humidity or temperature!");
+    client.publish(HUMIDITY_TOPIC_RX, "failed");
     return;
-  } else {
-    char message[50];
-    snprintf(message, sizeof(message), "Temperature = %.2f, Humidity = %.2f", temperature, humidity);
-    client.publish(HUMIDITY_SENSOR_TOPIC, message);
   }
-  */
+  char message[9];
+  snprintf(message, sizeof(message), "%d_%d", temperature, humidity);
+  client.publish(HUMIDITY_TOPIC_RX, message);*/
 }
 
+
 void turn_motor(byte *payload, unsigned int length) {
-  // Arduino UNO
-
   /*
-  String binaryPayload = mosquittoMessage(payload, length);
-  unsigned int binaryValue = binaryPayload.toInt();
-
-  if ((binaryValue & 0x01) == 1) {
-    digitalWrite(PIN_LIGHT_1, HIGH);
-  } else {
-    digitalWrite(PIN_LIGHT_1, LOW);
-  }
-
-  if (((binaryValue & 0x10) >> 4) == 1) {
-    digitalWrite(PIN_LIGHT_5, HIGH);
-  } else {
-    digitalWrite(PIN_LIGHT_5, LOW);
-  }
-  */
+  //Serial.println("Motor turned on");
+  uint8_t speed = payload & 0x1F;
+  uint8_t msg = 0x10 | speed;
+  Serial.println(msg);*/
 }
 
 void turn_buzzer(byte *payload, unsigned int length) {
   String binaryPayload = mosquittoMessage(payload, length);
-  unsigned int binaryValue = binaryPayload.toInt();
+  unsigned int binaryValue = binaryToInt(binaryPayload) & 0x03;
 
-  if ((binaryValue & 0x01) == 1) {
-    digitalWrite(PIN_Motor, HIGH);
+  switch (binaryValue) {
+    case 0x03: {
+      digitalWrite(PIN_BUZZER_1, HIGH);
+      tone(PIN_BUZZER_2, 1000);
+      Serial.println("Buzzer 1 and 2 turned on");
+      delay(1000);
+      break;
+    }
+    case 0x02: {
+      tone(PIN_BUZZER_2, 1000);
+      Serial.println("Buzzer 2 turned on");
+      delay(1000);
+      break;
+    }
+    case 0x01: {
+      digitalWrite(PIN_BUZZER_1, HIGH);
+      Serial.println("Buzzer 1 turned on");
+      delay(1000);
+      break;
+    }
+    default: {
+      digitalWrite(PIN_BUZZER_1, LOW);
+      noTone(PIN_BUZZER_2);
+      break;
+    }
   }
-  else {
-    digitalWrite(PIN_Motor, LOW);
-  }
+
+  digitalWrite(PIN_BUZZER_1, LOW);
+  noTone(PIN_BUZZER_2);
 }
 
 void turn_light(byte *payload, unsigned int length) {
 
   String binaryPayload = mosquittoMessage(payload, length);
-  unsigned int binaryValue = binaryPayload.toInt();
+  unsigned int binaryValue = binaryToInt(binaryPayload);
+  Serial.print(binaryValue);
 
-  if ((binaryValue & 0x01) == 1) {
+  if (binaryValue & 0x01) {
     digitalWrite(PIN_LIGHT_1, HIGH);
+    Serial.println("Light 1 turned on");
   }
   else {
     digitalWrite(PIN_LIGHT_1, LOW);
+    Serial.println("Light 1 turned off");
   }
-  if (((binaryValue & 0x02) >> 1) == 1) {
+  if (binaryValue & 0x02) {
     digitalWrite(PIN_LIGHT_2, HIGH);
+    Serial.println("Light 2 turned on");
   }
   else {
     digitalWrite(PIN_LIGHT_2, LOW);
+    Serial.println("Light 2 turned off");
   }
-  if (((binaryValue & 0x04) >> 2) == 1) {
+  if (binaryValue & 0x04) {
     digitalWrite(PIN_LIGHT_3, HIGH);
+    Serial.println("Light 3 turned on");
   }
   else {
     digitalWrite(PIN_LIGHT_3, LOW);
+    Serial.println("Light 3 turned off");
   }
-  if (((binaryValue & 0x08) >> 3) == 1) {
+  if (binaryValue & 0x08) {
     digitalWrite(PIN_LIGHT_4, HIGH);
+    Serial.println("Light 4 turned on");
   }
   else {
     digitalWrite(PIN_LIGHT_4, LOW);
+    Serial.println("Light 4 turned off");
   }
-  if (((binaryValue & 0x10) >> 4) == 1) {
+  if (binaryValue & 0x10) {
     digitalWrite(PIN_LIGHT_5, HIGH);
+    Serial.println("Light 5 turned on");
   }
   else {
     digitalWrite(PIN_LIGHT_5, LOW);
+    Serial.println("Light 5 turned off");
   }
 }
 
@@ -188,10 +253,6 @@ void connect_mqtt() {
     Serial.println("Connecting to MQTT...");
     if (client.connect("ESP32Client"))
       Serial.println("Connected to MQTT");
-  }
-  else {
-    Serial.print("Failed to connect to MQTT, rc=");
-    delay(2000);
   }
 
   for (size_t i = 0; i < sizeof(on_message) / sizeof(on_message[0]); i++) {
@@ -206,11 +267,6 @@ void connect_mqtt() {
 void callback(char *topic, byte *payload, unsigned int length) {
   Serial.print("Message arrived in topic: ");
   Serial.println(topic);
-  Serial.print("Message:");
-  for (int i = 0; i < length; i++) {
-    Serial.print((char) payload[i]);
-  }
-  Serial.println();
   Serial.println("-----------------------");
 
   size_t num_topics = sizeof(on_message) / sizeof(on_message[0]);

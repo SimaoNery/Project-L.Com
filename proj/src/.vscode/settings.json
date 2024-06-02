@@ -13,6 +13,7 @@
     "graphics.h": "c",
     "*.xpm": "c",
     "serial_port_handler.h": "c",
-    "mouse.h": "c"
+    "mouse.h": "c",
+    "lights.h": "c"
   },
 }

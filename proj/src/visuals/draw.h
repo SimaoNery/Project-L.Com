@@ -26,4 +26,14 @@ int draw_resolution_buttons();
 
 int draw_housePlant_buttons();
 
+int draw_sound_intensity();
+
+int draw_temperature();
+
+int draw_humidity();
+
+int draw_date_time();
+
+int draw_value_sprites(int val, int height, int width, int *x_counter);
+
 #endif

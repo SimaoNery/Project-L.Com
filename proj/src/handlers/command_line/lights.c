@@ -8,6 +8,14 @@ bool count_time[5] = {false};
 uint32_t blink_counter[5] = {0};
 bool blink_time[5] = {false};
 
+/*!
+ * @brief Turns on specified lights based on the provided arguments.
+ * 
+ * This function parses the arguments to determine which lights to turn on, whether to set a timer, or to enable blinking.
+ * It updates the command variable and associated counters for timing and blinking, then sends a message to the serial port.
+ * 
+ * @param args Array of arguments specifying which lights to turn on and optional timers or blinking periods.
+ */
 void lights_on(char *args[]) {
 
   uint8_t command_aux = 0;
@@ -212,6 +220,14 @@ void lights_on(char *args[]) {
   }
 }
 
+/*!
+ * @brief Turns off specified lights based on the provided arguments.
+ * 
+ * This function parses the arguments to determine which lights to turn off.
+ * It updates the command variable and resets the counters for the lights being turned off, then sends a message to the serial port.
+ * 
+ * @param args Array of arguments specifying which lights to turn off.
+ */
 void lights_off(char *args[]) {
 
   uint8_t command_aux = command;

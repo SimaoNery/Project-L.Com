@@ -9,9 +9,14 @@ int counter_serial_port = 0;
 
 extern bool lock;
 
-<<<<<<< HEAD
 void serial_port_main_menu_handler() {}
 
+/*!
+ * @brief Handles serial port input for the control shell.
+ * 
+ * This function processes serial port interrupts and retrieves humidity and temperature data if requested.
+ * It prints the humidity and temperature data once all data points are received.
+ */
 void serial_port_control_shell_handler() {
   serial_port_int_handler();
   if (asking_for_humidity_and_temp) {
@@ -24,9 +29,15 @@ void serial_port_control_shell_handler() {
     }
     serial_port_clear_int();
   }
-=======
-void serial_port_settings_handler () {}
->>>>>>> refs/remotes/origin/Project
+}
+
+/*!
+ * @brief Handles serial port input for the settings menu.
+ * 
+ * This function processes serial port interrupts and retrieves sound intensity data if requested.
+ * It prints the sound intensity data once all data points are received.
+ */
+void serial_port_settings_handler () {
 
   if (asking_for_sound) {
     pop(get_queue(), &sound_intensity[counter_serial_port++]);
@@ -40,10 +51,28 @@ void serial_port_settings_handler () {}
   }
 }
 
-void serial_port_house_plant_handler() {}
+void serial_port_house_plant_handler() {
+  serial_port_int_handler();
+  if (asking_for_humidity_and_temp) {
+    pop(get_queue(), &humidity_temp[counter_serial_port++]);
+    if (counter_serial_port == 4) {
+      counter_serial_port = 0;
+      asking_for_humidity_and_temp = false;
+    }
+    serial_port_clear_int();
+  }
+
+  if (asking_for_sound) {
+    pop(get_queue(), &sound_intensity[counter_serial_port++]);
+    if (counter_serial_port == 2) {
+      counter_serial_port = 0;
+      asking_for_sound = false;
+    }
+    serial_port_clear_int();
+  }
+}
 
 void serial_port_security_camera_handler() {}
 
-void serial_port_settings_handler() {}
-
 void serial_port_help_handler() {}
+

@@ -1,5 +1,16 @@
 #include "sprite.h"
 
+/*!
+ * @brief Creates a sprite from the given XPM map.
+ * 
+ * This function allocates memory for a new Sprite object, loads the XPM image,
+ * and initializes the sprite's properties.
+ * 
+ * @param pic The XPM map to load the sprite from.
+ * @param x The initial x-coordinate of the sprite.
+ * @param y The initial y-coordinate of the sprite.
+ * @return Sprite* Pointer to the created Sprite object, or NULL if an error occurred.
+ */
 Sprite* (create_sprite)(xpm_map_t pic, int x, int y) {
     Sprite *sp = (Sprite *) malloc (sizeof(Sprite));    
     if(sp == NULL) return NULL;
@@ -19,7 +30,14 @@ Sprite* (create_sprite)(xpm_map_t pic, int x, int y) {
     
     return sp;
 }
-
+/*!
+ * @brief Destroys a sprite and frees its memory.
+ * 
+ * This function frees the memory allocated for the sprite's pixel map and the sprite itself.
+ * 
+ * @param sp Pointer to the Sprite object to be destroyed.
+ * @return int Returns 0 on success, 1 if the sprite was NULL.
+ */
 int (destroy_sprite)(Sprite *sp) {
     if(sp == NULL) return 1;
 
@@ -30,6 +48,13 @@ int (destroy_sprite)(Sprite *sp) {
     return 0;
 }
 
+/*!
+ * @brief Destroys all loaded sprites.
+ * 
+ * This function destroys all the sprites that have been loaded and prints an error message if any sprite could not be destroyed.
+ * 
+ * @return int Returns 0 on success, 1 if any sprite could not be destroyed.
+ */
 int (destroy_all_sprites)() {
     if(destroy_sprite(normalCursor) != 0) {
         printf("Error: problems occured while truing to destroy -normalCursor- sprite! \n");
@@ -180,14 +205,88 @@ int (destroy_all_sprites)() {
         return 1;
     }
 
-    if(destroy_sprite(sound_intensity) != 0) {
-        printf("Error: problems occured while trying to destroy -sound_intensity- sprite! \n");
+    if(destroy_sprite(sound_int) != 0) {
+        printf("Error: problems occured while trying to destroy -sound_int- sprite! \n");
         return 1;
     }
+    
+    if (destroy_sprite(colon) != 0) {
+        printf("Error: problems occurred while trying to destroy -colon- sprite!\n");
+        return 1;
+    }
+
+    if (destroy_sprite(slash) != 0) {
+        printf("Error: problems occurred while trying to destroy -slash- sprite!\n");
+        return 1;
+    }
+
+    if (destroy_sprite(zero) != 0) {
+        printf("Error: problems occurred while trying to destroy -zero- sprite!\n");
+        return 1;
+    }
+
+    if (destroy_sprite(one) != 0) {
+        printf("Error: problems occurred while trying to destroy -one- sprite!\n");
+        return 1;
+    }
+
+    if (destroy_sprite(two) != 0) {
+        printf("Error: problems occurred while trying to destroy -two- sprite!\n");
+        return 1;
+    }
+
+    if (destroy_sprite(three) != 0) {
+        printf("Error: problems occurred while trying to destroy -three- sprite!\n");
+        return 1;
+    }
+
+    if (destroy_sprite(four) != 0) {
+        printf("Error: problems occurred while trying to destroy -four- sprite!\n");
+        return 1;
+    }
+
+    if (destroy_sprite(five) != 0) {
+        printf("Error: problems occurred while trying to destroy -five- sprite!\n");
+        return 1;
+    }
+
+    if (destroy_sprite(six) != 0) {
+        printf("Error: problems occurred while trying to destroy -six- sprite!\n");
+        return 1;
+    }
+
+    if (destroy_sprite(seven) != 0) {
+        printf("Error: problems occurred while trying to destroy -seven- sprite!\n");
+        return 1;
+    }
+
+    if (destroy_sprite(eight) != 0) {
+        printf("Error: problems occurred while trying to destroy -eight- sprite!\n");
+        return 1;
+    }
+
+    if (destroy_sprite(nine) != 0) {
+        printf("Error: problems occurred while trying to destroy -nine- sprite!\n");
+        return 1;
+    }
+
+    if (destroy_sprite(helpPage) != 0) {
+        printf("Error: problems occurred while trying to destroy -helpPage- sprite!\n");
+        return 1;
+    }
+
 
     return 0;
 }
 
+/*!
+ * @brief Draws a sprite on the screen.
+ * 
+ * This function draws the sprite's pixels on the screen, skipping transparent pixels.
+ * 
+ * @param sp Pointer to the Sprite object to be drawn.
+ * @return int Returns 0 on success, 1 if the sprite was NULL.
+ */
 int (draw_sprite)(Sprite *sp) {
     if(sp == NULL) return 1;
 
@@ -204,6 +303,13 @@ int (draw_sprite)(Sprite *sp) {
     return 0;
 }
 
+/*!
+ * @brief Loads sprites for the 1152x864 resolution.
+ * 
+ * This function creates and initializes all the sprites needed for the 1152x864 resolution.
+ * 
+ * @return int Returns 0 on success, 1 if any sprite could not be loaded.
+ */
 int (load_sprites_1152x864)() {
     normalCursor = create_sprite((xpm_map_t)mouse_pointer_1152_864_xpm, 100, 100);
     if(normalCursor == NULL) {
@@ -379,15 +485,100 @@ int (load_sprites_1152x864)() {
         return 1;
     }
 
-    sound_intensity= create_sprite((xpm_map_t)sound_intensity_1152_864_xpm, 242, 427);
-    if(sound_intensity == NULL) {
-        printf("Error: Problems occured while trying to load -sound_intensity- sprite! \n");
+    sound_int= create_sprite((xpm_map_t)sound_intensity_1152_864_xpm, 242, 427);
+    if(sound_int == NULL) {
+        printf("Error: Problems occured while trying to load -sound_int- sprite! \n");
+        return 1;
+    }
+
+    colon = create_sprite((xpm_map_t)colon_1152_864_xpm, 0, 0);
+    if(colon == NULL) {
+        printf("Error: Problems occured while trying to load -colon- sprite! \n");
+        return 1;
+    }
+
+    slash = create_sprite((xpm_map_t)slash_1152_864_xpm, 0, 0);
+    if (slash == NULL) {
+        printf("Error: Problems occurred while trying to load -slash- sprite!\n");
+        return 1;
+    }
+
+    zero = create_sprite((xpm_map_t)zero_1152_864_xpm, 0, 0);
+    if (zero == NULL) {
+        printf("Error: Problems occurred while trying to load -zero- sprite!\n");
+        return 1;
+    }
+
+    one = create_sprite((xpm_map_t)one_1152_864_xpm, 0, 0);
+    if (one == NULL) {
+        printf("Error: Problems occurred while trying to load -one- sprite!\n");
+        return 1;
+    }
+
+    two = create_sprite((xpm_map_t)two_1152_864_xpm, 0, 0);
+    if (two == NULL) {
+        printf("Error: Problems occurred while trying to load -two- sprite!\n");
+        return 1;
+    }
+
+    three = create_sprite((xpm_map_t)three_1152_864_xpm, 0, 0);
+    if (three == NULL) {
+        printf("Error: Problems occurred while trying to load -three- sprite!\n");
+        return 1;
+    }
+
+    four = create_sprite((xpm_map_t)four_1152_864_xpm, 0, 0);
+    if (four == NULL) {
+        printf("Error: Problems occurred while trying to load -four- sprite!\n");
+        return 1;
+    }
+
+    five = create_sprite((xpm_map_t)five_1152_864_xpm, 0, 0);
+    if (five == NULL) {
+        printf("Error: Problems occurred while trying to load -five- sprite!\n");
+        return 1;
+    }
+
+    six = create_sprite((xpm_map_t)six_1152_864_xpm, 0, 0);
+    if (six == NULL) {
+        printf("Error: Problems occurred while trying to load -six- sprite!\n");
+        return 1;
+    }
+
+    seven = create_sprite((xpm_map_t)seven_1152_864_xpm, 0, 0);
+    if (seven == NULL) {
+        printf("Error: Problems occurred while trying to load -seven- sprite!\n");
+        return 1;
+    }
+
+    eight = create_sprite((xpm_map_t)eight_1152_864_xpm, 0, 0);
+    if (eight == NULL) {
+        printf("Error: Problems occurred while trying to load -eight- sprite!\n");
+        return 1;
+    }
+
+    nine = create_sprite((xpm_map_t)nine_1152_864_xpm, 0, 0);
+    if (nine == NULL) {
+        printf("Error: Problems occurred while trying to load -nine- sprite!\n");
+        return 1;
+    }
+
+    helpPage = create_sprite((xpm_map_t)help_1152_864_xpm, 0, 0);
+    if (helpPage == NULL) {
+        printf("Error: Problems occurred while trying to load -helpPage- sprite!\n");
         return 1;
     }
 
     return 0;
 }
 
+/*!
+ * @brief Loads sprites for the 800x600 resolution.
+ * 
+ * This function creates and initializes all the sprites needed for the 800x600 resolution.
+ * 
+ * @return int Returns 0 on success, 1 if any sprite could not be loaded.
+ */
 int (load_sprites_800x600)() {
     normalCursor = create_sprite((xpm_map_t)mouse_pointer_800_600_xpm, 0, 0);
     if(normalCursor == NULL) {
@@ -564,15 +755,102 @@ int (load_sprites_800x600)() {
         return 1;
     }
 
-    sound_intensity= create_sprite((xpm_map_t)sound_intensity_800_600_xpm, 170, 299);
-    if(sound_intensity == NULL) {
-        printf("Error: Problems occured while trying to load -sound_intensity- sprite! \n");
+    sound_int = create_sprite((xpm_map_t)sound_intensity_800_600_xpm, 170, 299);
+    if(sound_int == NULL) {
+        printf("Error: Problems occured while trying to load -sound_int- sprite! \n");
         return 1;
     }
 
+    colon = create_sprite((xpm_map_t)colon_800_600_xpm, 0, 0);
+    if(colon == NULL) {
+        printf("Error: Problems occured while trying to load -colon- sprite! \n");
+        return 1;
+    }
+
+    slash = create_sprite((xpm_map_t)slash_800_600_xpm, 0, 0);
+    if (slash == NULL) {
+        printf("Error: Problems occurred while trying to load -slash- sprite!\n");
+        return 1;
+    }
+
+    zero = create_sprite((xpm_map_t)zero_800_600_xpm, 0, 0);
+    if (zero == NULL) {
+        printf("Error: Problems occurred while trying to load -zero- sprite!\n");
+        return 1;
+    }
+
+    one = create_sprite((xpm_map_t)one_800_600_xpm, 0, 0);
+    if (one == NULL) {
+        printf("Error: Problems occurred while trying to load -one- sprite!\n");
+        return 1;
+    }
+
+    two = create_sprite((xpm_map_t)two_800_600_xpm, 0, 0);
+    if (two == NULL) {
+        printf("Error: Problems occurred while trying to load -two- sprite!\n");
+        return 1;
+    }
+
+    three = create_sprite((xpm_map_t)three_800_600_xpm, 0, 0);
+    if (three == NULL) {
+        printf("Error: Problems occurred while trying to load -three- sprite!\n");
+        return 1;
+    }
+
+    four = create_sprite((xpm_map_t)four_800_600_xpm, 0, 0);
+    if (four == NULL) {
+        printf("Error: Problems occurred while trying to load -four- sprite!\n");
+        return 1;
+    }
+
+    five = create_sprite((xpm_map_t)five_800_600_xpm, 0, 0);
+    if (five == NULL) {
+        printf("Error: Problems occurred while trying to load -five- sprite!\n");
+        return 1;
+    }
+
+    six = create_sprite((xpm_map_t)six_800_600_xpm, 0, 0);
+    if (six == NULL) {
+        printf("Error: Problems occurred while trying to load -six- sprite!\n");
+        return 1;
+    }
+
+    seven = create_sprite((xpm_map_t)seven_800_600_xpm, 0, 0);
+    if (seven == NULL) {
+        printf("Error: Problems occurred while trying to load -seven- sprite!\n");
+        return 1;
+    }
+
+    eight = create_sprite((xpm_map_t)eight_800_600_xpm, 0, 0);
+    if (eight == NULL) {
+        printf("Error: Problems occurred while trying to load -eight- sprite!\n");
+        return 1;
+    }
+
+    nine = create_sprite((xpm_map_t)nine_800_600_xpm, 0, 0);
+    if (nine == NULL) {
+        printf("Error: Problems occurred while trying to load -nine- sprite!\n");
+        return 1;
+    }
+
+    helpPage = create_sprite((xpm_map_t)help_page_800_600_xpm, 0, 0);
+    if (helpPage == NULL) {
+        printf("Error: Problems occurred while trying to load -helpPage- sprite!\n");
+        return 1;
+    }
+     
     return 0;
 }
 
+/*!     
+ * @brief Loads sprites based on the specified resolution.
+ * 
+ * This function determines which resolution-specific sprite loading function to call based on the provided resolution.
+ * It supports loading sprites for 800x600 and 1152x864 resolutions.
+ * 
+ * @param res The resolution identifier. It should be either `RES_800_600` or another value for 1152x864 resolution.
+ * @return int Returns 0 on success, 1 if any sprite loading fails.
+ */
 int (load_sprites)(int res) {
     if(res == RES_800_600) {
         if(load_sprites_800x600() != 0) {

@@ -23,9 +23,8 @@
 #define CONTROL_SHELL 1
 #define HOUSE_PLANT 2
 #define SECURITY_CAMERA 3
-#define DISPLAY_MESSAGE 4
-#define SETTINGS 5
-#define HELP 6
+#define RESOLUTION 4
+#define HELP 5
 
 struct handler;
 typedef struct handler handler_t;

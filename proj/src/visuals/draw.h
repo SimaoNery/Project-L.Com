@@ -16,7 +16,7 @@ int draw_display_message();
 
 int draw_security_camera();
 
-int draw_settings();
+int draw_resolution();
 
 int draw_house_plant();
 
@@ -24,6 +24,8 @@ int draw_help();
 
 int draw_main_buttons();
 
-int draw_settings_buttons();
+int draw_resolution_buttons();
+
+int draw_housePlant_buttons();
 
 #endif

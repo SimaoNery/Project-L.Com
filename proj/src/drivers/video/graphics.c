@@ -99,7 +99,7 @@ int(map_frame_buffer_page_flipping)(uint16_t mode) {
 }
 
 int (map_frame_buffer_triple_buffering)(uint16_t mode) {
-  printf("GOT CALLED 222222222 \n");
+  printf("GOT CALLED TRIPLEEEE \n");
 
   memset(&vmi_p, 0, sizeof(vmi_p));
 
@@ -204,13 +204,13 @@ int (set_display_start_triple_buffering)() {
   r.cx = 0x00;
   
   if(buffer == 0) {
-    r.dx = 0x00;
-  }
-  else if(buffer == 1) {
     r.dx = vmi_p.YResolution;
   }
-  else {
+  else if(buffer == 1) {
     r.dx = vmi_p.YResolution * 2;
+  }
+  else {
+    r.dx = 0x00;
   }
 
 
@@ -219,12 +219,7 @@ int (set_display_start_triple_buffering)() {
     return 1;
   }
 
-  if(buffer == 2) {
-    buffer = 0;
-  }
-  else {
-    buffer++;
-  }
+  buffer = (buffer + 1) % 3;
 
   return 0;
 }
@@ -281,6 +276,7 @@ int (change_resolution)(int res) {
        return 1;
     }
 
+    buffer = 0;
     page_state = MAIN_MENU;
   }
 
@@ -288,39 +284,32 @@ int (change_resolution)(int res) {
 }
 
 int unmap_frame_buffer() {
-  if(resolution == (uint16_t)RES_1024_768) {
-    
-    if (video_mem != NULL) {
-    int r = vm_unmap_phys(SELF, video_mem, vram_size * 3);
-      if (r != OK) {
-          printf("unmap_frame_buffer: vm_unmap_phys failed: %d\n", r);
-          return 1;
-      }
-    }
-  }
+  if (video_mem != NULL) {
+    int r;
 
-  else {
-    if (video_mem != NULL) {
-    int r = vm_unmap_phys(SELF, video_mem, vram_size * 2);
-      if (r != OK) {
-          printf("unmap_frame_buffer: vm_unmap_phys failed: %d\n", r);
-          return 1;
-      }
+    if (resolution == (uint16_t)RES_1152_864) {
+      r = vm_unmap_phys(SELF, video_mem, vram_size * 3);
+    } 
+    else {
+      r = vm_unmap_phys(SELF, video_mem, vram_size * 2);
     }
+
+    if (r != OK) {
+        printf("unmap_frame_buffer: vm_unmap_phys failed: %d\n", r);
+        return 1;
+    }
+
   }
 
   if(front_buffer != NULL) {
-    free(front_buffer);
     front_buffer = NULL;
   }
 
   if(back_buffer != NULL) {
-    free(back_buffer);
     back_buffer = NULL;
   }
 
   if(extra_buffer != NULL) {
-    free(extra_buffer);
     extra_buffer = NULL;
   }
 

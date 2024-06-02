@@ -11,7 +11,6 @@ void keyboard_main_menu_handler ();
 void keyboard_control_shell_handler ();
 void keyboard_house_plant_handler ();
 void keyboard_security_camera_handler ();
-void keyboard_display_message_handler ();
 void keyboard_settings_handler ();
 void keyboard_help_handler ();
 

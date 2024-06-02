@@ -16,11 +16,8 @@ int draw_page() {
     case SECURITY_CAMERA:
       draw_security_camera();
       break;
-    case DISPLAY_MESSAGE:
-      draw_display_message();
-      break;
-    case SETTINGS:
-      draw_settings();
+    case RESOLUTION:
+      draw_resolution();
       break;
     case HELP:
       draw_help();
@@ -87,14 +84,14 @@ int draw_security_camera() {
   return 0;
 }
 
-int draw_settings() {
-  if(draw_sprite(settingsPage) != 0) {
-    printf("Error: Problems occured while trying to draw -settingsPage- sprite! \n");
+int draw_resolution() {
+  if(draw_sprite(resolutionPage) != 0) {
+    printf("Error: Problems occured while trying to draw -resolutionPage- sprite! \n");
     return 1;
   }
 
-  if(draw_settings_buttons() != 0) {
-    printf("Error: Problems occured while trying to draw Settings Page Buttons! \n");
+  if(draw_resolution_buttons() != 0) {
+    printf("Error: Problems occured while trying to draw Resolution Page Buttons! \n");
     return 1;
   }
 
@@ -112,6 +109,27 @@ int draw_settings() {
 }
 
 int draw_house_plant() {
+
+  if(draw_sprite(housePlant) != 0) {
+     printf("Error: Problems occured while trying to draw -housePlantPage- sprite! \n");
+    return 1;
+  }
+
+  if(draw_housePlant_buttons() != 0) {
+    printf("Error: Problems occured while trying to draw -housePlantButtons- sprite! \n");
+    return 1;
+  }
+
+  if(draw_sprite(normalCursor) != 0) {
+    printf("Error: Problems occured while trying to draw the mouse pointer! \n");
+    return 1;
+  }
+
+  if(buffering_method() != 0) {
+    printf("Error detecting buffering method! \n");
+    return 1;
+  }
+
   return 0;
 }
 
@@ -135,7 +153,7 @@ int draw_main_buttons() {
     return 1;
   };
 
-  if (draw_sprite(displayMessageButton) != 0) {
+  if (draw_sprite(exitButton) != 0) {
     printf("Error: Problems occured trying to draw -displayMessageButton- sprite! \n");
     return 1;
   };
@@ -145,15 +163,15 @@ int draw_main_buttons() {
     return 1;
   };
 
-  if (draw_sprite(settingsButton) != 0) {
-    printf("Error: Problems occured trying to draw -settingsButton- sprite! \n");
+  if (draw_sprite(resolutionButton) != 0) {
+    printf("Error: Problems occured trying to draw -resolutionButton- sprite! \n");
     return 1;
   };
 
   return 0;
 }
 
-int draw_settings_buttons() {
+int (draw_resolution_buttons)() {
   if (draw_sprite(smallResolutionButton) != 0) {
     printf("Error: Problems occured trying to draw -smallResolutionButton- sprite! \n");
     return 1;
@@ -163,6 +181,115 @@ int draw_settings_buttons() {
     printf("Error: Problems occured trying to draw -bigResolutionButton- sprite! \n");
     return 1;
   };
+
+  if(draw_sprite(backArrow) != 0) {
+    printf("Error: Problems occured while trying to draw -backArrow- sprite! \n");
+    return 1;
+  }
+
+  return 0;
+}
+
+int(draw_housePlant_buttons)() {
+  if (draw_sprite(adjustFanPower) != 0) {
+    printf("Error: Problems occurred trying to draw -adjustFanPower- sprite! \n");
+    return 1;
+  };
+
+  if (draw_sprite(cam) != 0) {
+    printf("Error: Problems occurred trying to draw -cam- sprite! \n");
+    return 1;
+  };
+
+  if (draw_sprite(db) != 0) {
+    printf("Error: Problems occurred trying to draw -db- sprite! \n");
+    return 1;
+  };
+
+  if (draw_sprite(degrees_celcius) != 0) {
+    printf("Error: Problems occurred trying to draw -degrees_celcius- sprite! \n");
+    return 1;
+  };
+
+  if (draw_sprite(fan) != 0) {
+    printf("Error: Problems occurred trying to draw -fan- sprite! \n");
+    return 1;
+  };
+
+  if (draw_sprite(horn1) != 0) {
+    printf("Error: Problems occurred trying to draw -horn1- sprite! \n");
+    return 1;
+  };
+
+  if (draw_sprite(horn2) != 0) {
+    printf("Error: Problems occurred trying to draw -horn2- sprite! \n");
+    return 1;
+  };
+
+  if (draw_sprite(humidity_and_temperature) != 0) {
+    printf("Error: Problems occurred trying to draw -humidity_and_temperature- sprite! \n");
+    return 1;
+  };
+
+  if (draw_sprite(light_horizontal1) != 0) {
+    printf("Error: Problems occurred trying to draw -light_horizontal1- sprite! \n");
+    return 1;
+  };
+
+  if (draw_sprite(light_horizontal2) != 0) {
+    printf("Error: Problems occurred trying to draw -light_horizontal2- sprite! \n");
+    return 1;
+  }
+
+  if (draw_sprite(light_vertical1) != 0) {
+    printf("Error: Problems occurred trying to draw -light_vertical1- sprite! \n");
+    return 1;
+  };
+
+  if (draw_sprite(light_vertical2) != 0) {
+    printf("Error: Problems occurred trying to draw -light_vertical2- sprite! \n");
+    return 1;
+  };
+
+  if (draw_sprite(light_vertical3) != 0) {
+    printf("Error: Problems occurred trying to draw -light_vertical3- sprite! \n");
+    return 1;
+  };
+
+  if (draw_sprite(percentage) != 0) {
+    printf("Error: Problems occurred trying to draw -percentage- sprite! \n");
+    return 1;
+  };
+
+  if (draw_sprite(read_humidity) != 0) {
+    printf("Error: Problems occurred trying to draw -read_humidity- sprite! \n");
+    return 1;
+  };
+
+  if (draw_sprite(read_sound_intensity) != 0) {
+    printf("Error: Problems occurred trying to draw -read_sound_intensity- sprite! \n");
+    return 1;
+  };
+
+  if (draw_sprite(read_temperature) != 0) {
+    printf("Error: Problems occurred trying to draw -read_temperature- sprite! \n");
+    return 1;
+  };
+
+  if (draw_sprite(sound_intensity) != 0) {
+    printf("Error: Problems occurred trying to draw -sound_intensity- sprite! \n");
+    return 1;
+  };
+
+  if (draw_sprite(take_picture) != 0) {
+    printf("Error: Problems occurred trying to draw -take_picture- sprite! \n");
+    return 1;
+  };
+
+  if(draw_sprite(backArrow) != 0) {
+    printf("Error: Problems occurred while trying to draw -backArrow- sprite! \n");
+    return 1;
+  }
 
   return 0;
 }

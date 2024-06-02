@@ -53,8 +53,6 @@ void timer_house_plant_handler () {}
 
 void timer_security_camera_handler () {}
 
-void timer_display_message_handler () {}
-
 void timer_settings_handler () {}
 
 void timer_help_handler () {}

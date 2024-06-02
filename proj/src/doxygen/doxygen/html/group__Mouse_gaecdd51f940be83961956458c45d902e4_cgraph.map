@@ -1,0 +1,10 @@
+<map id="write_mouse_cmd" name="write_mouse_cmd">
+<area shape="rect" id="Node000001" title="Writes a command to the mouse." alt="" coords="5,5,133,31"/>
+<area shape="rect" id="Node000002" href="$group__Utils.html#ga2b56f50ba159e9d5115ed1a75eff15d9" title="Reads a byte from the specified port and store it in uint8_t variable." alt="" coords="496,5,587,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="133,16,481,16,481,21,133,21"/>
+<area shape="rect" id="Node000003" href="$group__KBC.html#ga94335c781bc61e7e5f97dbaff386a411" title="Writes a command to the specified port of the Keyboard Controller (KBC)." alt="" coords="181,31,290,56"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="134,25,166,30,165,36,133,31"/>
+<area shape="rect" id="Node000004" href="$group__KBC.html#ga1ea22dc7f1cd587ad7715408bddb3c4e" title="Retrieves the status from the Keyboard Controller (KBC)." alt="" coords="338,31,448,56"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="291,41,322,41,322,46,291,46"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="448,31,480,26,481,31,449,37"/>
+</map>

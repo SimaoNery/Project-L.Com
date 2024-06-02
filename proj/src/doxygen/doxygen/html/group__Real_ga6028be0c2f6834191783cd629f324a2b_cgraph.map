@@ -1,0 +1,10 @@
+<map id="rtc_get_time" name="rtc_get_time">
+<area shape="rect" id="Node000001" title="Retrieves the current time from the RTC." alt="" coords="5,31,99,56"/>
+<area shape="rect" id="Node000002" href="$group__Real.html#ga432373ee35ebe371ba9117440aee1120" title="Retrieves the configuration from a specified RTC register." alt="" coords="331,5,434,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="93,27,146,16,235,10,315,11,315,16,235,15,147,21,94,33"/>
+<area shape="rect" id="Node000003" href="$group__Real.html#ga5873dc86f56c4a2a8ea8f7faf07ef798" title="Checks if the RTC is in binary mode." alt="" coords="167,31,263,56"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="99,41,152,41,152,46,99,46"/>
+<area shape="rect" id="Node000004" href="$group__Real.html#ga01fecdb3049618e4f75df07d67ef6c64" title="Converts a BCD number to binary." alt="" coords="147,80,283,106"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="98,54,156,72,155,78,96,60"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="263,34,315,26,316,31,263,39"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="triple_copy" name="triple_copy">
+<area shape="rect" id="Node000001" title="Copies the buffers for triple buffering." alt="" coords="5,63,90,88"/>
+<area shape="rect" id="Node000002" href="$group__Graphics.html#ga0f35f330c5fc115729ebd486a1a4e7da" title="Clears the back buffer." alt="" coords="153,5,278,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="85,60,137,41,158,34,159,39,139,46,86,65"/>
+<area shape="rect" id="Node000003" href="$group__Graphics.html#ga38896d3324498790d6c2324d14deac2f" title="Sets the display start for triple buffering." alt="" coords="138,55,293,96"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="90,73,122,73,122,78,90,78"/>
+<area shape="rect" id="Node000004" href="$group__Graphics.html#gad36fbad5794d448fb823db87ca9a0b2f" title="Waits until the last scheduled change has occured." alt="" coords="152,121,279,161"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="84,86,148,112,146,117,82,91"/>
+</map>

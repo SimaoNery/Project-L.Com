@@ -1,10 +1,25 @@
 #include "fan.h"
-
+/**
+ * @defgroup Fan Fan
+ * 
+ */
 uint8_t command_fan = FAN_ID;
 
 uint32_t fan_counter = 0;
 bool fan_time = false;
 
+/**
+ * @ingroup Fan Fan
+ * @brief Turns the fan on with specified power and optional timer.
+ *
+ * This function turns the fan on with a specified power level. If a timer is provided,
+ * the fan will run for the specified duration. The power level should be between 1 and 31.
+ * The timer can be specified in seconds (s), minutes (m), or hours (h).
+ *
+ * @param args An array of strings representing the command arguments. The first argument
+ *             can be the power level, and the second argument can be the timer in the format
+ *             "-t <time><unit>" where <unit> can be 's', 'm', or 'h'.
+ */
 void fan_on(char *args[]) {
 
   uint8_t command_aux = FAN_ID;
@@ -99,6 +114,13 @@ void fan_on(char *args[]) {
   }
 }
 
+
+/**
+ * @ingroup Fan Fan
+ * @brief Turns the fan off.
+ *
+ * This function turns the fan off by resetting the command, counter, and timer.
+ */
 void fan_off() {
   fan_counter = 0;
   fan_time = false;

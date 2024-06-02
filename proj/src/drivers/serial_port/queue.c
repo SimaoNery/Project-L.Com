@@ -1,6 +1,12 @@
 #include "queue.h"
+/**
+ * @defgroup Queue Queue
+ * 
+ */
+
 
 /*!
+ * @ingroup Queue Queue
  * @brief Structure representing a queue.
  */
 struct queue
@@ -11,6 +17,7 @@ struct queue
 };
 
 /*!
+ * @ingroup Queue Queue
  * @brief Adjusts the queue indices to wrap around when they reach the end of the buffer.
  * 
  * @param q Pointer to the queue structure.
@@ -21,6 +28,7 @@ static void adjust_queue(queue_t* q) {
 }
 
 /*!
+ * @ingroup Queue Queue
  * @brief Resizes the queue buffer to double its current size.
  * 
  * @param q Pointer to the queue structure.
@@ -44,6 +52,7 @@ static int resize_queue(queue_t *q) {
 }
 
 /*!
+ * @ingroup Queue Queue
  * @brief Creates a new queue.
  * 
  * @return queue_t* Pointer to the newly created queue, or NULL if memory allocation fails.
@@ -67,6 +76,7 @@ queue_t *new_queue() {
 }
 
 /*!
+ * @ingroup Queue Queue
  * @brief Deletes a queue and frees its memory.
  * 
  * @param q Pointer to the queue structure.
@@ -77,6 +87,7 @@ void delete_queue(queue_t *q) {
 }
 
 /*!
+ * @ingroup Queue Queue
  * @brief Adds an element to the queue.
  * 
  * @param q Pointer to the queue structure.
@@ -96,6 +107,7 @@ int push(queue_t *q, int n) {
 }
 
 /*!
+ * @ingroup Queue Queue
  * @brief Removes an element from the queue.
  * 
  * @param q Pointer to the queue structure.
@@ -113,6 +125,7 @@ int pop(queue_t *q, int* n) {
 }
 
 /*!
+ * @ingroup Queue Queue
  * @brief Clears all elements from the queue.
  * 
  * @param q Pointer to the queue structure.
@@ -126,6 +139,7 @@ void clear_queue(queue_t *q) {
 }
 
 /*!
+ * @ingroup Queue Queue
  * @brief Checks if the queue is empty.
  * 
  * @param q Pointer to the queue structure.

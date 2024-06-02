@@ -1,5 +1,10 @@
 #include "draw.h"
 
+/**
+ * @defgroup Draw Draw
+ * 
+ */
+
 extern uint8_t page_state;
 extern uint16_t resolution;
 
@@ -10,7 +15,7 @@ extern int sound_intensity[2];
 
 /*!
  * @brief Draws the current page based on the page state.
- * 
+ * @ingroup Draw Draw
  * This function switches between different page states and calls the appropriate drawing functions.
  * 
  * @return int Returns 0 on success, 1 on failure.
@@ -39,7 +44,7 @@ int draw_page() {
 
 /*!
  * @brief Draws the main menu page.
- * 
+ * @ingroup Draw Draw
  * This function draws the main menu sprite, main buttons, and the mouse pointer.
  * 
  * @return int Returns 0 on success, 1 on failure.
@@ -97,7 +102,7 @@ int draw_display_message() {
 
 /*!
  * @brief Draws the resolution page.
- * 
+ * @ingroup Draw Draw
  * This function draws the resolution page sprite, resolution buttons, and the mouse pointer.
  * It also detects the buffering method.
  * 
@@ -129,7 +134,7 @@ int draw_resolution() {
 
 /*!
  * @brief Draws the house plant page.
- * 
+ * @ingroup Draw Draw
  * This function sends serial port messages, draws the house plant sprite, house plant buttons, and the mouse pointer.
  * It also detects the buffering method.
  * 
@@ -201,7 +206,7 @@ int draw_help() {
 
 /*!
  * @brief Draws the main menu buttons.
- * 
+ * @ingroup Draw Draw
  * This function draws the control shell button, house plant button, exit button, help button, and resolution button.
  * 
  * @return int Returns 0 on success, 1 on failure.
@@ -237,7 +242,7 @@ int draw_main_buttons() {
 
 /*!
  * @brief Draws the resolutions  buttons.
- * 
+ * @ingroup Draw Draw
  * This function draws the resolutions buttons
  * 
  * @return int Returns 0 on success, 1 on failure.
@@ -264,7 +269,7 @@ int (draw_resolution_buttons)() {
 
 /*!
  * @brief Draws the House Plant buttons.
- * 
+ * @ingroup Draw Draw
  * This function draws the House Plant buttons
  * 
  * @return int Returns 0 on success, 1 on failure.
@@ -342,7 +347,17 @@ int(draw_housePlant_buttons)() {
 
   return 0;
 }
-
+/**
+ * @brief Draws a digit sprite at the specified position.
+ * 
+ * @ingroup Draw Draw
+ * 
+ * @param to_draw Pointer to the sprite to be drawn.
+ * @param height The y-coordinate where the sprite will be drawn.
+ * @param width The x-coordinate where the sprite will be drawn.
+ * @param x_counter Pointer to the x-coordinate counter.
+ * @return int Returns 0 on success, 1 on failure.
+ */
 int draw_digit_value(Sprite* to_draw, int height, int width, int *x_counter) {
   to_draw->x = width + *x_counter;
   to_draw->y = height;
@@ -355,6 +370,15 @@ int draw_digit_value(Sprite* to_draw, int height, int width, int *x_counter) {
   return 0;
 }
 
+/**
+ * @brief Draws a digit date sprite at the specified position.
+ * 
+ * @ingroup Draw Draw
+ * 
+ * @param to_draw Pointer to the sprite to be drawn.
+ * @param x_counter Pointer to the x-coordinate counter.
+ * @return int Returns 0 on success, 1 on failure.
+ */
 int draw_digit_date(Sprite* to_draw, int *x_counter) {
   to_draw->x = *x_counter;
   if (draw_sprite(to_draw) != 0) {
@@ -365,120 +389,118 @@ int draw_digit_date(Sprite* to_draw, int *x_counter) {
   return 0;
 }
 
+/**
+ * @brief Draws unit sprites based on the given time value.
+ * 
+ * @ingroup Draw Draw
+ * 
+ * @param time_val The time value to be drawn.
+ * @param x_counter Pointer to the x-coordinate counter.
+ * @return int Returns 0 on success, 1 on failure.
+ */
 int draw_unit_sprites(uint8_t time_val, int *x_counter) {
-
   char num_str[3];
   sprintf(num_str, "%02u", time_val); 
 
   for (int i = 0; num_str[i] != '\0'; i++) {
-
-    
     switch (num_str[i]) {
     case '0':
       if (draw_digit_date(zero, x_counter) != 0) return 1;
       break;
-
     case '1':
       if (draw_digit_date(one, x_counter) != 0) return 1;
       break;
-    
     case '2':
       if (draw_digit_date(two, x_counter) != 0) return 1;
       break;
-
     case '3':
       if (draw_digit_date(three, x_counter) != 0) return 1;
       break;
-
     case '4':
       if (draw_digit_date(four, x_counter) != 0) return 1;
       break;
-
     case '5':
       if (draw_digit_date(five, x_counter) != 0) return 1;
       break;
-
     case '6':
       if (draw_digit_date(six, x_counter) != 0) return 1;
       break;
-
     case '7':
       if (draw_digit_date(seven, x_counter) != 0) return 1;
       break;
-
     case '8':
       if (draw_digit_date(eight, x_counter) != 0) return 1;
       break;
-
     case '9':
       if (draw_digit_date(nine, x_counter) != 0) return 1;
       break;
-
     }
   }
 
   return 0;
 }
 
-
+/**
+ * @brief Draws value sprites at the specified position.
+ * 
+ * @ingroup Draw Draw
+ * 
+ * @param val The value to be drawn.
+ * @param height The y-coordinate where the sprite will be drawn.
+ * @param width The x-coordinate where the sprite will be drawn.
+ * @param x_counter Pointer to the x-coordinate counter.
+ * @return int Returns 0 on success, 1 on failure.
+ */
 int draw_value_sprites(int val, int height, int width, int *x_counter) {
-
   char num_str[3];
   sprintf(num_str, "%0d", val); 
 
   for (int i = 0; num_str[i] != '\0'; i++) {
-
-    
     switch (num_str[i]) {
     case '0':
       if (draw_digit_value(zero, height, width, x_counter) != 0) return 1;
       break;
-
     case '1':
-      if (draw_digit_value(one, height,  width,x_counter) != 0) return 1;
+      if (draw_digit_value(one, height, width, x_counter) != 0) return 1;
       break;
-    
     case '2':
-      if (draw_digit_value(two, height,  width,x_counter) != 0) return 1;
+      if (draw_digit_value(two, height, width, x_counter) != 0) return 1;
       break;
-
     case '3':
       if (draw_digit_value(three, height, width, x_counter) != 0) return 1;
       break;
-
     case '4':
       if (draw_digit_value(four, height, width, x_counter) != 0) return 1;
       break;
-
     case '5':
       if (draw_digit_value(five, height, width, x_counter) != 0) return 1;
       break;
-
     case '6':
       if (draw_digit_value(six, height, width, x_counter) != 0) return 1;
       break;
-
     case '7':
-      if (draw_digit_value(seven, height,  width,x_counter) != 0) return 1;
+      if (draw_digit_value(seven, height, width, x_counter) != 0) return 1;
       break;
-
     case '8':
       if (draw_digit_value(eight, height, width, x_counter) != 0) return 1;
       break;
-
     case '9':
       if (draw_digit_value(nine, height, width, x_counter) != 0) return 1;
       break;
-
     }
   }
 
   return 0;
 }
 
-
+/**
+ * @brief Draws the current date and time on the screen.
+ * 
+ * @ingroup Draw Draw
+ * 
+ * @return int Returns 0 on success, 1 on failure.
+ */
 int draw_date_time() {
-  
   uint8_t year = time_info.year;
   uint8_t month = time_info.month;
   uint8_t day = time_info.day;
@@ -496,14 +518,19 @@ int draw_date_time() {
   if (draw_unit_sprites(day, &x_counter) != 0) return 1;
   x_counter += two->width;
   if (draw_unit_sprites(hour, &x_counter) != 0) return 1;
-
   if (draw_digit_date(colon, &x_counter) != 0) return 1;
-
   if (draw_unit_sprites(minute, &x_counter) != 0) return 1;
 
   return 0;
 }
 
+/**
+ * @brief Draws the humidity value on the screen.
+ * 
+ * @ingroup Draw Draw
+ * 
+ * @return int Returns 0 on success, 1 on failure.
+ */
 int draw_humidity() {
   int humidity = (humidity_temp[0] << 8) | (humidity_temp[1]);
 
@@ -511,71 +538,80 @@ int draw_humidity() {
 
   int x = 0;
   int y = 0;
-  if(resolution == (uint16_t)RES_1152_864) {
+  if (resolution == (uint16_t)RES_1152_864) {
     x = 975;
     y = 325;
-  }
-  else {
+  } else {
     x = 675;
     y = 205;
   }
-  if(draw_value_sprites(humidity, y, x, &x_counter) != 0) {
+  if (draw_value_sprites(humidity, y, x, &x_counter) != 0) {
     return 1;
   }
 
-  if(draw_digit_value(percentage, y, x, &x_counter) != 0) return 1;
+  if (draw_digit_value(percentage, y, x, &x_counter) != 0) return 1;
 
   return 0;
 }
 
+/**
+ * @brief Draws the temperature value on the screen.
+ * 
+ * @ingroup Draw Draw
+ * 
+ * @return int Returns 0 on success, 1 on failure.
+ */
 int draw_temperature() {
   int temperature = (humidity_temp[2] << 8) | (humidity_temp[3]);
 
   int x_counter = 0;
 
-
   int x = 0;
   int y = 0;
-  if(resolution == (uint16_t)RES_1152_864) {
+  if (resolution == (uint16_t)RES_1152_864) {
     x = 995;
     y = 475;
-  }
-  else {
+  } else {
     x = 682;
     y = 319;
   }
 
-  if(draw_value_sprites(temperature, y, x, &x_counter) != 0) {
+  if (draw_value_sprites(temperature, y, x, &x_counter) != 0) {
     return 1;
   }
 
-  if(draw_digit_value(degrees_celcius, y, x, &x_counter) != 0) return 1;
+  if (draw_digit_value(degrees_celcius, y, x, &x_counter) != 0) return 1;
 
   return 0;
 }
 
+/**
+ * @brief Draws the sound intensity value on the screen.
+ * 
+ * @ingroup Draw Draw
+ * 
+ * @return int Returns 0 on success, 1 on failure.
+ */
 int draw_sound_intensity() {
   int sound = (sound_intensity[0] << 8) | (sound_intensity[1]);
 
   int x_counter = 0;
 
-
   int x = 0;
   int y = 0;
-  if(resolution == (uint16_t)RES_1152_864) {
+  if (resolution == (uint16_t)RES_1152_864) {
     x = 1010;
     y = 625;
-  }
-  else {
+  } else {
     x = 690;
     y = 429;
   }
 
-  if(draw_value_sprites(sound, y, x, &x_counter) != 0) {
+  if (draw_value_sprites(sound, y, x, &x_counter) != 0) {
     return 1;
   }
 
-  if(draw_digit_value(db, y, x, &x_counter) != 0) return 1;
+  if (draw_digit_value(db, y, x, &x_counter) != 0) return 1;
 
   return 0;
 }

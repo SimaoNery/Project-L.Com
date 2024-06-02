@@ -1,0 +1,43 @@
+\doxysection{/\+Users/wagner/\+Desktop/faculdade/2 ano/\+LCOM/\+MINIX-\/\+LCOM/shared/g4/proj/src/headers.h}
+\hypertarget{headers_8h_source}{}\label{headers_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{headers_8h_source_l00001}00001\ \textcolor{preprocessor}{\#define\ BIT(n)\ (1\ <<\ (n))}}
+\DoxyCodeLine{\Hypertarget{headers_8h_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{headers_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{headers_8h_source_l00004}00004\ \textcolor{comment}{/*\ \_\_\_MESSAGES\_TO\_BE\_SENT\_FROM\_MINIX\_\_\_\ */}}
+\DoxyCodeLine{\Hypertarget{headers_8h_source_l00005}00005\ \textcolor{preprocessor}{\#define\ LIGHT\_MASK\ 0x0}}
+\DoxyCodeLine{\Hypertarget{headers_8h_source_l00006}00006\ \textcolor{preprocessor}{\#define\ BUZZER\_MASK\ 0x1}}
+\DoxyCodeLine{\Hypertarget{headers_8h_source_l00007}00007\ \textcolor{preprocessor}{\#define\ LCD\_DISPLAY\_TEXT\_MASK\ 0x2}}
+\DoxyCodeLine{\Hypertarget{headers_8h_source_l00008}00008\ \textcolor{preprocessor}{\#define\ LCD\_DISPLAY\_ANIMATION\_MASK\ 0x3}}
+\DoxyCodeLine{\Hypertarget{headers_8h_source_l00009}00009\ \textcolor{preprocessor}{\#define\ MOTOR\_MASK\ 0x4}}
+\DoxyCodeLine{\Hypertarget{headers_8h_source_l00010}00010\ \textcolor{preprocessor}{\#define\ HUMIDITY\_SENSOR\_MASK\ 0x5}}
+\DoxyCodeLine{\Hypertarget{headers_8h_source_l00011}00011\ \textcolor{preprocessor}{\#define\ DECIBEL\_SENSOR\_MASK\ 0x6}}
+\DoxyCodeLine{\Hypertarget{headers_8h_source_l00012}00012\ \textcolor{preprocessor}{\#define\ CAMERA\_MASK\ 0x7}}
+\DoxyCodeLine{\Hypertarget{headers_8h_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{headers_8h_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{headers_8h_source_l00015}00015\ \textcolor{preprocessor}{\#define\ TURN\_LIGHT\_ON(x)\ (BIT(x))}}
+\DoxyCodeLine{\Hypertarget{headers_8h_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{headers_8h_source_l00017}00017\ \textcolor{preprocessor}{\#define\ TURN\_BUZZER\_ON(x)\ ((0b001\ <<\ 5)\ |\ BIT(x))}}
+\DoxyCodeLine{\Hypertarget{headers_8h_source_l00018}00018\ \textcolor{preprocessor}{\#define\ TURN\_BOTH\_BUZZERS\_ON\ 0x23}}
+\DoxyCodeLine{\Hypertarget{headers_8h_source_l00019}00019\ \textcolor{preprocessor}{\#define\ TURN\_BUZZER\_OFF\ 0x20}}
+\DoxyCodeLine{\Hypertarget{headers_8h_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{headers_8h_source_l00021}00021\ \textcolor{preprocessor}{\#define\ LCD\_DISPLAY\_TEXT\_MODE(x)\ ((0b010\ <<\ 5)\ |\ (x))}}
+\DoxyCodeLine{\Hypertarget{headers_8h_source_l00022}00022\ \textcolor{preprocessor}{\#define\ LCD\_DISPLAY\_ANIMATION\_MODE\ 0x60}}
+\DoxyCodeLine{\Hypertarget{headers_8h_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{headers_8h_source_l00024}00024\ \textcolor{preprocessor}{\#define\ TURN\_MOTOR\_ON(x)\ ((0b100\ <<\ 5)\ |\ (x))}}
+\DoxyCodeLine{\Hypertarget{headers_8h_source_l00025}00025\ \textcolor{preprocessor}{\#define\ TURN\_MOTOR\_OFF\ 0x80}}
+\DoxyCodeLine{\Hypertarget{headers_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{headers_8h_source_l00027}00027\ \textcolor{preprocessor}{\#define\ GET\_HUMIDITY\ 0xA0}}
+\DoxyCodeLine{\Hypertarget{headers_8h_source_l00028}00028\ \textcolor{preprocessor}{\#define\ GET\_DECIBEL\ 0xC0}}
+\DoxyCodeLine{\Hypertarget{headers_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{headers_8h_source_l00030}00030\ \textcolor{preprocessor}{\#define\ CAMERA\_PHOTO\ 0x71}}
+\DoxyCodeLine{\Hypertarget{headers_8h_source_l00031}00031\ \textcolor{preprocessor}{\#define\ CAMERA\_STREAM\ 0x72}}
+\DoxyCodeLine{\Hypertarget{headers_8h_source_l00032}00032\ \textcolor{preprocessor}{\#define\ CAMERA\_STOP\ 0x70}}
+\DoxyCodeLine{\Hypertarget{headers_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{headers_8h_source_l00034}00034\ \textcolor{preprocessor}{\#define\ ATTEMPTS\ 15}}
+\DoxyCodeLine{\Hypertarget{headers_8h_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{headers_8h_source_l00036}00036\ \textcolor{comment}{/*\ \_\_\_SOCKET\_\_\_\ */}}
+\DoxyCodeLine{\Hypertarget{headers_8h_source_l00037}00037\ \textcolor{preprocessor}{\#define\ SERVER\_IP\ "{}127.0.0.1"{}}}
+\DoxyCodeLine{\Hypertarget{headers_8h_source_l00038}00038\ \textcolor{preprocessor}{\#define\ SERVER\_PORT\ 4321}}
+
+\end{DoxyCode}

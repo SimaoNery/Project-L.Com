@@ -1,5 +1,8 @@
 #include "lights.h"
-
+/**
+ * @defgroup Lights Lights
+ * 
+ */
 uint8_t command = 0;
 
 uint32_t lights_counter[5] = {0};
@@ -9,6 +12,7 @@ uint32_t blink_counter[5] = {0};
 bool blink_time[5] = {false};
 
 /*!
+ * @ingroup Lights Lights
  * @brief Turns on specified lights based on the provided arguments.
  * 
  * This function parses the arguments to determine which lights to turn on, whether to set a timer, or to enable blinking.
@@ -221,6 +225,7 @@ void lights_on(char *args[]) {
 }
 
 /*!
+  * @ingroup Lights Lights
  * @brief Turns off specified lights based on the provided arguments.
  * 
  * This function parses the arguments to determine which lights to turn off.

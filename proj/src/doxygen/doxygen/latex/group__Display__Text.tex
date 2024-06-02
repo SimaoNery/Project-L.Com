@@ -1,0 +1,86 @@
+\doxysection{Display\+\_\+\+Text}
+\hypertarget{group__Display__Text}{}\label{group__Display__Text}\index{Display\_Text@{Display\_Text}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group__Display__Text_ga8114f5893ca5abf7574a43b3efd39ce0}{display\+\_\+text}} (char \texorpdfstring{$\ast$}{*}args\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Displays text by sending it to a serial port. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{group__Display__Text_ga8114f5893ca5abf7574a43b3efd39ce0}\index{Display\_Text@{Display\_Text}!display\_text@{display\_text}}
+\index{display\_text@{display\_text}!Display\_Text@{Display\_Text}}
+\doxysubsubsection{\texorpdfstring{display\_text()}{display\_text()}}
+{\footnotesize\ttfamily \label{group__Display__Text_ga8114f5893ca5abf7574a43b3efd39ce0} 
+void display\+\_\+text (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{args}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Displays text by sending it to a serial port. 
+
+This function takes an array of strings (arguments) and concatenates them into a single buffer. It then sends the concatenated text to a serial port, preceded by a command identifier.
+
+
+\begin{DoxyParams}{Parameters}
+{\em args} & An array of strings to be displayed. The array must be NULL-\/terminated.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+If no text is provided (i.\+e., args\mbox{[}0\mbox{]} is NULL), the function will print an error message and return. 
+
+The maximum number of characters that can be sent is defined by MAX\+\_\+\+CHARS. 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{display__text_8c_source_l00020}{20}} of file \mbox{\hyperlink{display__text_8c_source}{display\+\_\+text.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \textcolor{keywordflow}{if}\ (args[0]\ ==\ NULL)\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ printf(\textcolor{stringliteral}{"{}No\ text\ was\ provided.\(\backslash\)n"{}});}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00025\ \ \ \}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ uint8\_t\ command\ =\ DISPLAY\_TEXT\_ID;}
+\DoxyCodeLine{00028\ \ \ \textcolor{keywordtype}{char}\ buffer[MAX\_CHARS];}
+\DoxyCodeLine{00029\ \ \ \textcolor{keywordtype}{int}\ total\_chars\ =\ 0;}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ args[i]\ !=\ NULL\ \&\&\ total\_chars\ <\ MAX\_CHARS;\ i++)\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ !=\ 0)}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ buffer[total\_chars++]\ =\ \textcolor{charliteral}{'\ '};}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{int}\ j\ =\ 0;}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordflow}{while}\ (args[i][j]\ !=\ \textcolor{charliteral}{'\(\backslash\)0'}\ \&\&\ total\_chars\ <\ MAX\_CHARS)\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ buffer[total\_chars++]\ =\ args[i][j++];}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ buffer[total\_chars]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00038\ \ \ \ \ \}}
+\DoxyCodeLine{00039\ \ \ \}}
+\DoxyCodeLine{00040\ \ \ command\ |=\ (total\_chars\ -\/\ 1);}
+\DoxyCodeLine{00041\ \ \ \mbox{\hyperlink{group__Serial_ga16017eb641d6cfecc03e1591b8226554}{send\_serial\_port\_msg}}(command);}
+\DoxyCodeLine{00042\ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
+\DoxyCodeLine{00043\ \ \ \textcolor{keywordflow}{while}\ (buffer[i]\ !=\ \textcolor{charliteral}{'\(\backslash\)0'})\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{group__Serial_ga16017eb641d6cfecc03e1591b8226554}{send\_serial\_port\_msg}}(buffer[i++]);}
+\DoxyCodeLine{00045\ \ \ \}}
+\DoxyCodeLine{00046\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Display__Text_ga8114f5893ca5abf7574a43b3efd39ce0_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Display__Text_ga8114f5893ca5abf7574a43b3efd39ce0_icgraph}
+\end{center}
+\end{figure}

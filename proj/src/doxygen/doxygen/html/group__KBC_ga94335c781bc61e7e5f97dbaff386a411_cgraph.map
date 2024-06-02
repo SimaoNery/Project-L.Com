@@ -1,0 +1,7 @@
+<map id="write_kbc_cmd" name="write_kbc_cmd">
+<area shape="rect" id="Node000001" title="Writes a command to the specified port of the Keyboard Controller (KBC)." alt="" coords="5,5,115,31"/>
+<area shape="rect" id="Node000002" href="$group__KBC.html#ga1ea22dc7f1cd587ad7715408bddb3c4e" title="Retrieves the status from the Keyboard Controller (KBC)." alt="" coords="163,5,273,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="115,16,147,16,147,21,115,21"/>
+<area shape="rect" id="Node000003" href="$group__Utils.html#ga2b56f50ba159e9d5115ed1a75eff15d9" title="Reads a byte from the specified port and store it in uint8_t variable." alt="" coords="321,5,411,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="273,16,305,16,305,21,273,21"/>
+</map>

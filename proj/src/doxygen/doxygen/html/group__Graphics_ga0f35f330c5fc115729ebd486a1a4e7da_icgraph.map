@@ -1,0 +1,10 @@
+<map id="clear_back_buffer" name="clear_back_buffer">
+<area shape="rect" id="Node000001" title="Clears the back buffer." alt="" coords="322,31,446,56"/>
+<area shape="rect" id="Node000002" href="$group__Graphics.html#gad1d0642d73fd9d01692127e5daa39219" title="Swaps the front and back buffers." alt="" coords="175,5,274,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="306,34,274,29,275,23,307,29"/>
+<area shape="rect" id="Node000004" href="$group__Graphics.html#gaa74f5c4ff747396f4fc47ff7b6e54d40" title="Copies the buffers for triple buffering." alt="" coords="182,55,267,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="307,58,267,64,267,59,306,52"/>
+<area shape="rect" id="Node000003" href="$group__Graphics.html#ga4f129396b28e32728e9f92e8858c4f00" title="Manages the buffering method based on the resolution." alt="" coords="5,31,127,56"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="160,31,127,36,126,31,159,26"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="166,61,127,55,127,50,167,56"/>
+</map>

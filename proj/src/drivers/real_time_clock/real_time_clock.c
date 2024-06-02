@@ -1,10 +1,14 @@
 #include "real_time_clock.h"
-
+/**
+ * @defgroup Real_time_clock Real_time_clock
+ * 
+ */
 int rtc_hook_id = 5;
 real_time_info time_info;
 uint8_t config_RTC;
 
 /*!
+ * @ingroup Real_time_clock
  * @brief Retrieves the configuration from a specified RTC register.
  * 
  * @param reg The register to read from.
@@ -18,6 +22,7 @@ int rtc_get_config(uint8_t reg, uint8_t *config) {
 }
 
 /*!
+ * @ingroup Real_time_clock Real_time_clock
  * @brief Sets the configuration of a specified RTC register.
  * 
  * @param reg The register to write to.
@@ -31,6 +36,7 @@ int rtc_set_config(uint8_t reg, uint8_t config) {
 }
 
 /*!
+ * @ingroup Real_time_clock Real_time_clock
  * @brief Activates a specified RTC interrupt.
  * 
  * @param interrupt The interrupt to activate.
@@ -45,6 +51,7 @@ int rtc_activate_interrupt(uint8_t interrupt) {
 }
 
 /*!
+ * @ingroup Real_time_clock Real_time_clock
  * @brief Deactivates RTC interrupts.
  * 
  * @return int Returns 0 upon success and 1 upon failure.
@@ -58,6 +65,7 @@ int rtc_deactivate_interrupts() {
 }
 
 /*!
+ * @ingroup Real_time_clock Real_time_clock
  * @brief Checks if the RTC is in binary mode.
  * 
  * @return int Returns 1 if in binary mode, 0 otherwise.
@@ -69,6 +77,7 @@ int rtc_is_binary() {
 }
 
 /*!
+* @ingroup Real_time_clock Real_time_clock
  * @brief Converts a BCD number to binary.
  * 
  * @param bcd_number The BCD number to convert.
@@ -79,6 +88,7 @@ uint8_t transform_to_binary(uint8_t bcd_number) {
 }
 
 /*!
+ * @ingroup Real_time_clock Real_time_clock
  * @brief Converts a binary number to BCD.
  * 
  * @param binary_number The binary number to convert.
@@ -97,6 +107,7 @@ uint8_t transform_to_bcd(uint8_t binary_number) {
 }
 
 /*!
+ * @ingroup Real_time_clock Real_time_clock
  * @brief Sets the RTC alarm time.
  * 
  * @param hours The hours value for the alarm.
@@ -120,6 +131,7 @@ int rtc_set_alarm(uint8_t hours, uint8_t minutes, uint8_t seconds) {
 }
 
 /*!
+ * @ingroup Real_time_clock Real_time_clock
  * @brief RTC interrupt handler.
  * 
  * Reads the RTC configuration and calls the appropriate interrupt handler.
@@ -129,6 +141,7 @@ void rtc_ih() {
 }
 
 /*!
+ * @ingroup Real_time_clock Real_time_clock
  * @brief Retrieves the current time from the RTC.
  * 
  * @return int Returns 0 upon success and 1 upon failure.
@@ -191,6 +204,7 @@ int rtc_get_time() {
 }
 
 /*!
+ * @ingroup Real_time_clock Real_time_clock
  * @brief Subscribes to RTC interrupts.
  * 
  * @param bit_no Pointer to a variable where the bit number will be stored.
@@ -204,6 +218,7 @@ int rtc_subscribe_int(uint8_t *bit_no) {
 }
 
 /*!
+ * @ingroup Real_time_clock Real_time_clock
  * @brief Unsubscribes from RTC interrupts.
  * 
  * @return int Returns 0 upon success and 1 upon failure.

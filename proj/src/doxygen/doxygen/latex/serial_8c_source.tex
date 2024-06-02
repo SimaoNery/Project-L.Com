@@ -1,0 +1,161 @@
+\doxysection{serial.\+c}
+\hypertarget{serial_8c_source}{}\label{serial_8c_source}\index{/Users/wagner/Desktop/faculdade/2 ano/LCOM/MINIX-\/LCOM/shared/g4/proj/src/drivers/serial\_port/serial.c@{/Users/wagner/Desktop/faculdade/2 ano/LCOM/MINIX-\/LCOM/shared/g4/proj/src/drivers/serial\_port/serial.c}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}serial.h"{}}}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00007}00007\ \textcolor{keywordtype}{int}\ serial\_port\_hook\_id\ =\ SERIAL\_PORT\_HOOK\_ID;}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00008}00008\ \textcolor{keyword}{static}\ \mbox{\hyperlink{structqueue}{queue\_t}}\ *\mbox{\hyperlink{structqueue}{queue}};}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00019}\mbox{\hyperlink{group__Serial_ga715abe70eb0b9a74d1f406e26832f6a6}{00019}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__Serial_ga715abe70eb0b9a74d1f406e26832f6a6}{serial\_initial\_config}}()\ \{}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00020}00020\ \ \ \textcolor{keywordflow}{if}\ ((\mbox{\hyperlink{structqueue}{queue}}\ =\ \mbox{\hyperlink{group__Queue_ga1641e32ca81e22bdf17ae7fdf554973b}{new\_queue}}())\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00021}00021\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Failed\ to\ create\ queue\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00022}00022\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00023}00023\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00025}00025\ \ \ uint8\_t\ ier;}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00026}00026\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Utils_ga2b56f50ba159e9d5115ed1a75eff15d9}{util\_sys\_inb}}(COM1\_BASE\_REG\ +\ IER,\ \&ier))\ \{}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00027}00027\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Failed\ sys\_inb\ IER\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00028}00028\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00029}00029\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00031}00031\ \ \ ier\ \&=\ IER\_LS4B\_MASK;}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00033}00033\ \ \ \textcolor{keywordflow}{if}\ (sys\_outb(COM1\_BASE\_REG\ +\ IER,\ ier\ |\ BIT(0)))\ \{}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00034}00034\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Failed\ sys\_outb\ IER\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00035}00035\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00036}00036\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00038}00038\ \ \ uint8\_t\ lcr\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00039}00039\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Utils_ga2b56f50ba159e9d5115ed1a75eff15d9}{util\_sys\_inb}}(COM1\_BASE\_REG\ +\ LCR,\ \&lcr))\ \{}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00040}00040\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Failed\ sys\_inb\ LCR\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00041}00041\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00042}00042\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00044}00044\ \ \ lcr\ |=\ 0x0B;}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00045}00045\ \ \ lcr\ \&=\ 0xCB;}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00046}00046\ \ \ \textcolor{keywordflow}{if}\ (sys\_outb(COM1\_BASE\_REG\ +\ LCR,\ lcr))\ \{}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00047}00047\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Failed\ sys\_outb\ LCR\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00048}00048\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00049}00049\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00051}00051\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00052}00052\ \}}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00061}\mbox{\hyperlink{group__Serial_ga9e5988172a95cfb57bedb0be3f5199f6}{00061}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__Serial_ga9e5988172a95cfb57bedb0be3f5199f6}{serial\_port\_subscribe\_int}}(uint8\_t\ *bit\_no)\ \{}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00062}00062\ \ \ \textcolor{keywordflow}{if}\ (bit\_no\ ==\ NULL)}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00063}00063\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00065}00065\ \ \ *bit\_no\ =\ BIT(serial\_port\_hook\_id);}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00067}00067\ \ \ \textcolor{keywordflow}{if}\ (sys\_irqsetpolicy(COM1\_IRQ,\ IRQ\_REENABLE\ |\ IRQ\_EXCLUSIVE,\ \&serial\_port\_hook\_id))\ \{}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00068}00068\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Failed\ to\ subscribe\ Serial\ Port\ Interrupts\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00069}00069\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00070}00070\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00072}00072\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00073}00073\ \}}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00081}\mbox{\hyperlink{group__Serial_gafd52bd27bbf8c2323c4f5e2dddc7bc11}{00081}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__Serial_gafd52bd27bbf8c2323c4f5e2dddc7bc11}{serial\_port\_unsubscribe\_int}}()\ \{}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00082}00082\ \ \ \textcolor{keywordflow}{return}\ sys\_irqrmpolicy(\&serial\_port\_hook\_id);}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00083}00083\ \}}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00092}\mbox{\hyperlink{group__Serial_gafa064c2a2d24a8fb7f587b36a6e2bafc}{00092}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__Serial_gafa064c2a2d24a8fb7f587b36a6e2bafc}{get\_serial\_port\_status}}(uint8\_t\ *st)\ \{}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00093}00093\ \ \ \textcolor{keywordflow}{if}\ (st\ ==\ NULL)}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00094}00094\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00096}00096\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{group__Utils_ga2b56f50ba159e9d5115ed1a75eff15d9}{util\_sys\_inb}}(COM1\_BASE\_REG\ +\ LSR,\ st);}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00097}00097\ \}}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00106}\mbox{\hyperlink{group__Serial_ga16017eb641d6cfecc03e1591b8226554}{00106}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__Serial_ga16017eb641d6cfecc03e1591b8226554}{send\_serial\_port\_msg}}(uint8\_t\ msg)\ \{}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00107}00107\ \ \ uint8\_t\ st;}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00108}00108\ \ \ uint8\_t\ att\ =\ ATTEMPTS;}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00110}00110\ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00111}00111\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Serial_gafa064c2a2d24a8fb7f587b36a6e2bafc}{get\_serial\_port\_status}}(\&st))\ \{}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00112}00112\ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Failed\ to\ get\ status\ of\ the\ serial\ port\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00113}00113\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00114}00114\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00116}00116\ \ \ \ \ \textcolor{keywordflow}{if}\ (st\ \&\ TRANSMITTER\_EMPTY)\ \{}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00117}00117\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ sys\_outb(COM1\_BASE\_REG\ +\ THR,\ msg);}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00118}00118\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00120}00120\ \ \ \}\ \textcolor{keywordflow}{while}\ (att-\/-\/\ >\ 0);}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00122}00122\ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00123}00123\ \}}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00131}\mbox{\hyperlink{group__Serial_gaf636f4cb7ae7a669a84fc3b579f02f0b}{00131}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__Serial_gaf636f4cb7ae7a669a84fc3b579f02f0b}{read\_serial\_port\_msg}}()\ \{}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00132}00132\ \ \ uint8\_t\ st;}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00133}00133\ \ \ uint8\_t\ msg;}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00135}00135\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Serial_gafa064c2a2d24a8fb7f587b36a6e2bafc}{get\_serial\_port\_status}}(\&st))\ \{}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00136}00136\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Failed\ to\ get\ status\ of\ the\ serial\ port\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00137}00137\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00138}00138\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00139}00139\ }
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00140}00140\ \ \ \textcolor{keywordflow}{if}\ (st\ \&\ RECEIVER\_READY)\ \{}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00141}00141\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Utils_ga2b56f50ba159e9d5115ed1a75eff15d9}{util\_sys\_inb}}(COM1\_BASE\_REG\ +\ RBR,\ \&msg))\ \{}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00142}00142\ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Failed\ sys\_inb\ RBR\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00143}00143\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00144}00144\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00145}00145\ }
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00146}00146\ \ \ \ \ \textcolor{keywordflow}{if}\ (st\ \&\ SER\_OVERRUN\_ERR)\ \{}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00147}00147\ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error\ reading\ serial\ port\ Overrun\ Error\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00148}00148\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00149}00149\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00150}00150\ }
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00151}00151\ \ \ \ \ \textcolor{keywordflow}{if}\ (st\ \&\ SER\_PARITY\_ERR)\ \{}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00152}00152\ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error\ reading\ serial\ port\ Parity\ Error\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00153}00153\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00154}00154\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00155}00155\ }
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00156}00156\ \ \ \ \ \textcolor{keywordflow}{if}\ (st\ \&\ SER\_FRAME\_ERR)\ \{}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00157}00157\ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error\ reading\ serial\ port\ Frame\ Error\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00158}00158\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00159}00159\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00160}00160\ }
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00161}00161\ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{group__Queue_ga095518c09a8928fba317675f1c7984af}{push}}(\mbox{\hyperlink{structqueue}{queue}},\ msg))}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00162}00162\ \ \ \ \ \ \ ;}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00163}00163\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00164}00164\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00165}00165\ }
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00166}00166\ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00167}00167\ \}}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00168}00168\ }
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00176}\mbox{\hyperlink{group__Serial_ga528a1e579cedabb490a7195e2f2287cf}{00176}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group__Serial_ga528a1e579cedabb490a7195e2f2287cf}{serial\_port\_int\_handler}}()\ \{}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00177}00177\ \ \ uint8\_t\ interrupt\_ident;}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00178}00178\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Utils_ga2b56f50ba159e9d5115ed1a75eff15d9}{util\_sys\_inb}}(COM1\_BASE\_REG\ +\ IIR,\ \&interrupt\_ident))}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00179}00179\ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00180}00180\ \ \ \textcolor{keywordflow}{if}\ ((interrupt\_ident\ \&\ NO\_INT\_PENDING))\ \{}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00181}00181\ \ \ \ \ printf(\textcolor{stringliteral}{"{}No\ interrupt\ pending\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00182}00182\ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00183}00183\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00184}00184\ \ \ \textcolor{keywordflow}{if}\ ((interrupt\_ident\ \&\ INT\_PENDING)\ ==\ CHAR\_TIMEOUT\_FIFO)\ \{}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00185}00185\ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{group__Serial_gaf636f4cb7ae7a669a84fc3b579f02f0b}{read\_serial\_port\_msg}}())}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00186}00186\ \ \ \ \ \ \ ;}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00187}00187\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00188}00188\ \}}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00189}00189\ }
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00196}\mbox{\hyperlink{group__Serial_ga1426ccf57ad167e5c2b59cfff90772d9}{00196}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__Serial_ga1426ccf57ad167e5c2b59cfff90772d9}{serial\_port\_clear\_int}}()\ \{}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00197}00197\ \ \ \textcolor{keywordflow}{if}\ (sys\_outb(COM1\_BASE\_REG\ +\ FCR,\ FIFO\_CLEAR))\ \{}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00198}00198\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Failed\ sys\_out\ FCR\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00199}00199\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00200}00200\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00201}00201\ }
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00202}00202\ \ \ \mbox{\hyperlink{group__Queue_gad727910848ebf0f74179f809b6eeda7e}{clear\_queue}}(\mbox{\hyperlink{structqueue}{queue}});}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00203}00203\ }
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00204}00204\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00205}00205\ \}}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00206}00206\ }
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00212}\mbox{\hyperlink{group__Serial_ga36391949ef6d64bc727631024db240b9}{00212}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group__Serial_ga36391949ef6d64bc727631024db240b9}{serial\_port\_clear\_all}}()\ \{}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00213}00213\ \ \ \mbox{\hyperlink{group__Queue_ga7b0221e1c302d1af3349ffa0a71b7c08}{delete\_queue}}(\mbox{\hyperlink{structqueue}{queue}});}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00214}00214\ \}}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00215}00215\ }
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00222}\mbox{\hyperlink{group__Serial_ga796e46e751768b26348479e789bf90a4}{00222}}\ \mbox{\hyperlink{structqueue}{queue\_t}}\ *\mbox{\hyperlink{group__Serial_ga796e46e751768b26348479e789bf90a4}{get\_queue}}()\ \{}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00223}00223\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structqueue}{queue}};}
+\DoxyCodeLine{\Hypertarget{serial_8c_source_l00224}00224\ \}}
+
+\end{DoxyCode}

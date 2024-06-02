@@ -1,0 +1,43 @@
+<map id="input_to_command_line" name="input_to_command_line">
+<area shape="rect" id="Node000001" title="Processes the input scancode and updates the command line buffer." alt="" coords="5,327,164,352"/>
+<area shape="rect" id="Node000002" href="$group__Command__Line.html#ga5b45f56b0bc963c356a7cc16f211ed4d" title="Handles the command entered in the command line buffer." alt="" coords="217,228,341,254"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="110,324,237,259,239,264,113,329"/>
+<area shape="rect" id="Node000017" href="$group__Command__Line.html#gae41d0c7726ec24bdeb2abae1be6090b8" title="Translates a scancode to a character and updates the command line buffer." alt="" coords="212,351,346,376"/>
+<area shape="poly" id="edge22_Node000001_Node000017" title=" " alt="" coords="164,347,197,351,196,356,163,352"/>
+<area shape="rect" id="Node000003" href="$group__Display__Text.html#ga8114f5893ca5abf7574a43b3efd39ce0" title="Displays text by sending it to a serial port." alt="" coords="426,5,517,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="282,227,294,190,317,140,349,86,369,62,392,40,410,29,413,34,396,44,373,65,353,89,321,142,299,192,287,228"/>
+<area shape="rect" id="Node000007" href="$group__Fan.html#gaf1d36feee8a9fb72efd3ac19af589467" title="Turns the fan off." alt="" coords="441,55,502,80"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="284,226,324,161,355,123,393,89,425,74,427,79,395,94,359,126,328,164,289,229"/>
+<area shape="rect" id="Node000008" href="$group__Fan.html#ga2013bd7ad8f2a334b5c5b5cf655747b1" title="Turns the fan on with specified power and optional timer." alt="" coords="442,104,502,130"/>
+<area shape="poly" id="edge8_Node000002_Node000008" title=" " alt="" coords="290,226,332,183,361,159,393,138,425,125,427,130,395,143,364,164,336,187,294,229"/>
+<area shape="rect" id="Node000009" href="$group__Help.html#gad1a89d01ea36e3c49e7dc5085d67e6c5" title="Provides help information for available commands." alt="" coords="449,153,494,179"/>
+<area shape="poly" id="edge10_Node000002_Node000009" title=" " alt="" coords="307,225,393,188,433,174,435,179,395,193,309,230"/>
+<area shape="rect" id="Node000010" href="$group__Lights.html#gad76dec403ede9b90c305f1359d7215cb" title="Turns off specified lights based on the provided arguments." alt="" coords="435,203,509,228"/>
+<area shape="poly" id="edge11_Node000002_Node000010" title=" " alt="" coords="341,230,419,220,419,225,341,235"/>
+<area shape="rect" id="Node000011" href="$group__Lights.html#ga99352435ec80f8b277bfee1286ec4743" title="Turns on specified lights based on the provided arguments." alt="" coords="435,252,508,278"/>
+<area shape="poly" id="edge13_Node000002_Node000011" title=" " alt="" coords="341,246,420,256,419,261,341,251"/>
+<area shape="rect" id="Node000012" href="$group__Command__Line.html#gade3acfa451eec0d44bfd76a45c652cb1" title="Tokenizes the command line buffer into individual tokens." alt="" coords="423,301,520,327"/>
+<area shape="poly" id="edge15_Node000002_Node000012" title=" " alt="" coords="310,252,395,288,411,293,409,298,393,293,308,257"/>
+<area shape="rect" id="Node000013" href="$group__Graphics.html#ga4bee13c4e0e366ce99296add8b64bc45" title="Sets the graphics mode." alt="" coords="394,351,549,376"/>
+<area shape="poly" id="edge16_Node000002_Node000013" title=" " alt="" coords="294,252,336,294,365,317,395,337,405,342,403,347,393,342,362,321,333,298,290,256"/>
+<area shape="rect" id="Node000014" href="$group__Mouse.html#gaecdd51f940be83961956458c45d902e4" title="Writes a command to the mouse." alt="" coords="408,400,535,426"/>
+<area shape="poly" id="edge17_Node000002_Node000014" title=" " alt="" coords="291,253,342,325,371,363,396,387,402,391,399,395,392,391,367,366,337,328,287,256"/>
+<area shape="rect" id="Node000004" href="$group__Serial.html#ga16017eb641d6cfecc03e1591b8226554" title="Sends a message through the serial port." alt="" coords="597,153,746,179"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="519,26,551,40,582,63,610,89,654,139,650,142,606,93,578,67,548,44,517,31"/>
+<area shape="rect" id="Node000005" href="$group__Serial.html#gafa064c2a2d24a8fb7f587b36a6e2bafc" title="Retrieves the status from the serial port." alt="" coords="794,201,943,227"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="728,177,798,194,797,200,727,182"/>
+<area shape="rect" id="Node000006" href="$group__Utils.html#ga2b56f50ba159e9d5115ed1a75eff15d9" title="Reads a byte from the specified port and store it in uint8_t variable." alt="" coords="991,349,1081,375"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="886,225,1011,337,1007,341,883,229"/>
+<area shape="poly" id="edge7_Node000007_Node000004" title=" " alt="" coords="504,72,550,89,599,115,641,142,638,146,596,120,548,94,502,77"/>
+<area shape="poly" id="edge9_Node000008_Node000004" title=" " alt="" coords="503,122,602,146,601,152,501,127"/>
+<area shape="poly" id="edge12_Node000010_Node000004" title=" " alt="" coords="509,204,601,181,602,186,510,209"/>
+<area shape="poly" id="edge14_Node000011_Node000004" title=" " alt="" coords="508,253,548,238,596,213,638,186,641,190,599,217,550,243,510,258"/>
+<area shape="poly" id="edge18_Node000014_Node000006" title=" " alt="" coords="530,397,597,385,701,374,805,367,976,360,976,366,806,372,702,379,598,390,531,402"/>
+<area shape="rect" id="Node000015" href="$group__KBC.html#ga94335c781bc61e7e5f97dbaff386a411" title="Writes a command to the specified port of the Keyboard Controller (KBC)." alt="" coords="617,400,726,426"/>
+<area shape="poly" id="edge19_Node000014_Node000015" title=" " alt="" coords="536,410,601,410,601,416,536,416"/>
+<area shape="rect" id="Node000016" href="$group__KBC.html#ga1ea22dc7f1cd587ad7715408bddb3c4e" title="Retrieves the status from the Keyboard Controller (KBC)." alt="" coords="813,400,924,426"/>
+<area shape="poly" id="edge20_Node000015_Node000016" title=" " alt="" coords="726,410,797,410,797,416,726,416"/>
+<area shape="poly" id="edge21_Node000016_Node000006" title=" " alt="" coords="913,397,976,377,978,383,914,402"/>
+<area shape="rect" id="Node000018" href="$group__Command__Line.html#gae141d38d475a307cc500ab62784cec18" title="Deletes the character at the current cursor position in the command line buffer." alt="" coords="413,449,530,475"/>
+<area shape="poly" id="edge23_Node000017_Node000018" title=" " alt="" coords="299,375,341,405,395,436,408,441,406,446,393,441,338,409,295,379"/>
+</map>

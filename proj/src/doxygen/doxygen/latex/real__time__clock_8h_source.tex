@@ -1,0 +1,36 @@
+\doxysection{real\+\_\+time\+\_\+clock.\+h}
+\hypertarget{real__time__clock_8h_source}{}\label{real__time__clock_8h_source}\index{/Users/wagner/Desktop/faculdade/2 ano/LCOM/MINIX-\/LCOM/shared/g4/proj/src/drivers/real\_time\_clock/real\_time\_clock.h@{/Users/wagner/Desktop/faculdade/2 ano/LCOM/MINIX-\/LCOM/shared/g4/proj/src/drivers/real\_time\_clock/real\_time\_clock.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ \_LCOM\_REAL\_TIME\_CLOCK\_H\_}}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ \_LCOM\_REAL\_TIME\_CLOCK\_H\_}}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{real__time__clock_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <minix/sysutil.h>}}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <lcom/lcf.h>}}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}RTC.h"{}}}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{real__time__clock_8h_source_l00008}\mbox{\hyperlink{structreal__time__info}{00008}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8h_source_l00009}00009\ \ \ \ \ uint8\_t\ year;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8h_source_l00010}00010\ \ \ \ \ uint8\_t\ month;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8h_source_l00011}00011\ \ \ \ \ uint8\_t\ day;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8h_source_l00012}00012\ \ \ \ \ uint8\_t\ hours;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8h_source_l00013}00013\ \ \ \ \ uint8\_t\ minutes;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8h_source_l00014}00014\ \ \ \ \ uint8\_t\ seconds;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8h_source_l00015}00015\ \}\ \mbox{\hyperlink{structreal__time__info}{real\_time\_info}};}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8h_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{real__time__clock_8h_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{real__time__clock_8h_source_l00018}00018\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__Real__time__clock_ga5171a9c0f54940fe60f7500896afcc86}{rtc\_subscribe\_int}}(uint8\_t\ *bit\_no);}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8h_source_l00019}00019\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__Real__time__clock_gab8f17bf5280c908c8b199a90fefcc758}{rtc\_unsubscribe\_int}}();}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8h_source_l00020}00020\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__Real__time__clock_ga432373ee35ebe371ba9117440aee1120}{rtc\_get\_config}}(uint8\_t\ reg,\ uint8\_t\ *config);}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8h_source_l00021}00021\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__Real__time__clock_ga23d1a50bd368370628d600ed988f9026}{rtc\_set\_config}}(uint8\_t\ reg,\ uint8\_t\ config);}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8h_source_l00022}00022\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__Real__time__clock_ga6028be0c2f6834191783cd629f324a2b}{rtc\_get\_time}}();}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8h_source_l00023}00023\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__Real__time__clock_gae91804ce10b51363ab8dcee2bb002c5e}{rtc\_set\_alarm}}(uint8\_t\ hours,\ uint8\_t\ minutes,\ uint8\_t\ seconds);}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8h_source_l00024}00024\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__Real__time__clock_ga198a58b91a28900ddc932ff05b18b93f}{rtc\_activate\_interrupt}}(uint8\_t\ interrupt);}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8h_source_l00025}00025\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__Real__time__clock_ga69fa71c482d1774ffabd29aa86b4ec29}{rtc\_deactivate\_interrupts}}();}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8h_source_l00026}00026\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group__Real__time__clock_ga75dad42881d64cf07cf1bdc2979a7056}{rtc\_ih}}();}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8h_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{real__time__clock_8h_source_l00028}00028\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_LCOM\_REAL\_TIME\_CLOCK\_H\_\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{real__time__clock_8h_source_l00030}00030\ }
+
+\end{DoxyCode}

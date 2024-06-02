@@ -1,5 +1,12 @@
 #include "KBC.h"
+/**
+ * @defgroup KBC KBC
+ * 
+ */
+
+
 /*!
+ * @ingroup KBC KBC
  * @brief Retrieves the status from the Keyboard Controller (KBC).
  * 
  * @param status Pointer to a variable where the status will be stored.
@@ -12,6 +19,7 @@ int (get_kbc_status)(uint8_t *status) {
 }
 
 /*!
+  * @ingroup KBC KBC
  * @brief Writes a command to the specified port of the Keyboard Controller (KBC).
  * 
  * @param port The port to which the command will be written.
@@ -38,6 +46,7 @@ int (write_kbc_cmd)(uint8_t port, uint8_t cmd) {
 }
 
 /*!
+  * @ingroup KBC KBC
  * @brief Reads the output from the specified port of the Keyboard Controller (KBC).
  * 
  * @param port The port from which the output will be read.

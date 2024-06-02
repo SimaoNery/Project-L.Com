@@ -1,8 +1,14 @@
 #include "sprite.h"
+/**
+ * @defgroup Sprite Sprite
+ * 
+ */
+
+
 
 /*!
  * @brief Creates a sprite from the given XPM map.
- * 
+ * @ingroup Sprite Sprite
  * This function allocates memory for a new Sprite object, loads the XPM image,
  * and initializes the sprite's properties.
  * 
@@ -32,7 +38,7 @@ Sprite* (create_sprite)(xpm_map_t pic, int x, int y) {
 }
 /*!
  * @brief Destroys a sprite and frees its memory.
- * 
+ * @ingroup Sprite Sprite
  * This function frees the memory allocated for the sprite's pixel map and the sprite itself.
  * 
  * @param sp Pointer to the Sprite object to be destroyed.
@@ -50,7 +56,7 @@ int (destroy_sprite)(Sprite *sp) {
 
 /*!
  * @brief Destroys all loaded sprites.
- * 
+ * @ingroup Sprite Sprite
  * This function destroys all the sprites that have been loaded and prints an error message if any sprite could not be destroyed.
  * 
  * @return int Returns 0 on success, 1 if any sprite could not be destroyed.
@@ -276,7 +282,7 @@ int (destroy_all_sprites)() {
 
 /*!
  * @brief Draws a sprite on the screen.
- * 
+ * @ingroup Sprite Sprite
  * This function draws the sprite's pixels on the screen, skipping transparent pixels.
  * 
  * @param sp Pointer to the Sprite object to be drawn.
@@ -300,7 +306,7 @@ int (draw_sprite)(Sprite *sp) {
 
 /*!
  * @brief Loads sprites for the 1152x864 resolution.
- * 
+ * @ingroup Sprite Sprite
  * This function creates and initializes all the sprites needed for the 1152x864 resolution.
  * 
  * @return int Returns 0 on success, 1 if any sprite could not be loaded.
@@ -563,7 +569,7 @@ int (load_sprites_1152x864)() {
 
 /*!
  * @brief Loads sprites for the 800x600 resolution.
- * 
+ * @ingroup Sprite Sprite
  * This function creates and initializes all the sprites needed for the 800x600 resolution.
  * 
  * @return int Returns 0 on success, 1 if any sprite could not be loaded.
@@ -827,7 +833,7 @@ int (load_sprites_800x600)() {
 
 /*!     
  * @brief Loads sprites based on the specified resolution.
- * 
+ * @ingroup Sprite Sprite
  * This function determines which resolution-specific sprite loading function to call based on the provided resolution.
  * It supports loading sprites for 800x600 and 1152x864 resolutions.
  * 

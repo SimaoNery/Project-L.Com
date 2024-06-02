@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['read_5fkbc_5foutput_0',['read_kbc_output',['../group__KBC.html#gabf94de0c90d8a01ca918eadf04065ebb',1,'read_kbc_output(uint8_t port, uint8_t *of, bool mouse):&#160;KBC.c'],['../group__KBC.html#gabf94de0c90d8a01ca918eadf04065ebb',1,'read_kbc_output(uint8_t port, uint8_t *of, bool mouse):&#160;KBC.c']]],
+  ['read_5fserial_5fport_5fmsg_1',['read_serial_port_msg',['../group__Serial.html#gaf636f4cb7ae7a669a84fc3b579f02f0b',1,'read_serial_port_msg():&#160;serial.c'],['../group__Serial.html#gaf636f4cb7ae7a669a84fc3b579f02f0b',1,'read_serial_port_msg():&#160;serial.c']]],
+  ['real_5ftime_5fclock_2',['Real_time_clock',['../group__Real__time__clock.html',1,'']]],
+  ['real_5ftime_5finfo_3',['real_time_info',['../structreal__time__info.html',1,'']]],
+  ['redirect_5ft_4',['redirect_t',['../structredirect__t.html',1,'']]],
+  ['rtc_5',['RTC',['../group__RTC.html',1,'']]],
+  ['rtc_5factivate_5finterrupt_6',['rtc_activate_interrupt',['../group__Real__time__clock.html#ga198a58b91a28900ddc932ff05b18b93f',1,'rtc_activate_interrupt(uint8_t interrupt):&#160;real_time_clock.c'],['../group__Real__time__clock.html#ga198a58b91a28900ddc932ff05b18b93f',1,'rtc_activate_interrupt(uint8_t interrupt):&#160;real_time_clock.c']]],
+  ['rtc_5fdeactivate_5finterrupts_7',['rtc_deactivate_interrupts',['../group__Real__time__clock.html#ga69fa71c482d1774ffabd29aa86b4ec29',1,'rtc_deactivate_interrupts():&#160;real_time_clock.c'],['../group__Real__time__clock.html#ga69fa71c482d1774ffabd29aa86b4ec29',1,'rtc_deactivate_interrupts():&#160;real_time_clock.c']]],
+  ['rtc_5fget_5fconfig_8',['rtc_get_config',['../group__Real__time__clock.html#ga432373ee35ebe371ba9117440aee1120',1,'rtc_get_config(uint8_t reg, uint8_t *config):&#160;real_time_clock.c'],['../group__Real__time__clock.html#ga432373ee35ebe371ba9117440aee1120',1,'rtc_get_config(uint8_t reg, uint8_t *config):&#160;real_time_clock.c']]],
+  ['rtc_5fget_5ftime_9',['rtc_get_time',['../group__Real__time__clock.html#ga6028be0c2f6834191783cd629f324a2b',1,'rtc_get_time():&#160;real_time_clock.c'],['../group__Real__time__clock.html#ga6028be0c2f6834191783cd629f324a2b',1,'rtc_get_time():&#160;real_time_clock.c']]],
+  ['rtc_5fih_10',['rtc_ih',['../group__Real__time__clock.html#ga75dad42881d64cf07cf1bdc2979a7056',1,'rtc_ih():&#160;real_time_clock.c'],['../group__Real__time__clock.html#ga75dad42881d64cf07cf1bdc2979a7056',1,'rtc_ih():&#160;real_time_clock.c']]],
+  ['rtc_5fis_5fbinary_11',['rtc_is_binary',['../group__Real__time__clock.html#ga5873dc86f56c4a2a8ea8f7faf07ef798',1,'real_time_clock.c']]],
+  ['rtc_5fset_5falarm_12',['rtc_set_alarm',['../group__Real__time__clock.html#gae91804ce10b51363ab8dcee2bb002c5e',1,'rtc_set_alarm(uint8_t hours, uint8_t minutes, uint8_t seconds):&#160;real_time_clock.c'],['../group__Real__time__clock.html#gae91804ce10b51363ab8dcee2bb002c5e',1,'rtc_set_alarm(uint8_t hours, uint8_t minutes, uint8_t seconds):&#160;real_time_clock.c']]],
+  ['rtc_5fset_5fconfig_13',['rtc_set_config',['../group__Real__time__clock.html#ga23d1a50bd368370628d600ed988f9026',1,'rtc_set_config(uint8_t reg, uint8_t config):&#160;real_time_clock.c'],['../group__Real__time__clock.html#ga23d1a50bd368370628d600ed988f9026',1,'rtc_set_config(uint8_t reg, uint8_t config):&#160;real_time_clock.c']]],
+  ['rtc_5fsubscribe_5fint_14',['rtc_subscribe_int',['../group__Real__time__clock.html#ga5171a9c0f54940fe60f7500896afcc86',1,'rtc_subscribe_int(uint8_t *bit_no):&#160;real_time_clock.c'],['../group__Real__time__clock.html#ga5171a9c0f54940fe60f7500896afcc86',1,'rtc_subscribe_int(uint8_t *bit_no):&#160;real_time_clock.c']]],
+  ['rtc_5funsubscribe_5fint_15',['rtc_unsubscribe_int',['../group__Real__time__clock.html#gab8f17bf5280c908c8b199a90fefcc758',1,'rtc_unsubscribe_int():&#160;real_time_clock.c'],['../group__Real__time__clock.html#gab8f17bf5280c908c8b199a90fefcc758',1,'rtc_unsubscribe_int():&#160;real_time_clock.c']]]
+];

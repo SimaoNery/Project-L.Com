@@ -1,0 +1,5 @@
+<map id="serial_port_clear_all" name="serial_port_clear_all">
+<area shape="rect" id="Node000001" title="Deletes the queue and frees its memory." alt="" coords="5,5,142,31"/>
+<area shape="rect" id="Node000002" href="$group__Queue.html#ga7b0221e1c302d1af3349ffa0a71b7c08" title="Deletes a queue and frees its memory." alt="" coords="190,5,288,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="142,16,174,16,174,21,142,21"/>
+</map>

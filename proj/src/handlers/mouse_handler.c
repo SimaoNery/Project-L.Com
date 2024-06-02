@@ -1,5 +1,10 @@
 #include "mouse_handler.h"
 
+/**
+ * @defgroup Mouse_Handler Mouse_Handler
+ * 
+ */
+
 extern uint8_t page_state;
 extern uint8_t out_buf;
 extern bool running;
@@ -34,7 +39,7 @@ extern Sprite *sound_int;
 
 /*!
  * @brief Handles mouse input for the main menu.
- * 
+ * @ingroup Mouse_Handler Mouse_Handler
  * This function processes mouse packets and updates the cursor position and button states.
  * It also checks for button clicks and updates the page state accordingly.
  */
@@ -94,7 +99,7 @@ void mouse_main_menu_handler () {
 
 /*!
  * @brief Handles mouse input for the control shell.
- * 
+ * @ingroup Mouse_Handler Mouse_Handler
  * This function processes mouse packets and updates the mouse packet structure.
  */
 void mouse_control_shell_handler () {
@@ -110,7 +115,7 @@ bool asking_for_sound_plant = false;
 
 /*!
  * @brief Handles mouse input for the house plant section.
- * 
+ * @ingroup Mouse_Handler Mouse_Handler
  * This function processes mouse packets, updates the cursor position, and checks for button hovers and clicks.
  */
 
@@ -309,7 +314,7 @@ void mouse_house_plant_handler() {
 
 /*!
  * @brief Handles mouse input for the security camera section.
- * 
+ * @ingroup Mouse_Handler Mouse_Handler
  * This function processes mouse packets and updates the mouse packet structure.
  */
 void mouse_security_camera_handler () {
@@ -319,7 +324,7 @@ void mouse_security_camera_handler () {
 
 /*!
  * @brief Handles mouse input for the settings menu.
- * 
+ * @ingroup Mouse_Handler Mouse_Handler
  * This function processes mouse packets, updates the cursor position, and checks for button hovers and clicks.
  */
 void mouse_settings_handler () {
@@ -358,6 +363,10 @@ void mouse_settings_handler () {
 
 }
 
+/**
+ * @brief Interrupt Handler of the help page
+ * @ingroup Mouse_Handler Mouse_Handler
+ */
 void mouse_help_handler () {
   mouse_ih();
   if (packet_number == 3) {

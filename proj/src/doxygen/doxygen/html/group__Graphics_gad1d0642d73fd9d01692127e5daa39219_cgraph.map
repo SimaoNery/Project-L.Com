@@ -1,0 +1,7 @@
+<map id="swap_buffers" name="swap_buffers">
+<area shape="rect" id="Node000001" title="Swaps the front and back buffers." alt="" coords="5,35,105,60"/>
+<area shape="rect" id="Node000002" href="$group__Graphics.html#ga0f35f330c5fc115729ebd486a1a4e7da" title="Clears the back buffer." alt="" coords="168,5,293,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="104,37,153,28,154,34,105,42"/>
+<area shape="rect" id="Node000003" href="$group__Graphics.html#ga36f9ffa14b373e0c27abbb6a48060758" title="Sets the display start for page flipping." alt="" coords="153,55,308,96"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="105,53,138,58,137,63,104,58"/>
+</map>

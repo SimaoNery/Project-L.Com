@@ -1,0 +1,185 @@
+\doxysection{sprite.\+h}
+\hypertarget{sprite_8h_source}{}\label{sprite_8h_source}\index{/Users/wagner/Desktop/faculdade/2 ano/LCOM/MINIX-\/LCOM/shared/g4/proj/src/visuals/sprite.h@{/Users/wagner/Desktop/faculdade/2 ano/LCOM/MINIX-\/LCOM/shared/g4/proj/src/visuals/sprite.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ \_\_SPRITE\_H}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ \_\_SPRITE\_H}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <lcom/lcf.h>}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}../drivers/video/graphics.h"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_800\_600/main\_menu\_800\_600.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_800\_600/buttons/control\_shell\_button\_800\_600.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_800\_600/buttons/exit\_button\_800\_600.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00011}00011\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_800\_600/buttons/help\_800\_600.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00012}00012\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_800\_600/buttons/house\_plant\_button\_800\_600.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_800\_600/buttons/security\_camera\_button\_800\_600.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_800\_600/buttons/resolution\_button\_800\_600.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00015}00015\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_800\_600/mouse/mouse\_pointer\_800\_600.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00016}00016\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_800\_600/resolution\_page\_800\_600.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00017}00017\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_800\_600/buttons/big\_resolution\_800\_600.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00018}00018\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_800\_600/buttons/small\_resolution\_800\_600.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00019}00019\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_800\_600/buttons/back\_arrow\_800\_600.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00020}00020\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_800\_600/house\_plant\_800\_600.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00021}00021\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_800\_600/house\_plant-\/buttons/cam\_800\_600.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00022}00022\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_800\_600/house\_plant-\/buttons/fan\_800\_600.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00023}00023\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_800\_600/house\_plant-\/buttons/horn\_800\_600.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00024}00024\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_800\_600/house\_plant-\/buttons/humidity\_and\_temperature\_800\_600.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00025}00025\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_800\_600/house\_plant-\/buttons/light\_800\_600.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00026}00026\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_800\_600/house\_plant-\/buttons/light\_vertical\_800\_600.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00027}00027\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_800\_600/house\_plant-\/buttons/read\_humidity\_button\_800\_600.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00028}00028\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_800\_600/house\_plant-\/buttons/read\_sound\_intensity\_800\_600.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00029}00029\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_800\_600/house\_plant-\/buttons/read\_temperature\_800\_600.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00030}00030\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_800\_600/house\_plant-\/buttons/sound\_intensity\_800\_600.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00031}00031\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_800\_600/house\_plant-\/buttons/degrees\_celsius\_800\_600.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00032}00032\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_800\_600/house\_plant-\/buttons/percentage\_800\_600.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00033}00033\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_800\_600/house\_plant-\/buttons/db\_800\_600.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00034}00034\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_800\_600/time/colon\_800\_600.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00035}00035\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_800\_600/time/slash\_800\_600.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00036}00036\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_800\_600/time/zero\_800\_600.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00037}00037\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_800\_600/time/one\_800\_600.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00038}00038\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_800\_600/time/two\_800\_600.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00039}00039\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_800\_600/time/three\_800\_600.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00040}00040\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_800\_600/time/four\_800\_600.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00041}00041\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_800\_600/time/five\_800\_600.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00042}00042\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_800\_600/time/six\_800\_600.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00043}00043\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_800\_600/time/seven\_800\_600.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00044}00044\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_800\_600/time/eight\_800\_600.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00045}00045\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_800\_600/time/nine\_800\_600.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00046}00046\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_800\_600/help\_page\_800\_600.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00049}00049\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_1152\_864/main\_menu\_1152\_864.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00050}00050\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_1152\_864/buttons/control\_shell\_1152\_864.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00051}00051\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_1152\_864/buttons/exit\_button\_1152\_864.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00052}00052\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_1152\_864/buttons/help\_1152\_864.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00053}00053\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_1152\_864/buttons/house\_plant\_1152\_864.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00054}00054\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_1152\_864/buttons/security\_camera\_1152\_864.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00055}00055\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_1152\_864/buttons/resolution\_button\_1152\_864.xpm"{}}\ }
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00056}00056\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_1152\_864/mouse/mouse\_pointer\_1152\_864.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00057}00057\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_1152\_864/resolution\_page\_1152\_864.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00058}00058\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_1152\_864/buttons/big\_resolution\_1152\_864.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00059}00059\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_1152\_864/buttons/small\_resolution\_1152\_864.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00060}00060\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_1152\_864/buttons/back\_arrow\_1152\_864xpm.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00061}00061\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_1152\_864/house\_plant\_1152\_864.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00062}00062\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_1152\_864/house\_plant\_buttons/cam\_1152\_864.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00063}00063\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_1152\_864/house\_plant\_buttons/db\_1152\_864.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00064}00064\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_1152\_864/house\_plant\_buttons/degrees\_celsius\_1152\_864.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00065}00065\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_1152\_864/house\_plant\_buttons/fan\_1152\_864.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00066}00066\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_1152\_864/house\_plant\_buttons/horn\_1152\_864.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00067}00067\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_1152\_864/house\_plant\_buttons/humidity\_and\_temperature\_1152\_864.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00068}00068\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_1152\_864/house\_plant\_buttons/light\_1152\_864.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00069}00069\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_1152\_864/house\_plant\_buttons/light\_vertical\_1152\_864.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00070}00070\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_1152\_864/house\_plant\_buttons/percentage\_1152\_864.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00071}00071\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_1152\_864/house\_plant\_buttons/read\_humidity\_button\_1152\_864.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00072}00072\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_1152\_864/house\_plant\_buttons/read\_sound\_intensity\_1152\_864.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00073}00073\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_1152\_864/house\_plant\_buttons/read\_temperature\_1152\_864.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00074}00074\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_1152\_864/house\_plant\_buttons/sound\_intensity\_1152\_864.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00075}00075\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_1152\_864/time/colon\_1152\_864.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00076}00076\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_1152\_864/time/slash\_1152\_864.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00077}00077\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_1152\_864/time/zero\_1152\_864.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00078}00078\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_1152\_864/time/one\_1152\_864.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00079}00079\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_1152\_864/time/two\_1152\_864.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00080}00080\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_1152\_864/time/three\_1152\_864.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00081}00081\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_1152\_864/time/four\_1152\_864.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00082}00082\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_1152\_864/time/five\_1152\_864.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00083}00083\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_1152\_864/time/six\_1152\_864.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00084}00084\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_1152\_864/time/seven\_1152\_864.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00085}00085\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_1152\_864/time/eight\_1152\_864.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00086}00086\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_1152\_864/time/nine\_1152\_864.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00087}00087\ \textcolor{preprocessor}{\#include\ "{}xpm\_files/RES\_1152\_864/help\_page\_1152\_864.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00090}00090\ \textcolor{preprocessor}{\#define\ TRANSPARENT\_COLOR\ 4}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00093}\mbox{\hyperlink{structSprite}{00093}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00094}00094\ \ \ \ \ \textcolor{keywordtype}{int}\ x,\ y;\ \textcolor{comment}{//current\ position}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00095}00095\ \ \ \ \ \textcolor{keywordtype}{int}\ width,\ height;\ \textcolor{comment}{//dimensions}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00096}00096\ \ \ \ \ uint32\_t\ *map;\ \textcolor{comment}{//the\ pixmap}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00097}00097\ \ \ \ \ \textcolor{keywordtype}{bool}\ hover;\ \textcolor{comment}{//if\ mouse\ is\ hover\ \ }}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00098}00098\ \ \ \ \ \textcolor{keywordtype}{int}\ xspeed,\ yspeed;}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00099}00099\ \}\ \mbox{\hyperlink{structSprite}{Sprite}};}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00101}00101\ \textcolor{keyword}{extern}\ vbe\_mode\_info\_t\ vmi\_p;}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00103}00103\ \textcolor{comment}{//Sprites\ we\ will\ use}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00104}00104\ \mbox{\hyperlink{structSprite}{Sprite}}\ *normalCursor;}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00105}00105\ \textcolor{comment}{//Sprite\ *clickCursor;}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00107}00107\ \textcolor{comment}{//Pages}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00108}00108\ \mbox{\hyperlink{structSprite}{Sprite}}\ *mainMenu;}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00109}00109\ \mbox{\hyperlink{structSprite}{Sprite}}\ *resolutionPage;}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00110}00110\ \mbox{\hyperlink{structSprite}{Sprite}}\ *housePlant;}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00111}00111\ \mbox{\hyperlink{structSprite}{Sprite}}\ *helpPage;}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00114}00114\ \textcolor{comment}{//Buttons}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00115}00115\ \mbox{\hyperlink{structSprite}{Sprite}}\ *controlShellButton;}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00116}00116\ \mbox{\hyperlink{structSprite}{Sprite}}\ *housePlantButton;}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00117}00117\ \mbox{\hyperlink{structSprite}{Sprite}}\ *exitButton;}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00118}00118\ \mbox{\hyperlink{structSprite}{Sprite}}\ *helpButton;}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00119}00119\ \mbox{\hyperlink{structSprite}{Sprite}}\ *resolutionButton;}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00120}00120\ \mbox{\hyperlink{structSprite}{Sprite}}\ *smallResolutionButton;}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00121}00121\ \mbox{\hyperlink{structSprite}{Sprite}}\ *bigResolutionButton;}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00122}00122\ \mbox{\hyperlink{structSprite}{Sprite}}\ *backArrow;}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00124}00124\ \textcolor{comment}{//HousePlant\ Buttons}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00125}00125\ \mbox{\hyperlink{structSprite}{Sprite}}\ *db;}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00126}00126\ \mbox{\hyperlink{structSprite}{Sprite}}\ *degrees\_celcius;}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00127}00127\ \mbox{\hyperlink{structSprite}{Sprite}}\ *fan;}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00128}00128\ \mbox{\hyperlink{structSprite}{Sprite}}\ *horn1;}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00129}00129\ \mbox{\hyperlink{structSprite}{Sprite}}\ *horn2;}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00130}00130\ \mbox{\hyperlink{structSprite}{Sprite}}\ *humidity\_and\_temperature;}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00131}00131\ \mbox{\hyperlink{structSprite}{Sprite}}\ *light\_horizontal1;}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00132}00132\ \mbox{\hyperlink{structSprite}{Sprite}}\ *light\_horizontal2;}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00133}00133\ \mbox{\hyperlink{structSprite}{Sprite}}\ *light\_vertical1;}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00134}00134\ \mbox{\hyperlink{structSprite}{Sprite}}\ *light\_vertical2;}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00135}00135\ \mbox{\hyperlink{structSprite}{Sprite}}\ *light\_vertical3;}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00136}00136\ \mbox{\hyperlink{structSprite}{Sprite}}\ *percentage;}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00137}00137\ \mbox{\hyperlink{structSprite}{Sprite}}\ *read\_humidity;}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00138}00138\ \mbox{\hyperlink{structSprite}{Sprite}}\ *read\_sound\_intensity;}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00139}00139\ \mbox{\hyperlink{structSprite}{Sprite}}\ *read\_temperature;}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00140}00140\ \mbox{\hyperlink{structSprite}{Sprite}}\ *sound\_int;}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00141}00141\ }
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00142}00142\ }
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00143}00143\ \textcolor{comment}{//time}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00144}00144\ \mbox{\hyperlink{structSprite}{Sprite}}\ *colon;}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00145}00145\ \mbox{\hyperlink{structSprite}{Sprite}}\ *slash;}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00146}00146\ \mbox{\hyperlink{structSprite}{Sprite}}\ *zero;}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00147}00147\ \mbox{\hyperlink{structSprite}{Sprite}}\ *one;}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00148}00148\ \mbox{\hyperlink{structSprite}{Sprite}}\ *two;}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00149}00149\ \mbox{\hyperlink{structSprite}{Sprite}}\ *three;}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00150}00150\ \mbox{\hyperlink{structSprite}{Sprite}}\ *four;}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00151}00151\ \mbox{\hyperlink{structSprite}{Sprite}}\ *five;}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00152}00152\ \mbox{\hyperlink{structSprite}{Sprite}}\ *six;}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00153}00153\ \mbox{\hyperlink{structSprite}{Sprite}}\ *seven;}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00154}00154\ \mbox{\hyperlink{structSprite}{Sprite}}\ *eight;}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00155}00155\ \mbox{\hyperlink{structSprite}{Sprite}}\ *nine;}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00156}00156\ }
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00157}00157\ }
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00158}00158\ }
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00159}00159\ }
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00160}00160\ \textcolor{comment}{//Creates\ a\ new\ sprite\ drom\ XPM\ "{}pic"{}\ in\ the\ specified\ position}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00161}00161\ \mbox{\hyperlink{structSprite}{Sprite}}*\ (create\_sprite)(xpm\_map\_t\ pic,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y);}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00162}00162\ }
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00163}00163\ \textcolor{comment}{//Destroys\ a\ sprite}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00164}00164\ int\ (destroy\_sprite)(\mbox{\hyperlink{structSprite}{Sprite}}\ *sp);}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00165}00165\ }
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00166}00166\ \textcolor{comment}{//Destroys\ all\ sprites\ used}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00167}00167\ int\ (destroy\_all\_sprites)();}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00168}00168\ }
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00169}00169\ \textcolor{comment}{//Draws\ a\ specific\ sprite}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00170}00170\ int\ (draw\_sprite)(\mbox{\hyperlink{structSprite}{Sprite}}\ *sp);}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00171}00171\ }
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00172}00172\ \textcolor{comment}{//Loads\ the\ sprites}}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00173}00173\ int\ (load\_sprites)(\textcolor{keywordtype}{int}\ res);}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00174}00174\ }
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00175}00175\ int\ (load\_sprites\_1152x864)();}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00176}00176\ int\ (load\_sprites\_800x600)();}
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00177}00177\ }
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00178}00178\ }
+\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00179}00179\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

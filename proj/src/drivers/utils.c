@@ -1,7 +1,13 @@
 #include <lcom/lcf.h>
 #include <stdint.h>
+/**
+ * @defgroup Utils Utils
+ * 
+ */
+
 
 /*!
+ * @ingroup Utils Utils
  * @brief Retrieves the least significant byte (LSB) of a 16-bit value.
  * 
  * @param val The 16-bit value from which to extract the LSB.
@@ -20,6 +26,7 @@ int(util_get_LSB)(uint16_t val, uint8_t *lsb) {
 }
 
 /*!
+  * @ingroup Utils Utils
  * @brief Retrieves the most significant byte (MSB) of a 16-bit value.
  * 
  * @param val The 16-bit value from which to extract the MSB.
@@ -38,6 +45,7 @@ int(util_get_MSB)(uint16_t val, uint8_t *msb) {
 }
 
 /*!
+  * @ingroup Utils Utils
  * @brief Reads a byte from the specified port and store it in uint8_t variable.
  * 
  * @param port The port from which to read the byte.

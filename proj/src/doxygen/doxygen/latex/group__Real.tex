@@ -1,0 +1,529 @@
+\doxysection{time clock Real time clock}
+\hypertarget{group__Real}{}\label{group__Real}\index{time clock Real time clock@{time clock Real time clock}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__Real_ga432373ee35ebe371ba9117440aee1120}{rtc\+\_\+get\+\_\+config}} (uint8\+\_\+t reg, uint8\+\_\+t \texorpdfstring{$\ast$}{*}config)
+\begin{DoxyCompactList}\small\item\em Retrieves the configuration from a specified RTC register. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Real_ga23d1a50bd368370628d600ed988f9026}{rtc\+\_\+set\+\_\+config}} (uint8\+\_\+t reg, uint8\+\_\+t config)
+\begin{DoxyCompactList}\small\item\em Sets the configuration of a specified RTC register. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Real_ga198a58b91a28900ddc932ff05b18b93f}{rtc\+\_\+activate\+\_\+interrupt}} (uint8\+\_\+t interrupt)
+\begin{DoxyCompactList}\small\item\em Activates a specified RTC interrupt. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Real_ga69fa71c482d1774ffabd29aa86b4ec29}{rtc\+\_\+deactivate\+\_\+interrupts}} ()
+\begin{DoxyCompactList}\small\item\em Deactivates RTC interrupts. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Real_ga5873dc86f56c4a2a8ea8f7faf07ef798}{rtc\+\_\+is\+\_\+binary}} ()
+\begin{DoxyCompactList}\small\item\em Checks if the RTC is in binary mode. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group__Real_ga01fecdb3049618e4f75df07d67ef6c64}{transform\+\_\+to\+\_\+binary}} (uint8\+\_\+t bcd\+\_\+number)
+\begin{DoxyCompactList}\small\item\em Converts a BCD number to binary. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group__Real_gafc889a1e426b086c029dd89a555641da}{transform\+\_\+to\+\_\+bcd}} (uint8\+\_\+t binary\+\_\+number)
+\begin{DoxyCompactList}\small\item\em Converts a binary number to BCD. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Real_gae91804ce10b51363ab8dcee2bb002c5e}{rtc\+\_\+set\+\_\+alarm}} (uint8\+\_\+t hours, uint8\+\_\+t minutes, uint8\+\_\+t seconds)
+\begin{DoxyCompactList}\small\item\em Sets the RTC alarm time. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__Real_ga75dad42881d64cf07cf1bdc2979a7056}{rtc\+\_\+ih}} ()
+\begin{DoxyCompactList}\small\item\em RTC interrupt handler. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Real_ga6028be0c2f6834191783cd629f324a2b}{rtc\+\_\+get\+\_\+time}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the current time from the RTC. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Real_ga5171a9c0f54940fe60f7500896afcc86}{rtc\+\_\+subscribe\+\_\+int}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}bit\+\_\+no)
+\begin{DoxyCompactList}\small\item\em Subscribes to RTC interrupts. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Real_gab8f17bf5280c908c8b199a90fefcc758}{rtc\+\_\+unsubscribe\+\_\+int}} ()
+\begin{DoxyCompactList}\small\item\em Unsubscribes from RTC interrupts. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{group__Real_ga198a58b91a28900ddc932ff05b18b93f}\index{time clock Real time clock@{time clock Real time clock}!rtc\_activate\_interrupt@{rtc\_activate\_interrupt}}
+\index{rtc\_activate\_interrupt@{rtc\_activate\_interrupt}!time clock Real time clock@{time clock Real time clock}}
+\doxysubsubsection{\texorpdfstring{rtc\_activate\_interrupt()}{rtc\_activate\_interrupt()}}
+{\footnotesize\ttfamily \label{group__Real_ga198a58b91a28900ddc932ff05b18b93f} 
+int rtc\+\_\+activate\+\_\+interrupt (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{interrupt}{}\end{DoxyParamCaption})}
+
+
+
+Activates a specified RTC interrupt. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em interrupt} & The interrupt to activate. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Returns 0 upon success and 1 upon failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{real__time__clock_8c_source_l00045}{45}} of file \mbox{\hyperlink{real__time__clock_8c_source}{real\+\_\+time\+\_\+clock.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00046\ \ \ \ \ uint8\_t\ config;}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real_ga432373ee35ebe371ba9117440aee1120}{rtc\_get\_config}}(RTC\_REG\_B,\ \&config))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00048\ \ \ \ \ config\ |=\ interrupt;}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real_ga23d1a50bd368370628d600ed988f9026}{rtc\_set\_config}}(RTC\_REG\_B,\ config))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00051\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=301pt]{group__Real_ga198a58b91a28900ddc932ff05b18b93f_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Real_ga69fa71c482d1774ffabd29aa86b4ec29}\index{time clock Real time clock@{time clock Real time clock}!rtc\_deactivate\_interrupts@{rtc\_deactivate\_interrupts}}
+\index{rtc\_deactivate\_interrupts@{rtc\_deactivate\_interrupts}!time clock Real time clock@{time clock Real time clock}}
+\doxysubsubsection{\texorpdfstring{rtc\_deactivate\_interrupts()}{rtc\_deactivate\_interrupts()}}
+{\footnotesize\ttfamily \label{group__Real_ga69fa71c482d1774ffabd29aa86b4ec29} 
+int rtc\+\_\+deactivate\+\_\+interrupts (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Deactivates RTC interrupts. 
+
+\begin{DoxyReturn}{Returns}
+int Returns 0 upon success and 1 upon failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{real__time__clock_8c_source_l00059}{59}} of file \mbox{\hyperlink{real__time__clock_8c_source}{real\+\_\+time\+\_\+clock.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00060\ \ \ \ \ uint8\_t\ config;}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real_ga432373ee35ebe371ba9117440aee1120}{rtc\_get\_config}}(RTC\_REG\_B,\ \&config))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00062\ \ \ \ \ config\ \&=\ 0x8F;}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real_ga23d1a50bd368370628d600ed988f9026}{rtc\_set\_config}}(RTC\_REG\_B,\ config))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00065\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=317pt]{group__Real_ga69fa71c482d1774ffabd29aa86b4ec29_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Real_ga432373ee35ebe371ba9117440aee1120}\index{time clock Real time clock@{time clock Real time clock}!rtc\_get\_config@{rtc\_get\_config}}
+\index{rtc\_get\_config@{rtc\_get\_config}!time clock Real time clock@{time clock Real time clock}}
+\doxysubsubsection{\texorpdfstring{rtc\_get\_config()}{rtc\_get\_config()}}
+{\footnotesize\ttfamily \label{group__Real_ga432373ee35ebe371ba9117440aee1120} 
+int rtc\+\_\+get\+\_\+config (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{reg}{, }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{config}{}\end{DoxyParamCaption})}
+
+
+
+Retrieves the configuration from a specified RTC register. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em reg} & The register to read from. \\
+\hline
+{\em config} & Pointer to a variable where the configuration will be stored. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Returns 0 upon success and 1 upon failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{real__time__clock_8c_source_l00018}{18}} of file \mbox{\hyperlink{real__time__clock_8c_source}{real\+\_\+time\+\_\+clock.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordflow}{if}\ (sys\_outb(RTC\_ADDR\_REG,\ reg))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordflow}{if}\ (util\_sys\_inb(RTC\_DATA\_REG,\ config))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00022\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Real_ga432373ee35ebe371ba9117440aee1120_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Real_ga6028be0c2f6834191783cd629f324a2b}\index{time clock Real time clock@{time clock Real time clock}!rtc\_get\_time@{rtc\_get\_time}}
+\index{rtc\_get\_time@{rtc\_get\_time}!time clock Real time clock@{time clock Real time clock}}
+\doxysubsubsection{\texorpdfstring{rtc\_get\_time()}{rtc\_get\_time()}}
+{\footnotesize\ttfamily \label{group__Real_ga6028be0c2f6834191783cd629f324a2b} 
+int rtc\+\_\+get\+\_\+time (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Retrieves the current time from the RTC. 
+
+\begin{DoxyReturn}{Returns}
+int Returns 0 upon success and 1 upon failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{real__time__clock_8c_source_l00149}{149}} of file \mbox{\hyperlink{real__time__clock_8c_source}{real\+\_\+time\+\_\+clock.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ \ \ uint8\_t\ out;}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real_ga432373ee35ebe371ba9117440aee1120}{rtc\_get\_config}}(RTC\_REG\_A,\ \&out))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00155\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (out\ \&\ RTC\_UIP);}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real_ga5873dc86f56c4a2a8ea8f7faf07ef798}{rtc\_is\_binary}}())\ \{}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real_ga432373ee35ebe371ba9117440aee1120}{rtc\_get\_config}}(SECONDS,\ \&out))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ time\_info.seconds\ =\ out;}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real_ga432373ee35ebe371ba9117440aee1120}{rtc\_get\_config}}(MINUTES,\ \&out))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ time\_info.minutes\ =\ out;}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real_ga432373ee35ebe371ba9117440aee1120}{rtc\_get\_config}}(HOURS,\ \&out))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ time\_info.hours\ =\ out;}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real_ga432373ee35ebe371ba9117440aee1120}{rtc\_get\_config}}(DAY\_OF\_THE\_MONTH,\ \&out))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ time\_info.day\ =\ out;}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real_ga432373ee35ebe371ba9117440aee1120}{rtc\_get\_config}}(MONTH,\ \&out))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ time\_info.month\ =\ out;}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real_ga432373ee35ebe371ba9117440aee1120}{rtc\_get\_config}}(YEAR,\ \&out))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ time\_info.year\ =\ out;}
+\DoxyCodeLine{00178\ \ \ \ \ \}}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real_ga432373ee35ebe371ba9117440aee1120}{rtc\_get\_config}}(SECONDS,\ \&out))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ time\_info.seconds\ =\ \mbox{\hyperlink{group__Real_ga01fecdb3049618e4f75df07d67ef6c64}{transform\_to\_binary}}(out);}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real_ga432373ee35ebe371ba9117440aee1120}{rtc\_get\_config}}(MINUTES,\ \&out))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ time\_info.minutes\ =\ \mbox{\hyperlink{group__Real_ga01fecdb3049618e4f75df07d67ef6c64}{transform\_to\_binary}}(out);}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real_ga432373ee35ebe371ba9117440aee1120}{rtc\_get\_config}}(HOURS,\ \&out))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ time\_info.hours\ =\ \mbox{\hyperlink{group__Real_ga01fecdb3049618e4f75df07d67ef6c64}{transform\_to\_binary}}(out);}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real_ga432373ee35ebe371ba9117440aee1120}{rtc\_get\_config}}(DAY\_OF\_THE\_MONTH,\ \&out))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ time\_info.day\ =\ \mbox{\hyperlink{group__Real_ga01fecdb3049618e4f75df07d67ef6c64}{transform\_to\_binary}}(out);}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real_ga432373ee35ebe371ba9117440aee1120}{rtc\_get\_config}}(MONTH,\ \&out))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ time\_info.month\ =\ \mbox{\hyperlink{group__Real_ga01fecdb3049618e4f75df07d67ef6c64}{transform\_to\_binary}}(out);}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real_ga432373ee35ebe371ba9117440aee1120}{rtc\_get\_config}}(YEAR,\ \&out))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ time\_info.year\ =\ \mbox{\hyperlink{group__Real_ga01fecdb3049618e4f75df07d67ef6c64}{transform\_to\_binary}}(out);}
+\DoxyCodeLine{00201\ \ \ \ \ \}}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00204\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Real_ga6028be0c2f6834191783cd629f324a2b_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Real_ga75dad42881d64cf07cf1bdc2979a7056}\index{time clock Real time clock@{time clock Real time clock}!rtc\_ih@{rtc\_ih}}
+\index{rtc\_ih@{rtc\_ih}!time clock Real time clock@{time clock Real time clock}}
+\doxysubsubsection{\texorpdfstring{rtc\_ih()}{rtc\_ih()}}
+{\footnotesize\ttfamily \label{group__Real_ga75dad42881d64cf07cf1bdc2979a7056} 
+void rtc\+\_\+ih (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+RTC interrupt handler. 
+
+Reads the RTC configuration and calls the appropriate interrupt handler. 
+
+Definition at line \mbox{\hyperlink{real__time__clock_8c_source_l00139}{139}} of file \mbox{\hyperlink{real__time__clock_8c_source}{real\+\_\+time\+\_\+clock.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00140\ \ \ \ \ \mbox{\hyperlink{group__Real_ga432373ee35ebe371ba9117440aee1120}{rtc\_get\_config}}(RTC\_REG\_C,\ \&config\_RTC);}
+\DoxyCodeLine{00141\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{group__Real_ga75dad42881d64cf07cf1bdc2979a7056_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Real_ga5873dc86f56c4a2a8ea8f7faf07ef798}\index{time clock Real time clock@{time clock Real time clock}!rtc\_is\_binary@{rtc\_is\_binary}}
+\index{rtc\_is\_binary@{rtc\_is\_binary}!time clock Real time clock@{time clock Real time clock}}
+\doxysubsubsection{\texorpdfstring{rtc\_is\_binary()}{rtc\_is\_binary()}}
+{\footnotesize\ttfamily \label{group__Real_ga5873dc86f56c4a2a8ea8f7faf07ef798} 
+int rtc\+\_\+is\+\_\+binary (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Checks if the RTC is in binary mode. 
+
+\begin{DoxyReturn}{Returns}
+int Returns 1 if in binary mode, 0 otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{real__time__clock_8c_source_l00073}{73}} of file \mbox{\hyperlink{real__time__clock_8c_source}{real\+\_\+time\+\_\+clock.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00074\ \ \ \ \ uint8\_t\ result;}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real_ga432373ee35ebe371ba9117440aee1120}{rtc\_get\_config}}(RTC\_REG\_B,\ \&result))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordflow}{return}\ result\ \&\ BINARY;}
+\DoxyCodeLine{00077\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=265pt]{group__Real_ga5873dc86f56c4a2a8ea8f7faf07ef798_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=263pt]{group__Real_ga5873dc86f56c4a2a8ea8f7faf07ef798_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Real_gae91804ce10b51363ab8dcee2bb002c5e}\index{time clock Real time clock@{time clock Real time clock}!rtc\_set\_alarm@{rtc\_set\_alarm}}
+\index{rtc\_set\_alarm@{rtc\_set\_alarm}!time clock Real time clock@{time clock Real time clock}}
+\doxysubsubsection{\texorpdfstring{rtc\_set\_alarm()}{rtc\_set\_alarm()}}
+{\footnotesize\ttfamily \label{group__Real_gae91804ce10b51363ab8dcee2bb002c5e} 
+int rtc\+\_\+set\+\_\+alarm (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{hours}{, }\item[{uint8\+\_\+t}]{minutes}{, }\item[{uint8\+\_\+t}]{seconds}{}\end{DoxyParamCaption})}
+
+
+
+Sets the RTC alarm time. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hours} & The hours value for the alarm. \\
+\hline
+{\em minutes} & The minutes value for the alarm. \\
+\hline
+{\em seconds} & The seconds value for the alarm. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Returns 0 upon success and 1 upon failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{real__time__clock_8c_source_l00118}{118}} of file \mbox{\hyperlink{real__time__clock_8c_source}{real\+\_\+time\+\_\+clock.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real_ga5873dc86f56c4a2a8ea8f7faf07ef798}{rtc\_is\_binary}}())\ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real_ga23d1a50bd368370628d600ed988f9026}{rtc\_set\_config}}(HOURS\_ALARM,\ hours))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real_ga23d1a50bd368370628d600ed988f9026}{rtc\_set\_config}}(MINUTES\_ALARM,\ minutes))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real_ga23d1a50bd368370628d600ed988f9026}{rtc\_set\_config}}(SECONDS\_ALARM,\ seconds))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00123\ \ \ \ \ \}}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real_ga23d1a50bd368370628d600ed988f9026}{rtc\_set\_config}}(HOURS\_ALARM,\ \mbox{\hyperlink{group__Real_gafc889a1e426b086c029dd89a555641da}{transform\_to\_bcd}}(hours)))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real_ga23d1a50bd368370628d600ed988f9026}{rtc\_set\_config}}(MINUTES\_ALARM,\ \mbox{\hyperlink{group__Real_gafc889a1e426b086c029dd89a555641da}{transform\_to\_bcd}}(minutes)))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real_ga23d1a50bd368370628d600ed988f9026}{rtc\_set\_config}}(SECONDS\_ALARM,\ \mbox{\hyperlink{group__Real_gafc889a1e426b086c029dd89a555641da}{transform\_to\_bcd}}(seconds)))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00128\ \ \ \ \ \}}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00131\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Real_gae91804ce10b51363ab8dcee2bb002c5e_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Real_ga23d1a50bd368370628d600ed988f9026}\index{time clock Real time clock@{time clock Real time clock}!rtc\_set\_config@{rtc\_set\_config}}
+\index{rtc\_set\_config@{rtc\_set\_config}!time clock Real time clock@{time clock Real time clock}}
+\doxysubsubsection{\texorpdfstring{rtc\_set\_config()}{rtc\_set\_config()}}
+{\footnotesize\ttfamily \label{group__Real_ga23d1a50bd368370628d600ed988f9026} 
+int rtc\+\_\+set\+\_\+config (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{reg}{, }\item[{uint8\+\_\+t}]{config}{}\end{DoxyParamCaption})}
+
+
+
+Sets the configuration of a specified RTC register. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em reg} & The register to write to. \\
+\hline
+{\em config} & The configuration value to write. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Returns 0 upon success and 1 upon failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{real__time__clock_8c_source_l00032}{32}} of file \mbox{\hyperlink{real__time__clock_8c_source}{real\+\_\+time\+\_\+clock.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordflow}{if}\ (sys\_outb(RTC\_ADDR\_REG,\ reg))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordflow}{if}\ (sys\_outb(RTC\_DATA\_REG,\ config))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00036\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=317pt]{group__Real_ga23d1a50bd368370628d600ed988f9026_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Real_ga5171a9c0f54940fe60f7500896afcc86}\index{time clock Real time clock@{time clock Real time clock}!rtc\_subscribe\_int@{rtc\_subscribe\_int}}
+\index{rtc\_subscribe\_int@{rtc\_subscribe\_int}!time clock Real time clock@{time clock Real time clock}}
+\doxysubsubsection{\texorpdfstring{rtc\_subscribe\_int()}{rtc\_subscribe\_int()}}
+{\footnotesize\ttfamily \label{group__Real_ga5171a9c0f54940fe60f7500896afcc86} 
+int rtc\+\_\+subscribe\+\_\+int (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{bit\+\_\+no}{}\end{DoxyParamCaption})}
+
+
+
+Subscribes to RTC interrupts. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bit\+\_\+no} & Pointer to a variable where the bit number will be stored. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Returns 0 upon success and 1 upon failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{real__time__clock_8c_source_l00213}{213}} of file \mbox{\hyperlink{real__time__clock_8c_source}{real\+\_\+time\+\_\+clock.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00214\ \ \ \ \ \textcolor{keywordflow}{if}\ (bit\_no\ ==\ NULL)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00215\ \ \ \ \ *bit\_no\ =\ BIT(rtc\_hook\_id);}
+\DoxyCodeLine{00216\ \ \ \ \ \textcolor{keywordflow}{return}\ sys\_irqsetpolicy(IRQ\_RTC,\ IRQ\_REENABLE,\ \&rtc\_hook\_id);}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00218\ \}}
+
+\end{DoxyCode}
+\Hypertarget{group__Real_gab8f17bf5280c908c8b199a90fefcc758}\index{time clock Real time clock@{time clock Real time clock}!rtc\_unsubscribe\_int@{rtc\_unsubscribe\_int}}
+\index{rtc\_unsubscribe\_int@{rtc\_unsubscribe\_int}!time clock Real time clock@{time clock Real time clock}}
+\doxysubsubsection{\texorpdfstring{rtc\_unsubscribe\_int()}{rtc\_unsubscribe\_int()}}
+{\footnotesize\ttfamily \label{group__Real_gab8f17bf5280c908c8b199a90fefcc758} 
+int rtc\+\_\+unsubscribe\+\_\+int (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Unsubscribes from RTC interrupts. 
+
+\begin{DoxyReturn}{Returns}
+int Returns 0 upon success and 1 upon failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{real__time__clock_8c_source_l00226}{226}} of file \mbox{\hyperlink{real__time__clock_8c_source}{real\+\_\+time\+\_\+clock.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00227\ \ \ \ \ \textcolor{keywordflow}{return}\ sys\_irqrmpolicy(\&rtc\_hook\_id);}
+\DoxyCodeLine{00228\ \}}
+
+\end{DoxyCode}
+\Hypertarget{group__Real_gafc889a1e426b086c029dd89a555641da}\index{time clock Real time clock@{time clock Real time clock}!transform\_to\_bcd@{transform\_to\_bcd}}
+\index{transform\_to\_bcd@{transform\_to\_bcd}!time clock Real time clock@{time clock Real time clock}}
+\doxysubsubsection{\texorpdfstring{transform\_to\_bcd()}{transform\_to\_bcd()}}
+{\footnotesize\ttfamily \label{group__Real_gafc889a1e426b086c029dd89a555641da} 
+uint8\+\_\+t transform\+\_\+to\+\_\+bcd (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{binary\+\_\+number}{}\end{DoxyParamCaption})}
+
+
+
+Converts a binary number to BCD. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em binary\+\_\+number} & The binary number to convert. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t The converted BCD number. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{real__time__clock_8c_source_l00097}{97}} of file \mbox{\hyperlink{real__time__clock_8c_source}{real\+\_\+time\+\_\+clock.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00098\ \ \ \ \textcolor{keywordtype}{int}\ bcdResult\ =\ 0;}
+\DoxyCodeLine{00099\ \ \ \ \textcolor{keywordtype}{int}\ shift\ =\ 0;}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \textcolor{keywordflow}{while}\ (binary\_number\ >\ 0)\ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ bcdResult\ |=\ (binary\_number\ \%\ 10)\ <<\ (shift++\ <<\ 2);}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ binary\_number\ /=\ 10;}
+\DoxyCodeLine{00104\ \ \ \ \}}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \textcolor{keywordflow}{return}\ bcdResult;}
+\DoxyCodeLine{00107\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=283pt]{group__Real_gafc889a1e426b086c029dd89a555641da_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Real_ga01fecdb3049618e4f75df07d67ef6c64}\index{time clock Real time clock@{time clock Real time clock}!transform\_to\_binary@{transform\_to\_binary}}
+\index{transform\_to\_binary@{transform\_to\_binary}!time clock Real time clock@{time clock Real time clock}}
+\doxysubsubsection{\texorpdfstring{transform\_to\_binary()}{transform\_to\_binary()}}
+{\footnotesize\ttfamily \label{group__Real_ga01fecdb3049618e4f75df07d67ef6c64} 
+uint8\+\_\+t transform\+\_\+to\+\_\+binary (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{bcd\+\_\+number}{}\end{DoxyParamCaption})}
+
+
+
+Converts a BCD number to binary. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bcd\+\_\+number} & The BCD number to convert. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t The converted binary number. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{real__time__clock_8c_source_l00086}{86}} of file \mbox{\hyperlink{real__time__clock_8c_source}{real\+\_\+time\+\_\+clock.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordflow}{return}\ ((bcd\_number\ >>\ 4)\ *\ 10)\ +\ (bcd\_number\ \&\ 0xF);}
+\DoxyCodeLine{00088\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=288pt]{group__Real_ga01fecdb3049618e4f75df07d67ef6c64_icgraph}
+\end{center}
+\end{figure}

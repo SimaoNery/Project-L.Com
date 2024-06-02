@@ -1,0 +1,38 @@
+\doxysection{keyboard.\+c}
+\hypertarget{keyboard_8c_source}{}\label{keyboard_8c_source}\index{/Users/wagner/Desktop/faculdade/2 ano/LCOM/MINIX-\/LCOM/shared/g4/proj/src/drivers/mouse\_keyboard/keyboard.c@{/Users/wagner/Desktop/faculdade/2 ano/LCOM/MINIX-\/LCOM/shared/g4/proj/src/drivers/mouse\_keyboard/keyboard.c}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{keyboard_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}keyboard.h"{}}}
+\DoxyCodeLine{\Hypertarget{keyboard_8c_source_l00007}00007\ \textcolor{keywordtype}{int}\ keyboard\_hook\_id\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{keyboard_8c_source_l00008}00008\ uint8\_t\ out\_buf;}
+\DoxyCodeLine{\Hypertarget{keyboard_8c_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{keyboard_8c_source_l00017}\mbox{\hyperlink{group__Keyboard_ga18c596b224bba98ca524a0bfa9730609}{00017}}\ int\ (\mbox{\hyperlink{group__Keyboard_ga18c596b224bba98ca524a0bfa9730609}{kbc\_subscribe\_int}})(uint8\_t\ *bit\_no)\ \{}
+\DoxyCodeLine{\Hypertarget{keyboard_8c_source_l00018}00018\ \ \ \textcolor{keywordflow}{if}\ (bit\_no\ ==\ NULL)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{keyboard_8c_source_l00019}00019\ \ \ *bit\_no\ =\ BIT(keyboard\_hook\_id);}
+\DoxyCodeLine{\Hypertarget{keyboard_8c_source_l00020}00020\ \ \ \textcolor{keywordflow}{return}\ sys\_irqsetpolicy(KBD\_IRQ,\ IRQ\_REENABLE\ |\ IRQ\_EXCLUSIVE,\ \&keyboard\_hook\_id);}
+\DoxyCodeLine{\Hypertarget{keyboard_8c_source_l00021}00021\ \}}
+\DoxyCodeLine{\Hypertarget{keyboard_8c_source_l00028}\mbox{\hyperlink{group__Keyboard_ga0e945987c2233f1c30a645ec5fc750c1}{00028}}\ int\ (\mbox{\hyperlink{group__Keyboard_ga0e945987c2233f1c30a645ec5fc750c1}{kbc\_unsubscribe\_int}})()\ \{}
+\DoxyCodeLine{\Hypertarget{keyboard_8c_source_l00029}00029\ \ \ \textcolor{keywordflow}{return}\ sys\_irqrmpolicy(\&keyboard\_hook\_id);}
+\DoxyCodeLine{\Hypertarget{keyboard_8c_source_l00030}00030\ \}}
+\DoxyCodeLine{\Hypertarget{keyboard_8c_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{keyboard_8c_source_l00038}\mbox{\hyperlink{group__Keyboard_ga94bd4739999831fafc0e5e6560aa8687}{00038}}\ void\ (\mbox{\hyperlink{group__Keyboard_ga94bd4739999831fafc0e5e6560aa8687}{kbc\_int\_handler}})()\ \{}
+\DoxyCodeLine{\Hypertarget{keyboard_8c_source_l00039}00039\ \ \ \ uint8\_t\ status;}
+\DoxyCodeLine{\Hypertarget{keyboard_8c_source_l00040}00040\ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__KBC_ga1ea22dc7f1cd587ad7715408bddb3c4e}{get\_kbc\_status}}(\&status))\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{keyboard_8c_source_l00041}00041\ \ \ \ \textcolor{keywordflow}{if}\ ((status\ \&\ 0xE1)\ !=\ 0x01)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{keyboard_8c_source_l00042}00042\ \ \ \ \mbox{\hyperlink{group__KBC_gabf94de0c90d8a01ca918eadf04065ebb}{read\_kbc\_output}}(OUT\_BUF,\ \&out\_buf,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{keyboard_8c_source_l00043}00043\ \}}
+\DoxyCodeLine{\Hypertarget{keyboard_8c_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{keyboard_8c_source_l00051}\mbox{\hyperlink{group__Keyboard_ga61f4ddd33c411ceee0c71b8890c19775}{00051}}\ int\ (\mbox{\hyperlink{group__Keyboard_ga61f4ddd33c411ceee0c71b8890c19775}{kbc\_restore}})()\ \{}
+\DoxyCodeLine{\Hypertarget{keyboard_8c_source_l00052}00052\ \ \ uint8\_t\ cmd;}
+\DoxyCodeLine{\Hypertarget{keyboard_8c_source_l00053}00053\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__KBC_ga94335c781bc61e7e5f97dbaff386a411}{write\_kbc\_cmd}}(KBC\_IN\_BUF,\ READ\_CMD\_BYTE))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{keyboard_8c_source_l00054}00054\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__KBC_gabf94de0c90d8a01ca918eadf04065ebb}{read\_kbc\_output}}(OUT\_BUF,\ \&cmd,\ \textcolor{keyword}{false}))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{keyboard_8c_source_l00055}00055\ \ \ cmd\ |=\ ENABLE\_KBD\_INT;}
+\DoxyCodeLine{\Hypertarget{keyboard_8c_source_l00056}00056\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__KBC_ga94335c781bc61e7e5f97dbaff386a411}{write\_kbc\_cmd}}(KBC\_IN\_BUF,\ WRT\_CMD\_BYTE))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{keyboard_8c_source_l00057}00057\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__KBC_ga94335c781bc61e7e5f97dbaff386a411}{write\_kbc\_cmd}}(0x60,\ cmd))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{keyboard_8c_source_l00058}00058\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{keyboard_8c_source_l00059}00059\ \}}
+\DoxyCodeLine{\Hypertarget{keyboard_8c_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{keyboard_8c_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{keyboard_8c_source_l00062}00062\ }
+
+\end{DoxyCode}

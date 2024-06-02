@@ -1,0 +1,5 @@
+<map id="rtc_get_config" name="rtc_get_config">
+<area shape="rect" id="Node000001" title="Retrieves the configuration from a specified RTC register." alt="" coords="5,5,109,31"/>
+<area shape="rect" id="Node000002" href="$group__Utils.html#ga2b56f50ba159e9d5115ed1a75eff15d9" title="Reads a byte from the specified port and store it in uint8_t variable." alt="" coords="157,5,247,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,16,141,16,141,21,109,21"/>
+</map>

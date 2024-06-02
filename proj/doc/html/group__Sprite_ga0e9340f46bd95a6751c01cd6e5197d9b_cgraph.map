@@ -1,0 +1,5 @@
+<map id="destroy_all_sprites" name="destroy_all_sprites">
+<area shape="rect" id="Node000001" title="Destroys all loaded sprites.This function destroys all the sprites that have been loaded and prints a..." alt="" coords="5,5,136,31"/>
+<area shape="rect" id="Node000002" href="$group__Sprite.html#gae10de51e6ec23c1eb987551e7ec4a0e9" title="Destroys a sprite and frees its memory.This function frees the memory allocated for the sprite&#39;s pixe..." alt="" coords="184,5,287,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="136,16,168,16,168,21,136,21"/>
+</map>

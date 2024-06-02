@@ -1,0 +1,7 @@
+<map id="serial_port_clear_int" name="serial_port_clear_int">
+<area shape="rect" id="Node000001" title="Clears the serial port interrupts." alt="" coords="188,46,325,72"/>
+<area shape="rect" id="Node000002" href="$group__Serial__Port.html#ga2f8bcbfe8e4d2615c824833f6c32c52f" title="Handles serial port input for the control shell.This function processes serial port interrupts and re..." alt="" coords="9,5,136,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="172,46,136,40,137,35,173,41"/>
+<area shape="rect" id="Node000003" href="$group__Serial__Port.html#ga6828f89a55043dc4ca10b4c04adb8d8e" title="Handles serial port input for the settings menu.This function processes serial port interrupts and re..." alt="" coords="5,71,140,111"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="172,76,140,82,139,77,171,71"/>
+</map>

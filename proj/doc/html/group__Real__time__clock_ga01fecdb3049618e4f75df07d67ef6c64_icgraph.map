@@ -1,0 +1,9 @@
+<map id="transform_to_binary" name="transform_to_binary">
+<area shape="rect" id="Node000001" title="Converts a BCD number to binary." alt="" coords="542,5,679,31"/>
+<area shape="rect" id="Node000002" href="$group__Real__time__clock.html#ga6028be0c2f6834191783cd629f324a2b" title="Retrieves the current time from the RTC." alt="" coords="401,5,494,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="527,21,495,21,495,16,527,16"/>
+<area shape="rect" id="Node000003" href="$group__Timer__Handler.html#ga67384da4f2c923d94548c81b4ca3a064" title="Handles the update interrupt.This function retrieves the current time from the RTC and updates the di..." alt="" coords="227,5,353,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="385,21,353,21,353,16,385,16"/>
+<area shape="rect" id="Node000004" href="$group__Timer__Handler.html#gaddb71b7aac0da3d609aca2b47940d0c8" title="Handles timer interrupts for the main menu.This function increments the RTC counter and updates the d..." alt="" coords="5,5,179,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="211,21,179,21,179,16,211,16"/>
+</map>

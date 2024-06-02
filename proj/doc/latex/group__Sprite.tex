@@ -1,0 +1,1108 @@
+\doxysection{Sprite}
+\hypertarget{group__Sprite}{}\label{group__Sprite}\index{Sprite@{Sprite}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structSprite}{Sprite}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\+\_\+sprite}} (xpm\+\_\+map\+\_\+t pic, int x, int y)
+\begin{DoxyCompactList}\small\item\em Creates a sprite from the given XPM map.
+
+This function allocates memory for a new \doxylink{structSprite}{Sprite} object, loads the XPM image, and initializes the sprite\textquotesingle{}s properties. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Sprite_gae10de51e6ec23c1eb987551e7ec4a0e9}{destroy\+\_\+sprite}} (\mbox{\hyperlink{structSprite}{Sprite}} \texorpdfstring{$\ast$}{*}sp)
+\begin{DoxyCompactList}\small\item\em Destroys a sprite and frees its memory.
+
+This function frees the memory allocated for the sprite\textquotesingle{}s pixel map and the sprite itself. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Sprite_ga0e9340f46bd95a6751c01cd6e5197d9b}{destroy\+\_\+all\+\_\+sprites}} ()
+\begin{DoxyCompactList}\small\item\em Destroys all loaded sprites.
+
+This function destroys all the sprites that have been loaded and prints an error message if any sprite could not be destroyed. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\+\_\+sprite}} (\mbox{\hyperlink{structSprite}{Sprite}} \texorpdfstring{$\ast$}{*}sp)
+\begin{DoxyCompactList}\small\item\em Draws a sprite on the screen.
+
+This function draws the sprite\textquotesingle{}s pixels on the screen, skipping transparent pixels. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Sprite_ga683f039988a3d9079ed293102af29dba}{load\+\_\+sprites\+\_\+1152x864}} ()
+\begin{DoxyCompactList}\small\item\em Loads sprites for the 1152x864 resolution.
+
+This function creates and initializes all the sprites needed for the 1152x864 resolution. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Sprite_ga40ccb13fdbc9085d728c2e4432553794}{load\+\_\+sprites\+\_\+800x600}} ()
+\begin{DoxyCompactList}\small\item\em Loads sprites for the 800x600 resolution.
+
+This function creates and initializes all the sprites needed for the 800x600 resolution. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Sprite_ga2d93fb9c89baec3742fba552f7213682}{load\+\_\+sprites}} (int res)
+\begin{DoxyCompactList}\small\item\em Loads sprites based on the specified resolution.
+
+This function determines which resolution-\/specific sprite loading function to call based on the provided resolution. It supports loading sprites for 800x600 and 1152x864 resolutions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}\index{Sprite@{Sprite}!create\_sprite@{create\_sprite}}
+\index{create\_sprite@{create\_sprite}!Sprite@{Sprite}}
+\doxysubsubsection{\texorpdfstring{create\_sprite()}{create\_sprite()}}
+{\footnotesize\ttfamily \label{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1} 
+\mbox{\hyperlink{structSprite}{Sprite}} \texorpdfstring{$\ast$}{*} create\+\_\+sprite (\begin{DoxyParamCaption}\item[{xpm\+\_\+map\+\_\+t}]{pic}{, }\item[{int}]{x}{, }\item[{int}]{y}{}\end{DoxyParamCaption})}
+
+
+
+Creates a sprite from the given XPM map.
+
+This function allocates memory for a new \doxylink{structSprite}{Sprite} object, loads the XPM image, and initializes the sprite\textquotesingle{}s properties. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pic} & The XPM map to load the sprite from. \\
+\hline
+{\em x} & The initial x-\/coordinate of the sprite. \\
+\hline
+{\em y} & The initial y-\/coordinate of the sprite. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Sprite\texorpdfstring{$\ast$}{*} Pointer to the created \doxylink{structSprite}{Sprite} object, or NULL if an error occurred. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{sprite_8c_source_l00020}{20}} of file \mbox{\hyperlink{sprite_8c_source}{sprite.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{structSprite}{Sprite}}\ *sp\ =\ (\mbox{\hyperlink{structSprite}{Sprite}}\ *)\ malloc\ (\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structSprite}{Sprite}}));\ \ \ \ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordflow}{if}(sp\ ==\ NULL)\ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ xpm\_image\_t\ img;}
+\DoxyCodeLine{00025\ \ \ \ \ sp-\/>map\ =\ (uint32\_t*)xpm\_load(pic,\ XPM\_8\_8\_8\_8,\ \&img);}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordflow}{if}(sp-\/>map\ ==\ NULL)\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ free(sp);\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{00030\ \ \ \ \ \}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ sp-\/>width\ =\ img.width;}
+\DoxyCodeLine{00033\ \ \ \ \ sp-\/>height\ =\ img.height;}
+\DoxyCodeLine{00034\ \ \ \ \ sp-\/>x\ =\ x;}
+\DoxyCodeLine{00035\ \ \ \ \ sp-\/>y\ =\ y;}
+\DoxyCodeLine{00036\ \ \ \ \ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordflow}{return}\ sp;}
+\DoxyCodeLine{00038\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Sprite_ga0e9340f46bd95a6751c01cd6e5197d9b}\index{Sprite@{Sprite}!destroy\_all\_sprites@{destroy\_all\_sprites}}
+\index{destroy\_all\_sprites@{destroy\_all\_sprites}!Sprite@{Sprite}}
+\doxysubsubsection{\texorpdfstring{destroy\_all\_sprites()}{destroy\_all\_sprites()}}
+{\footnotesize\ttfamily \label{group__Sprite_ga0e9340f46bd95a6751c01cd6e5197d9b} 
+int destroy\+\_\+all\+\_\+sprites (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Destroys all loaded sprites.
+
+This function destroys all the sprites that have been loaded and prints an error message if any sprite could not be destroyed. 
+
+\begin{DoxyReturn}{Returns}
+int Returns 0 on success, 1 if any sprite could not be destroyed. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{sprite_8c_source_l00064}{64}} of file \mbox{\hyperlink{sprite_8c_source}{sprite.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Sprite_gae10de51e6ec23c1eb987551e7ec4a0e9}{destroy\_sprite}}(normalCursor)\ !=\ 0)\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ problems\ occured\ while\ truing\ to\ destroy\ -\/normalCursor-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00068\ \ \ \ \ \}}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00070\ \textcolor{comment}{\ \ \ \ if(destroy\_sprite(clickCursor)\ !=\ 0)\ \{}}
+\DoxyCodeLine{00071\ \textcolor{comment}{\ \ \ \ \ \ \ \ printf("{}Error:\ problems\ occured\ while\ trying\ to\ destroy\ -\/clickCursor-\/\ sprite!\ \(\backslash\)n"{});}}
+\DoxyCodeLine{00072\ \textcolor{comment}{\ \ \ \ \ \ \ \ return\ 1;}}
+\DoxyCodeLine{00073\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{00074\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Sprite_gae10de51e6ec23c1eb987551e7ec4a0e9}{destroy\_sprite}}(controlShellButton)\ !=\ 0)\ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ problems\ occured\ while\ trying\ to\ destroy\ -\/controlShellButton-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00079\ \ \ \ \ \}}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Sprite_gae10de51e6ec23c1eb987551e7ec4a0e9}{destroy\_sprite}}(housePlantButton)\ !=\ 0)\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ problems\ occured\ while\ trying\ to\ destroy\ -\/housePlantButton-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00084\ \ \ \ \ \}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Sprite_gae10de51e6ec23c1eb987551e7ec4a0e9}{destroy\_sprite}}(exitButton)\ !=\ 0)\ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ problems\ occured\ while\ trying\ to\ destroy\ -\/exitButton-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00089\ \ \ \ \ \}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Sprite_gae10de51e6ec23c1eb987551e7ec4a0e9}{destroy\_sprite}}(helpButton)\ !=\ 0)\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ problems\ occured\ while\ trying\ to\ destroy\ -\/helpButton-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00094\ \ \ \ \ \}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Sprite_gae10de51e6ec23c1eb987551e7ec4a0e9}{destroy\_sprite}}(resolutionButton)\ !=\ 0)\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ problems\ occured\ while\ trying\ to\ destroy\ -\/settingsButton-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00099\ \ \ \ \ \}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Sprite_gae10de51e6ec23c1eb987551e7ec4a0e9}{destroy\_sprite}}(mainMenu)\ !=\ 0)\ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ problems\ occured\ while\ trying\ to\ destroy\ -\/MainMenu-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00104\ \ \ \ \ \}}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Sprite_gae10de51e6ec23c1eb987551e7ec4a0e9}{destroy\_sprite}}(resolutionPage)\ !=\ 0)\ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ problems\ occured\ while\ trying\ to\ destroy\ -\/resolutionPage-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00109\ \ \ \ \ \}}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Sprite_gae10de51e6ec23c1eb987551e7ec4a0e9}{destroy\_sprite}}(smallResolutionButton)\ !=\ 0)\ \{}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ problems\ occured\ while\ trying\ to\ destroy\ -\/smallResolutionButton-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00114\ \ \ \ \ \}}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Sprite_gae10de51e6ec23c1eb987551e7ec4a0e9}{destroy\_sprite}}(bigResolutionButton)\ !=\ 0)\ \{}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ problems\ occured\ while\ trying\ to\ destroy\ -\/bigResolutionButton-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00119\ \ \ \ \ \}}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Sprite_gae10de51e6ec23c1eb987551e7ec4a0e9}{destroy\_sprite}}(backArrow)\ !=\ 0)\ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ problems\ occured\ while\ trying\ to\ destroy\ -\/backArrow-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00124\ \ \ \ \ \}}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Sprite_gae10de51e6ec23c1eb987551e7ec4a0e9}{destroy\_sprite}}(housePlant)\ !=\ 0)\ \{}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ problems\ occured\ while\ trying\ to\ destroy\ -\/housePlant-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00129\ \ \ \ \ \}}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Sprite_gae10de51e6ec23c1eb987551e7ec4a0e9}{destroy\_sprite}}(db)\ !=\ 0)\ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ problems\ occured\ while\ trying\ to\ destroy\ -\/db-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00134\ \ \ \ \ \}}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Sprite_gae10de51e6ec23c1eb987551e7ec4a0e9}{destroy\_sprite}}(degrees\_celcius)\ !=\ 0)\ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ problems\ occured\ while\ trying\ to\ destroy\ -\/degreesCelsius-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00139\ \ \ \ \ \}}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Sprite_gae10de51e6ec23c1eb987551e7ec4a0e9}{destroy\_sprite}}(fan)\ !=\ 0)\ \{}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ problems\ occured\ while\ trying\ to\ destroy\ -\/fan-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00144\ \ \ \ \ \}}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Sprite_gae10de51e6ec23c1eb987551e7ec4a0e9}{destroy\_sprite}}(horn1)\ !=\ 0)\ \{}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ problems\ occured\ while\ trying\ to\ destroy\ -\/horn1-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00149\ \ \ \ \ \}}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Sprite_gae10de51e6ec23c1eb987551e7ec4a0e9}{destroy\_sprite}}(horn2)\ !=\ 0)\ \{}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ problems\ occured\ while\ trying\ to\ destroy\ -\/horn2-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00154\ \ \ \ \ \}}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Sprite_gae10de51e6ec23c1eb987551e7ec4a0e9}{destroy\_sprite}}(humidity\_and\_temperature)\ !=\ 0)\ \{}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ problems\ occured\ while\ trying\ to\ destroy\ -\/humidity\_and\_temperature-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00160\ \ \ \ \ \}}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Sprite_gae10de51e6ec23c1eb987551e7ec4a0e9}{destroy\_sprite}}(light\_horizontal1)\ !=\ 0)\ \{}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ problems\ occured\ while\ trying\ to\ destroy\ -\/light\_horizontal1-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00165\ \ \ \ \ \}}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Sprite_gae10de51e6ec23c1eb987551e7ec4a0e9}{destroy\_sprite}}(light\_horizontal2)\ !=\ 0)\ \{}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ problems\ occured\ while\ trying\ to\ destroy\ -\/light\_horizontal2-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00170\ \ \ \ \ \}}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Sprite_gae10de51e6ec23c1eb987551e7ec4a0e9}{destroy\_sprite}}(light\_vertical1)\ !=\ 0)\ \{}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ problems\ occured\ while\ trying\ to\ destroy\ -\/lightVertical1-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00175\ \ \ \ \ \}}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Sprite_gae10de51e6ec23c1eb987551e7ec4a0e9}{destroy\_sprite}}(light\_vertical2)\ !=\ 0)\ \{}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ problems\ occured\ while\ trying\ to\ destroy\ -\/lightVertical2-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00181\ \ \ \ \ \}}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Sprite_gae10de51e6ec23c1eb987551e7ec4a0e9}{destroy\_sprite}}(light\_vertical3)\ !=\ 0)\ \{}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ problems\ occured\ while\ trying\ to\ destroy\ -\/lightVertical3-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00187\ \ \ \ \ \}}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Sprite_gae10de51e6ec23c1eb987551e7ec4a0e9}{destroy\_sprite}}(percentage)\ !=\ 0)\ \{}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ problems\ occured\ while\ trying\ to\ destroy\ -\/percentage-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00192\ \ \ \ \ \}}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Sprite_gae10de51e6ec23c1eb987551e7ec4a0e9}{destroy\_sprite}}(read\_humidity)\ !=\ 0)\ \{}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ problems\ occured\ while\ trying\ to\ destroy\ -\/read\_humidity-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00197\ \ \ \ \ \}}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00199\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Sprite_gae10de51e6ec23c1eb987551e7ec4a0e9}{destroy\_sprite}}(read\_sound\_intensity)\ !=\ 0)\ \{}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ problems\ occured\ while\ trying\ to\ destroy\ -\/read\_sound\_intensity-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00202\ \ \ \ \ \}}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Sprite_gae10de51e6ec23c1eb987551e7ec4a0e9}{destroy\_sprite}}(read\_temperature)\ !=\ 0)\ \{}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ problems\ occured\ while\ trying\ to\ destroy\ -\/read\_temperature-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00207\ \ \ \ \ \}}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Sprite_gae10de51e6ec23c1eb987551e7ec4a0e9}{destroy\_sprite}}(sound\_int)\ !=\ 0)\ \{}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ problems\ occured\ while\ trying\ to\ destroy\ -\/sound\_int-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00212\ \ \ \ \ \}}
+\DoxyCodeLine{00213\ \ \ \ \ }
+\DoxyCodeLine{00214\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_gae10de51e6ec23c1eb987551e7ec4a0e9}{destroy\_sprite}}(colon)\ !=\ 0)\ \{}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ problems\ occurred\ while\ trying\ to\ destroy\ -\/colon-\/\ sprite!\(\backslash\)n"{}});}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00217\ \ \ \ \ \}}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00219\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_gae10de51e6ec23c1eb987551e7ec4a0e9}{destroy\_sprite}}(slash)\ !=\ 0)\ \{}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ problems\ occurred\ while\ trying\ to\ destroy\ -\/slash-\/\ sprite!\(\backslash\)n"{}});}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00222\ \ \ \ \ \}}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00224\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_gae10de51e6ec23c1eb987551e7ec4a0e9}{destroy\_sprite}}(zero)\ !=\ 0)\ \{}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ problems\ occurred\ while\ trying\ to\ destroy\ -\/zero-\/\ sprite!\(\backslash\)n"{}});}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00227\ \ \ \ \ \}}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_gae10de51e6ec23c1eb987551e7ec4a0e9}{destroy\_sprite}}(one)\ !=\ 0)\ \{}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ problems\ occurred\ while\ trying\ to\ destroy\ -\/one-\/\ sprite!\(\backslash\)n"{}});}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00232\ \ \ \ \ \}}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00234\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_gae10de51e6ec23c1eb987551e7ec4a0e9}{destroy\_sprite}}(two)\ !=\ 0)\ \{}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ problems\ occurred\ while\ trying\ to\ destroy\ -\/two-\/\ sprite!\(\backslash\)n"{}});}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00237\ \ \ \ \ \}}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00239\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_gae10de51e6ec23c1eb987551e7ec4a0e9}{destroy\_sprite}}(three)\ !=\ 0)\ \{}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ problems\ occurred\ while\ trying\ to\ destroy\ -\/three-\/\ sprite!\(\backslash\)n"{}});}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00242\ \ \ \ \ \}}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00244\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_gae10de51e6ec23c1eb987551e7ec4a0e9}{destroy\_sprite}}(four)\ !=\ 0)\ \{}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ problems\ occurred\ while\ trying\ to\ destroy\ -\/four-\/\ sprite!\(\backslash\)n"{}});}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00247\ \ \ \ \ \}}
+\DoxyCodeLine{00248\ }
+\DoxyCodeLine{00249\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_gae10de51e6ec23c1eb987551e7ec4a0e9}{destroy\_sprite}}(five)\ !=\ 0)\ \{}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ problems\ occurred\ while\ trying\ to\ destroy\ -\/five-\/\ sprite!\(\backslash\)n"{}});}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00252\ \ \ \ \ \}}
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00254\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_gae10de51e6ec23c1eb987551e7ec4a0e9}{destroy\_sprite}}(six)\ !=\ 0)\ \{}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ problems\ occurred\ while\ trying\ to\ destroy\ -\/six-\/\ sprite!\(\backslash\)n"{}});}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00257\ \ \ \ \ \}}
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00259\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_gae10de51e6ec23c1eb987551e7ec4a0e9}{destroy\_sprite}}(seven)\ !=\ 0)\ \{}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ problems\ occurred\ while\ trying\ to\ destroy\ -\/seven-\/\ sprite!\(\backslash\)n"{}});}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00262\ \ \ \ \ \}}
+\DoxyCodeLine{00263\ }
+\DoxyCodeLine{00264\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_gae10de51e6ec23c1eb987551e7ec4a0e9}{destroy\_sprite}}(eight)\ !=\ 0)\ \{}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ problems\ occurred\ while\ trying\ to\ destroy\ -\/eight-\/\ sprite!\(\backslash\)n"{}});}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00267\ \ \ \ \ \}}
+\DoxyCodeLine{00268\ }
+\DoxyCodeLine{00269\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_gae10de51e6ec23c1eb987551e7ec4a0e9}{destroy\_sprite}}(nine)\ !=\ 0)\ \{}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ problems\ occurred\ while\ trying\ to\ destroy\ -\/nine-\/\ sprite!\(\backslash\)n"{}});}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00272\ \ \ \ \ \}}
+\DoxyCodeLine{00273\ }
+\DoxyCodeLine{00274\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_gae10de51e6ec23c1eb987551e7ec4a0e9}{destroy\_sprite}}(helpPage)\ !=\ 0)\ \{}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ problems\ occurred\ while\ trying\ to\ destroy\ -\/helpPage-\/\ sprite!\(\backslash\)n"{}});}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00277\ \ \ \ \ \}}
+\DoxyCodeLine{00278\ }
+\DoxyCodeLine{00279\ }
+\DoxyCodeLine{00280\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00281\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=291pt]{group__Sprite_ga0e9340f46bd95a6751c01cd6e5197d9b_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Sprite_ga0e9340f46bd95a6751c01cd6e5197d9b_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Sprite_gae10de51e6ec23c1eb987551e7ec4a0e9}\index{Sprite@{Sprite}!destroy\_sprite@{destroy\_sprite}}
+\index{destroy\_sprite@{destroy\_sprite}!Sprite@{Sprite}}
+\doxysubsubsection{\texorpdfstring{destroy\_sprite()}{destroy\_sprite()}}
+{\footnotesize\ttfamily \label{group__Sprite_gae10de51e6ec23c1eb987551e7ec4a0e9} 
+int destroy\+\_\+sprite (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSprite}{Sprite}} \texorpdfstring{$\ast$}{*}}]{sp}{}\end{DoxyParamCaption})}
+
+
+
+Destroys a sprite and frees its memory.
+
+This function frees the memory allocated for the sprite\textquotesingle{}s pixel map and the sprite itself. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sp} & Pointer to the \doxylink{structSprite}{Sprite} object to be destroyed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Returns 0 on success, 1 if the sprite was NULL. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{sprite_8c_source_l00047}{47}} of file \mbox{\hyperlink{sprite_8c_source}{sprite.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordflow}{if}(sp\ ==\ NULL)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordflow}{if}(sp-\/>map)\ free(sp-\/>map);}
+\DoxyCodeLine{00051\ \ \ \ \ free(sp);}
+\DoxyCodeLine{00052\ \ \ \ \ sp\ =\ NULL;}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00055\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Sprite_gae10de51e6ec23c1eb987551e7ec4a0e9_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}\index{Sprite@{Sprite}!draw\_sprite@{draw\_sprite}}
+\index{draw\_sprite@{draw\_sprite}!Sprite@{Sprite}}
+\doxysubsubsection{\texorpdfstring{draw\_sprite()}{draw\_sprite()}}
+{\footnotesize\ttfamily \label{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f} 
+int draw\+\_\+sprite (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSprite}{Sprite}} \texorpdfstring{$\ast$}{*}}]{sp}{}\end{DoxyParamCaption})}
+
+
+
+Draws a sprite on the screen.
+
+This function draws the sprite\textquotesingle{}s pixels on the screen, skipping transparent pixels. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sp} & Pointer to the \doxylink{structSprite}{Sprite} object to be drawn. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Returns 0 on success, 1 if the sprite was NULL. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{sprite_8c_source_l00291}{291}} of file \mbox{\hyperlink{sprite_8c_source}{sprite.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00292\ \ \ \ \ \textcolor{keywordflow}{if}(sp\ ==\ NULL)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00293\ }
+\DoxyCodeLine{00294\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ sp-\/>width;\ i++)\ \{}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ sp-\/>height;\ j++)\ \{}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ color\ =\ sp-\/>map[sp-\/>width\ *\ j\ +\ i];}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(color\ ==\ TRANSPARENT\_COLOR)\ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (color\ ==\ 0xFFFFFF\ \&\&\ sp-\/>hover)\ color\ =\ 0xFDED84;}
+\DoxyCodeLine{00299\ }
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__Graphics_ga6f895de9725f9f231f9a7f74b6087f60}{vg\_draw\_pixel}}(sp-\/>x\ +\ i,\ sp-\/>y\ +\ j,\ color);}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00302\ \ \ \ \ \}}
+\DoxyCodeLine{00303\ }
+\DoxyCodeLine{00304\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00305\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=261pt]{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Sprite_ga2d93fb9c89baec3742fba552f7213682}\index{Sprite@{Sprite}!load\_sprites@{load\_sprites}}
+\index{load\_sprites@{load\_sprites}!Sprite@{Sprite}}
+\doxysubsubsection{\texorpdfstring{load\_sprites()}{load\_sprites()}}
+{\footnotesize\ttfamily \label{group__Sprite_ga2d93fb9c89baec3742fba552f7213682} 
+int load\+\_\+sprites (\begin{DoxyParamCaption}\item[{int}]{res}{}\end{DoxyParamCaption})}
+
+
+
+Loads sprites based on the specified resolution.
+
+This function determines which resolution-\/specific sprite loading function to call based on the provided resolution. It supports loading sprites for 800x600 and 1152x864 resolutions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em res} & The resolution identifier. It should be either {\ttfamily RES\+\_\+800\+\_\+600} or another value for 1152x864 resolution. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Returns 0 on success, 1 if any sprite loading fails. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{sprite_8c_source_l00843}{843}} of file \mbox{\hyperlink{sprite_8c_source}{sprite.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00843\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00844\ \ \ \ \ \textcolor{keywordflow}{if}(res\ ==\ RES\_800\_600)\ \{}
+\DoxyCodeLine{00845\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Sprite_ga40ccb13fdbc9085d728c2e4432553794}{load\_sprites\_800x600}}()\ !=\ 0)\ \{}
+\DoxyCodeLine{00846\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ 800x600\ sprites!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00847\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00848\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00849\ \ \ \ \ \}}
+\DoxyCodeLine{00850\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00851\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Sprite_ga683f039988a3d9079ed293102af29dba}{load\_sprites\_1152x864}}()\ !=\ 0)\ \{}
+\DoxyCodeLine{00852\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ 1152x864\ sprites!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00853\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00854\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00855\ \ \ \ \ \}}
+\DoxyCodeLine{00856\ }
+\DoxyCodeLine{00857\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00858\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Sprite_ga2d93fb9c89baec3742fba552f7213682_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Sprite_ga2d93fb9c89baec3742fba552f7213682_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Sprite_ga683f039988a3d9079ed293102af29dba}\index{Sprite@{Sprite}!load\_sprites\_1152x864@{load\_sprites\_1152x864}}
+\index{load\_sprites\_1152x864@{load\_sprites\_1152x864}!Sprite@{Sprite}}
+\doxysubsubsection{\texorpdfstring{load\_sprites\_1152x864()}{load\_sprites\_1152x864()}}
+{\footnotesize\ttfamily \label{group__Sprite_ga683f039988a3d9079ed293102af29dba} 
+int load\+\_\+sprites\+\_\+1152x864 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Loads sprites for the 1152x864 resolution.
+
+This function creates and initializes all the sprites needed for the 1152x864 resolution. 
+
+\begin{DoxyReturn}{Returns}
+int Returns 0 on success, 1 if any sprite could not be loaded. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{sprite_8c_source_l00314}{314}} of file \mbox{\hyperlink{sprite_8c_source}{sprite.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00315\ \ \ \ \ normalCursor\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)mouse\_pointer\_1152\_864\_xpm,\ 100,\ 100);}
+\DoxyCodeLine{00316\ \ \ \ \ \textcolor{keywordflow}{if}(normalCursor\ ==\ NULL)\ \{}
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/normalCursor-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00319\ \ \ \ \ \}}
+\DoxyCodeLine{00320\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00321\ \textcolor{comment}{\ \ \ \ clickCursor\ =\ create\_sprite();}}
+\DoxyCodeLine{00322\ \textcolor{comment}{\ \ \ \ \ if(clickCursor\ ==\ NULL)\ \{}}
+\DoxyCodeLine{00323\ \textcolor{comment}{\ \ \ \ \ \ \ \ printf("{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/clickCursor-\/\ sprite!\ \(\backslash\)n"{});}}
+\DoxyCodeLine{00324\ \textcolor{comment}{\ \ \ \ \ \ \ \ return\ 1;}}
+\DoxyCodeLine{00325\ \textcolor{comment}{\ \ \ \ \}*/}}
+\DoxyCodeLine{00326\ }
+\DoxyCodeLine{00327\ \ \ \ \ controlShellButton\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)control\_shell\_1152\_864\_xpm,\ 112,\ 332);}
+\DoxyCodeLine{00328\ \ \ \ \ \ \textcolor{keywordflow}{if}(controlShellButton\ ==\ NULL)\ \{}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/controlShellButton-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00331\ \ \ \ \ \}}
+\DoxyCodeLine{00332\ }
+\DoxyCodeLine{00333\ \ \ \ \ housePlantButton\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)house\_plant\_button\_1152\_864\_xpm,\ 112,\ 496);}
+\DoxyCodeLine{00334\ \ \ \ \ \ \textcolor{keywordflow}{if}(housePlantButton\ ==\ NULL)\ \{}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/housePlantButton-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00337\ \ \ \ \ \}}
+\DoxyCodeLine{00338\ }
+\DoxyCodeLine{00339\ \ \ \ \ exitButton\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)\ exit\_button\_1152\_864\_xpm,\ 383,\ 660);}
+\DoxyCodeLine{00340\ \ \ \ \ \ \textcolor{keywordflow}{if}(exitButton\ ==\ NULL)\ \{}
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/exitButton-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00343\ \ \ \ \ \}}
+\DoxyCodeLine{00344\ }
+\DoxyCodeLine{00345\ \ \ \ \ helpButton\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)\ help\_1152\_864\_xpm,\ 656,\ 496);}
+\DoxyCodeLine{00346\ \ \ \ \ \ \textcolor{keywordflow}{if}(helpButton\ ==\ NULL)\ \{}
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/helpButton-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00349\ \ \ \ \ \}}
+\DoxyCodeLine{00350\ }
+\DoxyCodeLine{00351\ \ \ \ \ resolutionButton\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)\ resolution\_button\_1152\_864\_xpm,\ 656,\ 332);}
+\DoxyCodeLine{00352\ \ \ \ \ \ \textcolor{keywordflow}{if}(resolutionButton\ ==\ NULL)\ \{}
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/settingsButton-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00355\ \ \ \ \ \}}
+\DoxyCodeLine{00356\ }
+\DoxyCodeLine{00357\ \ \ \ \ mainMenu\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)main\_menu\_1152\_864\_xpm,\ 0,\ 0);}
+\DoxyCodeLine{00358\ \ \ \ \ \textcolor{keywordflow}{if}(mainMenu\ ==\ NULL)\ \{}
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/mainMenu-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00361\ \ \ \ \ \}}
+\DoxyCodeLine{00362\ }
+\DoxyCodeLine{00363\ \ \ \ \ resolutionPage\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)resolution\_page\_1152\_864\_xpm,\ 0,\ 0);}
+\DoxyCodeLine{00364\ \ \ \ \ \textcolor{keywordflow}{if}(resolutionPage\ ==\ NULL)\ \{}
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/resolutionPage-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00367\ \ \ \ \ \}}
+\DoxyCodeLine{00368\ }
+\DoxyCodeLine{00369\ \ \ \ \ smallResolutionButton\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)small\_resolution\_button\_1152\_864\_xpm,\ 108,\ 432);}
+\DoxyCodeLine{00370\ \ \ \ \ \textcolor{keywordflow}{if}(smallResolutionButton\ ==\ NULL)\ \{}
+\DoxyCodeLine{00371\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/smallResolutionButton-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00373\ \ \ \ \ \}}
+\DoxyCodeLine{00374\ }
+\DoxyCodeLine{00375\ \ \ \ \ bigResolutionButton\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)big\_resolution\_button\_1152\_864\_xpm,\ 656,\ 432);}
+\DoxyCodeLine{00376\ \ \ \ \ \textcolor{keywordflow}{if}(bigResolutionButton\ ==\ NULL)\ \{}
+\DoxyCodeLine{00377\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/bigResolutionButton-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00379\ \ \ \ \ \}}
+\DoxyCodeLine{00380\ }
+\DoxyCodeLine{00381\ \ \ \ \ backArrow\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)back\_arrow\_1152\_864\_xpm,\ 35,\ 35);}
+\DoxyCodeLine{00382\ \ \ \ \ \textcolor{keywordflow}{if}(bigResolutionButton\ ==\ NULL)\ \{}
+\DoxyCodeLine{00383\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/backArrow-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00384\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00385\ \ \ \ \ \}}
+\DoxyCodeLine{00386\ }
+\DoxyCodeLine{00387\ \ \ \ \ housePlant\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)house\_plant\_1152\_864\_xpm,\ 0,\ 0);}
+\DoxyCodeLine{00388\ \ \ \ \ \textcolor{keywordflow}{if}(housePlant\ ==\ NULL)\ \{}
+\DoxyCodeLine{00389\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/housePlant-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00391\ \ \ \ \ \}}
+\DoxyCodeLine{00392\ }
+\DoxyCodeLine{00393\ \ \ \ \ db\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)db\_1152\_864\_xpm,\ 0,\ 0);}
+\DoxyCodeLine{00394\ \ \ \ \ \textcolor{keywordflow}{if}(db\ ==\ NULL)\ \{}
+\DoxyCodeLine{00395\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/db-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00396\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00397\ \ \ \ \ \}}
+\DoxyCodeLine{00398\ }
+\DoxyCodeLine{00399\ \ \ \ \ degrees\_celcius\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)degrees\_celsius\_1152\_864\_xpm,\ 0,\ 0);}
+\DoxyCodeLine{00400\ \ \ \ \ \textcolor{keywordflow}{if}(degrees\_celcius\ ==\ NULL)\ \{}
+\DoxyCodeLine{00401\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/degreeCelsius-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00402\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00403\ \ \ \ \ \}}
+\DoxyCodeLine{00404\ }
+\DoxyCodeLine{00405\ \ \ \ \ fan\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)fan\_1152\_864\_xpm,\ 212,\ 429);}
+\DoxyCodeLine{00406\ \ \ \ \ \textcolor{keywordflow}{if}(fan\ ==\ NULL)\ \{}
+\DoxyCodeLine{00407\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/fan-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00408\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00409\ \ \ \ \ \}\ \ \ }
+\DoxyCodeLine{00410\ }
+\DoxyCodeLine{00411\ \ \ \ \ horn1\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)horn\_1152\_864\_xpm,\ 577,\ 647);}
+\DoxyCodeLine{00412\ \ \ \ \ \textcolor{keywordflow}{if}(horn1\ ==\ NULL)\ \{}
+\DoxyCodeLine{00413\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/horn1-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00414\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00415\ \ \ \ \ \}}
+\DoxyCodeLine{00416\ }
+\DoxyCodeLine{00417\ \ \ \ \ horn2\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)horn\_1152\_864\_xpm,\ 637,\ 647);}
+\DoxyCodeLine{00418\ \ \ \ \ \textcolor{keywordflow}{if}(horn2\ ==\ NULL)\ \{}
+\DoxyCodeLine{00419\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/horn2-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00420\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00421\ \ \ \ \ \}\ \ \ \ }
+\DoxyCodeLine{00422\ }
+\DoxyCodeLine{00423\ \ \ \ \ humidity\_and\_temperature\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)humidity\_and\_temperature\_1152\_864\_xpm,\ 216,\ 390);}
+\DoxyCodeLine{00424\ \ \ \ \ \textcolor{keywordflow}{if}(humidity\_and\_temperature\ ==\ NULL)\ \{}
+\DoxyCodeLine{00425\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/humidity\_and\_temperature-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00426\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00427\ \ \ \ \ \}}
+\DoxyCodeLine{00428\ }
+\DoxyCodeLine{00429\ \ \ \ \ light\_horizontal1\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)light\_1152\_864\_xpm,\ 193,\ 264);}
+\DoxyCodeLine{00430\ \ \ \ \ \textcolor{keywordflow}{if}(light\_horizontal1\ ==\ NULL)\ \{}
+\DoxyCodeLine{00431\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/lightHorizontal1-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00432\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00433\ \ \ \ \ \}}
+\DoxyCodeLine{00434\ }
+\DoxyCodeLine{00435\ \ \ \ \ light\_horizontal2\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)light\_1152\_864\_xpm,\ 430,\ 264);}
+\DoxyCodeLine{00436\ \ \ \ \ \textcolor{keywordflow}{if}(light\_horizontal2\ ==\ NULL)\ \{}
+\DoxyCodeLine{00437\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/lightHorizontal2-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00438\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00439\ \ \ \ \ \}}
+\DoxyCodeLine{00440\ }
+\DoxyCodeLine{00441\ \ \ \ \ light\_vertical1\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)light\_vertical\_1152\_864\_xpm,\ 120,\ 569);}
+\DoxyCodeLine{00442\ \ \ \ \ \textcolor{keywordflow}{if}(light\_vertical1\ ==\ NULL)\ \{}
+\DoxyCodeLine{00443\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/lightVertical1-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00444\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00445\ \ \ \ \ \}}
+\DoxyCodeLine{00446\ }
+\DoxyCodeLine{00447\ \ \ \ \ light\_vertical2\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)light\_vertical\_1152\_864\_xpm,\ 361,\ 569);}
+\DoxyCodeLine{00448\ \ \ \ \ \textcolor{keywordflow}{if}(light\_vertical2\ ==\ NULL)\ \{}
+\DoxyCodeLine{00449\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/lightVertical2-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00450\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00451\ \ \ \ \ \}}
+\DoxyCodeLine{00452\ }
+\DoxyCodeLine{00453\ \ \ \ \ light\_vertical3\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)light\_vertical\_1152\_864\_xpm,\ 675,\ 367);}
+\DoxyCodeLine{00454\ \ \ \ \ \textcolor{keywordflow}{if}(light\_vertical3\ ==\ NULL)\ \{}
+\DoxyCodeLine{00455\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/lightVertical3-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00456\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00457\ \ \ \ \ \}\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00458\ }
+\DoxyCodeLine{00459\ \ \ \ \ percentage\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)percentage\_1152\_864\_xpm,\ 0,\ 0);}
+\DoxyCodeLine{00460\ \ \ \ \ \textcolor{keywordflow}{if}(percentage\ ==\ NULL)\ \{}
+\DoxyCodeLine{00461\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/percentage-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00462\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00463\ \ \ \ \ \}}
+\DoxyCodeLine{00464\ }
+\DoxyCodeLine{00465\ \ \ \ \ read\_humidity\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)read\_humidity\_button\_1152\_864\_xpm,\ 851,\ 379);}
+\DoxyCodeLine{00466\ \ \ \ \ \textcolor{keywordflow}{if}(read\_humidity\ ==\ NULL)\ \{}
+\DoxyCodeLine{00467\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/readHumidity-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00468\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00469\ \ \ \ \ \}}
+\DoxyCodeLine{00470\ }
+\DoxyCodeLine{00471\ \ \ \ \ read\_sound\_intensity\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)read\_sound\_intensity\_1152\_864\_xpm,\ 855,\ 679);}
+\DoxyCodeLine{00472\ \ \ \ \ \textcolor{keywordflow}{if}(read\_sound\_intensity\ ==\ NULL)\ \{}
+\DoxyCodeLine{00473\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/read\_sound\_intensity-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00474\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00475\ \ \ \ \ \}}
+\DoxyCodeLine{00476\ }
+\DoxyCodeLine{00477\ \ \ \ \ read\_temperature\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)read\_temperature\_1152\_864\_xpm,\ 851,\ 529);}
+\DoxyCodeLine{00478\ \ \ \ \ \textcolor{keywordflow}{if}(read\_temperature==\ NULL)\ \{}
+\DoxyCodeLine{00479\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/read\_temperature-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00480\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00481\ \ \ \ \ \}}
+\DoxyCodeLine{00482\ }
+\DoxyCodeLine{00483\ \ \ \ \ sound\_int=\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)sound\_intensity\_1152\_864\_xpm,\ 242,\ 427);}
+\DoxyCodeLine{00484\ \ \ \ \ \textcolor{keywordflow}{if}(sound\_int\ ==\ NULL)\ \{}
+\DoxyCodeLine{00485\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/sound\_int-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00486\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00487\ \ \ \ \ \}}
+\DoxyCodeLine{00488\ }
+\DoxyCodeLine{00489\ \ \ \ \ colon\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)colon\_1152\_864\_xpm,\ 0,\ 0);}
+\DoxyCodeLine{00490\ \ \ \ \ \textcolor{keywordflow}{if}(colon\ ==\ NULL)\ \{}
+\DoxyCodeLine{00491\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/colon-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00492\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00493\ \ \ \ \ \}}
+\DoxyCodeLine{00494\ }
+\DoxyCodeLine{00495\ \ \ \ \ slash\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)slash\_1152\_864\_xpm,\ 0,\ 0);}
+\DoxyCodeLine{00496\ \ \ \ \ \textcolor{keywordflow}{if}\ (slash\ ==\ NULL)\ \{}
+\DoxyCodeLine{00497\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ while\ trying\ to\ load\ -\/slash-\/\ sprite!\(\backslash\)n"{}});}
+\DoxyCodeLine{00498\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00499\ \ \ \ \ \}}
+\DoxyCodeLine{00500\ }
+\DoxyCodeLine{00501\ \ \ \ \ zero\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)zero\_1152\_864\_xpm,\ 0,\ 0);}
+\DoxyCodeLine{00502\ \ \ \ \ \textcolor{keywordflow}{if}\ (zero\ ==\ NULL)\ \{}
+\DoxyCodeLine{00503\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ while\ trying\ to\ load\ -\/zero-\/\ sprite!\(\backslash\)n"{}});}
+\DoxyCodeLine{00504\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00505\ \ \ \ \ \}}
+\DoxyCodeLine{00506\ }
+\DoxyCodeLine{00507\ \ \ \ \ one\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)one\_1152\_864\_xpm,\ 0,\ 0);}
+\DoxyCodeLine{00508\ \ \ \ \ \textcolor{keywordflow}{if}\ (one\ ==\ NULL)\ \{}
+\DoxyCodeLine{00509\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ while\ trying\ to\ load\ -\/one-\/\ sprite!\(\backslash\)n"{}});}
+\DoxyCodeLine{00510\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00511\ \ \ \ \ \}}
+\DoxyCodeLine{00512\ }
+\DoxyCodeLine{00513\ \ \ \ \ two\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)two\_1152\_864\_xpm,\ 0,\ 0);}
+\DoxyCodeLine{00514\ \ \ \ \ \textcolor{keywordflow}{if}\ (two\ ==\ NULL)\ \{}
+\DoxyCodeLine{00515\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ while\ trying\ to\ load\ -\/two-\/\ sprite!\(\backslash\)n"{}});}
+\DoxyCodeLine{00516\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00517\ \ \ \ \ \}}
+\DoxyCodeLine{00518\ }
+\DoxyCodeLine{00519\ \ \ \ \ three\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)three\_1152\_864\_xpm,\ 0,\ 0);}
+\DoxyCodeLine{00520\ \ \ \ \ \textcolor{keywordflow}{if}\ (three\ ==\ NULL)\ \{}
+\DoxyCodeLine{00521\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ while\ trying\ to\ load\ -\/three-\/\ sprite!\(\backslash\)n"{}});}
+\DoxyCodeLine{00522\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00523\ \ \ \ \ \}}
+\DoxyCodeLine{00524\ }
+\DoxyCodeLine{00525\ \ \ \ \ four\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)four\_1152\_864\_xpm,\ 0,\ 0);}
+\DoxyCodeLine{00526\ \ \ \ \ \textcolor{keywordflow}{if}\ (four\ ==\ NULL)\ \{}
+\DoxyCodeLine{00527\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ while\ trying\ to\ load\ -\/four-\/\ sprite!\(\backslash\)n"{}});}
+\DoxyCodeLine{00528\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00529\ \ \ \ \ \}}
+\DoxyCodeLine{00530\ }
+\DoxyCodeLine{00531\ \ \ \ \ five\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)five\_1152\_864\_xpm,\ 0,\ 0);}
+\DoxyCodeLine{00532\ \ \ \ \ \textcolor{keywordflow}{if}\ (five\ ==\ NULL)\ \{}
+\DoxyCodeLine{00533\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ while\ trying\ to\ load\ -\/five-\/\ sprite!\(\backslash\)n"{}});}
+\DoxyCodeLine{00534\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00535\ \ \ \ \ \}}
+\DoxyCodeLine{00536\ }
+\DoxyCodeLine{00537\ \ \ \ \ six\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)six\_1152\_864\_xpm,\ 0,\ 0);}
+\DoxyCodeLine{00538\ \ \ \ \ \textcolor{keywordflow}{if}\ (six\ ==\ NULL)\ \{}
+\DoxyCodeLine{00539\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ while\ trying\ to\ load\ -\/six-\/\ sprite!\(\backslash\)n"{}});}
+\DoxyCodeLine{00540\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00541\ \ \ \ \ \}}
+\DoxyCodeLine{00542\ }
+\DoxyCodeLine{00543\ \ \ \ \ seven\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)seven\_1152\_864\_xpm,\ 0,\ 0);}
+\DoxyCodeLine{00544\ \ \ \ \ \textcolor{keywordflow}{if}\ (seven\ ==\ NULL)\ \{}
+\DoxyCodeLine{00545\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ while\ trying\ to\ load\ -\/seven-\/\ sprite!\(\backslash\)n"{}});}
+\DoxyCodeLine{00546\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00547\ \ \ \ \ \}}
+\DoxyCodeLine{00548\ }
+\DoxyCodeLine{00549\ \ \ \ \ eight\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)eight\_1152\_864\_xpm,\ 0,\ 0);}
+\DoxyCodeLine{00550\ \ \ \ \ \textcolor{keywordflow}{if}\ (eight\ ==\ NULL)\ \{}
+\DoxyCodeLine{00551\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ while\ trying\ to\ load\ -\/eight-\/\ sprite!\(\backslash\)n"{}});}
+\DoxyCodeLine{00552\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00553\ \ \ \ \ \}}
+\DoxyCodeLine{00554\ }
+\DoxyCodeLine{00555\ \ \ \ \ nine\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)nine\_1152\_864\_xpm,\ 0,\ 0);}
+\DoxyCodeLine{00556\ \ \ \ \ \textcolor{keywordflow}{if}\ (nine\ ==\ NULL)\ \{}
+\DoxyCodeLine{00557\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ while\ trying\ to\ load\ -\/nine-\/\ sprite!\(\backslash\)n"{}});}
+\DoxyCodeLine{00558\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00559\ \ \ \ \ \}}
+\DoxyCodeLine{00560\ }
+\DoxyCodeLine{00561\ \ \ \ \ helpPage\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)help\_page\_1152\_864\_xpm,\ 0,\ 0);}
+\DoxyCodeLine{00562\ \ \ \ \ \textcolor{keywordflow}{if}\ (helpPage\ ==\ NULL)\ \{}
+\DoxyCodeLine{00563\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ while\ trying\ to\ load\ -\/helpPage-\/\ sprite!\(\backslash\)n"{}});}
+\DoxyCodeLine{00564\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00565\ \ \ \ \ \}}
+\DoxyCodeLine{00566\ }
+\DoxyCodeLine{00567\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00568\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=304pt]{group__Sprite_ga683f039988a3d9079ed293102af29dba_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Sprite_ga683f039988a3d9079ed293102af29dba_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Sprite_ga40ccb13fdbc9085d728c2e4432553794}\index{Sprite@{Sprite}!load\_sprites\_800x600@{load\_sprites\_800x600}}
+\index{load\_sprites\_800x600@{load\_sprites\_800x600}!Sprite@{Sprite}}
+\doxysubsubsection{\texorpdfstring{load\_sprites\_800x600()}{load\_sprites\_800x600()}}
+{\footnotesize\ttfamily \label{group__Sprite_ga40ccb13fdbc9085d728c2e4432553794} 
+int load\+\_\+sprites\+\_\+800x600 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Loads sprites for the 800x600 resolution.
+
+This function creates and initializes all the sprites needed for the 800x600 resolution. 
+
+\begin{DoxyReturn}{Returns}
+int Returns 0 on success, 1 if any sprite could not be loaded. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{sprite_8c_source_l00577}{577}} of file \mbox{\hyperlink{sprite_8c_source}{sprite.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00577\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00578\ \ \ \ \ normalCursor\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)mouse\_pointer\_800\_600\_xpm,\ 0,\ 0);}
+\DoxyCodeLine{00579\ \ \ \ \ \textcolor{keywordflow}{if}(normalCursor\ ==\ NULL)\ \{}
+\DoxyCodeLine{00580\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/normalCursor-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00581\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00582\ \ \ \ \ \}}
+\DoxyCodeLine{00583\ }
+\DoxyCodeLine{00584\ \ \ \ \ \textcolor{comment}{/*clickCursor\ =\ create\_sprite();}}
+\DoxyCodeLine{00585\ \textcolor{comment}{\ \ \ \ \ if(clickCursor\ ==\ NULL)\ \{}}
+\DoxyCodeLine{00586\ \textcolor{comment}{\ \ \ \ \ \ \ \ printf("{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/clickCursor-\/\ sprite!\ \(\backslash\)n"{});}}
+\DoxyCodeLine{00587\ \textcolor{comment}{\ \ \ \ \ \ \ \ return\ 1;}}
+\DoxyCodeLine{00588\ \textcolor{comment}{\ \ \ \ \}*/}}
+\DoxyCodeLine{00589\ }
+\DoxyCodeLine{00590\ \ \ \ \ controlShellButton\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)control\_shell\_button\_800\_600\_xpm,\ 78,\ 231);}
+\DoxyCodeLine{00591\ \ \ \ \ \ \textcolor{keywordflow}{if}(controlShellButton\ ==\ NULL)\ \{}
+\DoxyCodeLine{00592\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/controlShellText-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00593\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00594\ \ \ \ \ \}}
+\DoxyCodeLine{00595\ }
+\DoxyCodeLine{00596\ \ \ \ \ \ housePlantButton\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)house\_plant\_button\_800\_600\_xpm,\ 78,\ 344);}
+\DoxyCodeLine{00597\ \ \ \ \ \ \textcolor{keywordflow}{if}(housePlantButton\ ==\ NULL)\ \{}
+\DoxyCodeLine{00598\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/housePlantText-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00599\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00600\ \ \ \ \ \}}
+\DoxyCodeLine{00601\ }
+\DoxyCodeLine{00602\ \ \ \ \ exitButton\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)\ exit\_button\_800\_600\_xpm,\ 266,\ 458);}
+\DoxyCodeLine{00603\ \ \ \ \ \ \textcolor{keywordflow}{if}(exitButton\ ==\ NULL)\ \{}
+\DoxyCodeLine{00604\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/exitButton-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00605\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00606\ \ \ \ \ \}}
+\DoxyCodeLine{00607\ }
+\DoxyCodeLine{00608\ \ \ \ \ helpButton\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)\ help\_800\_600\_xpm,\ 456,\ 344);}
+\DoxyCodeLine{00609\ \ \ \ \ \ \textcolor{keywordflow}{if}(helpButton\ ==\ NULL)\ \{}
+\DoxyCodeLine{00610\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/helpText-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00611\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00612\ \ \ \ \ \}}
+\DoxyCodeLine{00613\ }
+\DoxyCodeLine{00614\ \ \ \ \ resolutionButton\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)\ resolution\_button\_800\_600\_xpm,\ 456,\ 231);\ }
+\DoxyCodeLine{00615\ \ \ \ \ \ \textcolor{keywordflow}{if}(resolutionButton\ ==\ NULL)\ \{\ }
+\DoxyCodeLine{00616\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/resolutionButton-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00617\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00618\ \ \ \ \ \}}
+\DoxyCodeLine{00619\ }
+\DoxyCodeLine{00620\ \ \ \ \ mainMenu\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)main\_menu\_800\_600\_xpm,\ 0,\ 0);}
+\DoxyCodeLine{00621\ \ \ \ \ \textcolor{keywordflow}{if}(mainMenu\ ==\ NULL)\ \{}
+\DoxyCodeLine{00622\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/mainMenu-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00623\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00624\ \ \ \ \ \}\ \ \ \ }
+\DoxyCodeLine{00625\ }
+\DoxyCodeLine{00626\ \ \ \ \ resolutionPage\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)resolution\_page\_800\_600\_xpm,\ 0,\ 0);}
+\DoxyCodeLine{00627\ \ \ \ \ \textcolor{keywordflow}{if}(resolutionPage\ ==\ NULL)\ \{}
+\DoxyCodeLine{00628\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/resolutionPage-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00629\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00630\ \ \ \ \ \}}
+\DoxyCodeLine{00631\ }
+\DoxyCodeLine{00632\ \ \ \ \ smallResolutionButton\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)small\_resolution\_button\_800\_600\_xpm,\ 78,\ 314);}
+\DoxyCodeLine{00633\ \ \ \ \ \textcolor{keywordflow}{if}(smallResolutionButton\ ==\ NULL)\ \{}
+\DoxyCodeLine{00634\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/smallResolutionButton-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00635\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00636\ \ \ \ \ \}}
+\DoxyCodeLine{00637\ }
+\DoxyCodeLine{00638\ }
+\DoxyCodeLine{00639\ \ \ \ \ bigResolutionButton\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)big\_resolution\_button\_800\_600\_xpm,\ 456,\ 314);}
+\DoxyCodeLine{00640\ \ \ \ \ \textcolor{keywordflow}{if}(bigResolutionButton\ ==\ NULL)\ \{}
+\DoxyCodeLine{00641\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/bigResolutionButton-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00642\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00643\ \ \ \ \ \}}
+\DoxyCodeLine{00644\ }
+\DoxyCodeLine{00645\ \ \ \ \ backArrow\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)back\_arrow\_800\_600\_xpm,\ 10,\ 10);}
+\DoxyCodeLine{00646\ \ \ \ \ \textcolor{keywordflow}{if}(bigResolutionButton\ ==\ NULL)\ \{}
+\DoxyCodeLine{00647\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/backArrow-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00648\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00649\ \ \ \ \ \}}
+\DoxyCodeLine{00650\ }
+\DoxyCodeLine{00651\ \ \ \ \ housePlant\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)house\_plant\_800\_600\_xpm,\ 0,\ 0);}
+\DoxyCodeLine{00652\ \ \ \ \ \textcolor{keywordflow}{if}(housePlant\ ==\ NULL)\ \{}
+\DoxyCodeLine{00653\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/housePlant-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00654\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00655\ \ \ \ \ \}}
+\DoxyCodeLine{00656\ }
+\DoxyCodeLine{00657\ \ \ \ \ db\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)db\_800\_600\_xpm,\ 0,\ 0);}
+\DoxyCodeLine{00658\ \ \ \ \ \textcolor{keywordflow}{if}(db\ ==\ NULL)\ \{}
+\DoxyCodeLine{00659\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/db-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00660\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00661\ \ \ \ \ \}}
+\DoxyCodeLine{00662\ }
+\DoxyCodeLine{00663\ \ \ \ \ degrees\_celcius\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)degrees\_celsius\_800\_600\_xpm,\ 0,\ 0);}
+\DoxyCodeLine{00664\ \ \ \ \ \textcolor{keywordflow}{if}(degrees\_celcius\ ==\ NULL)\ \{}
+\DoxyCodeLine{00665\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/degreeCelsius-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00666\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00667\ \ \ \ \ \}}
+\DoxyCodeLine{00668\ }
+\DoxyCodeLine{00669\ \ \ \ \ fan\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)fan\_800\_600\_xpm,\ 149,\ 298);}
+\DoxyCodeLine{00670\ \ \ \ \ \textcolor{keywordflow}{if}(fan\ ==\ NULL)\ \{}
+\DoxyCodeLine{00671\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/fan-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00672\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00673\ \ \ \ \ \}}
+\DoxyCodeLine{00674\ }
+\DoxyCodeLine{00675\ \ \ \ \ horn1\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)horn\_800\_600\_xpm,\ 400,\ 450);}
+\DoxyCodeLine{00676\ \ \ \ \ \textcolor{keywordflow}{if}(horn1\ ==\ NULL)\ \{}
+\DoxyCodeLine{00677\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/horn1-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00678\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00679\ \ \ \ \ \}}
+\DoxyCodeLine{00680\ }
+\DoxyCodeLine{00681\ \ \ \ \ horn2\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)horn\_800\_600\_xpm,\ 442,\ 450);}
+\DoxyCodeLine{00682\ \ \ \ \ \textcolor{keywordflow}{if}(horn2\ ==\ NULL)\ \{}
+\DoxyCodeLine{00683\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/horn2-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00684\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00685\ \ \ \ \ \}\ \ \ \ }
+\DoxyCodeLine{00686\ }
+\DoxyCodeLine{00687\ \ \ \ \ humidity\_and\_temperature\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)humidity\_and\_temperature\_800\_600\_xpm,\ 150,\ 270);}
+\DoxyCodeLine{00688\ \ \ \ \ \textcolor{keywordflow}{if}(humidity\_and\_temperature\ ==\ NULL)\ \{}
+\DoxyCodeLine{00689\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/humidity\_and\_temperature-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00690\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00691\ \ \ \ \ \}}
+\DoxyCodeLine{00692\ }
+\DoxyCodeLine{00693\ \ \ \ \ light\_horizontal1\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)light\_800\_600\_xpm,\ 134,\ 183);}
+\DoxyCodeLine{00694\ \ \ \ \ \textcolor{keywordflow}{if}(light\_horizontal1\ ==\ NULL)\ \{}
+\DoxyCodeLine{00695\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/lightHorizontal1-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00696\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00697\ \ \ \ \ \}}
+\DoxyCodeLine{00698\ }
+\DoxyCodeLine{00699\ \ \ \ \ light\_horizontal2\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)light\_800\_600\_xpm,\ 290,\ 183);}
+\DoxyCodeLine{00700\ \ \ \ \ \textcolor{keywordflow}{if}(light\_horizontal2\ ==\ NULL)\ \{}
+\DoxyCodeLine{00701\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/lightHorizontal2-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00702\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00703\ \ \ \ \ \}}
+\DoxyCodeLine{00704\ }
+\DoxyCodeLine{00705\ \ \ \ \ light\_vertical1\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)light\_vertical\_800\_600\_xpm,\ 84,\ 395);}
+\DoxyCodeLine{00706\ \ \ \ \ \textcolor{keywordflow}{if}(light\_vertical1\ ==\ NULL)\ \{}
+\DoxyCodeLine{00707\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/lightVertical1-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00708\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00709\ \ \ \ \ \}}
+\DoxyCodeLine{00710\ }
+\DoxyCodeLine{00711\ \ \ \ \ light\_vertical2\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)light\_vertical\_800\_600\_xpm,\ 225,\ 395);}
+\DoxyCodeLine{00712\ \ \ \ \ \textcolor{keywordflow}{if}(light\_vertical2\ ==\ NULL)\ \{}
+\DoxyCodeLine{00713\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/lightVertical2-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00714\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00715\ \ \ \ \ \}}
+\DoxyCodeLine{00716\ }
+\DoxyCodeLine{00717\ \ \ \ \ light\_vertical3\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)light\_vertical\_800\_600\_xpm,\ 468,\ 255);}
+\DoxyCodeLine{00718\ \ \ \ \ \textcolor{keywordflow}{if}(light\_vertical3\ ==\ NULL)\ \{}
+\DoxyCodeLine{00719\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/lightVertical3-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00720\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00721\ \ \ \ \ \}\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00722\ }
+\DoxyCodeLine{00723\ \ \ \ \ percentage\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)percentage\_800\_600\_xpm,\ 0,\ 0);}
+\DoxyCodeLine{00724\ \ \ \ \ \textcolor{keywordflow}{if}(percentage\ ==\ NULL)\ \{}
+\DoxyCodeLine{00725\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/percentage-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00726\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00727\ \ \ \ \ \}}
+\DoxyCodeLine{00728\ }
+\DoxyCodeLine{00729\ \ \ \ \ read\_humidity\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)read\_humidity\_button\_800\_600\_xpm,\ 584,\ 245);}
+\DoxyCodeLine{00730\ \ \ \ \ \textcolor{keywordflow}{if}(read\_humidity\ ==\ NULL)\ \{}
+\DoxyCodeLine{00731\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/readHumidity-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00732\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00733\ \ \ \ \ \}}
+\DoxyCodeLine{00734\ }
+\DoxyCodeLine{00735\ \ \ \ \ read\_sound\_intensity\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)read\_sound\_intensity\_800\_600\_xpm,\ 550,\ 470);}
+\DoxyCodeLine{00736\ \ \ \ \ \textcolor{keywordflow}{if}(read\_sound\_intensity\ ==\ NULL)\ \{}
+\DoxyCodeLine{00737\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/read\_sound\_intensity-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00738\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00739\ \ \ \ \ \}}
+\DoxyCodeLine{00740\ }
+\DoxyCodeLine{00741\ \ \ \ \ read\_temperature\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)read\_temperature\_800\_600\_xpm,\ 584,\ 357);}
+\DoxyCodeLine{00742\ \ \ \ \ \textcolor{keywordflow}{if}(read\_temperature==\ NULL)\ \{}
+\DoxyCodeLine{00743\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/read\_temperature-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00744\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00745\ \ \ \ \ \}}
+\DoxyCodeLine{00746\ }
+\DoxyCodeLine{00747\ \ \ \ \ sound\_int\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)sound\_intensity\_800\_600\_xpm,\ 170,\ 299);}
+\DoxyCodeLine{00748\ \ \ \ \ \textcolor{keywordflow}{if}(sound\_int\ ==\ NULL)\ \{}
+\DoxyCodeLine{00749\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/sound\_int-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00750\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00751\ \ \ \ \ \}}
+\DoxyCodeLine{00752\ }
+\DoxyCodeLine{00753\ \ \ \ \ colon\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)colon\_800\_600\_xpm,\ 0,\ 0);}
+\DoxyCodeLine{00754\ \ \ \ \ \textcolor{keywordflow}{if}(colon\ ==\ NULL)\ \{}
+\DoxyCodeLine{00755\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ load\ -\/colon-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00756\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00757\ \ \ \ \ \}}
+\DoxyCodeLine{00758\ }
+\DoxyCodeLine{00759\ \ \ \ \ slash\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)slash\_800\_600\_xpm,\ 0,\ 0);}
+\DoxyCodeLine{00760\ \ \ \ \ \textcolor{keywordflow}{if}\ (slash\ ==\ NULL)\ \{}
+\DoxyCodeLine{00761\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ while\ trying\ to\ load\ -\/slash-\/\ sprite!\(\backslash\)n"{}});}
+\DoxyCodeLine{00762\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00763\ \ \ \ \ \}}
+\DoxyCodeLine{00764\ }
+\DoxyCodeLine{00765\ \ \ \ \ zero\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)zero\_800\_600\_xpm,\ 0,\ 0);}
+\DoxyCodeLine{00766\ \ \ \ \ \textcolor{keywordflow}{if}\ (zero\ ==\ NULL)\ \{}
+\DoxyCodeLine{00767\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ while\ trying\ to\ load\ -\/zero-\/\ sprite!\(\backslash\)n"{}});}
+\DoxyCodeLine{00768\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00769\ \ \ \ \ \}}
+\DoxyCodeLine{00770\ }
+\DoxyCodeLine{00771\ \ \ \ \ one\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)one\_800\_600\_xpm,\ 0,\ 0);}
+\DoxyCodeLine{00772\ \ \ \ \ \textcolor{keywordflow}{if}\ (one\ ==\ NULL)\ \{}
+\DoxyCodeLine{00773\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ while\ trying\ to\ load\ -\/one-\/\ sprite!\(\backslash\)n"{}});}
+\DoxyCodeLine{00774\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00775\ \ \ \ \ \}}
+\DoxyCodeLine{00776\ }
+\DoxyCodeLine{00777\ \ \ \ \ two\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)two\_800\_600\_xpm,\ 0,\ 0);}
+\DoxyCodeLine{00778\ \ \ \ \ \textcolor{keywordflow}{if}\ (two\ ==\ NULL)\ \{}
+\DoxyCodeLine{00779\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ while\ trying\ to\ load\ -\/two-\/\ sprite!\(\backslash\)n"{}});}
+\DoxyCodeLine{00780\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00781\ \ \ \ \ \}}
+\DoxyCodeLine{00782\ }
+\DoxyCodeLine{00783\ \ \ \ \ three\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)three\_800\_600\_xpm,\ 0,\ 0);}
+\DoxyCodeLine{00784\ \ \ \ \ \textcolor{keywordflow}{if}\ (three\ ==\ NULL)\ \{}
+\DoxyCodeLine{00785\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ while\ trying\ to\ load\ -\/three-\/\ sprite!\(\backslash\)n"{}});}
+\DoxyCodeLine{00786\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00787\ \ \ \ \ \}}
+\DoxyCodeLine{00788\ }
+\DoxyCodeLine{00789\ \ \ \ \ four\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)four\_800\_600\_xpm,\ 0,\ 0);}
+\DoxyCodeLine{00790\ \ \ \ \ \textcolor{keywordflow}{if}\ (four\ ==\ NULL)\ \{}
+\DoxyCodeLine{00791\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ while\ trying\ to\ load\ -\/four-\/\ sprite!\(\backslash\)n"{}});}
+\DoxyCodeLine{00792\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00793\ \ \ \ \ \}}
+\DoxyCodeLine{00794\ }
+\DoxyCodeLine{00795\ \ \ \ \ five\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)five\_800\_600\_xpm,\ 0,\ 0);}
+\DoxyCodeLine{00796\ \ \ \ \ \textcolor{keywordflow}{if}\ (five\ ==\ NULL)\ \{}
+\DoxyCodeLine{00797\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ while\ trying\ to\ load\ -\/five-\/\ sprite!\(\backslash\)n"{}});}
+\DoxyCodeLine{00798\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00799\ \ \ \ \ \}}
+\DoxyCodeLine{00800\ }
+\DoxyCodeLine{00801\ \ \ \ \ six\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)six\_800\_600\_xpm,\ 0,\ 0);}
+\DoxyCodeLine{00802\ \ \ \ \ \textcolor{keywordflow}{if}\ (six\ ==\ NULL)\ \{}
+\DoxyCodeLine{00803\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ while\ trying\ to\ load\ -\/six-\/\ sprite!\(\backslash\)n"{}});}
+\DoxyCodeLine{00804\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00805\ \ \ \ \ \}}
+\DoxyCodeLine{00806\ }
+\DoxyCodeLine{00807\ \ \ \ \ seven\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)seven\_800\_600\_xpm,\ 0,\ 0);}
+\DoxyCodeLine{00808\ \ \ \ \ \textcolor{keywordflow}{if}\ (seven\ ==\ NULL)\ \{}
+\DoxyCodeLine{00809\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ while\ trying\ to\ load\ -\/seven-\/\ sprite!\(\backslash\)n"{}});}
+\DoxyCodeLine{00810\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00811\ \ \ \ \ \}}
+\DoxyCodeLine{00812\ }
+\DoxyCodeLine{00813\ \ \ \ \ eight\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)eight\_800\_600\_xpm,\ 0,\ 0);}
+\DoxyCodeLine{00814\ \ \ \ \ \textcolor{keywordflow}{if}\ (eight\ ==\ NULL)\ \{}
+\DoxyCodeLine{00815\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ while\ trying\ to\ load\ -\/eight-\/\ sprite!\(\backslash\)n"{}});}
+\DoxyCodeLine{00816\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00817\ \ \ \ \ \}}
+\DoxyCodeLine{00818\ }
+\DoxyCodeLine{00819\ \ \ \ \ nine\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)nine\_800\_600\_xpm,\ 0,\ 0);}
+\DoxyCodeLine{00820\ \ \ \ \ \textcolor{keywordflow}{if}\ (nine\ ==\ NULL)\ \{}
+\DoxyCodeLine{00821\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ while\ trying\ to\ load\ -\/nine-\/\ sprite!\(\backslash\)n"{}});}
+\DoxyCodeLine{00822\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00823\ \ \ \ \ \}}
+\DoxyCodeLine{00824\ }
+\DoxyCodeLine{00825\ \ \ \ \ helpPage\ =\ \mbox{\hyperlink{group__Sprite_gac7d3801d2d8cb4108c171766c8cfaff1}{create\_sprite}}((xpm\_map\_t)help\_page\_800\_600\_xpm,\ 0,\ 0);}
+\DoxyCodeLine{00826\ \ \ \ \ \textcolor{keywordflow}{if}\ (helpPage\ ==\ NULL)\ \{}
+\DoxyCodeLine{00827\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ while\ trying\ to\ load\ -\/helpPage-\/\ sprite!\(\backslash\)n"{}});}
+\DoxyCodeLine{00828\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00829\ \ \ \ \ \}}
+\DoxyCodeLine{00830\ \ \ \ \ \ }
+\DoxyCodeLine{00831\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00832\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=299pt]{group__Sprite_ga40ccb13fdbc9085d728c2e4432553794_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Sprite_ga40ccb13fdbc9085d728c2e4432553794_icgraph}
+\end{center}
+\end{figure}

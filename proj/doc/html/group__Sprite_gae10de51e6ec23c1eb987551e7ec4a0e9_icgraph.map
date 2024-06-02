@@ -1,0 +1,9 @@
+<map id="destroy_sprite" name="destroy_sprite">
+<area shape="rect" id="Node000001" title="Destroys a sprite and frees its memory.This function frees the memory allocated for the sprite&#39;s pixe..." alt="" coords="568,5,672,31"/>
+<area shape="rect" id="Node000002" href="$group__Sprite.html#ga0e9340f46bd95a6751c01cd6e5197d9b" title="Destroys all loaded sprites.This function destroys all the sprites that have been loaded and prints a..." alt="" coords="390,5,520,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="553,21,521,21,521,16,553,16"/>
+<area shape="rect" id="Node000003" href="$group__Graphics.html#gae3e0f491782c537cbd9ba342164c6f96" title="Changes the screen resolution." alt="" coords="216,5,342,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="375,21,342,21,342,16,375,16"/>
+<area shape="rect" id="Node000004" href="$group__Mouse__Handler.html#gac63ee6f5260e431a9252b78077fe37c2" title="Handles mouse input for the settings menu.This function processes mouse packets, updates the cursor p..." alt="" coords="5,5,168,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="200,21,168,21,168,16,200,16"/>
+</map>

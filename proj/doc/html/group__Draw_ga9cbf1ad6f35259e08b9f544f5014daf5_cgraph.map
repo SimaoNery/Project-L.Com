@@ -1,0 +1,9 @@
+<map id="draw_value_sprites" name="draw_value_sprites">
+<area shape="rect" id="Node000001" title="Draws value sprites at the specified position." alt="" coords="5,5,139,31"/>
+<area shape="rect" id="Node000002" href="$group__Draw.html#ga895bacaa423c3442c107c9c03459b22d" title="Draws a digit sprite at the specified position." alt="" coords="187,5,305,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="139,16,172,16,172,21,139,21"/>
+<area shape="rect" id="Node000003" href="$group__Sprite.html#ga6c75fbf31230126d2f19b29deaf24b2f" title="Draws a sprite on the screen.This function draws the sprite&#39;s pixels on the screen,..." alt="" coords="353,5,441,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="305,16,337,16,337,21,305,21"/>
+<area shape="rect" id="Node000004" href="$group__Graphics.html#ga6f895de9725f9f231f9a7f74b6087f60" title="Draws a pixel on the screen." alt="" coords="489,5,594,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="442,16,474,16,474,21,442,21"/>
+</map>

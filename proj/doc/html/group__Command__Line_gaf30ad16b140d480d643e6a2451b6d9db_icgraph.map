@@ -1,0 +1,5 @@
+<map id="input_to_command_line" name="input_to_command_line">
+<area shape="rect" id="Node000001" title="Processes the input scancode and updates the command line buffer." alt="" coords="208,13,366,39"/>
+<area shape="rect" id="Node000002" href="$group__Keyboard__handler.html#gaafc38d06c830847598f11eac8aae8578" title="Handles keyboard input for the control shell." alt="" coords="5,5,160,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="192,28,160,28,160,23,192,23"/>
+</map>

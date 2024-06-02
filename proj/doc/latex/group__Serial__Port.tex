@@ -1,0 +1,101 @@
+\doxysection{Serial\+\_\+\+Port}
+\hypertarget{group__Serial__Port}{}\label{group__Serial__Port}\index{Serial\_Port@{Serial\_Port}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group__Serial__Port_ga2f8bcbfe8e4d2615c824833f6c32c52f}{serial\+\_\+port\+\_\+control\+\_\+shell\+\_\+handler}} ()
+\begin{DoxyCompactList}\small\item\em Handles serial port input for the control shell.
+
+This function processes serial port interrupts and retrieves humidity and temperature data if requested. It prints the humidity and temperature data once all data points are received. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__Serial__Port_ga6828f89a55043dc4ca10b4c04adb8d8e}{serial\+\_\+port\+\_\+settings\+\_\+handler}} ()
+\begin{DoxyCompactList}\small\item\em Handles serial port input for the settings menu.
+
+This function processes serial port interrupts and retrieves sound intensity data if requested. It prints the sound intensity data once all data points are received. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{group__Serial__Port_ga2f8bcbfe8e4d2615c824833f6c32c52f}\index{Serial\_Port@{Serial\_Port}!serial\_port\_control\_shell\_handler@{serial\_port\_control\_shell\_handler}}
+\index{serial\_port\_control\_shell\_handler@{serial\_port\_control\_shell\_handler}!Serial\_Port@{Serial\_Port}}
+\doxysubsubsection{\texorpdfstring{serial\_port\_control\_shell\_handler()}{serial\_port\_control\_shell\_handler()}}
+{\footnotesize\ttfamily \label{group__Serial__Port_ga2f8bcbfe8e4d2615c824833f6c32c52f} 
+void serial\+\_\+port\+\_\+control\+\_\+shell\+\_\+handler (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Handles serial port input for the control shell.
+
+This function processes serial port interrupts and retrieves humidity and temperature data if requested. It prints the humidity and temperature data once all data points are received. 
+
+
+
+Definition at line \mbox{\hyperlink{serial__port__handler_8c_source_l00025}{25}} of file \mbox{\hyperlink{serial__port__handler_8c_source}{serial\+\_\+port\+\_\+handler.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00026\ \ \ \mbox{\hyperlink{group__Serial_ga528a1e579cedabb490a7195e2f2287cf}{serial\_port\_int\_handler}}();}
+\DoxyCodeLine{00027\ \ \ \textcolor{keywordflow}{if}\ (asking\_for\_humidity\_and\_temp)\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{group__Queue_gacf430581987580e06036874af6ec371d}{pop}}(\mbox{\hyperlink{group__Serial_ga796e46e751768b26348479e789bf90a4}{get\_queue}}(),\ \&humidity\_temp[counter\_serial\_port++]);}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordflow}{if}\ (counter\_serial\_port\ ==\ 4)\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ counter\_serial\_port\ =\ 0;}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ asking\_for\_humidity\_and\_temp\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Humidity:\ \%d,\%d\%\%\(\backslash\)n"{}},\ humidity\_temp[0],\ humidity\_temp[1]);}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Temperature:\ \%d,\%dC"{}},\ humidity\_temp[2],\ humidity\_temp[3]);}
+\DoxyCodeLine{00034\ \ \ \ \ \}}
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{group__Serial_ga1426ccf57ad167e5c2b59cfff90772d9}{serial\_port\_clear\_int}}();}
+\DoxyCodeLine{00036\ \ \ \}}
+\DoxyCodeLine{00037\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Serial__Port_ga2f8bcbfe8e4d2615c824833f6c32c52f_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Serial__Port_ga6828f89a55043dc4ca10b4c04adb8d8e}\index{Serial\_Port@{Serial\_Port}!serial\_port\_settings\_handler@{serial\_port\_settings\_handler}}
+\index{serial\_port\_settings\_handler@{serial\_port\_settings\_handler}!Serial\_Port@{Serial\_Port}}
+\doxysubsubsection{\texorpdfstring{serial\_port\_settings\_handler()}{serial\_port\_settings\_handler()}}
+{\footnotesize\ttfamily \label{group__Serial__Port_ga6828f89a55043dc4ca10b4c04adb8d8e} 
+void serial\+\_\+port\+\_\+settings\+\_\+handler (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Handles serial port input for the settings menu.
+
+This function processes serial port interrupts and retrieves sound intensity data if requested. It prints the sound intensity data once all data points are received. 
+
+
+
+Definition at line \mbox{\hyperlink{serial__port__handler_8c_source_l00045}{45}} of file \mbox{\hyperlink{serial__port__handler_8c_source}{serial\+\_\+port\+\_\+handler.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \textcolor{keywordflow}{if}\ (asking\_for\_sound)\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{group__Queue_gacf430581987580e06036874af6ec371d}{pop}}(\mbox{\hyperlink{group__Serial_ga796e46e751768b26348479e789bf90a4}{get\_queue}}(),\ \&sound\_intensity[counter\_serial\_port++]);}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordflow}{if}\ (counter\_serial\_port\ ==\ 2)\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ counter\_serial\_port\ =\ 0;}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ asking\_for\_sound\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Sound\ intensity:\ \%d,\%ddB\(\backslash\)n"{}},\ sound\_intensity[0],}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ sound\_intensity[1]);}
+\DoxyCodeLine{00054\ \ \ \ \ \}}
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{group__Serial_ga1426ccf57ad167e5c2b59cfff90772d9}{serial\_port\_clear\_int}}();}
+\DoxyCodeLine{00056\ \ \ \}}
+\DoxyCodeLine{00057\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Serial__Port_ga6828f89a55043dc4ca10b4c04adb8d8e_cgraph}
+\end{center}
+\end{figure}

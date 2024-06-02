@@ -1,0 +1,1086 @@
+\doxysection{Draw}
+\hypertarget{group__Draw}{}\label{group__Draw}\index{Draw@{Draw}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__Draw_gab708de60ac9ff4a5ec5f067b8965fda3}{draw\+\_\+page}} ()
+\begin{DoxyCompactList}\small\item\em Draws the current page based on the page state.
+
+This function switches between different page states and calls the appropriate drawing functions. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Draw_gad7ca2d21a727f7d55afef2392de3b5f8}{draw\+\_\+main\+\_\+menu}} ()
+\begin{DoxyCompactList}\small\item\em Draws the main menu page.
+
+This function draws the main menu sprite, main buttons, and the mouse pointer. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Draw_ga6305b70c3fe62546c38d818d92cb784a}{draw\+\_\+resolution}} ()
+\begin{DoxyCompactList}\small\item\em Draws the resolution page.
+
+This function draws the resolution page sprite, resolution buttons, and the mouse pointer. It also detects the buffering method. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Draw_gaec3f64d85077b79c7351e933d1ae2c77}{draw\+\_\+house\+\_\+plant}} ()
+\begin{DoxyCompactList}\small\item\em Draws the house plant page.
+
+This function sends serial port messages, draws the house plant sprite, house plant buttons, and the mouse pointer. It also detects the buffering method. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Draw_gaf4eaa4b2b77231bf1696747c632af8a7}{draw\+\_\+main\+\_\+buttons}} ()
+\begin{DoxyCompactList}\small\item\em Draws the main menu buttons.
+
+This function draws the control shell button, house plant button, exit button, help button, and resolution button. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Draw_gaa30d2b1357c9de82a2dca4bab3fdfa9c}{draw\+\_\+resolution\+\_\+buttons}} ()
+\begin{DoxyCompactList}\small\item\em Draws the resolutions buttons.
+
+This function draws the resolutions buttons. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Draw_ga24c926d472482e72c7219880c7ccd5c4}{draw\+\_\+house\+Plant\+\_\+buttons}} ()
+\begin{DoxyCompactList}\small\item\em Draws the House Plant buttons.
+
+This function draws the House Plant buttons. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Draw_ga895bacaa423c3442c107c9c03459b22d}{draw\+\_\+digit\+\_\+value}} (\mbox{\hyperlink{structSprite}{Sprite}} \texorpdfstring{$\ast$}{*}to\+\_\+draw, int height, int width, int \texorpdfstring{$\ast$}{*}x\+\_\+counter)
+\begin{DoxyCompactList}\small\item\em Draws a digit sprite at the specified position. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Draw_gac1f43f29e9853b35feda6ab6a19bf84b}{draw\+\_\+digit\+\_\+date}} (\mbox{\hyperlink{structSprite}{Sprite}} \texorpdfstring{$\ast$}{*}to\+\_\+draw, int \texorpdfstring{$\ast$}{*}x\+\_\+counter)
+\begin{DoxyCompactList}\small\item\em Draws a digit date sprite at the specified position. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Draw_ga37a02de713c35021c8b8dfa71d4e1371}{draw\+\_\+unit\+\_\+sprites}} (uint8\+\_\+t time\+\_\+val, int \texorpdfstring{$\ast$}{*}x\+\_\+counter)
+\begin{DoxyCompactList}\small\item\em Draws unit sprites based on the given time value. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Draw_ga9cbf1ad6f35259e08b9f544f5014daf5}{draw\+\_\+value\+\_\+sprites}} (int val, int height, int width, int \texorpdfstring{$\ast$}{*}x\+\_\+counter)
+\begin{DoxyCompactList}\small\item\em Draws value sprites at the specified position. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Draw_ga77aa5892dbaec23e07aa9523bf2e2e60}{draw\+\_\+date\+\_\+time}} ()
+\begin{DoxyCompactList}\small\item\em Draws the current date and time on the screen. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Draw_ga33c22d891205dc62787810089e00dde6}{draw\+\_\+humidity}} ()
+\begin{DoxyCompactList}\small\item\em Draws the humidity value on the screen. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Draw_ga473c4126179530af9119bcbc3d5bc3f7}{draw\+\_\+temperature}} ()
+\begin{DoxyCompactList}\small\item\em Draws the temperature value on the screen. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Draw_ga2b030dfcf9c9580d4abf9500387eb1c8}{draw\+\_\+sound\+\_\+intensity}} ()
+\begin{DoxyCompactList}\small\item\em Draws the sound intensity value on the screen. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{group__Draw_ga77aa5892dbaec23e07aa9523bf2e2e60}\index{Draw@{Draw}!draw\_date\_time@{draw\_date\_time}}
+\index{draw\_date\_time@{draw\_date\_time}!Draw@{Draw}}
+\doxysubsubsection{\texorpdfstring{draw\_date\_time()}{draw\_date\_time()}}
+{\footnotesize\ttfamily \label{group__Draw_ga77aa5892dbaec23e07aa9523bf2e2e60} 
+int draw\+\_\+date\+\_\+time (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Draws the current date and time on the screen. 
+
+\begin{DoxyReturn}{Returns}
+int Returns 0 on success, 1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{draw_8c_source_l00503}{503}} of file \mbox{\hyperlink{draw_8c_source}{draw.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00503\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00504\ \ \ uint8\_t\ year\ =\ time\_info.year;}
+\DoxyCodeLine{00505\ \ \ uint8\_t\ month\ =\ time\_info.month;}
+\DoxyCodeLine{00506\ \ \ uint8\_t\ day\ =\ time\_info.day;}
+\DoxyCodeLine{00507\ \ \ uint8\_t\ hour\ =\ time\_info.hours;}
+\DoxyCodeLine{00508\ \ \ uint8\_t\ minute\ =\ time\_info.minutes;}
+\DoxyCodeLine{00509\ }
+\DoxyCodeLine{00510\ \ \ \textcolor{keywordtype}{int}\ x\_counter\ =\ 0;}
+\DoxyCodeLine{00511\ }
+\DoxyCodeLine{00512\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_gac1f43f29e9853b35feda6ab6a19bf84b}{draw\_digit\_date}}(two,\ \&x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00513\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_gac1f43f29e9853b35feda6ab6a19bf84b}{draw\_digit\_date}}(zero,\ \&x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00514\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_ga37a02de713c35021c8b8dfa71d4e1371}{draw\_unit\_sprites}}(year,\ \&x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00515\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_gac1f43f29e9853b35feda6ab6a19bf84b}{draw\_digit\_date}}(slash,\ \&x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00516\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_ga37a02de713c35021c8b8dfa71d4e1371}{draw\_unit\_sprites}}(month,\ \&x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00517\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_gac1f43f29e9853b35feda6ab6a19bf84b}{draw\_digit\_date}}(slash,\ \&x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00518\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_ga37a02de713c35021c8b8dfa71d4e1371}{draw\_unit\_sprites}}(day,\ \&x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00519\ \ \ x\_counter\ +=\ two-\/>width;}
+\DoxyCodeLine{00520\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_ga37a02de713c35021c8b8dfa71d4e1371}{draw\_unit\_sprites}}(hour,\ \&x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00521\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_gac1f43f29e9853b35feda6ab6a19bf84b}{draw\_digit\_date}}(colon,\ \&x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00522\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_ga37a02de713c35021c8b8dfa71d4e1371}{draw\_unit\_sprites}}(minute,\ \&x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00523\ }
+\DoxyCodeLine{00524\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00525\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Draw_ga77aa5892dbaec23e07aa9523bf2e2e60_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Draw_ga77aa5892dbaec23e07aa9523bf2e2e60_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Draw_gac1f43f29e9853b35feda6ab6a19bf84b}\index{Draw@{Draw}!draw\_digit\_date@{draw\_digit\_date}}
+\index{draw\_digit\_date@{draw\_digit\_date}!Draw@{Draw}}
+\doxysubsubsection{\texorpdfstring{draw\_digit\_date()}{draw\_digit\_date()}}
+{\footnotesize\ttfamily \label{group__Draw_gac1f43f29e9853b35feda6ab6a19bf84b} 
+int draw\+\_\+digit\+\_\+date (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSprite}{Sprite}} \texorpdfstring{$\ast$}{*}}]{to\+\_\+draw}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{x\+\_\+counter}{}\end{DoxyParamCaption})}
+
+
+
+Draws a digit date sprite at the specified position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em to\+\_\+draw} & Pointer to the sprite to be drawn. \\
+\hline
+{\em x\+\_\+counter} & Pointer to the x-\/coordinate counter. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Returns 0 on success, 1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{draw_8c_source_l00382}{382}} of file \mbox{\hyperlink{draw_8c_source}{draw.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00382\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00383\ \ \ to\_draw-\/>x\ =\ *x\_counter;}
+\DoxyCodeLine{00384\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(to\_draw)\ !=\ 0)\ \{}
+\DoxyCodeLine{00385\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ trying\ to\ draw!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00386\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00387\ \ \ \}}
+\DoxyCodeLine{00388\ \ \ *x\_counter\ +=\ to\_draw-\/>width;}
+\DoxyCodeLine{00389\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00390\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Draw_gac1f43f29e9853b35feda6ab6a19bf84b_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Draw_gac1f43f29e9853b35feda6ab6a19bf84b_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Draw_ga895bacaa423c3442c107c9c03459b22d}\index{Draw@{Draw}!draw\_digit\_value@{draw\_digit\_value}}
+\index{draw\_digit\_value@{draw\_digit\_value}!Draw@{Draw}}
+\doxysubsubsection{\texorpdfstring{draw\_digit\_value()}{draw\_digit\_value()}}
+{\footnotesize\ttfamily \label{group__Draw_ga895bacaa423c3442c107c9c03459b22d} 
+int draw\+\_\+digit\+\_\+value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSprite}{Sprite}} \texorpdfstring{$\ast$}{*}}]{to\+\_\+draw}{, }\item[{int}]{height}{, }\item[{int}]{width}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{x\+\_\+counter}{}\end{DoxyParamCaption})}
+
+
+
+Draws a digit sprite at the specified position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em to\+\_\+draw} & Pointer to the sprite to be drawn. \\
+\hline
+{\em height} & The y-\/coordinate where the sprite will be drawn. \\
+\hline
+{\em width} & The x-\/coordinate where the sprite will be drawn. \\
+\hline
+{\em x\+\_\+counter} & Pointer to the x-\/coordinate counter. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Returns 0 on success, 1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{draw_8c_source_l00361}{361}} of file \mbox{\hyperlink{draw_8c_source}{draw.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00362\ \ \ to\_draw-\/>x\ =\ width\ +\ *x\_counter;}
+\DoxyCodeLine{00363\ \ \ to\_draw-\/>y\ =\ height;}
+\DoxyCodeLine{00364\ }
+\DoxyCodeLine{00365\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(to\_draw)\ !=\ 0)\ \{}
+\DoxyCodeLine{00366\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ trying\ to\ draw!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00367\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00368\ \ \ \}}
+\DoxyCodeLine{00369\ \ \ *x\_counter\ +=\ to\_draw-\/>width;}
+\DoxyCodeLine{00370\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00371\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Draw_ga895bacaa423c3442c107c9c03459b22d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Draw_ga895bacaa423c3442c107c9c03459b22d_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Draw_gaec3f64d85077b79c7351e933d1ae2c77}\index{Draw@{Draw}!draw\_house\_plant@{draw\_house\_plant}}
+\index{draw\_house\_plant@{draw\_house\_plant}!Draw@{Draw}}
+\doxysubsubsection{\texorpdfstring{draw\_house\_plant()}{draw\_house\_plant()}}
+{\footnotesize\ttfamily \label{group__Draw_gaec3f64d85077b79c7351e933d1ae2c77} 
+int draw\+\_\+house\+\_\+plant (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Draws the house plant page.
+
+This function sends serial port messages, draws the house plant sprite, house plant buttons, and the mouse pointer. It also detects the buffering method. 
+
+\begin{DoxyReturn}{Returns}
+int Returns 0 on success, 1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{draw_8c_source_l00143}{143}} of file \mbox{\hyperlink{draw_8c_source}{draw.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \mbox{\hyperlink{group__Serial_ga16017eb641d6cfecc03e1591b8226554}{send\_serial\_port\_msg}}(BIT(7));}
+\DoxyCodeLine{00146\ \ \ \mbox{\hyperlink{group__Serial_ga16017eb641d6cfecc03e1591b8226554}{send\_serial\_port\_msg}}(0xA0);}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(housePlant)\ !=\ 0)\ \{}
+\DoxyCodeLine{00149\ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ draw\ -\/housePlantPage-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00151\ \ \ \}}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_ga33c22d891205dc62787810089e00dde6}{draw\_humidity}}()\ !=\ 0)\ \{}
+\DoxyCodeLine{00154\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ draw\ the\ !\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00156\ \ \ \}}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_ga473c4126179530af9119bcbc3d5bc3f7}{draw\_temperature}}()\ !=\ 0)\ \{}
+\DoxyCodeLine{00159\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ draw\ the\ date\ and\ time!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00161\ \ \ \}}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_ga2b030dfcf9c9580d4abf9500387eb1c8}{draw\_sound\_intensity}}()\ !=\ 0)\ \{}
+\DoxyCodeLine{00164\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ draw\ the\ date\ and\ time!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00166\ \ \ \}}
+\DoxyCodeLine{00167\ \ \ }
+\DoxyCodeLine{00168\ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Draw_ga24c926d472482e72c7219880c7ccd5c4}{draw\_housePlant\_buttons}}()\ !=\ 0)\ \{}
+\DoxyCodeLine{00169\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ draw\ housePlant\ buttons!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00171\ \ \ \}}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(normalCursor)\ !=\ 0)\ \{}
+\DoxyCodeLine{00174\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ draw\ the\ mouse\ pointer!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00176\ \ \ \}}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Graphics_ga4f129396b28e32728e9f92e8858c4f00}{buffering\_method}}()\ !=\ 0)\ \{}
+\DoxyCodeLine{00179\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error\ detecting\ buffering\ method!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00181\ \ \ \}}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00183\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00184\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Draw_gaec3f64d85077b79c7351e933d1ae2c77_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Draw_gaec3f64d85077b79c7351e933d1ae2c77_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Draw_ga24c926d472482e72c7219880c7ccd5c4}\index{Draw@{Draw}!draw\_housePlant\_buttons@{draw\_housePlant\_buttons}}
+\index{draw\_housePlant\_buttons@{draw\_housePlant\_buttons}!Draw@{Draw}}
+\doxysubsubsection{\texorpdfstring{draw\_housePlant\_buttons()}{draw\_housePlant\_buttons()}}
+{\footnotesize\ttfamily \label{group__Draw_ga24c926d472482e72c7219880c7ccd5c4} 
+int draw\+\_\+house\+Plant\+\_\+buttons (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Draws the House Plant buttons.
+
+This function draws the House Plant buttons. 
+
+\begin{DoxyReturn}{Returns}
+int Returns 0 on success, 1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{draw_8c_source_l00277}{277}} of file \mbox{\hyperlink{draw_8c_source}{draw.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00278\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(fan)\ !=\ 0)\ \{}
+\DoxyCodeLine{00279\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ trying\ to\ draw\ -\/fan-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00280\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00281\ \ \ \};}
+\DoxyCodeLine{00282\ }
+\DoxyCodeLine{00283\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(horn1)\ !=\ 0)\ \{}
+\DoxyCodeLine{00284\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ trying\ to\ draw\ -\/horn1-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00285\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00286\ \ \ \};}
+\DoxyCodeLine{00287\ }
+\DoxyCodeLine{00288\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(horn2)\ !=\ 0)\ \{}
+\DoxyCodeLine{00289\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ trying\ to\ draw\ -\/horn2-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00290\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00291\ \ \ \};}
+\DoxyCodeLine{00292\ }
+\DoxyCodeLine{00293\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(humidity\_and\_temperature)\ !=\ 0)\ \{}
+\DoxyCodeLine{00294\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ trying\ to\ draw\ -\/humidity\_and\_temperature-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00295\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00296\ \ \ \};}
+\DoxyCodeLine{00297\ }
+\DoxyCodeLine{00298\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(light\_horizontal1)\ !=\ 0)\ \{}
+\DoxyCodeLine{00299\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ trying\ to\ draw\ -\/light\_horizontal1-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00300\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00301\ \ \ \};}
+\DoxyCodeLine{00302\ }
+\DoxyCodeLine{00303\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(light\_horizontal2)\ !=\ 0)\ \{}
+\DoxyCodeLine{00304\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ trying\ to\ draw\ -\/light\_horizontal2-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00305\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00306\ \ \ \}}
+\DoxyCodeLine{00307\ }
+\DoxyCodeLine{00308\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(light\_vertical1)\ !=\ 0)\ \{}
+\DoxyCodeLine{00309\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ trying\ to\ draw\ -\/light\_vertical1-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00310\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00311\ \ \ \};}
+\DoxyCodeLine{00312\ }
+\DoxyCodeLine{00313\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(light\_vertical2)\ !=\ 0)\ \{}
+\DoxyCodeLine{00314\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ trying\ to\ draw\ -\/light\_vertical2-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00315\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00316\ \ \ \};}
+\DoxyCodeLine{00317\ }
+\DoxyCodeLine{00318\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(light\_vertical3)\ !=\ 0)\ \{}
+\DoxyCodeLine{00319\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ trying\ to\ draw\ -\/light\_vertical3-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00320\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00321\ \ \ \};}
+\DoxyCodeLine{00322\ }
+\DoxyCodeLine{00323\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(read\_humidity)\ !=\ 0)\ \{}
+\DoxyCodeLine{00324\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ trying\ to\ draw\ -\/read\_humidity-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00325\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00326\ \ \ \};}
+\DoxyCodeLine{00327\ }
+\DoxyCodeLine{00328\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(read\_sound\_intensity)\ !=\ 0)\ \{}
+\DoxyCodeLine{00329\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ trying\ to\ draw\ -\/read\_sound\_intensity-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00330\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00331\ \ \ \};}
+\DoxyCodeLine{00332\ }
+\DoxyCodeLine{00333\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(read\_temperature)\ !=\ 0)\ \{}
+\DoxyCodeLine{00334\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ trying\ to\ draw\ -\/read\_temperature-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00335\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00336\ \ \ \};}
+\DoxyCodeLine{00337\ }
+\DoxyCodeLine{00338\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(sound\_int)\ !=\ 0)\ \{}
+\DoxyCodeLine{00339\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ trying\ to\ draw\ -\/sound\_int-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00340\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00341\ \ \ \};}
+\DoxyCodeLine{00342\ }
+\DoxyCodeLine{00343\ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(backArrow)\ !=\ 0)\ \{}
+\DoxyCodeLine{00344\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ while\ trying\ to\ draw\ -\/backArrow-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00345\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00346\ \ \ \}}
+\DoxyCodeLine{00347\ }
+\DoxyCodeLine{00348\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00349\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Draw_ga24c926d472482e72c7219880c7ccd5c4_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Draw_ga24c926d472482e72c7219880c7ccd5c4_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Draw_ga33c22d891205dc62787810089e00dde6}\index{Draw@{Draw}!draw\_humidity@{draw\_humidity}}
+\index{draw\_humidity@{draw\_humidity}!Draw@{Draw}}
+\doxysubsubsection{\texorpdfstring{draw\_humidity()}{draw\_humidity()}}
+{\footnotesize\ttfamily \label{group__Draw_ga33c22d891205dc62787810089e00dde6} 
+int draw\+\_\+humidity (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Draws the humidity value on the screen. 
+
+\begin{DoxyReturn}{Returns}
+int Returns 0 on success, 1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{draw_8c_source_l00534}{534}} of file \mbox{\hyperlink{draw_8c_source}{draw.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00534\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00535\ \ \ \textcolor{keywordtype}{int}\ humidity\ =\ (humidity\_temp[0]\ <<\ 8)\ |\ (humidity\_temp[1]);}
+\DoxyCodeLine{00536\ }
+\DoxyCodeLine{00537\ \ \ \textcolor{keywordtype}{int}\ x\_counter\ =\ 0;}
+\DoxyCodeLine{00538\ }
+\DoxyCodeLine{00539\ \ \ \textcolor{keywordtype}{int}\ x\ =\ 0;}
+\DoxyCodeLine{00540\ \ \ \textcolor{keywordtype}{int}\ y\ =\ 0;}
+\DoxyCodeLine{00541\ \ \ \textcolor{keywordflow}{if}\ (resolution\ ==\ (uint16\_t)RES\_1152\_864)\ \{}
+\DoxyCodeLine{00542\ \ \ \ \ x\ =\ 975;}
+\DoxyCodeLine{00543\ \ \ \ \ y\ =\ 325;}
+\DoxyCodeLine{00544\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00545\ \ \ \ \ x\ =\ 675;}
+\DoxyCodeLine{00546\ \ \ \ \ y\ =\ 205;}
+\DoxyCodeLine{00547\ \ \ \}}
+\DoxyCodeLine{00548\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_ga9cbf1ad6f35259e08b9f544f5014daf5}{draw\_value\_sprites}}(humidity,\ y,\ x,\ \&x\_counter)\ !=\ 0)\ \{}
+\DoxyCodeLine{00549\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00550\ \ \ \}}
+\DoxyCodeLine{00551\ }
+\DoxyCodeLine{00552\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_ga895bacaa423c3442c107c9c03459b22d}{draw\_digit\_value}}(percentage,\ y,\ x,\ \&x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00553\ }
+\DoxyCodeLine{00554\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00555\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Draw_ga33c22d891205dc62787810089e00dde6_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Draw_ga33c22d891205dc62787810089e00dde6_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Draw_gaf4eaa4b2b77231bf1696747c632af8a7}\index{Draw@{Draw}!draw\_main\_buttons@{draw\_main\_buttons}}
+\index{draw\_main\_buttons@{draw\_main\_buttons}!Draw@{Draw}}
+\doxysubsubsection{\texorpdfstring{draw\_main\_buttons()}{draw\_main\_buttons()}}
+{\footnotesize\ttfamily \label{group__Draw_gaf4eaa4b2b77231bf1696747c632af8a7} 
+int draw\+\_\+main\+\_\+buttons (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Draws the main menu buttons.
+
+This function draws the control shell button, house plant button, exit button, help button, and resolution button. 
+
+\begin{DoxyReturn}{Returns}
+int Returns 0 on success, 1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{draw_8c_source_l00214}{214}} of file \mbox{\hyperlink{draw_8c_source}{draw.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00215\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(controlShellButton)\ !=\ 0)\ \{}
+\DoxyCodeLine{00216\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ trying\ to\ draw\ -\/controlShellButton-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00217\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00218\ \ \ \};}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00220\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(housePlantButton)\ !=\ 0)\ \{}
+\DoxyCodeLine{00221\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ trying\ to\ draw\ -\/housePlantButton-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00222\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00223\ \ \ \};}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00225\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(exitButton)\ !=\ 0)\ \{}
+\DoxyCodeLine{00226\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ trying\ to\ draw\ -\/displayMessageButton-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00227\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00228\ \ \ \};}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00230\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(helpButton)\ !=\ 0)\ \{}
+\DoxyCodeLine{00231\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ trying\ to\ draw\ -\/helpButtonButton-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00232\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00233\ \ \ \};}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00235\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(resolutionButton)\ !=\ 0)\ \{}
+\DoxyCodeLine{00236\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ trying\ to\ draw\ -\/resolutionButton-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00237\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00238\ \ \ \};}
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00240\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00241\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Draw_gaf4eaa4b2b77231bf1696747c632af8a7_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Draw_gaf4eaa4b2b77231bf1696747c632af8a7_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Draw_gad7ca2d21a727f7d55afef2392de3b5f8}\index{Draw@{Draw}!draw\_main\_menu@{draw\_main\_menu}}
+\index{draw\_main\_menu@{draw\_main\_menu}!Draw@{Draw}}
+\doxysubsubsection{\texorpdfstring{draw\_main\_menu()}{draw\_main\_menu()}}
+{\footnotesize\ttfamily \label{group__Draw_gad7ca2d21a727f7d55afef2392de3b5f8} 
+int draw\+\_\+main\+\_\+menu (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Draws the main menu page.
+
+This function draws the main menu sprite, main buttons, and the mouse pointer. 
+
+\begin{DoxyReturn}{Returns}
+int Returns 0 on success, 1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{draw_8c_source_l00052}{52}} of file \mbox{\hyperlink{draw_8c_source}{draw.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00053\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(mainMenu)\ !=\ 0)\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ draw\ -\/mainMenu-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00056\ \ \ \}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_ga77aa5892dbaec23e07aa9523bf2e2e60}{draw\_date\_time}}()\ !=\ 0)\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ draw\ the\ date\ and\ time!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00061\ \ \ \}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_gaf4eaa4b2b77231bf1696747c632af8a7}{draw\_main\_buttons}}()\ !=\ 0)\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ draw\ Main\ Menu\ buttons!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00066\ \ \ \}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(normalCursor)\ !=\ 0)\ \{}
+\DoxyCodeLine{00069\ \ \ \ \ printf(\textcolor{stringliteral}{"{}ErrorDISABLE\_DATA\_REPORTING:\ Problems\ occured\ while\ trying\ to\ draw\ the\ mouse\ pointer!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00071\ \ \ \}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Graphics_ga4f129396b28e32728e9f92e8858c4f00}{buffering\_method}}()\ !=\ 0)\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error\ detecting\ buffering\ method!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00076\ \ \ \}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00079\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Draw_gad7ca2d21a727f7d55afef2392de3b5f8_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Draw_gad7ca2d21a727f7d55afef2392de3b5f8_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Draw_gab708de60ac9ff4a5ec5f067b8965fda3}\index{Draw@{Draw}!draw\_page@{draw\_page}}
+\index{draw\_page@{draw\_page}!Draw@{Draw}}
+\doxysubsubsection{\texorpdfstring{draw\_page()}{draw\_page()}}
+{\footnotesize\ttfamily \label{group__Draw_gab708de60ac9ff4a5ec5f067b8965fda3} 
+int draw\+\_\+page (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Draws the current page based on the page state.
+
+This function switches between different page states and calls the appropriate drawing functions. 
+
+\begin{DoxyReturn}{Returns}
+int Returns 0 on success, 1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{draw_8c_source_l00023}{23}} of file \mbox{\hyperlink{draw_8c_source}{draw.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00024\ \ \ \textcolor{keywordflow}{switch}\ (page\_state)\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordflow}{case}\ MAIN\_MENU:}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \mbox{\hyperlink{group__Draw_gad7ca2d21a727f7d55afef2392de3b5f8}{draw\_main\_menu}}();}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordflow}{case}\ CONTROL\_SHELL:}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ draw\_control\_shell();}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordflow}{case}\ HOUSE\_PLANT:}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \mbox{\hyperlink{group__Draw_gaec3f64d85077b79c7351e933d1ae2c77}{draw\_house\_plant}}();}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordflow}{case}\ RESOLUTION:}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \mbox{\hyperlink{group__Draw_ga6305b70c3fe62546c38d818d92cb784a}{draw\_resolution}}();}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordflow}{case}\ HELP:}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ draw\_help();}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00040\ \ \ \}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00043\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Draw_gab708de60ac9ff4a5ec5f067b8965fda3_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Draw_gab708de60ac9ff4a5ec5f067b8965fda3_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Draw_ga6305b70c3fe62546c38d818d92cb784a}\index{Draw@{Draw}!draw\_resolution@{draw\_resolution}}
+\index{draw\_resolution@{draw\_resolution}!Draw@{Draw}}
+\doxysubsubsection{\texorpdfstring{draw\_resolution()}{draw\_resolution()}}
+{\footnotesize\ttfamily \label{group__Draw_ga6305b70c3fe62546c38d818d92cb784a} 
+int draw\+\_\+resolution (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Draws the resolution page.
+
+This function draws the resolution page sprite, resolution buttons, and the mouse pointer. It also detects the buffering method. 
+
+\begin{DoxyReturn}{Returns}
+int Returns 0 on success, 1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{draw_8c_source_l00111}{111}} of file \mbox{\hyperlink{draw_8c_source}{draw.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00112\ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(resolutionPage)\ !=\ 0)\ \{}
+\DoxyCodeLine{00113\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ draw\ -\/resolutionPage-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00115\ \ \ \}}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Draw_gaa30d2b1357c9de82a2dca4bab3fdfa9c}{draw\_resolution\_buttons}}()\ !=\ 0)\ \{}
+\DoxyCodeLine{00118\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ draw\ Resolution\ Page\ Buttons!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00120\ \ \ \}}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(normalCursor)\ !=\ 0)\ \{}
+\DoxyCodeLine{00123\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ draw\ the\ mouse\ pointer!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00125\ \ \ \}}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Graphics_ga4f129396b28e32728e9f92e8858c4f00}{buffering\_method}}()\ !=\ 0)\ \{}
+\DoxyCodeLine{00128\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error\ detecting\ buffering\ method!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00130\ \ \ \}}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00133\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Draw_ga6305b70c3fe62546c38d818d92cb784a_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Draw_ga6305b70c3fe62546c38d818d92cb784a_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Draw_gaa30d2b1357c9de82a2dca4bab3fdfa9c}\index{Draw@{Draw}!draw\_resolution\_buttons@{draw\_resolution\_buttons}}
+\index{draw\_resolution\_buttons@{draw\_resolution\_buttons}!Draw@{Draw}}
+\doxysubsubsection{\texorpdfstring{draw\_resolution\_buttons()}{draw\_resolution\_buttons()}}
+{\footnotesize\ttfamily \label{group__Draw_gaa30d2b1357c9de82a2dca4bab3fdfa9c} 
+int draw\+\_\+resolution\+\_\+buttons (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Draws the resolutions buttons.
+
+This function draws the resolutions buttons. 
+
+\begin{DoxyReturn}{Returns}
+int Returns 0 on success, 1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{draw_8c_source_l00250}{250}} of file \mbox{\hyperlink{draw_8c_source}{draw.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00251\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(smallResolutionButton)\ !=\ 0)\ \{}
+\DoxyCodeLine{00252\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ trying\ to\ draw\ -\/smallResolutionButton-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00253\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00254\ \ \ \};}
+\DoxyCodeLine{00255\ }
+\DoxyCodeLine{00256\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(bigResolutionButton)\ !=\ 0)\ \{}
+\DoxyCodeLine{00257\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ trying\ to\ draw\ -\/bigResolutionButton-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00258\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00259\ \ \ \};}
+\DoxyCodeLine{00260\ }
+\DoxyCodeLine{00261\ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(backArrow)\ !=\ 0)\ \{}
+\DoxyCodeLine{00262\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ draw\ -\/backArrow-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00263\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00264\ \ \ \}}
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00266\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00267\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Draw_gaa30d2b1357c9de82a2dca4bab3fdfa9c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Draw_gaa30d2b1357c9de82a2dca4bab3fdfa9c_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Draw_ga2b030dfcf9c9580d4abf9500387eb1c8}\index{Draw@{Draw}!draw\_sound\_intensity@{draw\_sound\_intensity}}
+\index{draw\_sound\_intensity@{draw\_sound\_intensity}!Draw@{Draw}}
+\doxysubsubsection{\texorpdfstring{draw\_sound\_intensity()}{draw\_sound\_intensity()}}
+{\footnotesize\ttfamily \label{group__Draw_ga2b030dfcf9c9580d4abf9500387eb1c8} 
+int draw\+\_\+sound\+\_\+intensity (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Draws the sound intensity value on the screen. 
+
+\begin{DoxyReturn}{Returns}
+int Returns 0 on success, 1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{draw_8c_source_l00595}{595}} of file \mbox{\hyperlink{draw_8c_source}{draw.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00595\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00596\ \ \ \textcolor{keywordtype}{int}\ sound\ =\ (sound\_intensity[0]\ <<\ 8)\ |\ (sound\_intensity[1]);}
+\DoxyCodeLine{00597\ }
+\DoxyCodeLine{00598\ \ \ \textcolor{keywordtype}{int}\ x\_counter\ =\ 0;}
+\DoxyCodeLine{00599\ }
+\DoxyCodeLine{00600\ \ \ \textcolor{keywordtype}{int}\ x\ =\ 0;}
+\DoxyCodeLine{00601\ \ \ \textcolor{keywordtype}{int}\ y\ =\ 0;}
+\DoxyCodeLine{00602\ \ \ \textcolor{keywordflow}{if}\ (resolution\ ==\ (uint16\_t)RES\_1152\_864)\ \{}
+\DoxyCodeLine{00603\ \ \ \ \ x\ =\ 1010;}
+\DoxyCodeLine{00604\ \ \ \ \ y\ =\ 625;}
+\DoxyCodeLine{00605\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00606\ \ \ \ \ x\ =\ 690;}
+\DoxyCodeLine{00607\ \ \ \ \ y\ =\ 429;}
+\DoxyCodeLine{00608\ \ \ \}}
+\DoxyCodeLine{00609\ }
+\DoxyCodeLine{00610\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_ga9cbf1ad6f35259e08b9f544f5014daf5}{draw\_value\_sprites}}(sound,\ y,\ x,\ \&x\_counter)\ !=\ 0)\ \{}
+\DoxyCodeLine{00611\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00612\ \ \ \}}
+\DoxyCodeLine{00613\ }
+\DoxyCodeLine{00614\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_ga895bacaa423c3442c107c9c03459b22d}{draw\_digit\_value}}(db,\ y,\ x,\ \&x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00615\ }
+\DoxyCodeLine{00616\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00617\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Draw_ga2b030dfcf9c9580d4abf9500387eb1c8_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Draw_ga2b030dfcf9c9580d4abf9500387eb1c8_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Draw_ga473c4126179530af9119bcbc3d5bc3f7}\index{Draw@{Draw}!draw\_temperature@{draw\_temperature}}
+\index{draw\_temperature@{draw\_temperature}!Draw@{Draw}}
+\doxysubsubsection{\texorpdfstring{draw\_temperature()}{draw\_temperature()}}
+{\footnotesize\ttfamily \label{group__Draw_ga473c4126179530af9119bcbc3d5bc3f7} 
+int draw\+\_\+temperature (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Draws the temperature value on the screen. 
+
+\begin{DoxyReturn}{Returns}
+int Returns 0 on success, 1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{draw_8c_source_l00564}{564}} of file \mbox{\hyperlink{draw_8c_source}{draw.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00564\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00565\ \ \ \textcolor{keywordtype}{int}\ temperature\ =\ (humidity\_temp[2]\ <<\ 8)\ |\ (humidity\_temp[3]);}
+\DoxyCodeLine{00566\ }
+\DoxyCodeLine{00567\ \ \ \textcolor{keywordtype}{int}\ x\_counter\ =\ 0;}
+\DoxyCodeLine{00568\ }
+\DoxyCodeLine{00569\ \ \ \textcolor{keywordtype}{int}\ x\ =\ 0;}
+\DoxyCodeLine{00570\ \ \ \textcolor{keywordtype}{int}\ y\ =\ 0;}
+\DoxyCodeLine{00571\ \ \ \textcolor{keywordflow}{if}\ (resolution\ ==\ (uint16\_t)RES\_1152\_864)\ \{}
+\DoxyCodeLine{00572\ \ \ \ \ x\ =\ 995;}
+\DoxyCodeLine{00573\ \ \ \ \ y\ =\ 475;}
+\DoxyCodeLine{00574\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00575\ \ \ \ \ x\ =\ 682;}
+\DoxyCodeLine{00576\ \ \ \ \ y\ =\ 319;}
+\DoxyCodeLine{00577\ \ \ \}}
+\DoxyCodeLine{00578\ }
+\DoxyCodeLine{00579\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_ga9cbf1ad6f35259e08b9f544f5014daf5}{draw\_value\_sprites}}(temperature,\ y,\ x,\ \&x\_counter)\ !=\ 0)\ \{}
+\DoxyCodeLine{00580\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00581\ \ \ \}}
+\DoxyCodeLine{00582\ }
+\DoxyCodeLine{00583\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_ga895bacaa423c3442c107c9c03459b22d}{draw\_digit\_value}}(degrees\_celcius,\ y,\ x,\ \&x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00584\ }
+\DoxyCodeLine{00585\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00586\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Draw_ga473c4126179530af9119bcbc3d5bc3f7_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Draw_ga473c4126179530af9119bcbc3d5bc3f7_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Draw_ga37a02de713c35021c8b8dfa71d4e1371}\index{Draw@{Draw}!draw\_unit\_sprites@{draw\_unit\_sprites}}
+\index{draw\_unit\_sprites@{draw\_unit\_sprites}!Draw@{Draw}}
+\doxysubsubsection{\texorpdfstring{draw\_unit\_sprites()}{draw\_unit\_sprites()}}
+{\footnotesize\ttfamily \label{group__Draw_ga37a02de713c35021c8b8dfa71d4e1371} 
+int draw\+\_\+unit\+\_\+sprites (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{time\+\_\+val}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{x\+\_\+counter}{}\end{DoxyParamCaption})}
+
+
+
+Draws unit sprites based on the given time value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em time\+\_\+val} & The time value to be drawn. \\
+\hline
+{\em x\+\_\+counter} & Pointer to the x-\/coordinate counter. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Returns 0 on success, 1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{draw_8c_source_l00401}{401}} of file \mbox{\hyperlink{draw_8c_source}{draw.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00401\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00402\ \ \ \textcolor{keywordtype}{char}\ num\_str[3];}
+\DoxyCodeLine{00403\ \ \ sprintf(num\_str,\ \textcolor{stringliteral}{"{}\%02u"{}},\ time\_val);\ }
+\DoxyCodeLine{00404\ }
+\DoxyCodeLine{00405\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ num\_str[i]\ !=\ \textcolor{charliteral}{'\(\backslash\)0'};\ i++)\ \{}
+\DoxyCodeLine{00406\ \ \ \ \ \textcolor{keywordflow}{switch}\ (num\_str[i])\ \{}
+\DoxyCodeLine{00407\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'0'}:}
+\DoxyCodeLine{00408\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_gac1f43f29e9853b35feda6ab6a19bf84b}{draw\_digit\_date}}(zero,\ x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00410\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'1'}:}
+\DoxyCodeLine{00411\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_gac1f43f29e9853b35feda6ab6a19bf84b}{draw\_digit\_date}}(one,\ x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00412\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00413\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'2'}:}
+\DoxyCodeLine{00414\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_gac1f43f29e9853b35feda6ab6a19bf84b}{draw\_digit\_date}}(two,\ x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00415\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00416\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'3'}:}
+\DoxyCodeLine{00417\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_gac1f43f29e9853b35feda6ab6a19bf84b}{draw\_digit\_date}}(three,\ x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00418\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00419\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'4'}:}
+\DoxyCodeLine{00420\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_gac1f43f29e9853b35feda6ab6a19bf84b}{draw\_digit\_date}}(four,\ x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00421\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00422\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'5'}:}
+\DoxyCodeLine{00423\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_gac1f43f29e9853b35feda6ab6a19bf84b}{draw\_digit\_date}}(five,\ x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00424\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00425\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'6'}:}
+\DoxyCodeLine{00426\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_gac1f43f29e9853b35feda6ab6a19bf84b}{draw\_digit\_date}}(six,\ x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00427\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00428\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'7'}:}
+\DoxyCodeLine{00429\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_gac1f43f29e9853b35feda6ab6a19bf84b}{draw\_digit\_date}}(seven,\ x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00430\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00431\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'8'}:}
+\DoxyCodeLine{00432\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_gac1f43f29e9853b35feda6ab6a19bf84b}{draw\_digit\_date}}(eight,\ x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00433\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00434\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'9'}:}
+\DoxyCodeLine{00435\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_gac1f43f29e9853b35feda6ab6a19bf84b}{draw\_digit\_date}}(nine,\ x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00436\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00437\ \ \ \ \ \}}
+\DoxyCodeLine{00438\ \ \ \}}
+\DoxyCodeLine{00439\ }
+\DoxyCodeLine{00440\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00441\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Draw_ga37a02de713c35021c8b8dfa71d4e1371_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Draw_ga37a02de713c35021c8b8dfa71d4e1371_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Draw_ga9cbf1ad6f35259e08b9f544f5014daf5}\index{Draw@{Draw}!draw\_value\_sprites@{draw\_value\_sprites}}
+\index{draw\_value\_sprites@{draw\_value\_sprites}!Draw@{Draw}}
+\doxysubsubsection{\texorpdfstring{draw\_value\_sprites()}{draw\_value\_sprites()}}
+{\footnotesize\ttfamily \label{group__Draw_ga9cbf1ad6f35259e08b9f544f5014daf5} 
+int draw\+\_\+value\+\_\+sprites (\begin{DoxyParamCaption}\item[{int}]{val}{, }\item[{int}]{height}{, }\item[{int}]{width}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{x\+\_\+counter}{}\end{DoxyParamCaption})}
+
+
+
+Draws value sprites at the specified position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & The value to be drawn. \\
+\hline
+{\em height} & The y-\/coordinate where the sprite will be drawn. \\
+\hline
+{\em width} & The x-\/coordinate where the sprite will be drawn. \\
+\hline
+{\em x\+\_\+counter} & Pointer to the x-\/coordinate counter. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Returns 0 on success, 1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{draw_8c_source_l00454}{454}} of file \mbox{\hyperlink{draw_8c_source}{draw.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00454\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00455\ \ \ \textcolor{keywordtype}{char}\ num\_str[3];}
+\DoxyCodeLine{00456\ \ \ sprintf(num\_str,\ \textcolor{stringliteral}{"{}\%0d"{}},\ val);\ }
+\DoxyCodeLine{00457\ }
+\DoxyCodeLine{00458\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ num\_str[i]\ !=\ \textcolor{charliteral}{'\(\backslash\)0'};\ i++)\ \{}
+\DoxyCodeLine{00459\ \ \ \ \ \textcolor{keywordflow}{switch}\ (num\_str[i])\ \{}
+\DoxyCodeLine{00460\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'0'}:}
+\DoxyCodeLine{00461\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_ga895bacaa423c3442c107c9c03459b22d}{draw\_digit\_value}}(zero,\ height,\ width,\ x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00462\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00463\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'1'}:}
+\DoxyCodeLine{00464\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_ga895bacaa423c3442c107c9c03459b22d}{draw\_digit\_value}}(one,\ height,\ width,\ x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00465\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00466\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'2'}:}
+\DoxyCodeLine{00467\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_ga895bacaa423c3442c107c9c03459b22d}{draw\_digit\_value}}(two,\ height,\ width,\ x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00468\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00469\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'3'}:}
+\DoxyCodeLine{00470\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_ga895bacaa423c3442c107c9c03459b22d}{draw\_digit\_value}}(three,\ height,\ width,\ x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00471\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00472\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'4'}:}
+\DoxyCodeLine{00473\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_ga895bacaa423c3442c107c9c03459b22d}{draw\_digit\_value}}(four,\ height,\ width,\ x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00474\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00475\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'5'}:}
+\DoxyCodeLine{00476\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_ga895bacaa423c3442c107c9c03459b22d}{draw\_digit\_value}}(five,\ height,\ width,\ x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00477\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00478\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'6'}:}
+\DoxyCodeLine{00479\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_ga895bacaa423c3442c107c9c03459b22d}{draw\_digit\_value}}(six,\ height,\ width,\ x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00480\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00481\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'7'}:}
+\DoxyCodeLine{00482\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_ga895bacaa423c3442c107c9c03459b22d}{draw\_digit\_value}}(seven,\ height,\ width,\ x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00483\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00484\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'8'}:}
+\DoxyCodeLine{00485\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_ga895bacaa423c3442c107c9c03459b22d}{draw\_digit\_value}}(eight,\ height,\ width,\ x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00486\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00487\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'9'}:}
+\DoxyCodeLine{00488\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_ga895bacaa423c3442c107c9c03459b22d}{draw\_digit\_value}}(nine,\ height,\ width,\ x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00489\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00490\ \ \ \ \ \}}
+\DoxyCodeLine{00491\ \ \ \}}
+\DoxyCodeLine{00492\ }
+\DoxyCodeLine{00493\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00494\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Draw_ga9cbf1ad6f35259e08b9f544f5014daf5_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Draw_ga9cbf1ad6f35259e08b9f544f5014daf5_icgraph}
+\end{center}
+\end{figure}

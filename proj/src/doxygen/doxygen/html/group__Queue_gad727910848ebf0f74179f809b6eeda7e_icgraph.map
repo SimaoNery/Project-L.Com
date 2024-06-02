@@ -1,5 +1,0 @@
-<map id="clear_queue" name="clear_queue">
-<area shape="rect" id="Node000001" title="Clears all elements from the queue." alt="" coords="191,5,282,31"/>
-<area shape="rect" id="Node000002" href="$group__Serial.html#ga1426ccf57ad167e5c2b59cfff90772d9" title="Clears the serial port interrupts." alt="" coords="5,5,143,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="175,21,143,21,143,16,175,16"/>
-</map>

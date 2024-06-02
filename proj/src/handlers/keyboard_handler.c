@@ -3,12 +3,16 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <string.h>
-
+/**
+ * @defgroup Keyboard_handler Keyboard_handler
+ * 
+ */
 extern uint8_t out_buf;
 extern bool running;
 extern uint8_t page_state;
 
 /**
+ * @ingroup Keyboard_handler Keyboard_handler
  * @brief Handles keyboard input for the main menu.
  * 
  * Calls the keyboard controller interrupt handler and checks if the escape key (0x81) is pressed to stop the running flag.
@@ -20,6 +24,7 @@ void keyboard_main_menu_handler () {
 }
 
 /**
+ * @ingroup Keyboard_handler Keyboard_handler
  * @brief Handles keyboard input for the control shell.
  * 
  * Calls the keyboard controller interrupt handler and processes the input to the command line.
@@ -30,6 +35,7 @@ void keyboard_control_shell_handler () {
 }
 
 /**
+ * @ingroup Keyboard_handler Keyboard_handler
  * @brief Handles keyboard input for the house plant section.
  * 
  * Currently, this function does not perform any actions.
@@ -37,6 +43,7 @@ void keyboard_control_shell_handler () {
 void keyboard_house_plant_handler() {}
 
 /**
+ * @ingroup Keyboard_handler Keyboard_handler
  * @brief Handles keyboard input for the settings menu.
  * 
  * Calls the keyboard controller interrupt handler and checks if the escape key (0x81) is pressed to stop the running flag.
@@ -48,6 +55,7 @@ void keyboard_settings_handler () {
 }
 
 /**
+ * @ingroup Keyboard_handler Keyboard_handler
  * @brief Handles keyboard input for the help section.
  * 
  * Calls the keyboard controller interrupt handler, checks if the escape key (0x81) is pressed to return to the main menu, and redraws the page.

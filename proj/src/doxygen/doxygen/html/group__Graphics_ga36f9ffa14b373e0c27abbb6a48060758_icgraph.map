@@ -1,7 +1,0 @@
-<map id="set_display_start_page_flipping" name="set_display_start_page_flipping">
-<area shape="rect" id="Node000001" title="Sets the display start for page flipping." alt="" coords="322,5,477,46"/>
-<area shape="rect" id="Node000002" href="$group__Graphics.html#gad1d0642d73fd9d01692127e5daa39219" title="Swaps the front and back buffers." alt="" coords="175,13,274,39"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="307,28,274,28,274,23,307,23"/>
-<area shape="rect" id="Node000003" href="$group__Graphics.html#ga4f129396b28e32728e9f92e8858c4f00" title="Manages the buffering method based on the resolution." alt="" coords="5,13,127,39"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="159,28,127,28,127,23,159,23"/>
-</map>

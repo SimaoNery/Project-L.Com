@@ -1,0 +1,19 @@
+\doxysection{house\+\_\+state.\+c}
+\hypertarget{house__state_8c_source}{}\label{house__state_8c_source}\index{/Users/wagner/Desktop/faculdade/2 ano/LCOM/MINIX-\/LCOM/shared/g4/proj/src/handlers/command\_line/house\_state.c@{/Users/wagner/Desktop/faculdade/2 ano/LCOM/MINIX-\/LCOM/shared/g4/proj/src/handlers/command\_line/house\_state.c}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{house__state_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}house\_state.h"{}}}
+\DoxyCodeLine{\Hypertarget{house__state_8c_source_l00006}00006\ \textcolor{keywordtype}{bool}\ asking\_for\_humidity\_and\_temp\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{house__state_8c_source_l00007}00007\ \textcolor{keywordtype}{bool}\ asking\_for\_sound\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{house__state_8c_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{house__state_8c_source_l00016}\mbox{\hyperlink{group__House__state_gacd86dbf1562e3a472761a4cb1861360b}{00016}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group__House__state_gacd86dbf1562e3a472761a4cb1861360b}{get\_humidity\_and\_temperature}}()\ \{}
+\DoxyCodeLine{\Hypertarget{house__state_8c_source_l00017}00017\ \ \ asking\_for\_humidity\_and\_temp\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{house__state_8c_source_l00018}00018\ \ \ \mbox{\hyperlink{group__Serial_ga16017eb641d6cfecc03e1591b8226554}{send\_serial\_port\_msg}}(HUMIDITY\_AND\_TEMPERATURE\_ID);}
+\DoxyCodeLine{\Hypertarget{house__state_8c_source_l00019}00019\ \}}
+\DoxyCodeLine{\Hypertarget{house__state_8c_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{house__state_8c_source_l00028}\mbox{\hyperlink{group__House__state_ga5450b7a3318d0c811bf32a8799c9ff1e}{00028}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group__House__state_ga5450b7a3318d0c811bf32a8799c9ff1e}{get\_sound\_intensity}}()\ \{}
+\DoxyCodeLine{\Hypertarget{house__state_8c_source_l00029}00029\ \ \ asking\_for\_sound\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{house__state_8c_source_l00030}00030\ \ \ \mbox{\hyperlink{group__Serial_ga16017eb641d6cfecc03e1591b8226554}{send\_serial\_port\_msg}}(HUMIDITY\_AND\_TEMPERATURE\_ID);}
+\DoxyCodeLine{\Hypertarget{house__state_8c_source_l00031}00031\ \}}
+
+\end{DoxyCode}

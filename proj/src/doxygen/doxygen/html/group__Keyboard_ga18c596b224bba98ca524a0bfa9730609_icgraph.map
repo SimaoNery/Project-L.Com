@@ -1,5 +1,0 @@
-<map id="kbc_subscribe_int" name="kbc_subscribe_int">
-<area shape="rect" id="Node000001" title="Subscribes to keyboard interrupts." alt="" coords="147,5,273,31"/>
-<area shape="rect" id="Node000002" href="$project_8c.html#a8bb96e38f2f7943a1b9e8cbd1b358ab9" title="Initializes the project by setting up graphics, loading sprites, and subscribing to interrupts." alt="" coords="5,5,99,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="131,21,99,21,99,16,131,16"/>
-</map>

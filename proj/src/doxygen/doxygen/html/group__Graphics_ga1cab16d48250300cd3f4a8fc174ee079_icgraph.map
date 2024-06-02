@@ -1,7 +1,0 @@
-<map id="map_frame_buffer_triple_buffering" name="map_frame_buffer_triple_buffering">
-<area shape="rect" id="Node000001" title="Maps the frame buffer for triple buffering." alt="" coords="354,5,515,46"/>
-<area shape="rect" id="Node000002" href="$group__Graphics.html#ga720260f4dd74262369a861608a725b9f" title="Maps the frame buffer based on the resolution." alt="" coords="180,13,306,39"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="338,28,307,28,307,23,338,23"/>
-<area shape="rect" id="Node000003" href="$group__Graphics.html#gae3e0f491782c537cbd9ba342164c6f96" title="Changes the screen resolution." alt="" coords="5,13,132,39"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="164,28,132,28,132,23,164,23"/>
-</map>

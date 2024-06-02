@@ -1,0 +1,20 @@
+<map id="rtc_get_config" name="rtc_get_config">
+<area shape="rect" id="Node000001" title="Retrieves the configuration from a specified RTC register." alt="" coords="762,105,865,131"/>
+<area shape="rect" id="Node000002" href="$group__Real__time__clock.html#ga198a58b91a28900ddc932ff05b18b93f" title="Activates a specified RTC interrupt." alt="" coords="560,5,703,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="786,97,752,70,712,45,687,34,689,29,715,40,755,65,789,93"/>
+<area shape="rect" id="Node000003" href="$group__Real__time__clock.html#ga69fa71c482d1774ffabd29aa86b4ec29" title="Deactivates RTC interrupts." alt="" coords="549,55,714,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="749,103,679,83,681,78,751,98"/>
+<area shape="rect" id="Node000004" href="$group__Real__time__clock.html#ga6028be0c2f6834191783cd629f324a2b" title="Retrieves the current time from the RTC." alt="" coords="405,131,498,156"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="746,125,499,143,498,138,746,120"/>
+<area shape="rect" id="Node000007" href="$group__Real__time__clock.html#ga75dad42881d64cf07cf1bdc2979a7056" title="RTC interrupt handler." alt="" coords="605,156,658,182"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="751,138,659,164,658,159,749,133"/>
+<area shape="rect" id="Node000008" href="$group__Real__time__clock.html#ga5873dc86f56c4a2a8ea8f7faf07ef798" title="Checks if the RTC is in binary mode." alt="" coords="584,205,679,231"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="789,143,755,171,715,197,681,210,679,205,712,192,752,167,786,139"/>
+<area shape="rect" id="Node000005" href="$group__Timer__Handler.html#ga67384da4f2c923d94548c81b4ca3a064" title="Handles the update interrupt.This function retrieves the current time from the RTC and updates the di..." alt="" coords="227,131,353,156"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="389,146,353,146,353,141,389,141"/>
+<area shape="rect" id="Node000006" href="$group__Timer__Handler.html#gaddb71b7aac0da3d609aca2b47940d0c8" title="Handles timer interrupts for the main menu.This function increments the RTC counter and updates the d..." alt="" coords="5,131,179,156"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="211,146,179,146,179,141,211,141"/>
+<area shape="poly" id="edge8_Node000008_Node000004" title=" " alt="" coords="568,204,548,197,474,159,476,154,550,192,570,199"/>
+<area shape="rect" id="Node000009" href="$group__Real__time__clock.html#gae91804ce10b51363ab8dcee2bb002c5e" title="Sets the RTC alarm time." alt="" coords="401,205,501,231"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="568,221,502,221,502,216,568,216"/>
+</map>

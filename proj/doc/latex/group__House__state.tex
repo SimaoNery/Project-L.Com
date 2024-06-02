@@ -1,0 +1,91 @@
+\doxysection{House\+\_\+state}
+\hypertarget{group__House__state}{}\label{group__House__state}\index{House\_state@{House\_state}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group__House__state_gacd86dbf1562e3a472761a4cb1861360b}{get\+\_\+humidity\+\_\+and\+\_\+temperature}} ()
+\begin{DoxyCompactList}\small\item\em Requests the current humidity and temperature. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__House__state_ga5450b7a3318d0c811bf32a8799c9ff1e}{get\+\_\+sound\+\_\+intensity}} ()
+\begin{DoxyCompactList}\small\item\em Requests the current sound intensity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{group__House__state_gacd86dbf1562e3a472761a4cb1861360b}\index{House\_state@{House\_state}!get\_humidity\_and\_temperature@{get\_humidity\_and\_temperature}}
+\index{get\_humidity\_and\_temperature@{get\_humidity\_and\_temperature}!House\_state@{House\_state}}
+\doxysubsubsection{\texorpdfstring{get\_humidity\_and\_temperature()}{get\_humidity\_and\_temperature()}}
+{\footnotesize\ttfamily \label{group__House__state_gacd86dbf1562e3a472761a4cb1861360b} 
+void get\+\_\+humidity\+\_\+and\+\_\+temperature (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Requests the current humidity and temperature. 
+
+This function sets the flag for requesting humidity and temperature and sends the appropriate command to the serial port. 
+
+Definition at line \mbox{\hyperlink{house__state_8c_source_l00016}{16}} of file \mbox{\hyperlink{house__state_8c_source}{house\+\_\+state.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00017\ \ \ asking\_for\_humidity\_and\_temp\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00018\ \ \ \mbox{\hyperlink{group__Serial_ga16017eb641d6cfecc03e1591b8226554}{send\_serial\_port\_msg}}(HUMIDITY\_AND\_TEMPERATURE\_ID);}
+\DoxyCodeLine{00019\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__House__state_gacd86dbf1562e3a472761a4cb1861360b_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__House__state_gacd86dbf1562e3a472761a4cb1861360b_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__House__state_ga5450b7a3318d0c811bf32a8799c9ff1e}\index{House\_state@{House\_state}!get\_sound\_intensity@{get\_sound\_intensity}}
+\index{get\_sound\_intensity@{get\_sound\_intensity}!House\_state@{House\_state}}
+\doxysubsubsection{\texorpdfstring{get\_sound\_intensity()}{get\_sound\_intensity()}}
+{\footnotesize\ttfamily \label{group__House__state_ga5450b7a3318d0c811bf32a8799c9ff1e} 
+void get\+\_\+sound\+\_\+intensity (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Requests the current sound intensity. 
+
+This function sets the flag for requesting sound intensity and sends the appropriate command to the serial port. 
+
+Definition at line \mbox{\hyperlink{house__state_8c_source_l00028}{28}} of file \mbox{\hyperlink{house__state_8c_source}{house\+\_\+state.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00029\ \ \ asking\_for\_sound\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00030\ \ \ \mbox{\hyperlink{group__Serial_ga16017eb641d6cfecc03e1591b8226554}{send\_serial\_port\_msg}}(HUMIDITY\_AND\_TEMPERATURE\_ID);}
+\DoxyCodeLine{00031\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__House__state_ga5450b7a3318d0c811bf32a8799c9ff1e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__House__state_ga5450b7a3318d0c811bf32a8799c9ff1e_icgraph}
+\end{center}
+\end{figure}

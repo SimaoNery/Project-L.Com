@@ -1,0 +1,7 @@
+<map id="get_queue" name="get_queue">
+<area shape="rect" id="Node000001" title="Retrieves the queue used by the serial port." alt="" coords="188,46,269,72"/>
+<area shape="rect" id="Node000002" href="$group__Serial__Port.html#ga2f8bcbfe8e4d2615c824833f6c32c52f" title="Handles serial port input for the control shell.This function processes serial port interrupts and re..." alt="" coords="9,5,136,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="172,50,136,42,137,37,173,45"/>
+<area shape="rect" id="Node000003" href="$group__Serial__Port.html#ga6828f89a55043dc4ca10b4c04adb8d8e" title="Handles serial port input for the settings menu.This function processes serial port interrupts and re..." alt="" coords="5,71,140,111"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="173,73,141,80,140,75,172,68"/>
+</map>

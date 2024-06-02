@@ -1,5 +1,0 @@
-<map id="kbc_unsubscribe_int" name="kbc_unsubscribe_int">
-<area shape="rect" id="Node000001" title="Unsubscribes from keyboard interrupts." alt="" coords="146,5,286,31"/>
-<area shape="rect" id="Node000002" href="$project_8c.html#ae9c13c2253350b5b90ef4f325a214eab" title="Cleans up the project by unsubscribing from interrupts and clearing resources." alt="" coords="5,5,98,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="130,21,98,21,98,16,130,16"/>
-</map>

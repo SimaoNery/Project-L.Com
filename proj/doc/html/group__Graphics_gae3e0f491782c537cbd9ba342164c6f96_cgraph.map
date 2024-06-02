@@ -1,0 +1,26 @@
+<map id="change_resolution" name="change_resolution">
+<area shape="rect" id="Node000001" title="Changes the screen resolution." alt="" coords="5,157,132,183"/>
+<area shape="rect" id="Node000002" href="$group__Sprite.html#ga0e9340f46bd95a6751c01cd6e5197d9b" title="Destroys all loaded sprites.This function destroys all the sprites that have been loaded and prints a..." alt="" coords="192,29,323,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="86,155,178,89,221,61,224,66,181,94,89,159"/>
+<area shape="rect" id="Node000004" href="$group__Sprite.html#ga2d93fb9c89baec3742fba552f7213682" title="Loads sprites based on the specified resolution.This function determines which resolution&#45;specific sp..." alt="" coords="212,104,303,130"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="116,154,196,131,198,136,118,159"/>
+<area shape="rect" id="Node000008" href="$group__Graphics.html#ga720260f4dd74262369a861608a725b9f" title="Maps the frame buffer based on the resolution." alt="" coords="194,157,321,183"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="132,168,178,168,178,173,132,173"/>
+<area shape="rect" id="Node000011" href="$group__Graphics.html#gae1937f3ae5e89d519db451f2ba5e50cc" title="Unmaps the frame buffer." alt="" coords="187,207,328,232"/>
+<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="121,181,191,200,190,205,120,186"/>
+<area shape="rect" id="Node000012" href="$group__Graphics.html#ga4bee13c4e0e366ce99296add8b64bc45" title="Sets the graphics mode." alt="" coords="180,256,335,282"/>
+<area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="88,181,129,212,181,242,193,248,191,253,178,247,126,216,84,186"/>
+<area shape="rect" id="Node000003" href="$group__Sprite.html#gae10de51e6ec23c1eb987551e7ec4a0e9" title="Destroys a sprite and frees its memory.This function frees the memory allocated for the sprite&#39;s pixe..." alt="" coords="412,5,515,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="323,32,397,23,397,29,323,37"/>
+<area shape="rect" id="Node000005" href="$group__Sprite.html#ga683f039988a3d9079ed293102af29dba" title="Loads sprites for the 1152x864 resolution.This function creates and initializes all the sprites neede..." alt="" coords="387,55,541,80"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="303,103,392,82,393,87,304,109"/>
+<area shape="rect" id="Node000007" href="$group__Sprite.html#ga40ccb13fdbc9085d728c2e4432553794" title="Loads sprites for the 800x600 resolution.This function creates and initializes all the sprites needed..." alt="" coords="390,104,537,130"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="303,114,375,114,375,120,303,120"/>
+<area shape="rect" id="Node000006" href="$group__Sprite.html#gac7d3801d2d8cb4108c171766c8cfaff1" title="Creates a sprite from the given XPM map.This function allocates memory for a new Sprite object,..." alt="" coords="592,80,689,106"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="542,76,577,81,576,86,541,81"/>
+<area shape="poly" id="edge7_Node000007_Node000006" title=" " alt="" coords="537,104,577,99,577,104,538,109"/>
+<area shape="rect" id="Node000009" href="$group__Graphics.html#gae4d35df99626d3fc0787cd945b01673b" title="Maps the frame buffer for page flipping." alt="" coords="383,154,544,195"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="321,169,367,170,367,175,321,174"/>
+<area shape="rect" id="Node000010" href="$group__Graphics.html#ga1cab16d48250300cd3f4a8fc174ee079" title="Maps the frame buffer for triple buffering." alt="" coords="383,219,544,260"/>
+<area shape="poly" id="edge10_Node000008_Node000010" title=" " alt="" coords="303,181,336,192,391,211,390,216,334,197,302,186"/>
+</map>

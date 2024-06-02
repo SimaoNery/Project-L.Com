@@ -179,17 +179,13 @@ int draw_house_plant() {
 }
 
 int draw_help() {
-  printf("GOT HERE! \n");
   if(draw_sprite(helpPage) != 0) return 1;
 
-
-  printf("GOT HERE! \n");
   if(draw_sprite(backArrow) != 0) {
     printf("Error: Problems occurred while trying to draw -backArrow- sprite! \n");
     return 1;
   }
 
-  printf("GOT HERE! \n");
   if(draw_sprite(normalCursor) != 0) {
     printf("Error: Problems occured while trying to draw the mouse pointer! \n");
     return 1;
@@ -274,12 +270,6 @@ int (draw_resolution_buttons)() {
  * @return int Returns 0 on success, 1 on failure.
  */
 int(draw_housePlant_buttons)() {
-  if (draw_sprite(adjustFanPower) != 0) {
-    printf("Error: Problems occurred trying to draw -adjustFanPower- sprite! \n");
-    return 1;
-  };
-
-
   if (draw_sprite(fan) != 0) {
     printf("Error: Problems occurred trying to draw -fan- sprite! \n");
     return 1;
@@ -522,12 +512,12 @@ int draw_humidity() {
   int x = 0;
   int y = 0;
   if(resolution == (uint16_t)RES_1152_864) {
-    x = 880;
-    y = 308;
+    x = 975;
+    y = 325;
   }
   else {
-    x = 604;
-    y = 189;
+    x = 675;
+    y = 205;
   }
   if(draw_value_sprites(humidity, y, x, &x_counter) != 0) {
     return 1;
@@ -547,12 +537,12 @@ int draw_temperature() {
   int x = 0;
   int y = 0;
   if(resolution == (uint16_t)RES_1152_864) {
-    x = 863;
-    y = 458;
+    x = 995;
+    y = 475;
   }
   else {
-    x = 592;
-    y = 301;
+    x = 682;
+    y = 319;
   }
 
   if(draw_value_sprites(temperature, y, x, &x_counter) != 0) {
@@ -573,12 +563,12 @@ int draw_sound_intensity() {
   int x = 0;
   int y = 0;
   if(resolution == (uint16_t)RES_1152_864) {
-    x = 851;
-    y = 608;
+    x = 1010;
+    y = 625;
   }
   else {
-    x = 584;
-    y = 414;
+    x = 690;
+    y = 429;
   }
 
   if(draw_value_sprites(sound, y, x, &x_counter) != 0) {

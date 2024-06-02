@@ -122,11 +122,6 @@ int (destroy_all_sprites)() {
         return 1;
     }
 
-    if(destroy_sprite(adjustFanPower) != 0) {
-        printf("Error: problems occured while trying to destroy -adjustFanPower- sprite! \n");
-        return 1;
-    }
-
     if(destroy_sprite(db) != 0) {
         printf("Error: problems occured while trying to destroy -db- sprite! \n");
         return 1;
@@ -389,12 +384,6 @@ int (load_sprites_1152x864)() {
         return 1;
     }
 
-    adjustFanPower = create_sprite((xpm_map_t)adjust_fan_power_button_1152_864_xpm, 798, 265);
-    if(adjustFanPower == NULL) {
-        printf("Error: Problems occured while trying to load -adjustFanPower- sprite! \n");
-        return 1;
-    }
-
     db = create_sprite((xpm_map_t)db_1152_864_xpm, 0, 0);
     if(db == NULL) {
         printf("Error: Problems occured while trying to load -db- sprite! \n");
@@ -563,7 +552,7 @@ int (load_sprites_1152x864)() {
         return 1;
     }
 
-    helpPage = create_sprite((xpm_map_t)help_1152_864_xpm, 0, 0);
+    helpPage = create_sprite((xpm_map_t)help_page_1152_864_xpm, 0, 0);
     if (helpPage == NULL) {
         printf("Error: Problems occurred while trying to load -helpPage- sprite!\n");
         return 1;
@@ -656,12 +645,6 @@ int (load_sprites_800x600)() {
     housePlant = create_sprite((xpm_map_t)house_plant_800_600_xpm, 0, 0);
     if(housePlant == NULL) {
         printf("Error: Problems occured while trying to load -housePlant- sprite! \n");
-        return 1;
-    }
-
-    adjustFanPower = create_sprite((xpm_map_t)adjust_fan_power_button_800_600_xpm, 545, 165);
-    if(adjustFanPower == NULL) {
-        printf("Error: Problems occured while trying to load -adjustFanPower- sprite! \n");
         return 1;
     }
 

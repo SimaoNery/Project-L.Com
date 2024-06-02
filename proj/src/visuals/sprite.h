@@ -18,7 +18,6 @@
 #include "xpm_files/RES_800_600/buttons/small_resolution_800_600.xpm"
 #include "xpm_files/RES_800_600/buttons/back_arrow_800_600.xpm"
 #include "xpm_files/RES_800_600/house_plant_800_600.xpm"
-#include "xpm_files/RES_800_600/house_plant-buttons/adjust_fan_power_button_800_600.xpm"
 #include "xpm_files/RES_800_600/house_plant-buttons/cam_800_600.xpm"
 #include "xpm_files/RES_800_600/house_plant-buttons/fan_800_600.xpm"
 #include "xpm_files/RES_800_600/house_plant-buttons/horn_800_600.xpm"
@@ -60,7 +59,6 @@
 #include "xpm_files/RES_1152_864/buttons/small_resolution_1152_864.xpm"
 #include "xpm_files/RES_1152_864/buttons/back_arrow_1152_864xpm.xpm"
 #include "xpm_files/RES_1152_864/house_plant_1152_864.xpm"
-#include "xpm_files/RES_1152_864/house_plant_buttons/adjust_fan_power_button_1152_864.xpm"
 #include "xpm_files/RES_1152_864/house_plant_buttons/cam_1152_864.xpm"
 #include "xpm_files/RES_1152_864/house_plant_buttons/db_1152_864.xpm"
 #include "xpm_files/RES_1152_864/house_plant_buttons/degrees_celsius_1152_864.xpm"
@@ -124,7 +122,6 @@ Sprite *bigResolutionButton;
 Sprite *backArrow;
 
 //HousePlant Buttons
-Sprite *adjustFanPower;
 Sprite *db;
 Sprite *degrees_celcius;
 Sprite *fan;

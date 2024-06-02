@@ -45,7 +45,7 @@ static const handler_t serial_port_handler[] = {
 };
 
 uint8_t irq_timer, irq_keyboard, irq_mouse, irq_real_time_clock, irq_serial_port;
-uint16_t resolution = RES_800_600;
+uint16_t resolution = RES_1152_864;
 bool running = true;
 uint8_t page_state = MAIN_MENU;
 
@@ -55,7 +55,6 @@ uint8_t page_state = MAIN_MENU;
  * @return int Returns 0 on success, 1 on failure.
  */
 int (project_start)() {
-    printf("TESTE \n");
     if(map_frame_buffer(resolution) != 0) {
       printf("Error: Problems occured while trying to map frame buffer! \n");
       return 1;
@@ -105,8 +104,6 @@ int (project_start)() {
         printf("Error: A problem occured while trying to set timer 0 frequency! \n");
         return 1;
     }
-
-      printf("TESTE \n");
 
     return 0;
 }

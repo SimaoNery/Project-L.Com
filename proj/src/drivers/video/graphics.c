@@ -12,6 +12,13 @@ unsigned int vram_size;
 
 int buffer = 0;
 
+/*!
+ * @brief Normalizes a color value based on the bits per pixel.
+ * 
+ * @param color The color value to normalize.
+ * @param normalized_color Pointer to store the normalized color value.
+ * @return int Returns 0 upon success and 1 upon failure.
+ */
 int(normalize_color)(uint32_t color, uint32_t *normalized_color) {
   if (normalized_color == NULL)
     return 1;
@@ -21,6 +28,12 @@ int(normalize_color)(uint32_t color, uint32_t *normalized_color) {
   return 0;
 }
 
+/*!
+ * @brief Sets the graphics mode.
+ * 
+ * @param mode The graphics mode to set.
+ * @return int Returns 0 upon success and 1 upon failure.
+ */
 int(vg_set_graphics_mode)(uint16_t mode) {
 
   reg86_t r;
@@ -38,7 +51,12 @@ int(vg_set_graphics_mode)(uint16_t mode) {
   return 0;
 }
 
-
+/*!
+ * @brief Sets the text mode.
+ * 
+ * @param mode The text mode to set.
+ * @return int Returns 0 upon success and 1 upon failure.
+ */
 int(vg_set_text_mode)(uint16_t mode) {
 
   reg86_t r;
@@ -56,6 +74,12 @@ int(vg_set_text_mode)(uint16_t mode) {
   return 0;
 }
 
+/*!
+ * @brief Maps the frame buffer for page flipping.
+ * 
+ * @param mode The graphics mode to set.
+ * @return int Returns 0 upon success and 1 upon failure.
+ */
 int(map_frame_buffer_page_flipping)(uint16_t mode) {
   printf("GOT CALLED 1111111 \n");
 
@@ -98,6 +122,12 @@ int(map_frame_buffer_page_flipping)(uint16_t mode) {
   return 0;
 }
 
+/*!
+ * @brief Maps the frame buffer for triple buffering.
+ * 
+ * @param mode The graphics mode to set.
+ * @return int Returns 0 upon success and 1 upon failure.
+ */
 int (map_frame_buffer_triple_buffering)(uint16_t mode) {
   printf("GOT CALLED TRIPLEEEE \n");
 
@@ -141,6 +171,14 @@ int (map_frame_buffer_triple_buffering)(uint16_t mode) {
   return 0;
 }
 
+/*!
+ * @brief Draws a pixel on the screen.
+ * 
+ * @param x The x-coordinate of the pixel.
+ * @param y The y-coordinate of the pixel.
+ * @param color The color of the pixel.
+ * @return int Returns 0 upon success and 1 upon failure.
+ */
 int(vg_draw_pixel)(uint16_t x, uint16_t y, uint32_t color) {
   if (x > vmi_p.XResolution || y > vmi_p.YResolution) {
     return 0;
@@ -157,12 +195,22 @@ int(vg_draw_pixel)(uint16_t x, uint16_t y, uint32_t color) {
   return 0;
 }
 
+/*!
+ * @brief Clears the back buffer.
+ * 
+ * @return int Returns 0 upon success and 1 upon failure.
+ */
 int (clear_back_buffer)() {
   if(memset(back_buffer, 0, vram_size) == NULL) return 1;
 
   return 0;
 }
 
+/*!
+ * @brief Sets the display start for page flipping.
+ * 
+ * @return int Returns 0 upon success and 1 upon failure.
+ */
 int (set_display_start_page_flipping)() {
   reg86_t r;
   memset(&r, 0, sizeof(r));
@@ -189,6 +237,11 @@ int (set_display_start_page_flipping)() {
   return 0;
 }
 
+/*!
+ * @brief Sets the display start for triple buffering.
+ * 
+ * @return int Returns 0 upon success and 1 upon failure.
+ */
 int (set_display_start_triple_buffering)() {
   reg86_t r;
   memset(&r, 0, sizeof(r));
@@ -224,7 +277,11 @@ int (set_display_start_triple_buffering)() {
   return 0;
 }
 
-
+/*!
+ * @brief Swaps the front and back buffers.
+ * 
+ * @return int Returns 0 upon success and 1 upon failure.
+ */
 int (swap_buffers)() {
   if(set_display_start_page_flipping() != 0) {
     printf("Error: Problems occured while trying to set display start! \n");
@@ -243,6 +300,12 @@ int (swap_buffers)() {
   return 0;
 }
 
+/*!
+ * @brief Changes the screen resolution.
+ * 
+ * @param res The new resolution to set.
+ * @return int Returns 0 upon success and 1 upon failure.
+ */
 int (change_resolution)(int res) {
   if(res != (uint16_t)resolution) {
 
@@ -283,6 +346,11 @@ int (change_resolution)(int res) {
   return 0;
 }
 
+/*!
+ * @brief Unmaps the frame buffer.
+ * 
+ * @return int Returns 0 upon success and 1 upon failure.
+ */
 int unmap_frame_buffer() {
   if (video_mem != NULL) {
     int r;
@@ -316,6 +384,11 @@ int unmap_frame_buffer() {
   return 0;
 }
 
+/*!
+ * @brief Copies the buffers for triple buffering.
+ * 
+ * @return int Returns 0 upon success and 1 upon failure.
+ */
 int (triple_copy)() {
   if(set_display_start_triple_buffering() != 0) {
     printf("Error: Problems occured while trying to set display start! \n");
@@ -337,6 +410,12 @@ int (triple_copy)() {
   return 0;
 }
 
+/*!
+ * @brief Maps the frame buffer based on the resolution.
+ * 
+ * @param res The resolution to set.
+ * @return int Returns 0 upon success and 1 upon failure.
+ */
 int (map_frame_buffer)(int res) {
   if(resolution == (uint16_t)RES_1152_864) {
     if(map_frame_buffer_triple_buffering(resolution) != 0) {
@@ -355,6 +434,11 @@ int (map_frame_buffer)(int res) {
   return 0;
 }
 
+/*!
+ * @brief Manages the buffering method based on the resolution.
+ * 
+ * @return int Returns 0 upon success and 1 upon failure.
+ */
 int (buffering_method)() {
   if(resolution == (uint16_t)RES_1152_864) {
     if(triple_copy() != 0) {
@@ -373,6 +457,11 @@ int (buffering_method)() {
   return 0;  
 }
 
+/*!
+ * @brief Waits until the last scheduled change has occured 
+ * 
+ * @return int Returns 0 upon success and 1 upon failure.
+ */
 int (wait_display_start_change)() {
   reg86_t r;
   memset(&r, 0, sizeof(r));

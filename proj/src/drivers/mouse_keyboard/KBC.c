@@ -1,11 +1,23 @@
 #include "KBC.h"
-
+/*!
+ * @brief Retrieves the status from the Keyboard Controller (KBC).
+ * 
+ * @param status Pointer to a variable where the status will be stored.
+ * @return int Returns 0 upon success and 1 upon failure.
+ */
 int (get_kbc_status)(uint8_t *status) {
     if (status == NULL) return 1;
 
     return util_sys_inb(STATUS_REG, status);
 }
 
+/*!
+ * @brief Writes a command to the specified port of the Keyboard Controller (KBC).
+ * 
+ * @param port The port to which the command will be written.
+ * @param cmd The command to be written.
+ * @return int Returns 0 upon success and 1 upon failure.
+ */
 int (write_kbc_cmd)(uint8_t port, uint8_t cmd) {
 
   uint8_t status;
@@ -25,6 +37,14 @@ int (write_kbc_cmd)(uint8_t port, uint8_t cmd) {
   return 1;
 }
 
+/*!
+ * @brief Reads the output from the specified port of the Keyboard Controller (KBC).
+ * 
+ * @param port The port from which the output will be read.
+ * @param of Pointer to a variable where the output will be stored.
+ * @param mouse Boolean indicating whether the output is from the mouse (true) or keyboard (false).
+ * @return int Returns 0 upon success and 1 upon failure.
+ */
 int (read_kbc_output)(uint8_t port, uint8_t *of, bool mouse) {
   uint8_t status;
   int attemps = 0;

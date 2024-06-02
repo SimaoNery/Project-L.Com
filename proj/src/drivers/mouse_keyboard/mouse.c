@@ -6,6 +6,12 @@ uint8_t packet_bytes [3];
 int packet_number = 0;
 extern vbe_mode_info_t vmi_p;
 
+/*!
+ * @brief Subscribes to mouse interrupts.
+ * 
+ * @param bit_no Pointer to a variable where the bit will be stored.
+ * @return int Returns 0 upon success and 1 upon failure.
+ */
 int (mouse_subscribe_int)(uint8_t *bit_no) {
     if (bit_no == NULL) return 1;
 
@@ -14,10 +20,20 @@ int (mouse_subscribe_int)(uint8_t *bit_no) {
     return sys_irqsetpolicy(MOUSE_IRQ, IRQ_REENABLE | IRQ_EXCLUSIVE, &mouse_hook_id);
 }
 
+/*!
+ * @brief Unsubscribes from mouse interrupts.
+ * 
+ * @return int Returns 0 upon success and 1 upon failure.
+ */
 int (mouse_unsubscribe_int)() {
     return sys_irqrmpolicy(&mouse_hook_id);
 }
 
+/*!
+ * @brief Mouse interrupt handler.
+ * 
+ * Reads the output buffer from the kbc and processes the mouse packet bytes.
+ */
 void (mouse_ih)() {
     if (read_kbc_output(OUT_BUF, &output_buffer, MOUSE)) return;
 
@@ -34,6 +50,11 @@ void (mouse_ih)() {
     
 }
 
+/*!
+ * @brief Parses the bytes read from the mouse into a mouse packet.
+ * 
+ * Updates the mouse packet structure with the button states and coordinates.
+ */
 void (parse_bytes_to_packet)() {
     mouse_packet.right_button = (packet_bytes[0] >> 1) & 0x01;
     mouse_packet.left_button = packet_bytes[0] & 0x01;
@@ -48,6 +69,12 @@ void (parse_bytes_to_packet)() {
     mouse_packet.y = y_coordinates;
 }
 
+/*!
+ * @brief Writes a command to the mouse.
+ *
+ * @param cmd The command to be written to the mouse.
+ * @return int Returns 0 upon success and 1 upon failure.
+ */
 int (write_mouse_cmd)(uint8_t cmd) {
     // First we need to send the 0xD4 command to the KBC
     uint8_t ack;

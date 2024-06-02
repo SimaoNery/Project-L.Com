@@ -2,7 +2,13 @@ import socket
 
 SERVER_IP = "127.0.0.1"
 SERVER_PORT = 4321
-BYTE_TO_SEND = b'\x22'
+BYTE_TO_SEND = b'\x20'
+
+'''
+Motor -> x61 x60
+Luz -> x01 02 03 04 08 10 1F
+buzina -> x21 
+'''
 
 def send_byte():
     try:

@@ -14,8 +14,6 @@ int draw_control_shell();
 
 int draw_display_message();
 
-int draw_security_camera();
-
 int draw_resolution();
 
 int draw_house_plant();

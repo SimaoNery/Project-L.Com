@@ -17,6 +17,22 @@
 #include "xpm_files/RES_800_600/buttons/big_resolution_800_600.xpm"
 #include "xpm_files/RES_800_600/buttons/small_resolution_800_600.xpm"
 #include "xpm_files/RES_800_600/buttons/back_arrow_800_600.xpm"
+#include "xpm_files/RES_800_600/house_plant_800_600.xpm"
+#include "xpm_files/RES_800_600/house_plant-buttons/adjust_fan_power_button_800_600.xpm"
+#include "xpm_files/RES_800_600/house_plant-buttons/cam_800_600.xpm"
+#include "xpm_files/RES_800_600/house_plant-buttons/fan_800_600.xpm"
+#include "xpm_files/RES_800_600/house_plant-buttons/horn_800_600.xpm"
+#include "xpm_files/RES_800_600/house_plant-buttons/humidity_and_temperature_800_600.xpm"
+#include "xpm_files/RES_800_600/house_plant-buttons/light_800_600.xpm"
+#include "xpm_files/RES_800_600/house_plant-buttons/light_vertical_800_600.xpm"
+#include "xpm_files/RES_800_600/house_plant-buttons/read_humidity_button_800_600.xpm"
+#include "xpm_files/RES_800_600/house_plant-buttons/read_sound_intensity_800_600.xpm"
+#include "xpm_files/RES_800_600/house_plant-buttons/read_temperature_800_600.xpm"
+#include "xpm_files/RES_800_600/house_plant-buttons/sound_intensity_800_600.xpm"
+#include "xpm_files/RES_800_600/house_plant-buttons/degrees_celsius_800_600.xpm"
+#include "xpm_files/RES_800_600/house_plant-buttons/percentage_800_600.xpm"
+#include "xpm_files/RES_800_600/house_plant-buttons/db_800_600.xpm"
+
 
 #include "xpm_files/RES_1152_864/main_menu_1152_864.xpm"
 #include "xpm_files/RES_1152_864/buttons/control_shell_1152_864.xpm"
@@ -45,7 +61,6 @@
 #include "xpm_files/RES_1152_864/house_plant_buttons/read_sound_intensity_1152_864.xpm"
 #include "xpm_files/RES_1152_864/house_plant_buttons/read_temperature_1152_864.xpm"
 #include "xpm_files/RES_1152_864/house_plant_buttons/sound_intensity_1152_864.xpm"
-#include "xpm_files/RES_1152_864/house_plant_buttons/take_picture_1152_864.xpm"
 
 #define TRANSPARENT_COLOR 4
 
@@ -73,7 +88,6 @@ Sprite *housePlant;
 //Buttons
 Sprite *controlShellButton;
 Sprite *housePlantButton;
-Sprite *securityCameraButton;
 Sprite *exitButton;
 Sprite *helpButton;
 Sprite *resolutionButton;
@@ -100,7 +114,6 @@ Sprite *read_humidity;
 Sprite *read_sound_intensity;
 Sprite *read_temperature;
 Sprite *sound_intensity;
-Sprite *take_picture;
 
 
 

@@ -1,0 +1,5 @@
+<map id="translate_scancode" name="translate_scancode">
+<area shape="rect" id="Node000001" title="Translates a scancode to a character and updates the command line buffer." alt="" coords="212,5,346,31"/>
+<area shape="rect" id="Node000002" href="$group__Command__Line.html#gaf30ad16b140d480d643e6a2451b6d9db" title="Processes the input scancode and updates the command line buffer." alt="" coords="5,5,164,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="196,21,164,21,164,16,196,16"/>
+</map>

@@ -1,4 +1,8 @@
 #include "horns.h"
+/**
+ * @defgroup Horns Horns
+ * 
+ */
 
 uint8_t command_horns = HORN_ID;
 
@@ -8,6 +12,23 @@ bool count_time_horns[2] = {false};
 uint32_t blink_counter_horns[2] = {0};
 bool blink_time_horns[2] = {false};
 
+
+/**
+ * @ingroup Horns Horns
+ * @brief Turns the horns on with optional timer and blinking period.
+ *
+ * This function turns on the specified horns. If no horns are specified, both horns are turned on.
+ * Optionally, a timer can be set to turn off the horns after a specified duration, and a blinking period can be set.
+ *
+ * @param args An array of strings representing the command arguments. The arguments can include:
+ *             - Horn numbers ("1" or "2") to specify which horns to turn on.
+ *             - "-t <time><unit>" to set a timer, where <unit> can be 's' (seconds), 'm' (minutes), or 'h' (hours).
+ *             - "-p <period><unit>" to set a blinking period, where <unit> can be 's' (seconds) or 'm' (minutes).
+ *
+ * @note If no horn numbers are provided, both horns will be turned on.
+ * @note The maximum timer duration is 86400 seconds (24 hours).
+ * @note The maximum blinking period is 300 seconds (5 minutes).
+ */
 void horns_on(char *args[]) {
 
   uint8_t command_aux = 0;
@@ -203,6 +224,17 @@ void horns_on(char *args[]) {
   }
 }
 
+/**
+  * @ingroup Horns Horns
+ * @brief Turns the horns off.
+ *
+ * This function turns off the specified horns. If no horns are specified, both horns are turned off.
+ *
+ * @param args An array of strings representing the command arguments. The arguments can include:
+ *             - Horn numbers ("1" or "2") to specify which horns to turn off.
+ *
+ * @note If no horn numbers are provided, both horns will be turned off.
+ */
 void horns_off(char *args[]) {
 
   uint8_t command_aux = command_horns;

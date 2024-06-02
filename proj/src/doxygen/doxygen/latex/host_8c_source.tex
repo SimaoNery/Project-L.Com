@@ -1,0 +1,59 @@
+\doxysection{host.\+c}
+\hypertarget{host_8c_source}{}\label{host_8c_source}\index{/Users/wagner/Desktop/faculdade/2 ano/LCOM/MINIX-\/LCOM/shared/g4/proj/src/host/host.c@{/Users/wagner/Desktop/faculdade/2 ano/LCOM/MINIX-\/LCOM/shared/g4/proj/src/host/host.c}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <arpa/inet.h>}}
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <sys/socket.h>}}
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <unistd.h>}}
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00008}00008\ \textcolor{preprocessor}{\#define\ SERVER\_IP\ "{}127.0.0.1"{}}}
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00009}00009\ \textcolor{preprocessor}{\#define\ SERVER\_PORT\ 4321}}
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00010}00010\ \textcolor{preprocessor}{\#define\ MESSAGE\ "{}hello"{}}}
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00020}00020\ \textcolor{keywordtype}{int}\ sendSerialMessage(\textcolor{keywordtype}{int}\ socketfd,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ message)\ \{}
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00021}00021\ \ \ \textcolor{keywordflow}{if}\ (send(socketfd,\ message,\ strlen(message),\ 0)\ !=\ strlen(message))\ \{}
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00022}00022\ \ \ \ \ perror(\textcolor{stringliteral}{"{}Send\ failed"{}});}
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00023}00023\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00024}00024\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00026}00026\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00027}00027\ \}}
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00030}00030\ \textcolor{keywordtype}{int}\ waitSerialMessage()\ \{}
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00031}00031\ \ \ \textcolor{keywordflow}{while}(1)}
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00032}00032\ \ \ \ \ ;}
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00033}00033\ \}}
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00040}00040\ \textcolor{keywordtype}{int}\ main()\ \{}
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00041}00041\ \ \ \textcolor{keywordtype}{int}\ sockfd;}
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00042}00042\ \ \ \textcolor{keyword}{struct\ }sockaddr\_in\ server\_addr;}
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00044}00044\ \ \ sockfd\ =\ socket(AF\_INET,\ SOCK\_STREAM,\ 0);}
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00045}00045\ \ \ \textcolor{keywordflow}{if}\ (sockfd\ ==\ -\/1)\ \{}
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00046}00046\ \ \ \ \ perror(\textcolor{stringliteral}{"{}Socket\ creation\ failed"{}});}
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00047}00047\ \ \ \ \ exit(EXIT\_FAILURE);}
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00048}00048\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00050}00050\ \ \ server\_addr.sin\_family\ =\ AF\_INET;}
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00051}00051\ \ \ server\_addr.sin\_port\ =\ htons(SERVER\_PORT);}
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00052}00052\ \ \ \textcolor{keywordflow}{if}\ (inet\_pton(AF\_INET,\ SERVER\_IP,\ \&server\_addr.sin\_addr)\ <=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00053}00053\ \ \ \ \ perror(\textcolor{stringliteral}{"{}Invalid\ address/\ Address\ not\ supported"{}});}
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00054}00054\ \ \ \ \ exit(EXIT\_FAILURE);}
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00055}00055\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00057}00057\ \ \ \textcolor{keywordflow}{if}\ (connect(sockfd,\ (\textcolor{keyword}{struct}\ sockaddr\ *)\ \&server\_addr,\ \textcolor{keyword}{sizeof}(server\_addr))\ <\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00058}00058\ \ \ \ \ perror(\textcolor{stringliteral}{"{}Connection\ failed"{}});}
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00059}00059\ \ \ \ \ exit(EXIT\_FAILURE);}
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00060}00060\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00062}00062\ \ \ close(sockfd);}
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00064}00064\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{host_8c_source_l00065}00065\ \}}
+
+\end{DoxyCode}

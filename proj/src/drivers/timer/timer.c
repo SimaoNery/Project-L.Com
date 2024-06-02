@@ -1,13 +1,16 @@
 #include <stdint.h>
 #include <lcom/lcf.h>
 #include <lcom/timer.h>
-
+/**
+ * @defgroup Timer Timer
+ */
 #include "i8254.h"
 
 int counter = 0;
 int timer_hook_id = 0;
 
 /*!
+ * @ingroup Timer Timer
  * @brief Sets the frequency of a specified timer.
  * 
  * @param timer The timer to configure (0, 1, or 2).
@@ -44,6 +47,7 @@ int (timer_set_frequency)(uint8_t timer, uint32_t freq) {
 }
 
 /*!
+ * @ingroup Timer Timer
  * @brief Subscribes to timer interrupts.
  * 
  * @param bit_no Pointer to a variable where the bit number will be stored.
@@ -59,6 +63,7 @@ int (timer_subscribe_int)(uint8_t *bit_no) {
 }
 
 /*!
+ * @ingroup Timer Timer
  * @brief Unsubscribes from timer interrupts.
  * 
  * @return int Returns 0 upon success and 1 upon failure.
@@ -68,6 +73,7 @@ int (timer_unsubscribe_int)() {
 }
 
 /*!
+ * @ingroup Timer Timer
  * @brief Timer interrupt handler.
  * 
  * Increments the global counter variable.
@@ -77,6 +83,7 @@ void (timer_int_handler)() {
 }
 
 /*!
+ * @ingroup Timer Timer
  * @brief Retrieves the configuration of a specified timer.
  * 
  * @param timer The timer to retrieve the configuration from (0, 1, or 2).
@@ -96,6 +103,7 @@ int (timer_get_conf)(uint8_t timer, uint8_t *st) {
 }
 
 /*!
+ * @ingroup Timer Timer
  * @brief Displays the configuration of a specified timer.
  * 
  * @param timer The timer to display the configuration for (0, 1, or 2).

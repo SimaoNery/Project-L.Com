@@ -1,0 +1,224 @@
+\doxysection{Help}
+\hypertarget{group__Help}{}\label{group__Help}\index{Help@{Help}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group__Help_gad1a89d01ea36e3c49e7dc5085d67e6c5}{help}} (char \texorpdfstring{$\ast$}{*}args\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Provides help information for available commands. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{group__Help_gad1a89d01ea36e3c49e7dc5085d67e6c5}\index{Help@{Help}!help@{help}}
+\index{help@{help}!Help@{Help}}
+\doxysubsubsection{\texorpdfstring{help()}{help()}}
+{\footnotesize\ttfamily \label{group__Help_gad1a89d01ea36e3c49e7dc5085d67e6c5} 
+void help (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{args}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Provides help information for available commands. 
+
+This function displays a list of available commands with their general descriptions. If a specific command is provided as an argument, detailed information about that command is displayed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em args} & An array of strings representing the command arguments. The first argument can be the name of the command to get detailed information about. If no command name is provided, a list of all available commands with their general descriptions will be displayed. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{help_8c_source_l00019}{19}} of file \mbox{\hyperlink{help_8c_source}{help.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00020\ \ \ \textcolor{keywordflow}{if}\ (args[0]\ ==\ NULL)\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)nAvailable\ commands:\(\backslash\)n"{}});}
+\DoxyCodeLine{00022\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ exit\ -\/\ Exits\ the\ console\ and\ returns\ to\ the\ main\ menu.\(\backslash\)n"{}});}
+\DoxyCodeLine{00023\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ fan\_off\ -\/\ Turns\ off\ the\ fan.\(\backslash\)n"{}});}
+\DoxyCodeLine{00024\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ fan\_on\ -\/\ Turns\ on\ the\ fan\ with\ an\ optional\ power\ setting.\ "{}}}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Optionally,\ set\ a\ timer\ to\ turn\ off\ the\ fan.\(\backslash\)n"{}});}
+\DoxyCodeLine{00026\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ get\_humidity\_and\_temperature\ -\/\ Retrieves\ and\ displays\ the\ "{}}}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}current\ humidity\ and\ temperature\ of\ the\ house.\(\backslash\)n"{}});}
+\DoxyCodeLine{00028\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ get\_sound\_intensity\ -\/\ Retrieves\ and\ displays\ the\ current\ sound\ "{}}}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}intensity\ level\ in\ the\ house.\(\backslash\)n"{}});}
+\DoxyCodeLine{00030\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ help\ -\/\ Provides\ a\ general\ description\ of\ each\ available\ command\ "{}}}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}or\ detailed\ information\ about\ a\ specific\ command.\(\backslash\)n"{}});}
+\DoxyCodeLine{00032\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ horns\_off\ -\/\ Turns\ off\ specified\ horns\ or\ both\ horns\ if\ no\ "{}}}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}arguments\ are\ provided.\(\backslash\)n"{}});}
+\DoxyCodeLine{00034\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ horns\_on\ -\/\ Turns\ on\ specified\ horns\ or\ both\ horns\ if\ no\ "{}}}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}arguments\ are\ provided.\ Optionally,\ set\ a\ timer\ to\ turn\ off\ the\ "{}}}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}horns\ or\ set\ a\ honking\ period.\(\backslash\)n"{}});}
+\DoxyCodeLine{00037\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ lights\_off\ -\/\ Turns\ off\ specified\ lights\ or\ all\ lights\ if\ no\ "{}}}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}arguments\ are\ provided.\(\backslash\)n"{}});}
+\DoxyCodeLine{00039\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ lights\_on\ -\/\ Turns\ on\ specified\ lights\ or\ all\ lights\ if\ no\ "{}}}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}arguments\ are\ provided.\ Optionally,\ set\ a\ timer\ to\ turn\ off\ the\ "{}}}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}lights\ or\ set\ a\ blinking\ period.\(\backslash\)n"{}});}
+\DoxyCodeLine{00042\ \ \ \ \ printf(}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ write\_message\ -\/\ Displays\ the\ specified\ message\ on\ the\ screen.\(\backslash\)n"{}});}
+\DoxyCodeLine{00044\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(args[0],\ \textcolor{stringliteral}{"{}help"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)nhelp\ [\ command\_name\ ]\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00046\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Provides\ a\ general\ description\ of\ each\ available\ command\ or\ "{}}}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}detailed\ information\ about\ a\ specific\ command.\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00048\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Arguments:\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00049\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ command\_name\(\backslash\)n"{}});}
+\DoxyCodeLine{00050\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ Specifies\ the\ name\ of\ the\ command\ to\ get\ detailed\ information\ "{}}}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}about.\ If\ no\ command\ name\ is\ provided,\ a\ list\ of\ all\ available\ "{}}}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}commands\ with\ their\ general\ descriptions\ will\ be\ displayed.\(\backslash\)n"{}});}
+\DoxyCodeLine{00053\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(args[0],\ \textcolor{stringliteral}{"{}lights\_on"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00055\ \ \ \ \ printf(\textcolor{stringliteral}{"{}lights\_on\ [\ light\_number\ ...\ ]\ [\ -\/t\ \{\ time\_s\ |\ time\_m\ |\ time\_h\ \}\ ]\ "{}}}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}[\ -\/p\ \{\ period\_s\ |\ period\_m\ \}\ ]\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00057\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Turns\ on\ specified\ lights\ or\ all\ lights\ if\ no\ arguments\ are\ "{}}}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}provided.\ Optionally,\ set\ a\ timer\ to\ turn\ off\ the\ lights\ or\ set\ a\ "{}}}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}blinking\ period.\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00060\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Options:\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00061\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ -\/t\ \{\ time\ |\ time\_s\ |\ time\_m\ |\ time\_h\ \}\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00062\ \ \ \ \ printf(}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ Sets\ a\ timer\ to\ turn\ off\ the\ lights\ after\ the\ specified\ time.\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00064\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ Arguments:\ \(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00065\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ \ \ \ time:\ Time\ in\ seconds\ (default\ if\ no\ unit\ is\ provided,\ e.g.,\ "{}}}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}-\/t\ 12).\(\backslash\)n"{}});}
+\DoxyCodeLine{00067\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ \ \ \ time\_s:\ Time\ in\ seconds\ (e.g.,\ -\/t\ 12s).\(\backslash\)n"{}});}
+\DoxyCodeLine{00068\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ \ \ \ time\_m:\ Time\ in\ minutes\ (e.g.,\ -\/t\ 5m).\(\backslash\)n"{}});}
+\DoxyCodeLine{00069\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ \ \ \ time\_h:\ Time\ in\ hours\ (e.g.,\ -\/t\ 1h).\(\backslash\)n"{}});}
+\DoxyCodeLine{00070\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00071\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ -\/p\ \{\ period\ |\ period\_s\ |\ period\_m\ \}\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00072\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ Sets\ the\ period\ of\ blinking.\ If\ this\ flag\ is\ not\ set,\ the\ "{}}}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}lights\ do\ not\ blink.\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00074\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ Arguments:\ \(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00075\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ \ \ \ period:\ Period\ in\ seconds\ (default\ if\ no\ unit\ is\ provided,\ "{}}}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}e.g.,\ -\/p\ 2).\(\backslash\)n"{}});}
+\DoxyCodeLine{00077\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ \ \ \ period\_s:\ Blinking\ period\ in\ seconds\ (e.g.,\ -\/p\ 2s).\(\backslash\)n"{}});}
+\DoxyCodeLine{00078\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ \ \ \ period\_m:\ Blinking\ period\ in\ minutes\ (e.g.,\ -\/p\ 1m).\(\backslash\)n"{}});}
+\DoxyCodeLine{00079\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00080\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Arguments:\ \(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00081\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ light\_number\ ...\(\backslash\)n"{}});}
+\DoxyCodeLine{00082\ \ \ \ \ printf(}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ A\ list\ of\ one\ or\ more\ light\ numbers\ (e.g.,\ 1\ 2\ 3)\ specifying\ which\ "{}}}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}lights\ to\ turn\ on.\ If\ it\ is\ not\ provided,\ all\ lights\ will\ turn\ on.\(\backslash\)n"{}});}
+\DoxyCodeLine{00085\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00086\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(args[0],\ \textcolor{stringliteral}{"{}lights\_off"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{00087\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00088\ \ \ \ \ printf(\textcolor{stringliteral}{"{}lights\_off\ [\ light\_number\ ...\ ]\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00089\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Turns\ off\ specified\ lights\ or\ all\ lights\ if\ no\ arguments\ are\ "{}}}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}provided.\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00091\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Arguments:\ \(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00092\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ light\_number\ ...\(\backslash\)n"{}});}
+\DoxyCodeLine{00093\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ A\ list\ of\ one\ or\ more\ light\ numbers\ (e.g.,\ 1\ 2\ 3)\ specifying\ "{}}}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}which\ lights\ to\ turn\ off.\ If\ it\ is\ not\ provided,\ all\ lights\ will\ "{}}}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}turn\ off.\(\backslash\)n"{}});}
+\DoxyCodeLine{00096\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00097\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(args[0],\ \textcolor{stringliteral}{"{}horns\_on"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{00098\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00099\ \ \ \ \ printf(\textcolor{stringliteral}{"{}horns\_on\ [\ horn\_number\ ...\ ]\ [\ -\/t\ \{\ time\_s\ |\ time\_m\ |\ time\_h\ \}\ ]\ [\ "{}}}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}-\/p\ \{\ period\_s\ |\ period\_m\ \}\ ]\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00101\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Turns\ on\ specified\ horns\ or\ both\ horns\ if\ no\ arguments\ are\ "{}}}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}provided.\ Optionally,\ set\ a\ timer\ to\ turn\ off\ the\ horns\ or\ set\ a\ "{}}}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}honking\ period.\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00104\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Options:\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00105\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ -\/t\ \{\ time\ |\ time\_s\ |\ time\_m\ |\ time\_h\ \}\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00106\ \ \ \ \ printf(}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ Sets\ a\ timer\ to\ turn\ off\ the\ horns\ after\ the\ specified\ time.\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00108\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ Arguments:\ \(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00109\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ \ \ \ time:\ Time\ in\ seconds\ (default\ if\ no\ unit\ is\ provided,\ e.g.,\ "{}}}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}-\/t\ 12).\(\backslash\)n"{}});}
+\DoxyCodeLine{00111\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ \ \ \ time\_s:\ Time\ in\ seconds\ (e.g.,\ -\/t\ 12s).\(\backslash\)n"{}});}
+\DoxyCodeLine{00112\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ \ \ \ time\_m:\ Time\ in\ minutes\ (e.g.,\ -\/t\ 5m).\(\backslash\)n"{}});}
+\DoxyCodeLine{00113\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ \ \ \ time\_h:\ Time\ in\ hours\ (e.g.,\ -\/t\ 1h).\(\backslash\)n"{}});}
+\DoxyCodeLine{00114\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00115\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ -\/p\ \{\ period\ |\ period\_s\ |\ period\_m\ \}\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00116\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ Sets\ the\ period\ of\ honking.\ If\ this\ flag\ is\ not\ set,\ the\ horns\ "{}}}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}do\ not\ honk\ repeatedly.\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00118\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ Arguments:\ \(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00119\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ \ \ \ period:\ Period\ in\ seconds\ (default\ if\ no\ unit\ is\ provided,\ "{}}}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}e.g.,\ -\/p\ 2).\(\backslash\)n"{}});}
+\DoxyCodeLine{00121\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ \ \ \ period\_s:\ Honking\ period\ in\ seconds\ (e.g.,\ -\/p\ 2s).\(\backslash\)n"{}});}
+\DoxyCodeLine{00122\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ \ \ \ period\_m:\ Honking\ period\ in\ minutes\ (e.g.,\ -\/p\ 1m).\(\backslash\)n"{}});}
+\DoxyCodeLine{00123\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00124\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Arguments:\ \(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00125\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ horn\_number\ ...\(\backslash\)n"{}});}
+\DoxyCodeLine{00126\ \ \ \ \ printf(}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ A\ list\ of\ one\ or\ two\ horn\ numbers\ (e.g.,\ 1\ 2)\ specifying\ which\ "{}}}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}horns\ to\ turn\ on.\ If\ it\ is\ not\ provided,\ both\ horns\ will\ turn\ on.\(\backslash\)n"{}});}
+\DoxyCodeLine{00129\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00130\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(args[0],\ \textcolor{stringliteral}{"{}horns\_off"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{00131\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00132\ \ \ \ \ printf(\textcolor{stringliteral}{"{}horns\_off\ [\ horn\_number\ ...\ ]\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00133\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Turns\ off\ specified\ horns\ or\ both\ horns\ if\ no\ arguments\ are\ "{}}}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}provided.\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00135\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Arguments:\ \(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00136\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ horn\_number\ ...\(\backslash\)n"{}});}
+\DoxyCodeLine{00137\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ A\ list\ of\ one\ or\ two\ horn\ numbers\ (e.g.,\ 1\ 2)\ specifying\ which\ "{}}}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}horns\ to\ turn\ off.\ If\ it\ is\ not\ provided,\ both\ horns\ will\ turn\ "{}}}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}off.\(\backslash\)n"{}});}
+\DoxyCodeLine{00140\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00141\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(args[0],\ \textcolor{stringliteral}{"{}fan\_on"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{00142\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00143\ \ \ \ \ printf(\textcolor{stringliteral}{"{}fan\_on\ [\ power\ ]\ [\ -\/t\ \{\ time\_s\ |\ time\_m\ |\ time\_h\ \}\ ]\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00144\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Turns\ on\ the\ fan\ with\ an\ optional\ power\ setting.\ Optionally,\ set\ a\ "{}}}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}timer\ to\ turn\ off\ the\ fan.\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00146\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Options:\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00147\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ -\/t\ \{\ time\ |\ time\_s\ |\ time\_m\ |\ time\_h\ \}\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00148\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ Sets\ a\ timer\ to\ turn\ off\ the\ fan\ after\ the\ specified\ time.\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00149\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ Arguments:\ \(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00150\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ \ \ \ time:\ Time\ in\ seconds\ (default\ if\ no\ unit\ is\ provided,\ e.g.,\ "{}}}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}-\/t\ 12).\(\backslash\)n"{}});}
+\DoxyCodeLine{00152\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ \ \ \ time\_s:\ Time\ in\ seconds\ (e.g.,\ -\/t\ 12s).\(\backslash\)n"{}});}
+\DoxyCodeLine{00153\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ \ \ \ time\_m:\ Time\ in\ minutes\ (e.g.,\ -\/t\ 5m).\(\backslash\)n"{}});}
+\DoxyCodeLine{00154\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ \ \ \ time\_h:\ Time\ in\ hours\ (e.g.,\ -\/t\ 1h).\(\backslash\)n"{}});}
+\DoxyCodeLine{00155\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00156\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Arguments:\ \(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00157\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ power\(\backslash\)n"{}});}
+\DoxyCodeLine{00158\ \ \ \ \ printf(}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ Specifies\ the\ power\ level\ of\ the\ fan.\ A\ number\ from\ 1\ to\ 31\ (e.g.,\ "{}}}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}15).\ If\ it\ is\ not\ provided,\ the\ fan\ is\ turned\ on\ at\ maximum\ power.\(\backslash\)n"{}});}
+\DoxyCodeLine{00161\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00162\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(args[0],\ \textcolor{stringliteral}{"{}fan\_off"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{00163\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00164\ \ \ \ \ printf(\textcolor{stringliteral}{"{}fan\_off\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00165\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Turns\ off\ the\ fan.\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00166\ \ \ \ \ printf(\textcolor{stringliteral}{"{}This\ command\ does\ not\ require\ any\ arguments.\(\backslash\)n"{}});}
+\DoxyCodeLine{00167\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00168\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(args[0],\ \textcolor{stringliteral}{"{}write\_message"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{00169\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00170\ \ \ \ \ printf(\textcolor{stringliteral}{"{}write\_message\ <message>\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00171\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Displays\ the\ specified\ message\ on\ the\ screen.\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00172\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Arguments:\ \(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00173\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ message\(\backslash\)n"{}});}
+\DoxyCodeLine{00174\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ Specifies\ the\ message\ to\ display\ (e.g.,\ Hello,\ World!)\(\backslash\)n"{}});}
+\DoxyCodeLine{00175\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00176\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(args[0],\ \textcolor{stringliteral}{"{}get\_humidity\_and\_temperature"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{00177\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00178\ \ \ \ \ printf(\textcolor{stringliteral}{"{}get\_humidity\_and\_temperature\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00179\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Retrieves\ and\ displays\ the\ current\ humidity\ and\ temperature\ of\ the\ "{}}}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}house.\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00181\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00182\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(args[0],\ \textcolor{stringliteral}{"{}get\_sound\_intensity"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{00183\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00184\ \ \ \ \ printf(\textcolor{stringliteral}{"{}get\_sound\_intensity\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00185\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Retrieves\ and\ displays\ the\ current\ sound\ intensity\ level\ in\ the\ "{}}}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}house.\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00187\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00188\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(args[0],\ \textcolor{stringliteral}{"{}exit"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{00189\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00190\ \ \ \ \ printf(\textcolor{stringliteral}{"{}exit\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00191\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Exits\ the\ console\ and\ returns\ to\ the\ main\ menu.\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00192\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00193\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00194\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Unknown\ command:\ \%s\(\backslash\)n"{}},\ args[0]);}
+\DoxyCodeLine{00195\ \ \ \}}
+\DoxyCodeLine{00196\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Help_gad1a89d01ea36e3c49e7dc5085d67e6c5_icgraph}
+\end{center}
+\end{figure}

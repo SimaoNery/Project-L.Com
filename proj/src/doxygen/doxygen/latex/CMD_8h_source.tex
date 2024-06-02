@@ -1,0 +1,50 @@
+\doxysection{CMD.\+h}
+\hypertarget{CMD_8h_source}{}\label{CMD_8h_source}\index{/Users/wagner/Desktop/faculdade/2 ano/LCOM/MINIX-\/LCOM/shared/g4/proj/src/handlers/command\_line/CMD.h@{/Users/wagner/Desktop/faculdade/2 ano/LCOM/MINIX-\/LCOM/shared/g4/proj/src/handlers/command\_line/CMD.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{CMD_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ \_LCOM\_CMD\_H\_}}
+\DoxyCodeLine{\Hypertarget{CMD_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ \_LCOM\_CMD\_H\_}}
+\DoxyCodeLine{\Hypertarget{CMD_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{CMD_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <lcom/lcf.h>}}
+\DoxyCodeLine{\Hypertarget{CMD_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{CMD_8h_source_l00011}00011\ \textcolor{preprocessor}{\#define\ MAX\_LINE\_LENGTH\ 1024}}
+\DoxyCodeLine{\Hypertarget{CMD_8h_source_l00012}00012\ \textcolor{preprocessor}{\#define\ MAX\_TOKENS\ 50}}
+\DoxyCodeLine{\Hypertarget{CMD_8h_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{CMD_8h_source_l00014}00014\ \textcolor{preprocessor}{\#define\ WAITING\_FOR\_ANOTHER\_CHAR\ 0xE0}}
+\DoxyCodeLine{\Hypertarget{CMD_8h_source_l00015}00015\ \textcolor{preprocessor}{\#define\ LEFT\_SHIFT\_MAKE\_CODE\ 0x2A}}
+\DoxyCodeLine{\Hypertarget{CMD_8h_source_l00016}00016\ \textcolor{preprocessor}{\#define\ RIGHT\_SHIFT\_MAKE\_CODE\ 0x36}}
+\DoxyCodeLine{\Hypertarget{CMD_8h_source_l00017}00017\ \textcolor{preprocessor}{\#define\ LEFT\_SHIFT\_BREAK\_CODE\ 0xAA}}
+\DoxyCodeLine{\Hypertarget{CMD_8h_source_l00018}00018\ \textcolor{preprocessor}{\#define\ RIGHT\_SHIFT\_BREAK\_CODE\ 0xB6}}
+\DoxyCodeLine{\Hypertarget{CMD_8h_source_l00019}00019\ \textcolor{preprocessor}{\#define\ CAPS\_LOCK\_MAKE\_CODE\ 0x3A}}
+\DoxyCodeLine{\Hypertarget{CMD_8h_source_l00020}00020\ \textcolor{preprocessor}{\#define\ BACKSPACE\_MAKE\_CODE\ 0x0E}}
+\DoxyCodeLine{\Hypertarget{CMD_8h_source_l00021}00021\ \textcolor{preprocessor}{\#define\ ALTGR\_MAKE\_CODE\ 0x38}}
+\DoxyCodeLine{\Hypertarget{CMD_8h_source_l00022}00022\ \textcolor{preprocessor}{\#define\ ALTGR\_BREAK\_CODE\ 0XB8}}
+\DoxyCodeLine{\Hypertarget{CMD_8h_source_l00023}00023\ \textcolor{preprocessor}{\#define\ LEFT\_ARROW\_MAKE\_CODE\ 0x4B}}
+\DoxyCodeLine{\Hypertarget{CMD_8h_source_l00024}00024\ \textcolor{preprocessor}{\#define\ RIGHT\_ARROW\_MAKE\_CODE\ 0x4D}}
+\DoxyCodeLine{\Hypertarget{CMD_8h_source_l00025}00025\ \textcolor{preprocessor}{\#define\ UP\_ARROW\_MAKE\_CODE\ 0x48}}
+\DoxyCodeLine{\Hypertarget{CMD_8h_source_l00026}00026\ \textcolor{preprocessor}{\#define\ DOWN\_ARROW\_MAKE\_CODE\ 0x50}}
+\DoxyCodeLine{\Hypertarget{CMD_8h_source_l00027}00027\ \textcolor{preprocessor}{\#define\ DELETE\_MAKE\_CODE\ 0x53}}
+\DoxyCodeLine{\Hypertarget{CMD_8h_source_l00028}00028\ \textcolor{preprocessor}{\#define\ ENTER\_MAKE\_CODE\ 0x1C}}
+\DoxyCodeLine{\Hypertarget{CMD_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{CMD_8h_source_l00030}00030\ \textcolor{preprocessor}{\#define\ LIGHT\_1\ BIT(0)}}
+\DoxyCodeLine{\Hypertarget{CMD_8h_source_l00031}00031\ \textcolor{preprocessor}{\#define\ LIGHT\_2\ BIT(1)}}
+\DoxyCodeLine{\Hypertarget{CMD_8h_source_l00032}00032\ \textcolor{preprocessor}{\#define\ LIGHT\_3\ BIT(2)}}
+\DoxyCodeLine{\Hypertarget{CMD_8h_source_l00033}00033\ \textcolor{preprocessor}{\#define\ LIGHT\_4\ BIT(3)}}
+\DoxyCodeLine{\Hypertarget{CMD_8h_source_l00034}00034\ \textcolor{preprocessor}{\#define\ LIGHT\_5\ BIT(4)}}
+\DoxyCodeLine{\Hypertarget{CMD_8h_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{CMD_8h_source_l00036}00036\ \textcolor{preprocessor}{\#define\ FAN\_ID\ BIT(6)\ |\ BIT(5)}}
+\DoxyCodeLine{\Hypertarget{CMD_8h_source_l00037}00037\ \textcolor{preprocessor}{\#define\ FAN\_TURN\_OFF\ 0}}
+\DoxyCodeLine{\Hypertarget{CMD_8h_source_l00038}00038\ \textcolor{preprocessor}{\#define\ FAN\_MAX\_POWER\ 31}}
+\DoxyCodeLine{\Hypertarget{CMD_8h_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{CMD_8h_source_l00040}00040\ \textcolor{preprocessor}{\#define\ HUMIDITY\_AND\_TEMPERATURE\_ID\ BIT(7)}}
+\DoxyCodeLine{\Hypertarget{CMD_8h_source_l00041}00041\ \textcolor{preprocessor}{\#define\ SOUND\_INTENSITY\_ID\ BIT(7)\ |\ BIT(5)}}
+\DoxyCodeLine{\Hypertarget{CMD_8h_source_l00042}00042\ \textcolor{preprocessor}{\#define\ DISPLAY\_TEXT\_ID\ BIT(6)}}
+\DoxyCodeLine{\Hypertarget{CMD_8h_source_l00043}00043\ \textcolor{preprocessor}{\#define\ HORN\_ID\ BIT(5)}}
+\DoxyCodeLine{\Hypertarget{CMD_8h_source_l00044}00044\ \textcolor{preprocessor}{\#define\ HORN\_1\ BIT(0)}}
+\DoxyCodeLine{\Hypertarget{CMD_8h_source_l00045}00045\ \textcolor{preprocessor}{\#define\ HORN\_2\ BIT(1)}}
+\DoxyCodeLine{\Hypertarget{CMD_8h_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{CMD_8h_source_l00047}00047\ \textcolor{preprocessor}{\#define\ MAX\_CHARS\ 32}}
+\DoxyCodeLine{\Hypertarget{CMD_8h_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{CMD_8h_source_l00049}00049\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_LCOM\_CMD\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

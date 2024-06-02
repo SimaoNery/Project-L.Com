@@ -1,5 +1,9 @@
 #include "mouse.h"
 
+/**
+ * @defgroup Mouse Mouse 
+ * 
+ */
 int mouse_hook_id = 3;
 uint8_t output_buffer;
 uint8_t packet_bytes [3];
@@ -7,6 +11,7 @@ int packet_number = 0;
 extern vbe_mode_info_t vmi_p;
 
 /*!
+ * @ingroup Mouse Mouse
  * @brief Subscribes to mouse interrupts.
  * 
  * @param bit_no Pointer to a variable where the bit will be stored.
@@ -21,6 +26,7 @@ int (mouse_subscribe_int)(uint8_t *bit_no) {
 }
 
 /*!
+ * @ingroup Mouse Mouse
  * @brief Unsubscribes from mouse interrupts.
  * 
  * @return int Returns 0 upon success and 1 upon failure.
@@ -30,6 +36,7 @@ int (mouse_unsubscribe_int)() {
 }
 
 /*!
+ * @ingroup Mouse Mouse
  * @brief Mouse interrupt handler.
  * 
  * Reads the output buffer from the kbc and processes the mouse packet bytes.
@@ -51,6 +58,7 @@ void (mouse_ih)() {
 }
 
 /*!
+ * @ingroup Mouse Mouse
  * @brief Parses the bytes read from the mouse into a mouse packet.
  * 
  * Updates the mouse packet structure with the button states and coordinates.
@@ -70,6 +78,7 @@ void (parse_bytes_to_packet)() {
 }
 
 /*!
+ * @ingroup Mouse Mouse
  * @brief Writes a command to the mouse.
  *
  * @param cmd The command to be written to the mouse.

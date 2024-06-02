@@ -1,0 +1,7 @@
+<map id="map_frame_buffer" name="map_frame_buffer">
+<area shape="rect" id="Node000001" title="Maps the frame buffer based on the resolution." alt="" coords="5,46,132,72"/>
+<area shape="rect" id="Node000002" href="$group__Graphics.html#gae4d35df99626d3fc0787cd945b01673b" title="Maps the frame buffer for page flipping." alt="" coords="180,5,341,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="132,45,164,40,165,45,133,51"/>
+<area shape="rect" id="Node000003" href="$group__Graphics.html#ga1cab16d48250300cd3f4a8fc174ee079" title="Maps the frame buffer for triple buffering." alt="" coords="180,71,341,111"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="133,67,164,72,163,78,132,72"/>
+</map>

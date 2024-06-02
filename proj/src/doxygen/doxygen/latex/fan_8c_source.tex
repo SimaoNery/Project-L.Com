@@ -1,0 +1,113 @@
+\doxysection{fan.\+c}
+\hypertarget{fan_8c_source}{}\label{fan_8c_source}\index{/Users/wagner/Desktop/faculdade/2 ano/LCOM/MINIX-\/LCOM/shared/g4/proj/src/handlers/command\_line/fan.c@{/Users/wagner/Desktop/faculdade/2 ano/LCOM/MINIX-\/LCOM/shared/g4/proj/src/handlers/command\_line/fan.c}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}fan.h"{}}}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00006}00006\ uint8\_t\ command\_fan\ =\ FAN\_ID;}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00008}00008\ uint32\_t\ fan\_counter\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00009}00009\ \textcolor{keywordtype}{bool}\ fan\_time\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00023}\mbox{\hyperlink{group__Fan_ga2013bd7ad8f2a334b5c5b5cf655747b1}{00023}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group__Fan_ga2013bd7ad8f2a334b5c5b5cf655747b1}{fan\_on}}(\textcolor{keywordtype}{char}\ *args[])\ \{}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00025}00025\ \ \ uint8\_t\ command\_aux\ =\ FAN\_ID;}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00026}00026\ \ \ uint32\_t\ fan\_counter\_aux\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00027}00027\ \ \ \textcolor{keywordtype}{bool}\ fan\_time\_aux\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00029}00029\ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00031}00031\ \ \ \textcolor{keywordflow}{if}\ (args[i]\ ==\ NULL)}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00032}00032\ \ \ \ \ command\_aux\ |=\ FAN\_MAX\_POWER;}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00034}00034\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(args[0],\ \textcolor{stringliteral}{"{}-\/t"{}})\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00035}00035\ \ \ \ \ i++;}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00036}00036\ \ \ \ \ \textcolor{keywordtype}{char}\ *endptr;}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00037}00037\ \ \ \ \ \textcolor{keywordtype}{long}\ power\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00039}00039\ \ \ \ \ power\ =\ strtol(args[0],\ \&endptr,\ 10);}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00041}00041\ \ \ \ \ \textcolor{keywordflow}{if}\ (endptr\ !=\ args[0]\ \&\&\ power\ >\ 0\ \&\&\ power\ <=\ 31)\ \{}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00042}00042\ \ \ \ \ \ \ command\_aux\ |=\ (uint8\_t)power;}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00043}00043\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00044}00044\ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Please\ provide\ a\ power\ value\ between\ 1\ and\ 31.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00045}00045\ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00046}00046\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00047}00047\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00048}00048\ \ \ \textcolor{keywordflow}{if}\ (args[i]\ !=\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00049}00049\ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00050}00050\ \ \ \ \ \ \ command\_aux\ |=\ FAN\_MAX\_POWER;}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00051}00051\ \ \ \ \ \textcolor{keywordflow}{if}\ (strcmp(args[i],\ \textcolor{stringliteral}{"{}-\/t"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00052}00052\ \ \ \ \ \ \ i++;}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00053}00053\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (args[i]\ !=\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00054}00054\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ *string\_part;}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00056}00056\ \ \ \ \ \ \ \ \ uint32\_t\ time\ =\ strtod(args[i],\ \&string\_part);}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00057}00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (time\ >\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((strcmp(string\_part,\ \textcolor{stringliteral}{"{}s"{}})\ ==\ 0)\ ||\ (strlen(string\_part)\ ==\ 0))\ \{}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (time\ <=\ 86400)\ \{}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fan\_counter\_aux\ =\ time;}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fan\_time\_aux\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Please\ provide\ a\ time\ in\ seconds\ up\ to\ 86400\ and\ no\ more\ "{}}}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}than\ that.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(string\_part,\ \textcolor{stringliteral}{"{}m"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (time\ <=\ 1440)\ \{}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ time\ *=\ 60;}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fan\_counter\_aux\ =\ time;}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fan\_time\_aux\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Please\ provide\ a\ time\ in\ minutes\ up\ to\ 1440\ and\ no\ more\ "{}}}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}than\ that.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(string\_part,\ \textcolor{stringliteral}{"{}h"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (time\ <=\ 24)\ \{}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ time\ *=\ 3600;}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fan\_counter\_aux\ =\ time;}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fan\_time\_aux\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Please\ provide\ a\ time\ in\ hours\ up\ to\ 24\ and\ no\ more\ than\ "{}}}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}that.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%s\ is\ not\ a\ valid\ unit\ of\ time.\(\backslash\)n"{}},\ string\_part);}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00093}00093\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Invalid\ time\ provided:\ \%s\(\backslash\)n"{}},\ args[i]);}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00096}00096\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00097}00097\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00098}00098\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}No\ time\ was\ provided.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00099}00099\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00100}00100\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00102}00102\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00103}00103\ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Invalid\ argument:\ \%s\(\backslash\)n"{}},\ args[i]);}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00104}00104\ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00105}00105\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00106}00106\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00108}00108\ \ \ command\_fan\ =\ command\_aux;}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00109}00109\ \ \ \mbox{\hyperlink{group__Serial_ga16017eb641d6cfecc03e1591b8226554}{send\_serial\_port\_msg}}(command\_fan);}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00111}00111\ \ \ \textcolor{keywordflow}{if}\ (fan\_time\_aux)\ \{}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00112}00112\ \ \ \ \ fan\_counter\ =\ fan\_counter\_aux;}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00113}00113\ \ \ \ \ fan\_time\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00114}00114\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00115}00115\ \}}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00117}00117\ }
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00124}\mbox{\hyperlink{group__Fan_gaf1d36feee8a9fb72efd3ac19af589467}{00124}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group__Fan_gaf1d36feee8a9fb72efd3ac19af589467}{fan\_off}}()\ \{}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00125}00125\ \ \ fan\_counter\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00126}00126\ \ \ fan\_time\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00127}00127\ \ \ command\_fan\ =\ FAN\_ID;}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00128}00128\ \ \ \mbox{\hyperlink{group__Serial_ga16017eb641d6cfecc03e1591b8226554}{send\_serial\_port\_msg}}(command\_fan);}
+\DoxyCodeLine{\Hypertarget{fan_8c_source_l00129}00129\ \}}
+
+\end{DoxyCode}

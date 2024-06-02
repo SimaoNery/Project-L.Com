@@ -1,0 +1,8 @@
+<map id="read_kbc_output" name="read_kbc_output">
+<area shape="rect" id="Node000001" title="Reads the output from the specified port of the Keyboard Controller (KBC)." alt="" coords="5,31,123,56"/>
+<area shape="rect" id="Node000002" href="$group__KBC.html#ga1ea22dc7f1cd587ad7715408bddb3c4e" title="Retrieves the status from the Keyboard Controller (KBC)." alt="" coords="171,5,281,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,32,155,27,156,32,124,37"/>
+<area shape="rect" id="Node000003" href="$group__Utils.html#ga2b56f50ba159e9d5115ed1a75eff15d9" title="Reads a byte from the specified port and store it in uint8_t variable." alt="" coords="329,31,419,56"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="123,41,314,41,314,46,123,46"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="282,25,314,31,313,36,281,30"/>
+</map>

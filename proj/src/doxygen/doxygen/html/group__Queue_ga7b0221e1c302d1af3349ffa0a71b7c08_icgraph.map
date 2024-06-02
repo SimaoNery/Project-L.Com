@@ -1,0 +1,5 @@
+<map id="delete_queue" name="delete_queue">
+<area shape="rect" id="Node000001" title="Deletes a queue and frees its memory." alt="" coords="190,5,288,31"/>
+<area shape="rect" id="Node000002" href="$group__Serial.html#ga36391949ef6d64bc727631024db240b9" title="Deletes the queue and frees its memory." alt="" coords="5,5,142,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="174,21,142,21,142,16,174,16"/>
+</map>

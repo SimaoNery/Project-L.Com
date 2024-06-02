@@ -1,0 +1,883 @@
+\doxysection{Graphics}
+\hypertarget{group__Graphics}{}\label{group__Graphics}\index{Graphics@{Graphics}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__Graphics_gac0d22490f5b1e2c044c1b7719384bc9c}{normalize\+\_\+color}} (uint32\+\_\+t color, uint32\+\_\+t \texorpdfstring{$\ast$}{*}normalized\+\_\+color)
+\begin{DoxyCompactList}\small\item\em Normalizes a color value based on the bits per pixel. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Graphics_ga4bee13c4e0e366ce99296add8b64bc45}{vg\+\_\+set\+\_\+graphics\+\_\+mode}} (uint16\+\_\+t mode)
+\begin{DoxyCompactList}\small\item\em Sets the graphics mode. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Graphics_ga5a4f0715ad37247030fd981d10f85fd5}{vg\+\_\+set\+\_\+text\+\_\+mode}} (uint16\+\_\+t mode)
+\begin{DoxyCompactList}\small\item\em Sets the text mode. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Graphics_gae4d35df99626d3fc0787cd945b01673b}{map\+\_\+frame\+\_\+buffer\+\_\+page\+\_\+flipping}} (uint16\+\_\+t mode)
+\begin{DoxyCompactList}\small\item\em Maps the frame buffer for page flipping. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Graphics_ga1cab16d48250300cd3f4a8fc174ee079}{map\+\_\+frame\+\_\+buffer\+\_\+triple\+\_\+buffering}} (uint16\+\_\+t mode)
+\begin{DoxyCompactList}\small\item\em Maps the frame buffer for triple buffering. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Graphics_ga6f895de9725f9f231f9a7f74b6087f60}{vg\+\_\+draw\+\_\+pixel}} (uint16\+\_\+t x, uint16\+\_\+t y, uint32\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draws a pixel on the screen. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Graphics_ga0f35f330c5fc115729ebd486a1a4e7da}{clear\+\_\+back\+\_\+buffer}} ()
+\begin{DoxyCompactList}\small\item\em Clears the back buffer. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Graphics_ga36f9ffa14b373e0c27abbb6a48060758}{set\+\_\+display\+\_\+start\+\_\+page\+\_\+flipping}} ()
+\begin{DoxyCompactList}\small\item\em Sets the display start for page flipping. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Graphics_ga38896d3324498790d6c2324d14deac2f}{set\+\_\+display\+\_\+start\+\_\+triple\+\_\+buffering}} ()
+\begin{DoxyCompactList}\small\item\em Sets the display start for triple buffering. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Graphics_gad1d0642d73fd9d01692127e5daa39219}{swap\+\_\+buffers}} ()
+\begin{DoxyCompactList}\small\item\em Swaps the front and back buffers. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Graphics_gae3e0f491782c537cbd9ba342164c6f96}{change\+\_\+resolution}} (int res)
+\begin{DoxyCompactList}\small\item\em Changes the screen resolution. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Graphics_gae1937f3ae5e89d519db451f2ba5e50cc}{unmap\+\_\+frame\+\_\+buffer}} ()
+\begin{DoxyCompactList}\small\item\em Unmaps the frame buffer. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Graphics_gaa74f5c4ff747396f4fc47ff7b6e54d40}{triple\+\_\+copy}} ()
+\begin{DoxyCompactList}\small\item\em Copies the buffers for triple buffering. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Graphics_ga720260f4dd74262369a861608a725b9f}{map\+\_\+frame\+\_\+buffer}} (int res)
+\begin{DoxyCompactList}\small\item\em Maps the frame buffer based on the resolution. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Graphics_ga4f129396b28e32728e9f92e8858c4f00}{buffering\+\_\+method}} ()
+\begin{DoxyCompactList}\small\item\em Manages the buffering method based on the resolution. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Graphics_gad36fbad5794d448fb823db87ca9a0b2f}{wait\+\_\+display\+\_\+start\+\_\+change}} ()
+\begin{DoxyCompactList}\small\item\em Waits until the last scheduled change has occured. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{group__Graphics_ga4f129396b28e32728e9f92e8858c4f00}\index{Graphics@{Graphics}!buffering\_method@{buffering\_method}}
+\index{buffering\_method@{buffering\_method}!Graphics@{Graphics}}
+\doxysubsubsection{\texorpdfstring{buffering\_method()}{buffering\_method()}}
+{\footnotesize\ttfamily \label{group__Graphics_ga4f129396b28e32728e9f92e8858c4f00} 
+int buffering\+\_\+method (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Manages the buffering method based on the resolution. 
+
+\begin{DoxyReturn}{Returns}
+int Returns 0 upon success and 1 upon failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{graphics_8c_source_l00447}{447}} of file \mbox{\hyperlink{graphics_8c_source}{graphics.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00447\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00448\ \ \ \textcolor{keywordflow}{if}(resolution\ ==\ (uint16\_t)RES\_1152\_864)\ \{}
+\DoxyCodeLine{00449\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Graphics_gaa74f5c4ff747396f4fc47ff7b6e54d40}{triple\_copy}}()\ !=\ 0)\ \{}
+\DoxyCodeLine{00450\ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ copy\ buffers!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00451\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00452\ \ \ \ \ \}}
+\DoxyCodeLine{00453\ \ \ \}}
+\DoxyCodeLine{00454\ }
+\DoxyCodeLine{00455\ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00456\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Graphics_gad1d0642d73fd9d01692127e5daa39219}{swap\_buffers}}()\ !=\ 0)\ \{}
+\DoxyCodeLine{00457\ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ swap\ buffers!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00458\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00459\ \ \ \ \ \}}
+\DoxyCodeLine{00460\ \ \ \}}
+\DoxyCodeLine{00461\ }
+\DoxyCodeLine{00462\ \ \ \textcolor{keywordflow}{return}\ 0;\ \ }
+\DoxyCodeLine{00463\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Graphics_ga4f129396b28e32728e9f92e8858c4f00_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Graphics_gae3e0f491782c537cbd9ba342164c6f96}\index{Graphics@{Graphics}!change\_resolution@{change\_resolution}}
+\index{change\_resolution@{change\_resolution}!Graphics@{Graphics}}
+\doxysubsubsection{\texorpdfstring{change\_resolution()}{change\_resolution()}}
+{\footnotesize\ttfamily \label{group__Graphics_gae3e0f491782c537cbd9ba342164c6f96} 
+int change\+\_\+resolution (\begin{DoxyParamCaption}\item[{int}]{res}{}\end{DoxyParamCaption})}
+
+
+
+Changes the screen resolution. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em res} & The new resolution to set. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Returns 0 upon success and 1 upon failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{graphics_8c_source_l00310}{310}} of file \mbox{\hyperlink{graphics_8c_source}{graphics.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00311\ \ \ \textcolor{keywordflow}{if}(res\ !=\ (uint16\_t)resolution)\ \{}
+\DoxyCodeLine{00312\ }
+\DoxyCodeLine{00313\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Graphics_gae1937f3ae5e89d519db451f2ba5e50cc}{unmap\_frame\_buffer}}(resolution)\ !=\ 0)\ \{}
+\DoxyCodeLine{00314\ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ clear\ all\ buffers!\ (switch1)\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00315\ \ \ \ \ \}}
+\DoxyCodeLine{00316\ }
+\DoxyCodeLine{00317\ \ \ \ \ \textcolor{keywordflow}{if}(destroy\_all\_sprites()\ !=\ 0)\ \{}
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ A\ problem\ occured\ while\ destroying\ all\ sprites!\ (switch2)\(\backslash\)n"{}});}
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00320\ \ \ \ \ \}}
+\DoxyCodeLine{00321\ }
+\DoxyCodeLine{00322\ \ \ \ \ \textcolor{keywordflow}{if}\ (vg\_exit()\ !=\ 0)\ \{}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ while\ trying\ to\ exit\ the\ current\ video\ mode\ (switch3)!\(\backslash\)n"{}});}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00325\ \ \ \ \ \}}
+\DoxyCodeLine{00326\ }
+\DoxyCodeLine{00327\ \ \ \ \ resolution\ =\ res;}
+\DoxyCodeLine{00328\ }
+\DoxyCodeLine{00329\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Graphics_ga720260f4dd74262369a861608a725b9f}{map\_frame\_buffer}}(resolution)\ !=\ 0)\ \{}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ switch\ resolutions!\ (switch4)\(\backslash\)n"{}});}
+\DoxyCodeLine{00331\ \ \ \ \ \}}
+\DoxyCodeLine{00332\ }
+\DoxyCodeLine{00333\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Graphics_ga4bee13c4e0e366ce99296add8b64bc45}{vg\_set\_graphics\_mode}}(resolution)\ !=\ 0)\ \{}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ switch\ resolutions!\ (switch5)\(\backslash\)n"{}});}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00336\ \ \ \ \ \}}
+\DoxyCodeLine{00337\ }
+\DoxyCodeLine{00338\ \ \ \ \ \textcolor{keywordflow}{if}(load\_sprites(resolution)\ !=\ 0)\ \{}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ switch\ resolutions!\ (switch6)\(\backslash\)n"{}});}
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00341\ \ \ \ \ \}}
+\DoxyCodeLine{00342\ }
+\DoxyCodeLine{00343\ \ \ \ \ buffer\ =\ 0;}
+\DoxyCodeLine{00344\ \ \ \ \ page\_state\ =\ MAIN\_MENU;}
+\DoxyCodeLine{00345\ \ \ \}}
+\DoxyCodeLine{00346\ }
+\DoxyCodeLine{00347\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00348\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Graphics_gae3e0f491782c537cbd9ba342164c6f96_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Graphics_ga0f35f330c5fc115729ebd486a1a4e7da}\index{Graphics@{Graphics}!clear\_back\_buffer@{clear\_back\_buffer}}
+\index{clear\_back\_buffer@{clear\_back\_buffer}!Graphics@{Graphics}}
+\doxysubsubsection{\texorpdfstring{clear\_back\_buffer()}{clear\_back\_buffer()}}
+{\footnotesize\ttfamily \label{group__Graphics_ga0f35f330c5fc115729ebd486a1a4e7da} 
+int clear\+\_\+back\+\_\+buffer (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Clears the back buffer. 
+
+\begin{DoxyReturn}{Returns}
+int Returns 0 upon success and 1 upon failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{graphics_8c_source_l00200}{200}} of file \mbox{\hyperlink{graphics_8c_source}{graphics.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00201\ \ \ \textcolor{keywordflow}{if}(memset(back\_buffer,\ 0,\ vram\_size)\ ==\ NULL)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00204\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Graphics_ga0f35f330c5fc115729ebd486a1a4e7da_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Graphics_ga720260f4dd74262369a861608a725b9f}\index{Graphics@{Graphics}!map\_frame\_buffer@{map\_frame\_buffer}}
+\index{map\_frame\_buffer@{map\_frame\_buffer}!Graphics@{Graphics}}
+\doxysubsubsection{\texorpdfstring{map\_frame\_buffer()}{map\_frame\_buffer()}}
+{\footnotesize\ttfamily \label{group__Graphics_ga720260f4dd74262369a861608a725b9f} 
+int map\+\_\+frame\+\_\+buffer (\begin{DoxyParamCaption}\item[{int}]{res}{}\end{DoxyParamCaption})}
+
+
+
+Maps the frame buffer based on the resolution. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em res} & The resolution to set. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Returns 0 upon success and 1 upon failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{graphics_8c_source_l00423}{423}} of file \mbox{\hyperlink{graphics_8c_source}{graphics.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00423\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00424\ \ \ \textcolor{keywordflow}{if}(resolution\ ==\ (uint16\_t)RES\_1152\_864)\ \{}
+\DoxyCodeLine{00425\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Graphics_ga1cab16d48250300cd3f4a8fc174ee079}{map\_frame\_buffer\_triple\_buffering}}(resolution)\ !=\ 0)\ \{}
+\DoxyCodeLine{00426\ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ A\ problem\ occured\ while\ trying\ to\ map\ video\ memory!\ (triple\_buffering\(\backslash\)n"{}});}
+\DoxyCodeLine{00427\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00428\ \ \ \ \ \}}
+\DoxyCodeLine{00429\ \ \ \}}
+\DoxyCodeLine{00430\ \ \ \ \ }
+\DoxyCodeLine{00431\ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00432\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Graphics_gae4d35df99626d3fc0787cd945b01673b}{map\_frame\_buffer\_page\_flipping}}(resolution)\ !=\ 0)\ \{}
+\DoxyCodeLine{00433\ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ A\ problem\ occured\ while\ trying\ to\ map\ video\ memory!\ (page\_flipping)\(\backslash\)n"{}});}
+\DoxyCodeLine{00434\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00435\ \ \ \ \ \}}
+\DoxyCodeLine{00436\ \ \ \}}
+\DoxyCodeLine{00437\ }
+\DoxyCodeLine{00438\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00439\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=332pt]{group__Graphics_ga720260f4dd74262369a861608a725b9f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=306pt]{group__Graphics_ga720260f4dd74262369a861608a725b9f_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Graphics_gae4d35df99626d3fc0787cd945b01673b}\index{Graphics@{Graphics}!map\_frame\_buffer\_page\_flipping@{map\_frame\_buffer\_page\_flipping}}
+\index{map\_frame\_buffer\_page\_flipping@{map\_frame\_buffer\_page\_flipping}!Graphics@{Graphics}}
+\doxysubsubsection{\texorpdfstring{map\_frame\_buffer\_page\_flipping()}{map\_frame\_buffer\_page\_flipping()}}
+{\footnotesize\ttfamily \label{group__Graphics_gae4d35df99626d3fc0787cd945b01673b} 
+int map\+\_\+frame\+\_\+buffer\+\_\+page\+\_\+flipping (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{mode}{}\end{DoxyParamCaption})}
+
+
+
+Maps the frame buffer for page flipping. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mode} & The graphics mode to set. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Returns 0 upon success and 1 upon failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{graphics_8c_source_l00091}{91}} of file \mbox{\hyperlink{graphics_8c_source}{graphics.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00092\ \ \ memset(\&vmi\_p,\ 0,\ \textcolor{keyword}{sizeof}(vmi\_p));}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \textcolor{keywordtype}{int}\ attempts\ =\ 10;}
+\DoxyCodeLine{00095\ \ \ \textcolor{keywordflow}{while}\ (attempts\ >\ 0\ \&\&\ vbe\_get\_mode\_info(mode,\ \&vmi\_p))\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ attempts-\/-\/;}
+\DoxyCodeLine{00097\ \ \ \}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \textcolor{keywordflow}{if}\ (attempts\ <\ 0)}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \textcolor{keyword}{struct\ }minix\_mem\_range\ mr;}
+\DoxyCodeLine{00103\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ vram\_base\ =\ vmi\_p.PhysBasePtr;}
+\DoxyCodeLine{00104\ \ \ vram\_size\ =\ vmi\_p.XResolution\ *\ vmi\_p.YResolution\ *\ ((vmi\_p.BitsPerPixel\ +\ 7)\ /\ 8);}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ mr.mr\_base\ =\ vram\_base;}
+\DoxyCodeLine{00107\ \ \ mr.mr\_limit\ =\ mr.mr\_base\ +\ vram\_size\ *\ 2;}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \textcolor{keywordflow}{if}\ (sys\_privctl(SELF,\ SYS\_PRIV\_ADD\_MEM,\ \&mr))\ \{}
+\DoxyCodeLine{00110\ \ \ \ \ panic(\textcolor{stringliteral}{"{}sys\_privctl\ (ADD\_MEM)\ failed\(\backslash\)n"{}});}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00112\ \ \ \}}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ video\_mem\ =\ vm\_map\_phys(SELF,\ (\textcolor{keywordtype}{void}\ *)\ mr.mr\_base,\ vram\_size\ *\ 2);\ }
+\DoxyCodeLine{00115\ \ \ \textcolor{keywordflow}{if}(video\_mem\ ==\ NULL)\ \{}
+\DoxyCodeLine{00116\ \ \ \ \ panic(\textcolor{stringliteral}{"{}couldn't\ map\ video\ memory"{}});}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00118\ \ \ \}}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ front\_buffer\ =\ video\_mem;}
+\DoxyCodeLine{00121\ \ \ back\_buffer\ =\ video\_mem\ +\ vram\_size;}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00124\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Graphics_gae4d35df99626d3fc0787cd945b01673b_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Graphics_ga1cab16d48250300cd3f4a8fc174ee079}\index{Graphics@{Graphics}!map\_frame\_buffer\_triple\_buffering@{map\_frame\_buffer\_triple\_buffering}}
+\index{map\_frame\_buffer\_triple\_buffering@{map\_frame\_buffer\_triple\_buffering}!Graphics@{Graphics}}
+\doxysubsubsection{\texorpdfstring{map\_frame\_buffer\_triple\_buffering()}{map\_frame\_buffer\_triple\_buffering()}}
+{\footnotesize\ttfamily \label{group__Graphics_ga1cab16d48250300cd3f4a8fc174ee079} 
+int map\+\_\+frame\+\_\+buffer\+\_\+triple\+\_\+buffering (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{mode}{}\end{DoxyParamCaption})}
+
+
+
+Maps the frame buffer for triple buffering. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mode} & The graphics mode to set. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Returns 0 upon success and 1 upon failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{graphics_8c_source_l00133}{133}} of file \mbox{\hyperlink{graphics_8c_source}{graphics.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00134\ \ \ memset(\&vmi\_p,\ 0,\ \textcolor{keyword}{sizeof}(vmi\_p));}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \textcolor{keywordtype}{int}\ attempts\ =\ 10;}
+\DoxyCodeLine{00137\ \ \ \textcolor{keywordflow}{while}\ (attempts\ >\ 0\ \&\&\ vbe\_get\_mode\_info(mode,\ \&vmi\_p))\ \{}
+\DoxyCodeLine{00138\ \ \ \ \ attempts-\/-\/;}
+\DoxyCodeLine{00139\ \ \ \}}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \ \ \textcolor{keywordflow}{if}\ (attempts\ <\ 0)}
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \ \ \textcolor{keyword}{struct\ }minix\_mem\_range\ mr;}
+\DoxyCodeLine{00145\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ vram\_base\ =\ vmi\_p.PhysBasePtr;}
+\DoxyCodeLine{00146\ \ \ vram\_size\ =\ vmi\_p.XResolution\ *\ vmi\_p.YResolution\ *\ ((vmi\_p.BitsPerPixel\ +\ 7)\ /\ 8);}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \ \ mr.mr\_base\ =\ vram\_base;}
+\DoxyCodeLine{00149\ \ \ mr.mr\_limit\ =\ mr.mr\_base\ +\ vram\_size\ *\ 3;}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ \textcolor{keywordflow}{if}\ (sys\_privctl(SELF,\ SYS\_PRIV\_ADD\_MEM,\ \&mr))\ \{}
+\DoxyCodeLine{00152\ \ \ \ \ panic(\textcolor{stringliteral}{"{}sys\_privctl\ (ADD\_MEM)\ failed\(\backslash\)n"{}});}
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00154\ \ \ \}}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \ \ video\_mem\ =\ vm\_map\_phys(SELF,\ (\textcolor{keywordtype}{void}\ *)\ mr.mr\_base,\ vram\_size\ *\ 3);\ }
+\DoxyCodeLine{00157\ \ \ \textcolor{keywordflow}{if}(video\_mem\ ==\ NULL)\ \{}
+\DoxyCodeLine{00158\ \ \ \ \ panic(\textcolor{stringliteral}{"{}couldn't\ map\ video\ memory"{}});}
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00160\ \ \ \}}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \ \ front\_buffer\ =\ video\_mem;}
+\DoxyCodeLine{00163\ \ \ back\_buffer\ =\ video\_mem\ +\ vram\_size;}
+\DoxyCodeLine{00164\ \ \ extra\_buffer\ =\ video\_mem\ +\ 2\ *\ vram\_size;\ }
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00167\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Graphics_ga1cab16d48250300cd3f4a8fc174ee079_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Graphics_gac0d22490f5b1e2c044c1b7719384bc9c}\index{Graphics@{Graphics}!normalize\_color@{normalize\_color}}
+\index{normalize\_color@{normalize\_color}!Graphics@{Graphics}}
+\doxysubsubsection{\texorpdfstring{normalize\_color()}{normalize\_color()}}
+{\footnotesize\ttfamily \label{group__Graphics_gac0d22490f5b1e2c044c1b7719384bc9c} 
+int normalize\+\_\+color (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{color}{, }\item[{uint32\+\_\+t \texorpdfstring{$\ast$}{*}}]{normalized\+\_\+color}{}\end{DoxyParamCaption})}
+
+
+
+Normalizes a color value based on the bits per pixel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & The color value to normalize. \\
+\hline
+{\em normalized\+\_\+color} & Pointer to store the normalized color value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Returns 0 upon success and 1 upon failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{graphics_8c_source_l00027}{27}} of file \mbox{\hyperlink{graphics_8c_source}{graphics.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00028\ \ \ \textcolor{keywordflow}{if}\ (normalized\_color\ ==\ NULL)}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ *normalized\_color\ =\ color\ \&\ (BIT(vmi\_p.BitsPerPixel)\ -\/\ 1);}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00034\ \}}
+
+\end{DoxyCode}
+\Hypertarget{group__Graphics_ga36f9ffa14b373e0c27abbb6a48060758}\index{Graphics@{Graphics}!set\_display\_start\_page\_flipping@{set\_display\_start\_page\_flipping}}
+\index{set\_display\_start\_page\_flipping@{set\_display\_start\_page\_flipping}!Graphics@{Graphics}}
+\doxysubsubsection{\texorpdfstring{set\_display\_start\_page\_flipping()}{set\_display\_start\_page\_flipping()}}
+{\footnotesize\ttfamily \label{group__Graphics_ga36f9ffa14b373e0c27abbb6a48060758} 
+int set\+\_\+display\+\_\+start\+\_\+page\+\_\+flipping (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Sets the display start for page flipping. 
+
+\begin{DoxyReturn}{Returns}
+int Returns 0 upon success and 1 upon failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{graphics_8c_source_l00212}{212}} of file \mbox{\hyperlink{graphics_8c_source}{graphics.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00213\ \ \ reg86\_t\ r;}
+\DoxyCodeLine{00214\ \ \ memset(\&r,\ 0,\ \textcolor{keyword}{sizeof}(r));}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00216\ \ \ r.intno\ =\ BIOS\_VIDEOCARD\_SERV;}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00219\ \ \ r.ax\ =\ 0x4F07;}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ \ \ r.bh\ =\ 0x00;}
+\DoxyCodeLine{00222\ \ \ r.bl\ =\ 0x80;}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00224\ \ \ r.cx\ =\ 0x00;}
+\DoxyCodeLine{00225\ \ \ r.dx\ =\ buffer\ ?\ 0x00:\ vmi\_p.YResolution;}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ \ \ \textcolor{keywordflow}{if}\ (sys\_int86(\&r))\ \{}
+\DoxyCodeLine{00229\ \ \ \ \ printf(\textcolor{stringliteral}{"{}vg\_set\_graphics\_mode:\ sys\_int86()\ failed\(\backslash\)n"{}});}
+\DoxyCodeLine{00230\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00231\ \ \ \}}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ \ \ buffer\ =\ (buffer\ ==\ 0\ ?\ 1\ :\ 0);}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00235\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00236\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Graphics_ga36f9ffa14b373e0c27abbb6a48060758_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Graphics_ga38896d3324498790d6c2324d14deac2f}\index{Graphics@{Graphics}!set\_display\_start\_triple\_buffering@{set\_display\_start\_triple\_buffering}}
+\index{set\_display\_start\_triple\_buffering@{set\_display\_start\_triple\_buffering}!Graphics@{Graphics}}
+\doxysubsubsection{\texorpdfstring{set\_display\_start\_triple\_buffering()}{set\_display\_start\_triple\_buffering()}}
+{\footnotesize\ttfamily \label{group__Graphics_ga38896d3324498790d6c2324d14deac2f} 
+int set\+\_\+display\+\_\+start\+\_\+triple\+\_\+buffering (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Sets the display start for triple buffering. 
+
+\begin{DoxyReturn}{Returns}
+int Returns 0 upon success and 1 upon failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{graphics_8c_source_l00244}{244}} of file \mbox{\hyperlink{graphics_8c_source}{graphics.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00245\ \ \ reg86\_t\ r;}
+\DoxyCodeLine{00246\ \ \ memset(\&r,\ 0,\ \textcolor{keyword}{sizeof}(r));}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00248\ \ \ r.intno\ =\ BIOS\_VIDEOCARD\_SERV;}
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00251\ \ \ r.ax\ =\ 0x4F07;}
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00253\ \ \ r.bh\ =\ 0x00;}
+\DoxyCodeLine{00254\ \ \ r.bl\ =\ 0x00;}
+\DoxyCodeLine{00255\ }
+\DoxyCodeLine{00256\ \ \ r.cx\ =\ 0x00;}
+\DoxyCodeLine{00257\ \ \ }
+\DoxyCodeLine{00258\ \ \ \textcolor{keywordflow}{if}(buffer\ ==\ 0)\ \{}
+\DoxyCodeLine{00259\ \ \ \ \ r.dx\ =\ vmi\_p.YResolution;}
+\DoxyCodeLine{00260\ \ \ \}}
+\DoxyCodeLine{00261\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(buffer\ ==\ 1)\ \{}
+\DoxyCodeLine{00262\ \ \ \ \ r.dx\ =\ vmi\_p.YResolution\ *\ 2;}
+\DoxyCodeLine{00263\ \ \ \}}
+\DoxyCodeLine{00264\ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00265\ \ \ \ \ r.dx\ =\ 0x00;}
+\DoxyCodeLine{00266\ \ \ \}}
+\DoxyCodeLine{00267\ }
+\DoxyCodeLine{00268\ }
+\DoxyCodeLine{00269\ \ \ \textcolor{keywordflow}{if}\ (sys\_int86(\&r))\ \{}
+\DoxyCodeLine{00270\ \ \ \ \ printf(\textcolor{stringliteral}{"{}vg\_set\_graphics\_mode:\ sys\_int86()\ failed\(\backslash\)n"{}});}
+\DoxyCodeLine{00271\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00272\ \ \ \}}
+\DoxyCodeLine{00273\ }
+\DoxyCodeLine{00274\ \ \ buffer\ =\ (buffer\ +\ 1)\ \%\ 3;}
+\DoxyCodeLine{00275\ }
+\DoxyCodeLine{00276\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00277\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Graphics_ga38896d3324498790d6c2324d14deac2f_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Graphics_gad1d0642d73fd9d01692127e5daa39219}\index{Graphics@{Graphics}!swap\_buffers@{swap\_buffers}}
+\index{swap\_buffers@{swap\_buffers}!Graphics@{Graphics}}
+\doxysubsubsection{\texorpdfstring{swap\_buffers()}{swap\_buffers()}}
+{\footnotesize\ttfamily \label{group__Graphics_gad1d0642d73fd9d01692127e5daa39219} 
+int swap\+\_\+buffers (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Swaps the front and back buffers. 
+
+\begin{DoxyReturn}{Returns}
+int Returns 0 upon success and 1 upon failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{graphics_8c_source_l00285}{285}} of file \mbox{\hyperlink{graphics_8c_source}{graphics.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00286\ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Graphics_ga36f9ffa14b373e0c27abbb6a48060758}{set\_display\_start\_page\_flipping}}()\ !=\ 0)\ \{}
+\DoxyCodeLine{00287\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ set\ display\ start!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00288\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00289\ \ \ \}\ }
+\DoxyCodeLine{00290\ }
+\DoxyCodeLine{00291\ \ \ uint8\_t\ *temp\ =\ front\_buffer;}
+\DoxyCodeLine{00292\ \ \ front\_buffer\ =\ back\_buffer;}
+\DoxyCodeLine{00293\ \ \ back\_buffer\ =\ temp;}
+\DoxyCodeLine{00294\ }
+\DoxyCodeLine{00295\ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Graphics_ga0f35f330c5fc115729ebd486a1a4e7da}{clear\_back\_buffer}}()\ !=\ 0)\ \{}
+\DoxyCodeLine{00296\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ clean\ back\ buffer!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00297\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00298\ \ \ \}}
+\DoxyCodeLine{00299\ }
+\DoxyCodeLine{00300\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00301\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=307pt]{group__Graphics_gad1d0642d73fd9d01692127e5daa39219_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{group__Graphics_gad1d0642d73fd9d01692127e5daa39219_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Graphics_gaa74f5c4ff747396f4fc47ff7b6e54d40}\index{Graphics@{Graphics}!triple\_copy@{triple\_copy}}
+\index{triple\_copy@{triple\_copy}!Graphics@{Graphics}}
+\doxysubsubsection{\texorpdfstring{triple\_copy()}{triple\_copy()}}
+{\footnotesize\ttfamily \label{group__Graphics_gaa74f5c4ff747396f4fc47ff7b6e54d40} 
+int triple\+\_\+copy (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Copies the buffers for triple buffering. 
+
+\begin{DoxyReturn}{Returns}
+int Returns 0 upon success and 1 upon failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{graphics_8c_source_l00395}{395}} of file \mbox{\hyperlink{graphics_8c_source}{graphics.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00395\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00396\ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Graphics_ga38896d3324498790d6c2324d14deac2f}{set\_display\_start\_triple\_buffering}}()\ !=\ 0)\ \{}
+\DoxyCodeLine{00397\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ set\ display\ start!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00398\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00399\ \ \ \}}
+\DoxyCodeLine{00400\ }
+\DoxyCodeLine{00401\ \ \ \textcolor{keywordflow}{while}(\mbox{\hyperlink{group__Graphics_gad36fbad5794d448fb823db87ca9a0b2f}{wait\_display\_start\_change}}()\ !=\ 0)\{\}}
+\DoxyCodeLine{00402\ }
+\DoxyCodeLine{00403\ \ \ uint8\_t\ *temp\ =\ front\_buffer;}
+\DoxyCodeLine{00404\ \ \ front\_buffer\ =\ back\_buffer;}
+\DoxyCodeLine{00405\ \ \ back\_buffer\ =\ extra\_buffer;}
+\DoxyCodeLine{00406\ \ \ extra\_buffer\ =\ temp;}
+\DoxyCodeLine{00407\ }
+\DoxyCodeLine{00408\ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Graphics_ga0f35f330c5fc115729ebd486a1a4e7da}{clear\_back\_buffer}}()\ !=\ 0)\ \{}
+\DoxyCodeLine{00409\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ clear\ the\ back\ buffer!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00410\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00411\ \ \ \}}
+\DoxyCodeLine{00412\ }
+\DoxyCodeLine{00413\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00414\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=296pt]{group__Graphics_gaa74f5c4ff747396f4fc47ff7b6e54d40_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=270pt]{group__Graphics_gaa74f5c4ff747396f4fc47ff7b6e54d40_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Graphics_gae1937f3ae5e89d519db451f2ba5e50cc}\index{Graphics@{Graphics}!unmap\_frame\_buffer@{unmap\_frame\_buffer}}
+\index{unmap\_frame\_buffer@{unmap\_frame\_buffer}!Graphics@{Graphics}}
+\doxysubsubsection{\texorpdfstring{unmap\_frame\_buffer()}{unmap\_frame\_buffer()}}
+{\footnotesize\ttfamily \label{group__Graphics_gae1937f3ae5e89d519db451f2ba5e50cc} 
+int unmap\+\_\+frame\+\_\+buffer (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Unmaps the frame buffer. 
+
+\begin{DoxyReturn}{Returns}
+int Returns 0 upon success and 1 upon failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{graphics_8c_source_l00356}{356}} of file \mbox{\hyperlink{graphics_8c_source}{graphics.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00357\ \ \ \textcolor{keywordflow}{if}\ (video\_mem\ !=\ NULL)\ \{}
+\DoxyCodeLine{00358\ \ \ \ \ \textcolor{keywordtype}{int}\ r;}
+\DoxyCodeLine{00359\ }
+\DoxyCodeLine{00360\ \ \ \ \ \textcolor{keywordflow}{if}\ (resolution\ ==\ (uint16\_t)RES\_1152\_864)\ \{}
+\DoxyCodeLine{00361\ \ \ \ \ \ \ r\ =\ vm\_unmap\_phys(SELF,\ video\_mem,\ vram\_size\ *\ 3);}
+\DoxyCodeLine{00362\ \ \ \ \ \}\ }
+\DoxyCodeLine{00363\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00364\ \ \ \ \ \ \ r\ =\ vm\_unmap\_phys(SELF,\ video\_mem,\ vram\_size\ *\ 2);}
+\DoxyCodeLine{00365\ \ \ \ \ \}}
+\DoxyCodeLine{00366\ }
+\DoxyCodeLine{00367\ \ \ \ \ \textcolor{keywordflow}{if}\ (r\ !=\ OK)\ \{}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}unmap\_frame\_buffer:\ vm\_unmap\_phys\ failed:\ \%d\(\backslash\)n"{}},\ r);}
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00370\ \ \ \ \ \}}
+\DoxyCodeLine{00371\ }
+\DoxyCodeLine{00372\ \ \ \}}
+\DoxyCodeLine{00373\ }
+\DoxyCodeLine{00374\ \ \ \textcolor{keywordflow}{if}(front\_buffer\ !=\ NULL)\ \{}
+\DoxyCodeLine{00375\ \ \ \ \ front\_buffer\ =\ NULL;}
+\DoxyCodeLine{00376\ \ \ \}}
+\DoxyCodeLine{00377\ }
+\DoxyCodeLine{00378\ \ \ \textcolor{keywordflow}{if}(back\_buffer\ !=\ NULL)\ \{}
+\DoxyCodeLine{00379\ \ \ \ \ back\_buffer\ =\ NULL;}
+\DoxyCodeLine{00380\ \ \ \}}
+\DoxyCodeLine{00381\ }
+\DoxyCodeLine{00382\ \ \ \textcolor{keywordflow}{if}(extra\_buffer\ !=\ NULL)\ \{}
+\DoxyCodeLine{00383\ \ \ \ \ extra\_buffer\ =\ NULL;}
+\DoxyCodeLine{00384\ \ \ \}}
+\DoxyCodeLine{00385\ }
+\DoxyCodeLine{00386\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00387\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=316pt]{group__Graphics_gae1937f3ae5e89d519db451f2ba5e50cc_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Graphics_ga6f895de9725f9f231f9a7f74b6087f60}\index{Graphics@{Graphics}!vg\_draw\_pixel@{vg\_draw\_pixel}}
+\index{vg\_draw\_pixel@{vg\_draw\_pixel}!Graphics@{Graphics}}
+\doxysubsubsection{\texorpdfstring{vg\_draw\_pixel()}{vg\_draw\_pixel()}}
+{\footnotesize\ttfamily \label{group__Graphics_ga6f895de9725f9f231f9a7f74b6087f60} 
+int vg\+\_\+draw\+\_\+pixel (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x}{, }\item[{uint16\+\_\+t}]{y}{, }\item[{uint32\+\_\+t}]{color}{}\end{DoxyParamCaption})}
+
+
+
+Draws a pixel on the screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coordinate of the pixel. \\
+\hline
+{\em y} & The y-\/coordinate of the pixel. \\
+\hline
+{\em color} & The color of the pixel. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Returns 0 upon success and 1 upon failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{graphics_8c_source_l00178}{178}} of file \mbox{\hyperlink{graphics_8c_source}{graphics.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00179\ \ \ \textcolor{keywordflow}{if}\ (x\ >\ vmi\_p.XResolution\ ||\ y\ >\ vmi\_p.YResolution)\ \{}
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00181\ \ \ \}}
+\DoxyCodeLine{00182\ \ \ }
+\DoxyCodeLine{00183\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ bytes\ =\ ((vmi\_p.BitsPerPixel\ +\ 7)\ /\ 8);}
+\DoxyCodeLine{00184\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ idx\ =\ (vmi\_p.XResolution\ *\ y\ +\ x)\ *\ bytes;}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00186\ \ \ \textcolor{keywordflow}{if}\ (memcpy(\&back\_buffer[idx],\ \&color,\ bytes)\ ==\ NULL)\{}
+\DoxyCodeLine{00187\ \ \ \ \ vg\_exit();}
+\DoxyCodeLine{00188\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00189\ \ \ \}}
+\DoxyCodeLine{00190\ \ \ }
+\DoxyCodeLine{00191\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00192\ \}}
+
+\end{DoxyCode}
+\Hypertarget{group__Graphics_ga4bee13c4e0e366ce99296add8b64bc45}\index{Graphics@{Graphics}!vg\_set\_graphics\_mode@{vg\_set\_graphics\_mode}}
+\index{vg\_set\_graphics\_mode@{vg\_set\_graphics\_mode}!Graphics@{Graphics}}
+\doxysubsubsection{\texorpdfstring{vg\_set\_graphics\_mode()}{vg\_set\_graphics\_mode()}}
+{\footnotesize\ttfamily \label{group__Graphics_ga4bee13c4e0e366ce99296add8b64bc45} 
+int vg\+\_\+set\+\_\+graphics\+\_\+mode (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{mode}{}\end{DoxyParamCaption})}
+
+
+
+Sets the graphics mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mode} & The graphics mode to set. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Returns 0 upon success and 1 upon failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{graphics_8c_source_l00043}{43}} of file \mbox{\hyperlink{graphics_8c_source}{graphics.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ reg86\_t\ r;}
+\DoxyCodeLine{00046\ \ \ memset(\&r,\ 0,\ \textcolor{keyword}{sizeof}(r));}
+\DoxyCodeLine{00047\ \ \ r.intno\ =\ BIOS\_VIDEOCARD\_SERV;}
+\DoxyCodeLine{00048\ \ \ r.ax\ =\ VBE\_MODE\_SET;}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ r.bx\ =\ mode\ |\ LINEAR\_FB;}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \textcolor{keywordflow}{if}\ (sys\_int86(\&r))\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ printf(\textcolor{stringliteral}{"{}vg\_set\_graphics\_mode:\ sys\_int86()\ failed\(\backslash\)n"{}});}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00055\ \ \ \}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00058\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Graphics_ga4bee13c4e0e366ce99296add8b64bc45_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Graphics_ga5a4f0715ad37247030fd981d10f85fd5}\index{Graphics@{Graphics}!vg\_set\_text\_mode@{vg\_set\_text\_mode}}
+\index{vg\_set\_text\_mode@{vg\_set\_text\_mode}!Graphics@{Graphics}}
+\doxysubsubsection{\texorpdfstring{vg\_set\_text\_mode()}{vg\_set\_text\_mode()}}
+{\footnotesize\ttfamily \label{group__Graphics_ga5a4f0715ad37247030fd981d10f85fd5} 
+int vg\+\_\+set\+\_\+text\+\_\+mode (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{mode}{}\end{DoxyParamCaption})}
+
+
+
+Sets the text mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mode} & The text mode to set. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Returns 0 upon success and 1 upon failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{graphics_8c_source_l00067}{67}} of file \mbox{\hyperlink{graphics_8c_source}{graphics.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ reg86\_t\ r;}
+\DoxyCodeLine{00070\ \ \ memset(\&r,\ 0,\ \textcolor{keyword}{sizeof}(r));}
+\DoxyCodeLine{00071\ \ \ r.intno\ =\ BIOS\_VIDEOCARD\_SERV;}
+\DoxyCodeLine{00072\ \ \ r.ax\ =\ VBE\_MODE\_SET;}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ r.bx\ =\ mode\ |\ LINEAR\_FB;}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \textcolor{keywordflow}{if}\ (sys\_int86(\&r))\ \{}
+\DoxyCodeLine{00077\ \ \ \ \ printf(\textcolor{stringliteral}{"{}vg\_set\_graphics\_mode:\ sys\_int86()\ failed\(\backslash\)n"{}});}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00079\ \ \ \}}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00082\ \}}
+
+\end{DoxyCode}
+\Hypertarget{group__Graphics_gad36fbad5794d448fb823db87ca9a0b2f}\index{Graphics@{Graphics}!wait\_display\_start\_change@{wait\_display\_start\_change}}
+\index{wait\_display\_start\_change@{wait\_display\_start\_change}!Graphics@{Graphics}}
+\doxysubsubsection{\texorpdfstring{wait\_display\_start\_change()}{wait\_display\_start\_change()}}
+{\footnotesize\ttfamily \label{group__Graphics_gad36fbad5794d448fb823db87ca9a0b2f} 
+int wait\+\_\+display\+\_\+start\+\_\+change (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Waits until the last scheduled change has occured. 
+
+\begin{DoxyReturn}{Returns}
+int Returns 0 upon success and 1 upon failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{graphics_8c_source_l00471}{471}} of file \mbox{\hyperlink{graphics_8c_source}{graphics.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00471\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00472\ \ \ reg86\_t\ r;}
+\DoxyCodeLine{00473\ \ \ memset(\&r,\ 0,\ \textcolor{keyword}{sizeof}(r));}
+\DoxyCodeLine{00474\ }
+\DoxyCodeLine{00475\ \ \ r.intno\ =\ BIOS\_VIDEOCARD\_SERV;}
+\DoxyCodeLine{00476\ \ \ r.ax\ =\ 0x4F07;}
+\DoxyCodeLine{00477\ \ \ r.bx\ =\ 0x04;}
+\DoxyCodeLine{00478\ }
+\DoxyCodeLine{00479\ \ \ \textcolor{keywordflow}{if}\ (sys\_int86(\&r))\ \{}
+\DoxyCodeLine{00480\ \ \ \ \ printf(\textcolor{stringliteral}{"{}wait\_for\_display\_start\_change:\ sys\_int86()\ failed\(\backslash\)n"{}});}
+\DoxyCodeLine{00481\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00482\ \ \ \}}
+\DoxyCodeLine{00483\ }
+\DoxyCodeLine{00484\ \ \ \textcolor{keywordflow}{return}\ (r.ax\ \&\ 0x01)\ ?\ 1\ :\ 0;}
+\DoxyCodeLine{00485\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Graphics_gad36fbad5794d448fb823db87ca9a0b2f_icgraph}
+\end{center}
+\end{figure}

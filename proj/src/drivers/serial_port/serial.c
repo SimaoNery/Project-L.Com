@@ -1,10 +1,15 @@
 #include "serial.h"
 
+/**
+ * @defgroup Serial Serial
+ * 
+ */
 int serial_port_hook_id = SERIAL_PORT_HOOK_ID;
 static queue_t *queue;
 
 
 /*!
+ * @ingroup Serial Serial
  * @brief Initializes the serial port configuration.
  * 
  * Creates a new queue and sets up the serial port configuration registers.
@@ -47,6 +52,7 @@ int serial_initial_config() {
 }
 
 /*!
+ * @ingroup Serial Serial
  * @brief Subscribes serial port interrupts.
  * 
  * @param bit_no Pointer to a variable where the bit number will be stored.
@@ -67,6 +73,7 @@ int serial_port_subscribe_int(uint8_t *bit_no) {
 }
 
 /*!
+ * @ingroup Serial Serial
  * @brief Unsubscribes serial port interrupts.
  * 
  * @return int Returns 0 upon success and 1 upon failure.
@@ -76,6 +83,7 @@ int serial_port_unsubscribe_int() {
 }
 
 /*!
+ * @ingroup Serial Serial
  * @brief Retrieves the status from the serial port.
  * 
  * @param st Pointer to a variable where the status will be stored.
@@ -89,6 +97,7 @@ int get_serial_port_status(uint8_t *st) {
 }
 
 /*!
+ * @ingroup Serial Serial
  * @brief Sends a message through the serial port.
  * 
  * @param msg The message to be sent.
@@ -114,6 +123,7 @@ int send_serial_port_msg(uint8_t msg) {
 }
 
 /*!
+ * @ingroup Serial Serial
  * @brief Reads a message from the serial port.
  * 
  * @return int Returns 0 upon success and 1 upon failure.
@@ -157,6 +167,7 @@ int read_serial_port_msg() {
 }
 
 /*!
+ * @ingroup Serial Serial
  * @brief Serial port interrupt handler.
  * 
  * Handles the serial port interrupts by reading the interrupt identification register
@@ -177,6 +188,7 @@ void serial_port_int_handler() {
 }
 
 /*!
+ * @ingroup Serial Serial
  * @brief Clears the serial port interrupts.
  * 
  * @return int Returns 0 upon success and 1 upon failure.
@@ -193,6 +205,7 @@ int serial_port_clear_int() {
 }
 
 /*!
+ * @ingroup Serial Serial
  * @brief Deletes the queue and frees its memory.
  * 
  */
@@ -201,6 +214,7 @@ void serial_port_clear_all() {
 }
 
 /*!
+ * @ingroup Serial Serial
  * @brief Retrieves the queue used by the serial port.
  * 
  * @return queue_t* Pointer to the queue.

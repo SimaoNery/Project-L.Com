@@ -1,0 +1,43 @@
+\doxysection{mouse.\+h}
+\hypertarget{mouse_8h_source}{}\label{mouse_8h_source}\index{/Users/wagner/Desktop/faculdade/2 ano/LCOM/MINIX-\/LCOM/shared/g4/proj/src/drivers/mouse\_keyboard/mouse.h@{/Users/wagner/Desktop/faculdade/2 ano/LCOM/MINIX-\/LCOM/shared/g4/proj/src/drivers/mouse\_keyboard/mouse.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{mouse_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ \_LCOM\_MOUSE\_H\_}}
+\DoxyCodeLine{\Hypertarget{mouse_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ \_LCOM\_MOUSE\_H\_}}
+\DoxyCodeLine{\Hypertarget{mouse_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{mouse_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <minix/sysutil.h>}}
+\DoxyCodeLine{\Hypertarget{mouse_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <lcom/lcf.h>}}
+\DoxyCodeLine{\Hypertarget{mouse_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}i8042.h"{}}}
+\DoxyCodeLine{\Hypertarget{mouse_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}KBC.h"{}}}
+\DoxyCodeLine{\Hypertarget{mouse_8h_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}../video/graphics.h"{}}}
+\DoxyCodeLine{\Hypertarget{mouse_8h_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{mouse_8h_source_l00010}00010\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structmouse__packet}{mouse\_packet}};}
+\DoxyCodeLine{\Hypertarget{mouse_8h_source_l00011}00011\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structmouse__packet}{mouse\_packet}}\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet\_t}};}
+\DoxyCodeLine{\Hypertarget{mouse_8h_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{mouse_8h_source_l00013}\mbox{\hyperlink{structmouse__packet}{00013}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structmouse__packet}{mouse\_packet}}}
+\DoxyCodeLine{\Hypertarget{mouse_8h_source_l00014}00014\ \{}
+\DoxyCodeLine{\Hypertarget{mouse_8h_source_l00015}00015\ \ \ \ \ uint8\_t\ right\_button;}
+\DoxyCodeLine{\Hypertarget{mouse_8h_source_l00016}00016\ \ \ \ \ uint8\_t\ left\_button;}
+\DoxyCodeLine{\Hypertarget{mouse_8h_source_l00017}00017\ \ \ \ \ int16\_t\ x;}
+\DoxyCodeLine{\Hypertarget{mouse_8h_source_l00018}00018\ \ \ \ \ int16\_t\ y;}
+\DoxyCodeLine{\Hypertarget{mouse_8h_source_l00019}00019\ \};}
+\DoxyCodeLine{\Hypertarget{mouse_8h_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{mouse_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{mouse_8h_source_l00022}00022\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet\_t}}\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}};}
+\DoxyCodeLine{\Hypertarget{mouse_8h_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{mouse_8h_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{mouse_8h_source_l00025}00025\ int\ (\mbox{\hyperlink{group__Mouse_ga9da18257ff113b686bb826d154bfaa87}{mouse\_subscribe\_int}})(uint8\_t\ *bit\_no);}
+\DoxyCodeLine{\Hypertarget{mouse_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{mouse_8h_source_l00027}00027\ int\ (\mbox{\hyperlink{group__Mouse_ga685ad2706aca36d9869a30a19b9f446a}{mouse\_unsubscribe\_int}})();}
+\DoxyCodeLine{\Hypertarget{mouse_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{mouse_8h_source_l00029}00029\ void\ (\mbox{\hyperlink{group__Mouse_ga834b6d7efe311484d6da234db333cb97}{mouse\_ih}})();}
+\DoxyCodeLine{\Hypertarget{mouse_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{mouse_8h_source_l00031}00031\ void\ (\mbox{\hyperlink{group__Mouse_ga7c710bdb2e70366f9830f54dcbf7a95a}{parse\_bytes\_to\_packet}})();}
+\DoxyCodeLine{\Hypertarget{mouse_8h_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{mouse_8h_source_l00033}00033\ int\ (\mbox{\hyperlink{group__Mouse_gaecdd51f940be83961956458c45d902e4}{write\_mouse\_cmd}})(uint8\_t\ cmd);}
+\DoxyCodeLine{\Hypertarget{mouse_8h_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{mouse_8h_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{mouse_8h_source_l00036}00036\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_LCOM\_MOUSE\_H\_\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{mouse_8h_source_l00037}00037\ }
+
+\end{DoxyCode}

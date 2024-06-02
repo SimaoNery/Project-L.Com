@@ -1,0 +1,157 @@
+\doxysection{Utils}
+\hypertarget{group__Utils}{}\label{group__Utils}\index{Utils@{Utils}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__Utils_ga31ab374573517f8a5ba31c52a49a8606}{util\+\_\+get\+\_\+\+LSB}} (uint16\+\_\+t val, uint8\+\_\+t \texorpdfstring{$\ast$}{*}lsb)
+\begin{DoxyCompactList}\small\item\em Retrieves the least significant byte (LSB) of a 16-\/bit value. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Utils_gafc6ca7a9a39943ff1792d206da514a59}{util\+\_\+get\+\_\+\+MSB}} (uint16\+\_\+t val, uint8\+\_\+t \texorpdfstring{$\ast$}{*}msb)
+\begin{DoxyCompactList}\small\item\em Retrieves the most significant byte (MSB) of a 16-\/bit value. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Utils_ga2b56f50ba159e9d5115ed1a75eff15d9}{util\+\_\+sys\+\_\+inb}} (int port, uint8\+\_\+t \texorpdfstring{$\ast$}{*}value)
+\begin{DoxyCompactList}\small\item\em Reads a byte from the specified port and store it in uint8\+\_\+t variable. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{group__Utils_ga31ab374573517f8a5ba31c52a49a8606}\index{Utils@{Utils}!util\_get\_LSB@{util\_get\_LSB}}
+\index{util\_get\_LSB@{util\_get\_LSB}!Utils@{Utils}}
+\doxysubsubsection{\texorpdfstring{util\_get\_LSB()}{util\_get\_LSB()}}
+{\footnotesize\ttfamily \label{group__Utils_ga31ab374573517f8a5ba31c52a49a8606} 
+int util\+\_\+get\+\_\+\+LSB (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{val}{, }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{lsb}{}\end{DoxyParamCaption})}
+
+
+
+Retrieves the least significant byte (LSB) of a 16-\/bit value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & The 16-\/bit value from which to extract the LSB. \\
+\hline
+{\em lsb} & Pointer to a variable where the LSB will be stored. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Returns 0 upon success and 1 upon failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{utils_8c_source_l00017}{17}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \textcolor{keywordflow}{if}\ (lsb\ !=\ NULL)\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ uint8\_t\ mask\ =\ 0xFF;}
+\DoxyCodeLine{00021\ \ \ \ \ *lsb\ =\ val\ \&\ mask;}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00023\ \ \ \}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00026\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=292pt]{group__Utils_ga31ab374573517f8a5ba31c52a49a8606_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Utils_gafc6ca7a9a39943ff1792d206da514a59}\index{Utils@{Utils}!util\_get\_MSB@{util\_get\_MSB}}
+\index{util\_get\_MSB@{util\_get\_MSB}!Utils@{Utils}}
+\doxysubsubsection{\texorpdfstring{util\_get\_MSB()}{util\_get\_MSB()}}
+{\footnotesize\ttfamily \label{group__Utils_gafc6ca7a9a39943ff1792d206da514a59} 
+int util\+\_\+get\+\_\+\+MSB (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{val}{, }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{msb}{}\end{DoxyParamCaption})}
+
+
+
+Retrieves the most significant byte (MSB) of a 16-\/bit value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & The 16-\/bit value from which to extract the MSB. \\
+\hline
+{\em msb} & Pointer to a variable where the MSB will be stored. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Returns 0 upon success and 1 upon failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{utils_8c_source_l00036}{36}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \textcolor{keywordflow}{if}\ (msb\ !=\ NULL)\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ uint16\_t\ mask\ =\ 0xFF00;}
+\DoxyCodeLine{00040\ \ \ \ \ *msb\ =\ (val\ \&\ mask)\ >>\ 8;}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00042\ \ \ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00045\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=295pt]{group__Utils_gafc6ca7a9a39943ff1792d206da514a59_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Utils_ga2b56f50ba159e9d5115ed1a75eff15d9}\index{Utils@{Utils}!util\_sys\_inb@{util\_sys\_inb}}
+\index{util\_sys\_inb@{util\_sys\_inb}!Utils@{Utils}}
+\doxysubsubsection{\texorpdfstring{util\_sys\_inb()}{util\_sys\_inb()}}
+{\footnotesize\ttfamily \label{group__Utils_ga2b56f50ba159e9d5115ed1a75eff15d9} 
+int util\+\_\+sys\+\_\+inb (\begin{DoxyParamCaption}\item[{int}]{port}{, }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{value}{}\end{DoxyParamCaption})}
+
+
+
+Reads a byte from the specified port and store it in uint8\+\_\+t variable. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The port from which to read the byte. \\
+\hline
+{\em value} & Pointer to a variable where the read byte will be stored. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Returns 0 upon success and 1 upon failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{utils_8c_source_l00055}{55}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \textcolor{keywordflow}{if}\ (value\ !=\ NULL)\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ uint32\_t\ temp;}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{int}\ res\ =\ sys\_inb(port,\ \&temp);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordflow}{if}\ (res\ ==\ 0)\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ *value\ =\ 0xFF\ \&\ temp;}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00064\ \ \ \ \ \}}
+\DoxyCodeLine{00065\ \ \ \}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00068\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Utils_ga2b56f50ba159e9d5115ed1a75eff15d9_icgraph}
+\end{center}
+\end{figure}

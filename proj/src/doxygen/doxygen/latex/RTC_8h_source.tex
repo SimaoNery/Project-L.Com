@@ -1,0 +1,44 @@
+\doxysection{RTC.\+h}
+\hypertarget{RTC_8h_source}{}\label{RTC_8h_source}\index{/Users/wagner/Desktop/faculdade/2 ano/LCOM/MINIX-\/LCOM/shared/g4/proj/src/drivers/real\_time\_clock/RTC.h@{/Users/wagner/Desktop/faculdade/2 ano/LCOM/MINIX-\/LCOM/shared/g4/proj/src/drivers/real\_time\_clock/RTC.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{RTC_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ \_LCOM\_RTC\_H\_}}
+\DoxyCodeLine{\Hypertarget{RTC_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ \_LCOM\_RTC\_H\_}}
+\DoxyCodeLine{\Hypertarget{RTC_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{RTC_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <lcom/lcf.h>}}
+\DoxyCodeLine{\Hypertarget{RTC_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{RTC_8h_source_l00011}00011\ \textcolor{preprocessor}{\#define\ IRQ\_RTC\ \ \ \ \ \ \ \ \ \ \ \ \ 8}}
+\DoxyCodeLine{\Hypertarget{RTC_8h_source_l00012}00012\ \textcolor{preprocessor}{\#define\ RTC\_ADDR\_REG\ \ \ \ \ \ 0x70}}
+\DoxyCodeLine{\Hypertarget{RTC_8h_source_l00013}00013\ \textcolor{preprocessor}{\#define\ RTC\_DATA\_REG\ \ \ \ \ \ 0x71}}
+\DoxyCodeLine{\Hypertarget{RTC_8h_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{RTC_8h_source_l00015}00015\ \textcolor{preprocessor}{\#define\ RTC\_REG\_A\ \ \ 10}}
+\DoxyCodeLine{\Hypertarget{RTC_8h_source_l00016}00016\ \textcolor{preprocessor}{\#define\ RTC\_REG\_B\ \ \ 11\ }}
+\DoxyCodeLine{\Hypertarget{RTC_8h_source_l00017}00017\ \textcolor{preprocessor}{\#define\ RTC\_REG\_C\ \ \ 12}}
+\DoxyCodeLine{\Hypertarget{RTC_8h_source_l00018}00018\ \textcolor{preprocessor}{\#define\ RTC\_REG\_D\ \ \ 13}}
+\DoxyCodeLine{\Hypertarget{RTC_8h_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{RTC_8h_source_l00020}00020\ \textcolor{preprocessor}{\#define\ SECONDS\ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{\Hypertarget{RTC_8h_source_l00021}00021\ \textcolor{preprocessor}{\#define\ SECONDS\_ALARM\ \ \ \ 1}}
+\DoxyCodeLine{\Hypertarget{RTC_8h_source_l00022}00022\ \textcolor{preprocessor}{\#define\ MINUTES\ \ \ \ \ \ \ \ \ \ 2}}
+\DoxyCodeLine{\Hypertarget{RTC_8h_source_l00023}00023\ \textcolor{preprocessor}{\#define\ MINUTES\_ALARM\ \ \ \ 3}}
+\DoxyCodeLine{\Hypertarget{RTC_8h_source_l00024}00024\ \textcolor{preprocessor}{\#define\ HOURS\ \ \ \ \ \ \ \ \ \ \ \ 4}}
+\DoxyCodeLine{\Hypertarget{RTC_8h_source_l00025}00025\ \textcolor{preprocessor}{\#define\ HOURS\_ALARM\ \ \ \ \ \ 5}}
+\DoxyCodeLine{\Hypertarget{RTC_8h_source_l00026}00026\ \textcolor{preprocessor}{\#define\ DAY\_OF\_THE\_WEEK\ \ 6}}
+\DoxyCodeLine{\Hypertarget{RTC_8h_source_l00027}00027\ \textcolor{preprocessor}{\#define\ DAY\_OF\_THE\_MONTH\ 7}}
+\DoxyCodeLine{\Hypertarget{RTC_8h_source_l00028}00028\ \textcolor{preprocessor}{\#define\ MONTH\ \ \ \ \ \ \ \ \ \ \ \ 8}}
+\DoxyCodeLine{\Hypertarget{RTC_8h_source_l00029}00029\ \textcolor{preprocessor}{\#define\ YEAR\ \ \ \ \ \ \ \ \ \ \ \ \ 9}}
+\DoxyCodeLine{\Hypertarget{RTC_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{RTC_8h_source_l00031}00031\ \textcolor{preprocessor}{\#define\ BINARY\ \ \ \ \ \ \ \ \ BIT(2)}}
+\DoxyCodeLine{\Hypertarget{RTC_8h_source_l00032}00032\ \textcolor{preprocessor}{\#define\ RTC\_UIP\ \ \ \ \ \ \ \ BIT(7)}}
+\DoxyCodeLine{\Hypertarget{RTC_8h_source_l00033}00033\ \textcolor{preprocessor}{\#define\ RTC\_PIE\ \ \ \ \ \ \ \ BIT(6)}}
+\DoxyCodeLine{\Hypertarget{RTC_8h_source_l00034}00034\ \textcolor{preprocessor}{\#define\ RTC\_AIE\ \ \ \ \ \ \ \ BIT(5)}}
+\DoxyCodeLine{\Hypertarget{RTC_8h_source_l00035}00035\ \textcolor{preprocessor}{\#define\ RTC\_UIE\ \ \ \ \ \ \ \ BIT(4)}}
+\DoxyCodeLine{\Hypertarget{RTC_8h_source_l00036}00036\ \textcolor{preprocessor}{\#define\ RTC\_PF\ \ \ \ \ \ \ \ \ BIT(6)}}
+\DoxyCodeLine{\Hypertarget{RTC_8h_source_l00037}00037\ \textcolor{preprocessor}{\#define\ RTC\_AF\ \ \ \ \ \ \ \ \ BIT(5)}}
+\DoxyCodeLine{\Hypertarget{RTC_8h_source_l00038}00038\ \textcolor{preprocessor}{\#define\ RTC\_UF\ \ \ \ \ \ \ \ \ BIT(4)}}
+\DoxyCodeLine{\Hypertarget{RTC_8h_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{RTC_8h_source_l00040}00040\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_LCOM\_RTC\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{RTC_8h_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{RTC_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{RTC_8h_source_l00043}00043\ }
+
+\end{DoxyCode}

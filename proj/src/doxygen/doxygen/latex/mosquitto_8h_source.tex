@@ -1,0 +1,34 @@
+\doxysection{mosquitto.\+h}
+\hypertarget{mosquitto_8h_source}{}\label{mosquitto_8h_source}\index{/Users/wagner/Desktop/faculdade/2 ano/LCOM/MINIX-\/LCOM/shared/g4/proj/src/host/mosquitto.h@{/Users/wagner/Desktop/faculdade/2 ano/LCOM/MINIX-\/LCOM/shared/g4/proj/src/host/mosquitto.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{mosquitto_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ \_MOSQUITTO\_C\_}}
+\DoxyCodeLine{\Hypertarget{mosquitto_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ \_MOSQUITTO\_C\_}}
+\DoxyCodeLine{\Hypertarget{mosquitto_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{mosquitto_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}../headers.h"{}}}
+\DoxyCodeLine{\Hypertarget{mosquitto_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}../mosquitto\_headers.h"{}}}
+\DoxyCodeLine{\Hypertarget{mosquitto_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <arpa/inet.h>}}
+\DoxyCodeLine{\Hypertarget{mosquitto_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <mosquitto.h>}}
+\DoxyCodeLine{\Hypertarget{mosquitto_8h_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <pthread.h>}}
+\DoxyCodeLine{\Hypertarget{mosquitto_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{mosquitto_8h_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{mosquitto_8h_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{\Hypertarget{mosquitto_8h_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <sys/socket.h>}}
+\DoxyCodeLine{\Hypertarget{mosquitto_8h_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <unistd.h>}}
+\DoxyCodeLine{\Hypertarget{mosquitto_8h_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{mosquitto_8h_source_l00015}\mbox{\hyperlink{structredirect__t}{00015}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }}
+\DoxyCodeLine{\Hypertarget{mosquitto_8h_source_l00016}00016\ \{}
+\DoxyCodeLine{\Hypertarget{mosquitto_8h_source_l00017}00017\ \ \ \ \ uint8\_t\ device;}
+\DoxyCodeLine{\Hypertarget{mosquitto_8h_source_l00018}00018\ \ \ \ \ \textcolor{keywordtype}{char}*\ topic;}
+\DoxyCodeLine{\Hypertarget{mosquitto_8h_source_l00019}00019\ \}\ \mbox{\hyperlink{structredirect__t}{redirect\_t}};}
+\DoxyCodeLine{\Hypertarget{mosquitto_8h_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{mosquitto_8h_source_l00021}\mbox{\hyperlink{structMessageHandler__t}{00021}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{mosquitto_8h_source_l00022}00022\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *topic;}
+\DoxyCodeLine{\Hypertarget{mosquitto_8h_source_l00023}00023\ \ \ \ \ void\ (*\mbox{\hyperlink{structhandler}{handler}})(\textcolor{keyword}{const}\ \textcolor{keyword}{struct\ }mosquitto\_message\ *);}
+\DoxyCodeLine{\Hypertarget{mosquitto_8h_source_l00024}00024\ \}\ \mbox{\hyperlink{structMessageHandler__t}{MessageHandler\_t}};}
+\DoxyCodeLine{\Hypertarget{mosquitto_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{mosquitto_8h_source_l00026}00026\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{mosquitto_8h_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{mosquitto_8h_source_l00028}00028\ }
+
+\end{DoxyCode}

@@ -1,0 +1,34 @@
+\doxysection{display\+\_\+text.\+c}
+\hypertarget{display__text_8c_source}{}\label{display__text_8c_source}\index{/Users/wagner/Desktop/faculdade/2 ano/LCOM/MINIX-\/LCOM/shared/g4/proj/src/handlers/command\_line/display\_text.c@{/Users/wagner/Desktop/faculdade/2 ano/LCOM/MINIX-\/LCOM/shared/g4/proj/src/handlers/command\_line/display\_text.c}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{display__text_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}display\_text.h"{}}}
+\DoxyCodeLine{\Hypertarget{display__text_8c_source_l00020}\mbox{\hyperlink{group__Display__Text_ga8114f5893ca5abf7574a43b3efd39ce0}{00020}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group__Display__Text_ga8114f5893ca5abf7574a43b3efd39ce0}{display\_text}}(\textcolor{keywordtype}{char}\ *args[])\ \{}
+\DoxyCodeLine{\Hypertarget{display__text_8c_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{display__text_8c_source_l00022}00022\ \ \ \textcolor{keywordflow}{if}\ (args[0]\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{display__text_8c_source_l00023}00023\ \ \ \ \ printf(\textcolor{stringliteral}{"{}No\ text\ was\ provided.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{display__text_8c_source_l00024}00024\ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{display__text_8c_source_l00025}00025\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{display__text_8c_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{display__text_8c_source_l00027}00027\ \ \ uint8\_t\ command\ =\ DISPLAY\_TEXT\_ID;}
+\DoxyCodeLine{\Hypertarget{display__text_8c_source_l00028}00028\ \ \ \textcolor{keywordtype}{char}\ buffer[MAX\_CHARS];}
+\DoxyCodeLine{\Hypertarget{display__text_8c_source_l00029}00029\ \ \ \textcolor{keywordtype}{int}\ total\_chars\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{display__text_8c_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{display__text_8c_source_l00031}00031\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ args[i]\ !=\ NULL\ \&\&\ total\_chars\ <\ MAX\_CHARS;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{display__text_8c_source_l00032}00032\ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{display__text_8c_source_l00033}00033\ \ \ \ \ \ \ buffer[total\_chars++]\ =\ \textcolor{charliteral}{'\ '};}
+\DoxyCodeLine{\Hypertarget{display__text_8c_source_l00034}00034\ \ \ \ \ \textcolor{keywordtype}{int}\ j\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{display__text_8c_source_l00035}00035\ \ \ \ \ \textcolor{keywordflow}{while}\ (args[i][j]\ !=\ \textcolor{charliteral}{'\(\backslash\)0'}\ \&\&\ total\_chars\ <\ MAX\_CHARS)\ \{}
+\DoxyCodeLine{\Hypertarget{display__text_8c_source_l00036}00036\ \ \ \ \ \ \ buffer[total\_chars++]\ =\ args[i][j++];}
+\DoxyCodeLine{\Hypertarget{display__text_8c_source_l00037}00037\ \ \ \ \ \ \ buffer[total\_chars]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{display__text_8c_source_l00038}00038\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{display__text_8c_source_l00039}00039\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{display__text_8c_source_l00040}00040\ \ \ command\ |=\ (total\_chars\ -\/\ 1);}
+\DoxyCodeLine{\Hypertarget{display__text_8c_source_l00041}00041\ \ \ \mbox{\hyperlink{group__Serial_ga16017eb641d6cfecc03e1591b8226554}{send\_serial\_port\_msg}}(command);}
+\DoxyCodeLine{\Hypertarget{display__text_8c_source_l00042}00042\ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{display__text_8c_source_l00043}00043\ \ \ \textcolor{keywordflow}{while}\ (buffer[i]\ !=\ \textcolor{charliteral}{'\(\backslash\)0'})\ \{}
+\DoxyCodeLine{\Hypertarget{display__text_8c_source_l00044}00044\ \ \ \ \ \mbox{\hyperlink{group__Serial_ga16017eb641d6cfecc03e1591b8226554}{send\_serial\_port\_msg}}(buffer[i++]);}
+\DoxyCodeLine{\Hypertarget{display__text_8c_source_l00045}00045\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{display__text_8c_source_l00046}00046\ \}}
+
+\end{DoxyCode}

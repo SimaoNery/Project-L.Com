@@ -1,10 +1,14 @@
 #include "keyboard.h"
-
+/**
+ * @defgroup Keyboard Keyboard
+ * 
+ */
 
 int keyboard_hook_id = 1;
 uint8_t out_buf;
 
 /*!
+ * @ingroup Keyboard Keyboard
  * @brief Subscribes to keyboard interrupts.
  * 
  * @param bit_no Pointer to a variable where the bit number will be stored.
@@ -16,6 +20,7 @@ int (kbc_subscribe_int)(uint8_t *bit_no) {
   return sys_irqsetpolicy(KBD_IRQ, IRQ_REENABLE | IRQ_EXCLUSIVE, &keyboard_hook_id);
 }
 /*!
+  * @ingroup Keyboard Keyboard
  * @brief Unsubscribes from keyboard interrupts.
  * 
  * @return int Returns 0 upon success and 1 upon failure.
@@ -25,6 +30,7 @@ int (kbc_unsubscribe_int)() {
 }
 
 /*!
+  * @ingroup Keyboard Keyboard
  * @brief Keyboard interrupt handler.
  * 
  * Reads the status and output buffer from the Keyboard Controller (KBC).
@@ -37,6 +43,7 @@ void (kbc_int_handler)() {
 }
 
 /*!
+  * @ingroup Keyboard Keyboard
  * @brief Restores the keyboard controller to its default state.
  * 
  * @return int Returns 0 upon success and 1 upon failure.

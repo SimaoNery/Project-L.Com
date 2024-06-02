@@ -1,0 +1,7 @@
+<map id="pop" name="pop">
+<area shape="rect" id="Node000001" title="Removes an element from the queue." alt="" coords="330,5,372,31"/>
+<area shape="rect" id="Node000002" href="$group__Queue.html#gad727910848ebf0f74179f809b6eeda7e" title="Clears all elements from the queue." alt="" coords="191,5,282,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="315,21,283,21,283,16,315,16"/>
+<area shape="rect" id="Node000003" href="$group__Serial.html#ga1426ccf57ad167e5c2b59cfff90772d9" title="Clears the serial port interrupts." alt="" coords="5,5,143,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="175,21,143,21,143,16,175,16"/>
+</map>

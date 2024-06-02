@@ -4,7 +4,7 @@
         - Macros to be sent and their meaning
  */
 
-#define MQTT_HOST "192.168.1.102"
+#define MQTT_HOST "192.168.1.89"
 #define MQTT_PORT 8443
 
 

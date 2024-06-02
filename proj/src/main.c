@@ -6,6 +6,16 @@
 
 #include "project.h"
 
+/*!
+ * @brief Main function that initializes and starts the project.
+ * 
+ * This function sets the language for LCF messages, enables logging and tracing if needed,
+ * and hands control over to LCF to handle command line arguments and invoke the appropriate functions.
+ * 
+ * @param argc The number of command line arguments.
+ * @param argv The array of command line arguments.
+ * @return int Returns 0 on success, 1 on failure.
+ */
 int main(int argc, char *argv[]) {
   // sets the language of LCF messages (can be either EN-US or PT-PT)
   lcf_set_language("EN-US");
@@ -31,6 +41,14 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 
+/**
+ * @brief Main loop function for the project.
+ * 
+ * This function starts the project, runs the main loop, and stops the project.
+ * It handles any errors that occur during these phases and prints a success message upon completion.
+ * 
+ * @return int Returns 0 on success, 1 on failure.
+ */
 int (proj_main_loop)() {
   if(project_start() != 0) {
     printf("Error: Problems occured while trying to start the project! \n");

@@ -3,6 +3,14 @@
 int serial_port_hook_id = SERIAL_PORT_HOOK_ID;
 static queue_t *queue;
 
+
+/*!
+ * @brief Initializes the serial port configuration.
+ * 
+ * Creates a new queue and sets up the serial port configuration registers.
+ * 
+ * @return int Returns 0 upon success and 1 upon failure.
+ */
 int serial_initial_config() {
   if ((queue = new_queue()) == NULL) {
     printf("Failed to create queue\n");
@@ -38,6 +46,12 @@ int serial_initial_config() {
   return 0;
 }
 
+/*!
+ * @brief Subscribes serial port interrupts.
+ * 
+ * @param bit_no Pointer to a variable where the bit number will be stored.
+ * @return int Returns 0 upon success and 1 upon failure.
+ */
 int serial_port_subscribe_int(uint8_t *bit_no) {
   if (bit_no == NULL)
     return 1;
@@ -52,10 +66,21 @@ int serial_port_subscribe_int(uint8_t *bit_no) {
   return 0;
 }
 
+/*!
+ * @brief Unsubscribes serial port interrupts.
+ * 
+ * @return int Returns 0 upon success and 1 upon failure.
+ */
 int serial_port_unsubscribe_int() {
   return sys_irqrmpolicy(&serial_port_hook_id);
 }
 
+/*!
+ * @brief Retrieves the status from the serial port.
+ * 
+ * @param st Pointer to a variable where the status will be stored.
+ * @return int Returns 0 upon success and 1 upon failure.
+ */
 int get_serial_port_status(uint8_t *st) {
   if (st == NULL)
     return 1;
@@ -63,6 +88,12 @@ int get_serial_port_status(uint8_t *st) {
   return util_sys_inb(COM1_BASE_REG + LSR, st);
 }
 
+/*!
+ * @brief Sends a message through the serial port.
+ * 
+ * @param msg The message to be sent.
+ * @return int Returns 0 upon success and 1 upon failure.
+ */
 int send_serial_port_msg(uint8_t msg) {
   uint8_t st;
   uint8_t att = ATTEMPTS;
@@ -82,6 +113,11 @@ int send_serial_port_msg(uint8_t msg) {
   return 1;
 }
 
+/*!
+ * @brief Reads a message from the serial port.
+ * 
+ * @return int Returns 0 upon success and 1 upon failure.
+ */
 int read_serial_port_msg() {
   uint8_t st;
   uint8_t msg;
@@ -120,6 +156,12 @@ int read_serial_port_msg() {
   return 1;
 }
 
+/*!
+ * @brief Serial port interrupt handler.
+ * 
+ * Handles the serial port interrupts by reading the interrupt identification register
+ * and processing the appropriate interrupt.
+ */
 void serial_port_int_handler() {
   uint8_t interrupt_ident;
   if (util_sys_inb(COM1_BASE_REG + IIR, &interrupt_ident))
@@ -134,6 +176,11 @@ void serial_port_int_handler() {
   }
 }
 
+/*!
+ * @brief Clears the serial port interrupts.
+ * 
+ * @return int Returns 0 upon success and 1 upon failure.
+ */
 int serial_port_clear_int() {
   if (sys_outb(COM1_BASE_REG + FCR, FIFO_CLEAR)) {
     printf("Failed sys_out FCR\n");
@@ -145,10 +192,19 @@ int serial_port_clear_int() {
   return 0;
 }
 
+/*!
+ * @brief Deletes the queue and frees its memory.
+ * 
+ */
 void serial_port_clear_all() {
   delete_queue(queue);
 }
 
+/*!
+ * @brief Retrieves the queue used by the serial port.
+ * 
+ * @return queue_t* Pointer to the queue.
+ */
 queue_t *get_queue() {
   return queue;
 }

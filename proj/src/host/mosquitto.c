@@ -2,6 +2,10 @@
 
 struct mosquitto *mosq = NULL;
 int sockfd;
+
+/*!
+ * @brief Structure to map device masks to MQTT topics.
+ */
 static const redirect_t redirect[] = {
   {LIGHT_MASK, LIGHT_TOPIC},
   {BUZZER_MASK, BUZZER_TOPIC},
@@ -10,6 +14,14 @@ static const redirect_t redirect[] = {
   {HUMIDITY_SENSOR_MASK, HUMIDITY_SENSOR_TOPIC},
   {CAMERA_MASK, CAMERA_TOPIC}};
 
+
+/*!
+ * @brief Sends a message through the serial port.
+ * 
+ * @param socketfd The file descriptor of the socket.
+ * @param message The message to be sent.
+ * @return int Returns 0 on success, 1 on failure.
+ */
 int serial_port_send_message(int socketfd, const void *message) {
   if (send(socketfd, message, 1, 0) != 1) {
     perror("Send failed");
@@ -19,6 +31,11 @@ int serial_port_send_message(int socketfd, const void *message) {
   return 0;
 }
 
+/*!
+ * @brief Callback function for receiving humidity data via MQTT.
+ * 
+ * @param msg The received MQTT message.
+ */
 void mosquitto_humidity_received(const struct mosquitto_message *msg) {
   uint8_t humidity[4];
   memcpy(humidity, msg->payload, sizeof(humidity));
@@ -30,6 +47,11 @@ void mosquitto_humidity_received(const struct mosquitto_message *msg) {
   }
 }
 
+/*!
+ * @brief Callback function for receiving decibel data via MQTT.
+ * 
+ * @param msg The received MQTT message.
+ */
 void mosquitto_decibel_received(const struct mosquitto_message *msg) {
   uint8_t decibel[2];
   memcpy(decibel, msg->payload, sizeof(decibel));
@@ -40,6 +62,11 @@ void mosquitto_decibel_received(const struct mosquitto_message *msg) {
   }
 }
 
+/*!
+ * @brief Callback function for receiving camera photo data via MQTT.
+ * 
+ * @param msg The received MQTT message.
+ */
 void mosquitto_camera_photo_received(const struct mosquitto_message *msg) {
   for (int i = 0; i < 153600; i += 8) {
     char buffer[8];
@@ -48,13 +75,20 @@ void mosquitto_camera_photo_received(const struct mosquitto_message *msg) {
   }
 }
 
-
+/*!
+ * @brief Structure to map MQTT topics to their respective handlers.
+ */
 static const MessageHandler_t messageHandler[] = {
   {HUMIDITY_TOPIC_RX, mosquitto_humidity_received},
   {DECIBEL_TOPIC_RX, mosquitto_decibel_received},
   {CAMERA_PHOTO_TOPIC_RX, mosquitto_camera_photo_received},
 };
 
+/*!
+ * @brief Publishes a command byte to the appropriate MQTT topic.
+ * 
+ * @param command The command byte to be published.
+ */
 void mosquitto_commmand_byte_received(uint8_t command) {
   uint8_t device = (command >> 5);
   uint8_t param = command & 0x1F;
@@ -65,6 +99,13 @@ void mosquitto_commmand_byte_received(uint8_t command) {
   mosquitto_publish(mosq, NULL, redirect[device].topic, 1, &param, 1, false);
 }
 
+/*!
+ * @brief Function for receiving MQTT messages.
+ * 
+ * @param mosq The Mosquitto instance.
+ * @param userdata User data provided in mosquitto_new.
+ * @param message The received MQTT message.
+ */
 void mosquitto_on_message_received(struct mosquitto *mosq, void *userdata, const struct mosquitto_message *message) {
   const char *topic = (const char *) message->topic;
   size_t num_topics = sizeof(messageHandler) / sizeof(messageHandler[0]);
@@ -76,6 +117,13 @@ void mosquitto_on_message_received(struct mosquitto *mosq, void *userdata, const
   }
 }
 
+/*!
+ * @brief  Function for initial connection to the MQTT broker.
+ * 
+ * @param mosq The Mosquitto instance.
+ * @param userdata User data provided in mosquitto_new.
+ * @param rc The connection result code.
+ */
 void mosquitto_initial_connection(struct mosquitto *mosq, void *userdata, int rc) {
   if (rc == 0) {
     const char *topics[] = {
@@ -92,6 +140,11 @@ void mosquitto_initial_connection(struct mosquitto *mosq, void *userdata, int rc
   }
 }
 
+/*!
+ * @brief Initializes the Mosquitto library and connects to the MQTT broker.
+ * 
+ * @return int Returns 0 on success, 1 on failure.
+ */
 int mosquitto_initial_config() {
   mosquitto_lib_init();
   mosq = mosquitto_new(NULL, true, NULL);
@@ -114,12 +167,21 @@ int mosquitto_initial_config() {
   return 0;
 }
 
+/*!
+ * @brief Cleans up the Mosquitto library and disconnects from the MQTT broker.
+ */
 void mosquitto_clean() {
   mosquitto_disconnect(mosq);
   mosquitto_destroy(mosq);
   mosquitto_lib_cleanup();
 }
 
+/*!
+ * @brief Thread function to handle server-side socket communication.
+ * 
+ * @param arg Arguments for the thread (unused).
+ * @return void* Returns NULL.
+ */
 void *server_thread(void *arg) {
     struct sockaddr_in server_addr, client_addr;
     socklen_t client_addr_len = sizeof(client_addr);
@@ -181,6 +243,11 @@ void *server_thread(void *arg) {
 }
 
 
+/*!
+ * @brief Main function to initialize and run the MQTT and socket server.
+ * 
+ * @return int Returns 0 on success, 1 on failure.
+ */
 int main() {
   /* Initial connection of the socket */
   int attempts = 10;

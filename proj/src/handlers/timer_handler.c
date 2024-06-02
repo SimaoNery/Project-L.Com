@@ -26,6 +26,11 @@ extern uint32_t blink_counter_horns[2];
 extern bool blink_time_horns[2];
 uint32_t counter_horns_b[2] = {0};
 
+/*!
+ * @brief Handles the update interrupt.
+ * 
+ * This function retrieves the current time from the RTC and updates the display.
+ */
 void handle_update_int() {
   rtc_get_time();
   draw_date_time();
@@ -34,6 +39,11 @@ void handle_update_int() {
 extern uint8_t config_RTC;
 int count_rtc = 0;
 
+/*!
+ * @brief Handles timer interrupts for the main menu.
+ * 
+ * This function increments the RTC counter and updates the display every hour.
+ */
 void timer_main_menu_handler() {
   count_rtc++;
   if (count_rtc % 3600 == 0) {
@@ -41,6 +51,11 @@ void timer_main_menu_handler() {
   }
 }
 
+/*!
+ * @brief Handles timer interrupts for the control shell.
+ * 
+ * This function manages the countdown and blinking timers for lights, horns, and the fan.
+ */
 void timer_control_shell_handler() {
 
   for (int i = 0; i < 5; i++) {
@@ -119,7 +134,10 @@ void timer_control_shell_handler() {
 void timer_house_plant_handler() {}
 
 
-void timer_settings_handler() {}
+
+
+void timer_settings_handler () {}
+
+void timer_help_handler () {}
 
 void timer_help_handler() {}
-

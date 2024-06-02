@@ -10,6 +10,13 @@
 #define MESSAGE "hello"
 
 
+/*!
+ * @brief Sends a message to the server through the specified socket.
+ * 
+ * @param socketfd The file descriptor of the socket.
+ * @param message The message to be sent.
+ * @return int Returns 0 on success, 1 on failure.
+ */
 int sendSerialMessage(int socketfd, const void* message) {
   if (send(socketfd, message, strlen(message), 0) != strlen(message)) {
     perror("Send failed");
@@ -19,11 +26,17 @@ int sendSerialMessage(int socketfd, const void* message) {
   return 0;
 }
 
+
 int waitSerialMessage() {
   while(1)
     ;
 }
 
+/*!
+ * @brief The main function that sets up the client, connects to the server, and closes the connection.
+ * 
+ * @return int Returns 0 on success, exits with failure status on error.
+ */
 int main() {
   int sockfd;
   struct sockaddr_in server_addr;

@@ -1,5 +1,16 @@
 #include "sprite.h"
 
+/*!
+ * @brief Creates a sprite from the given XPM map.
+ * 
+ * This function allocates memory for a new Sprite object, loads the XPM image,
+ * and initializes the sprite's properties.
+ * 
+ * @param pic The XPM map to load the sprite from.
+ * @param x The initial x-coordinate of the sprite.
+ * @param y The initial y-coordinate of the sprite.
+ * @return Sprite* Pointer to the created Sprite object, or NULL if an error occurred.
+ */
 Sprite* (create_sprite)(xpm_map_t pic, int x, int y) {
     Sprite *sp = (Sprite *) malloc (sizeof(Sprite));    
     if(sp == NULL) return NULL;
@@ -19,7 +30,14 @@ Sprite* (create_sprite)(xpm_map_t pic, int x, int y) {
     
     return sp;
 }
-
+/*!
+ * @brief Destroys a sprite and frees its memory.
+ * 
+ * This function frees the memory allocated for the sprite's pixel map and the sprite itself.
+ * 
+ * @param sp Pointer to the Sprite object to be destroyed.
+ * @return int Returns 0 on success, 1 if the sprite was NULL.
+ */
 int (destroy_sprite)(Sprite *sp) {
     if(sp == NULL) return 1;
 
@@ -30,6 +48,13 @@ int (destroy_sprite)(Sprite *sp) {
     return 0;
 }
 
+/*!
+ * @brief Destroys all loaded sprites.
+ * 
+ * This function destroys all the sprites that have been loaded and prints an error message if any sprite could not be destroyed.
+ * 
+ * @return int Returns 0 on success, 1 if any sprite could not be destroyed.
+ */
 int (destroy_all_sprites)() {
     if(destroy_sprite(normalCursor) != 0) {
         printf("Error: problems occured while truing to destroy -normalCursor- sprite! \n");
@@ -249,6 +274,14 @@ int (destroy_all_sprites)() {
     return 0;
 }
 
+/*!
+ * @brief Draws a sprite on the screen.
+ * 
+ * This function draws the sprite's pixels on the screen, skipping transparent pixels.
+ * 
+ * @param sp Pointer to the Sprite object to be drawn.
+ * @return int Returns 0 on success, 1 if the sprite was NULL.
+ */
 int (draw_sprite)(Sprite *sp) {
     if(sp == NULL) return 1;
 
@@ -265,6 +298,13 @@ int (draw_sprite)(Sprite *sp) {
     return 0;
 }
 
+/*!
+ * @brief Loads sprites for the 1152x864 resolution.
+ * 
+ * This function creates and initializes all the sprites needed for the 1152x864 resolution.
+ * 
+ * @return int Returns 0 on success, 1 if any sprite could not be loaded.
+ */
 int (load_sprites_1152x864)() {
     normalCursor = create_sprite((xpm_map_t)mouse_pointer_1152_864_xpm, 100, 100);
     if(normalCursor == NULL) {
@@ -521,6 +561,13 @@ int (load_sprites_1152x864)() {
     return 0;
 }
 
+/*!
+ * @brief Loads sprites for the 800x600 resolution.
+ * 
+ * This function creates and initializes all the sprites needed for the 800x600 resolution.
+ * 
+ * @return int Returns 0 on success, 1 if any sprite could not be loaded.
+ */
 int (load_sprites_800x600)() {
     normalCursor = create_sprite((xpm_map_t)mouse_pointer_800_600_xpm, 0, 0);
     if(normalCursor == NULL) {
@@ -778,6 +825,15 @@ int (load_sprites_800x600)() {
     return 0;
 }
 
+/*!     
+ * @brief Loads sprites based on the specified resolution.
+ * 
+ * This function determines which resolution-specific sprite loading function to call based on the provided resolution.
+ * It supports loading sprites for 800x600 and 1152x864 resolutions.
+ * 
+ * @param res The resolution identifier. It should be either `RES_800_600` or another value for 1152x864 resolution.
+ * @return int Returns 0 on success, 1 if any sprite loading fails.
+ */
 int (load_sprites)(int res) {
     if(res == RES_800_600) {
         if(load_sprites_800x600() != 0) {

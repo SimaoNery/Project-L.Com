@@ -7,6 +7,15 @@ char line_buffer[MAX_LINE_LENGTH];
 int cursor_pos = 0;  // Track cursor position within the buffer
 int line_length = 0; // Track the length of the current line
 
+
+/*!
+ * @brief Processes the input scancode and updates the command line buffer.
+ * 
+ * This function translates the scancode to a character and updates the command line buffer.
+ * If the Enter key is pressed, it handles the command in the buffer.
+ * 
+ * @param scancode The scancode of the key pressed.
+ */
 void input_to_command_line(uint8_t scancode) {
   if (line_length < MAX_LINE_LENGTH)
     translate_scancode(scancode);
@@ -41,7 +50,7 @@ char shift_scancode_to_char[128] = {
     [0x25] = 'K', [0x26] = 'L', [0x29] = '|', [0x2B] = '^', [0x2C] = 'Z',
     [0x2D] = 'X', [0x2E] = 'C', [0x2F] = 'V', [0x30] = 'B', [0x31] = 'N',
     [0x32] = 'M', [0x33] = ';', [0x34] = ':', [0x35] = '_', [0x56] = '>'};
-// acento filhao
+
 char altgr_scancode_to_char[128] = {
     [0x02] = '|', [0x03] = '@', [0x07] = '&', [0x08] = '{', [0x09] = '[',
     [0x0A] = ']', [0x0B] = '}', [0x0C] = '?', [0x1A] = '[', [0x2B] = '}'};
@@ -52,6 +61,11 @@ bool right_shift_pressed = false;
 bool altgr_pressed = false;
 bool caps_lock = false;
 
+/*!
+ * @brief Deletes the character at the current cursor position in the command line buffer.
+ * 
+ * This function removes the character at the current cursor position and updates the buffer and cursor position accordingly.
+ */
 void delete_character() {
   if (cursor_pos > 0) {
     memmove(&line_buffer[cursor_pos - 1], &line_buffer[cursor_pos],
@@ -70,6 +84,14 @@ void delete_character() {
   }
 }
 
+/*!
+ * @brief Translates a scancode to a character and updates the command line buffer.
+ * 
+ * This function handles special keys (e.g., Shift, Caps Lock, Backspace) and translates scancodes to characters.
+ * It updates the command line buffer and cursor position accordingly.
+ * 
+ * @param scancode The scancode of the key pressed.
+ */
 void translate_scancode(uint8_t scancode) {
   char ch;
   switch (scancode) {
@@ -163,8 +185,16 @@ void translate_scancode(uint8_t scancode) {
 #define MAX_TOKENS 50
 char *tokens[MAX_TOKENS];
 
-void tokenize_line(char *line_buffer) {
 
+/*!
+ * @brief Tokenizes the command line buffer into individual tokens.
+ * 
+ * This function splits the command line buffer into tokens separated by spaces.
+ * 
+ * @param line_buffer The command line buffer to tokenize.
+ */
+void tokenize_line(char* line_buffer) {
+    
   memset(tokens, 0, sizeof(tokens));
 
   char *token = strtok(line_buffer, " ");
@@ -176,6 +206,14 @@ void tokenize_line(char *line_buffer) {
 
   tokens[index] = NULL;
 }
+
+/*!
+ * @brief Handles the command entered in the command line buffer.
+ * 
+ * This function processes the command entered in the command line buffer and executes the corresponding action.
+ * 
+ * @param line_buffer The command line buffer containing the command to handle.
+ */
 
 void handle_command(char *line_buffer) {
 

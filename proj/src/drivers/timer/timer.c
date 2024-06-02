@@ -7,6 +7,13 @@
 int counter = 0;
 int timer_hook_id = 0;
 
+/*!
+ * @brief Sets the frequency of a specified timer.
+ * 
+ * @param timer The timer to configure (0, 1, or 2).
+ * @param freq The desired frequency.
+ * @return int Returns 0 upon success and 1 upon failure.
+ */
 int (timer_set_frequency)(uint8_t timer, uint32_t freq) {
   if (timer > 2) return 1;
   if (freq < 19 || freq > TIMER_FREQ) return 1;
@@ -36,6 +43,12 @@ int (timer_set_frequency)(uint8_t timer, uint32_t freq) {
   return 0;
 }
 
+/*!
+ * @brief Subscribes to timer interrupts.
+ * 
+ * @param bit_no Pointer to a variable where the bit number will be stored.
+ * @return int Returns 0 upon success and 1 upon failure.
+ */
 int (timer_subscribe_int)(uint8_t *bit_no) {
 
   if (bit_no == NULL) return 1;
@@ -45,14 +58,31 @@ int (timer_subscribe_int)(uint8_t *bit_no) {
   return sys_irqsetpolicy(TIMER0_IRQ, IRQ_REENABLE, &timer_hook_id);
 }
 
+/*!
+ * @brief Unsubscribes from timer interrupts.
+ * 
+ * @return int Returns 0 upon success and 1 upon failure.
+ */
 int (timer_unsubscribe_int)() {
   return sys_irqrmpolicy(&timer_hook_id);
 }
 
+/*!
+ * @brief Timer interrupt handler.
+ * 
+ * Increments the global counter variable.
+ */
 void (timer_int_handler)() {
   counter++;
 }
 
+/*!
+ * @brief Retrieves the configuration of a specified timer.
+ * 
+ * @param timer The timer to retrieve the configuration from (0, 1, or 2).
+ * @param st Pointer to a variable where the configuration will be stored.
+ * @return int Returns 0 upon success and 1 upon failure.
+ */
 int (timer_get_conf)(uint8_t timer, uint8_t *st) {
   if (timer > 2 || st == NULL) return 1;
 
@@ -65,6 +95,14 @@ int (timer_get_conf)(uint8_t timer, uint8_t *st) {
   return util_sys_inb(TIMER_0 + timer, st);
 }
 
+/*!
+ * @brief Displays the configuration of a specified timer.
+ * 
+ * @param timer The timer to display the configuration for (0, 1, or 2).
+ * @param st The status byte of the timer.
+ * @param field The field of the status byte to display.
+ * @return int Returns 0 upon success and 1 upon failure.
+ */
 int (timer_display_conf)(uint8_t timer, uint8_t st,enum timer_status_field field) {
   if (timer > 2) return 1;
 

@@ -11,6 +11,12 @@ extern bool lock;
 
 void serial_port_main_menu_handler() {}
 
+/*!
+ * @brief Handles serial port input for the control shell.
+ * 
+ * This function processes serial port interrupts and retrieves humidity and temperature data if requested.
+ * It prints the humidity and temperature data once all data points are received.
+ */
 void serial_port_control_shell_handler() {
   serial_port_int_handler();
   if (asking_for_humidity_and_temp) {
@@ -23,6 +29,15 @@ void serial_port_control_shell_handler() {
     }
     serial_port_clear_int();
   }
+}
+
+/*!
+ * @brief Handles serial port input for the settings menu.
+ * 
+ * This function processes serial port interrupts and retrieves sound intensity data if requested.
+ * It prints the sound intensity data once all data points are received.
+ */
+void serial_port_settings_handler () {
 
   if (asking_for_sound) {
     pop(get_queue(), &sound_intensity[counter_serial_port++]);

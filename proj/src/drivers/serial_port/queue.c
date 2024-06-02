@@ -1,5 +1,8 @@
 #include "queue.h"
 
+/*!
+ * @brief Structure representing a queue.
+ */
 struct queue
 {
     int *buf;
@@ -7,11 +10,22 @@ struct queue
     unsigned int size, count;
 };
 
+/*!
+ * @brief Adjusts the queue indices to wrap around when they reach the end of the buffer.
+ * 
+ * @param q Pointer to the queue structure.
+ */
 static void adjust_queue(queue_t* q) {
     q->in %= q->size;
     q->out %= q->size;
 }
 
+/*!
+ * @brief Resizes the queue buffer to double its current size.
+ * 
+ * @param q Pointer to the queue structure.
+ * @return int Returns 0 upon success and -1 upon failure.
+ */
 static int resize_queue(queue_t *q) {
     int *p = (int *)realloc(q->buf, 2 * (q->size) * sizeof(int));
 
@@ -29,6 +43,11 @@ static int resize_queue(queue_t *q) {
     return 0;
 }
 
+/*!
+ * @brief Creates a new queue.
+ * 
+ * @return queue_t* Pointer to the newly created queue, or NULL if memory allocation fails.
+ */
 queue_t *new_queue() {
 
     queue_t *q = (queue_t *)malloc(sizeof(queue_t));
@@ -47,11 +66,23 @@ queue_t *new_queue() {
     return q;
 }
 
+/*!
+ * @brief Deletes a queue and frees its memory.
+ * 
+ * @param q Pointer to the queue structure.
+ */
 void delete_queue(queue_t *q) {
     free(q->buf);
     free(q);
 }
 
+/*!
+ * @brief Adds an element to the queue.
+ * 
+ * @param q Pointer to the queue structure.
+ * @param n The element to be added.
+ * @return int Returns 0 upon success and 1 upon failure.
+ */
 int push(queue_t *q, int n) {
     if (q->count == q->size) {
         if (resize_queue(q))
@@ -64,6 +95,13 @@ int push(queue_t *q, int n) {
     return 0;
 }
 
+/*!
+ * @brief Removes an element from the queue.
+ * 
+ * @param q Pointer to the queue structure.
+ * @param n Pointer to the variable where the removed element will be stored.
+ * @return int Returns 0 upon success and -1 if the queue is empty.
+ */
 int pop(queue_t *q, int* n) {
     if (q->count > 0) {
         *n = q->buf[q->out];
@@ -74,6 +112,11 @@ int pop(queue_t *q, int* n) {
     return -1;
 }
 
+/*!
+ * @brief Clears all elements from the queue.
+ * 
+ * @param q Pointer to the queue structure.
+ */
 void clear_queue(queue_t *q) {
     int p;
     while (q->count > 0)
@@ -82,6 +125,12 @@ void clear_queue(queue_t *q) {
     }
 }
 
+/*!
+ * @brief Checks if the queue is empty.
+ * 
+ * @param q Pointer to the queue structure.
+ * @return bool Returns true if the queue is empty, otherwise false.
+ */
 bool is_empty(queue_t *q) {
     return (q->count == 0);
 }

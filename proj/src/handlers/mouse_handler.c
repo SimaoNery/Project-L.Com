@@ -32,7 +32,12 @@ extern Sprite *read_sound_intensity;
 extern Sprite *read_temperature;
 extern Sprite *sound_int;
 
-
+/*!
+ * @brief Handles mouse input for the main menu.
+ * 
+ * This function processes mouse packets and updates the cursor position and button states.
+ * It also checks for button clicks and updates the page state accordingly.
+ */
 void mouse_main_menu_handler () {
   mouse_ih();
   if (packet_number == 3) {
@@ -87,6 +92,11 @@ void mouse_main_menu_handler () {
   
 }
 
+/*!
+ * @brief Handles mouse input for the control shell.
+ * 
+ * This function processes mouse packets and updates the mouse packet structure.
+ */
 void mouse_control_shell_handler () {
   mouse_ih();
   if(packet_number == 3) {
@@ -94,8 +104,16 @@ void mouse_control_shell_handler () {
   }
 }
 
+<<<<<<< HEAD
+/*!
+ * @brief Handles mouse input for the house plant section.
+ * 
+ * This function processes mouse packets, updates the cursor position, and checks for button hovers and clicks.
+ */
+=======
 
 
+>>>>>>> refs/remotes/origin/Project
 void mouse_house_plant_handler() {
   mouse_ih();
   if(packet_number == 3) {
@@ -217,13 +235,21 @@ void mouse_house_plant_handler() {
   }
 }
 
-
-
+/*!
+ * @brief Handles mouse input for the security camera section.
+ * 
+ * This function processes mouse packets and updates the mouse packet structure.
+ */
 void mouse_security_camera_handler () {
   mouse_ih();
   parse_bytes_to_packet();
 }
 
+/*!
+ * @brief Handles mouse input for the settings menu.
+ * 
+ * This function processes mouse packets, updates the cursor position, and checks for button hovers and clicks.
+ */
 void mouse_settings_handler () {
   mouse_ih();
   if (packet_number == 3) {

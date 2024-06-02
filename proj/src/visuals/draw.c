@@ -179,6 +179,27 @@ int draw_house_plant() {
 }
 
 int draw_help() {
+  printf("GOT HERE! \n");
+  if(draw_sprite(helpPage) != 0) return 1;
+
+
+  printf("GOT HERE! \n");
+  if(draw_sprite(backArrow) != 0) {
+    printf("Error: Problems occurred while trying to draw -backArrow- sprite! \n");
+    return 1;
+  }
+
+  printf("GOT HERE! \n");
+  if(draw_sprite(normalCursor) != 0) {
+    printf("Error: Problems occured while trying to draw the mouse pointer! \n");
+    return 1;
+  }
+
+  if(buffering_method() != 0) {
+    printf("Error detecting buffering method! \n");
+    return 1;
+  }
+
   return 0;
 }
 

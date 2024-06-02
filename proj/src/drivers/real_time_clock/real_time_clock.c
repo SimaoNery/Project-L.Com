@@ -125,8 +125,6 @@ int rtc_set_alarm(uint8_t hours, uint8_t minutes, uint8_t seconds) {
  * Reads the RTC configuration and calls the appropriate interrupt handler.
  */
 void rtc_ih() {
-    uint8_t config;
-
     rtc_get_config(RTC_REG_C, &config_RTC);
 }
 

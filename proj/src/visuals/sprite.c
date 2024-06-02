@@ -270,6 +270,11 @@ int (destroy_all_sprites)() {
         return 1;
     }
 
+    if (destroy_sprite(helpPage) != 0) {
+        printf("Error: problems occurred while trying to destroy -helpPage- sprite!\n");
+        return 1;
+    }
+
 
     return 0;
 }
@@ -558,6 +563,12 @@ int (load_sprites_1152x864)() {
         return 1;
     }
 
+    helpPage = create_sprite((xpm_map_t)help_1152_864_xpm, 0, 0);
+    if (helpPage == NULL) {
+        printf("Error: Problems occurred while trying to load -helpPage- sprite!\n");
+        return 1;
+    }
+
     return 0;
 }
 
@@ -819,6 +830,12 @@ int (load_sprites_800x600)() {
     nine = create_sprite((xpm_map_t)nine_800_600_xpm, 0, 0);
     if (nine == NULL) {
         printf("Error: Problems occurred while trying to load -nine- sprite!\n");
+        return 1;
+    }
+
+    helpPage = create_sprite((xpm_map_t)help_page_800_600_xpm, 0, 0);
+    if (helpPage == NULL) {
+        printf("Error: Problems occurred while trying to load -helpPage- sprite!\n");
         return 1;
     }
      

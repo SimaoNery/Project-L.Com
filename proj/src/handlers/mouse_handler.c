@@ -104,16 +104,12 @@ void mouse_control_shell_handler () {
   }
 }
 
-<<<<<<< HEAD
 /*!
  * @brief Handles mouse input for the house plant section.
  * 
  * This function processes mouse packets, updates the cursor position, and checks for button hovers and clicks.
  */
-=======
 
-
->>>>>>> refs/remotes/origin/Project
 void mouse_house_plant_handler() {
   mouse_ih();
   if(packet_number == 3) {
@@ -286,7 +282,23 @@ void mouse_settings_handler () {
 
 }
 
-void mouse_help_handler () {}
+void mouse_help_handler () {
+  mouse_ih();
+  if (packet_number == 3) {
+    parse_bytes_to_packet();
+
+    normalCursor->x = mouse_packet.x;
+    normalCursor->y = mouse_packet.y;
+
+  
+    if (mouse_packet.x >= backArrow->x && mouse_packet.x <= backArrow->x + bigResolutionButton->width && mouse_packet.y >= backArrow->y && mouse_packet.y <= backArrow->y + backArrow->height)  {
+      if (mouse_packet.left_button) page_state = MAIN_MENU;
+    }
+
+    packet_number = 0;
+    draw_page();
+  }
+}
 
 
 

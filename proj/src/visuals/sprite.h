@@ -44,6 +44,7 @@
 #include "xpm_files/RES_800_600/time/seven_800_600.xpm"
 #include "xpm_files/RES_800_600/time/eight_800_600.xpm"
 #include "xpm_files/RES_800_600/time/nine_800_600.xpm"
+#include "xpm_files/RES_800_600/help_page_800_600.xpm"
 
 
 #include "xpm_files/RES_1152_864/main_menu_1152_864.xpm"
@@ -85,6 +86,7 @@
 #include "xpm_files/RES_1152_864/time/seven_1152_864.xpm"
 #include "xpm_files/RES_1152_864/time/eight_1152_864.xpm"
 #include "xpm_files/RES_1152_864/time/nine_1152_864.xpm"
+#include "xpm_files/RES_1152_864/help_page_1152_864.xpm"
 
 
 #define TRANSPARENT_COLOR 4
@@ -108,6 +110,7 @@ Sprite *normalCursor;
 Sprite *mainMenu;
 Sprite *resolutionPage;
 Sprite *housePlant;
+Sprite *helpPage;
 
 
 //Buttons

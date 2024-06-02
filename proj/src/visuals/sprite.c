@@ -283,7 +283,7 @@ int (load_sprites_1152x864)() {
         return 1;
     }
 
-    adjustFanPower = create_sprite((xpm_map_t)adjust_fan_power_button_1152_864_xpm, 798, 266);
+    adjustFanPower = create_sprite((xpm_map_t)adjust_fan_power_button_1152_864_xpm, 798, 265);
     if(adjustFanPower == NULL) {
         printf("Error: Problems occured while trying to load -adjustFanPower- sprite! \n");
         return 1;

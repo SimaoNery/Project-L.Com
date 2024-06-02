@@ -2,12 +2,13 @@
 #define wifi_ssid "MEO-285EF0"
 #define wifi_password "5e214fe1e9"
 
-// Camara Pins
+// Pin definition for CAMERA_MODEL_AI_THINKER
 #define PWDN_GPIO_NUM     32
 #define RESET_GPIO_NUM    -1
 #define XCLK_GPIO_NUM      0
 #define SIOD_GPIO_NUM     26
 #define SIOC_GPIO_NUM     27
+
 #define Y9_GPIO_NUM       35
 #define Y8_GPIO_NUM       34
 #define Y7_GPIO_NUM       39
@@ -26,9 +27,10 @@
 #define PIN_LIGHT_3 14
 #define PIN_LIGHT_4 15
 #define PIN_LIGHT_5 16
-#define PIN_BUZZER_1 0
-#define PIN_BUZZER_2 4
-#define PIN_HUMIDITY_AND_TEMPERATURE 4
+#define PIN_BUZZER_1 2
+#define PIN_BUZZER_2 9000
+#define PIN_HUMIDITY_AND_TEMPERATURE  1
+#define PIN_MOTOR 4
 
 // topics
 #define LIGHT_TOPIC "light_topic"
@@ -44,4 +46,3 @@
 #define DECIBEL_TOPIC_RX "decibel_topic_rx"
 
 #define DHTTYPE DHT11 
-

@@ -87,6 +87,9 @@ int draw_resolution() {
 
 int draw_house_plant() {
 
+  send_serial_port_msg(BIT(7));
+  send_serial_port_msg(0xA0)); //1010 0000
+
   if(draw_sprite(housePlant) != 0) {
      printf("Error: Problems occured while trying to draw -housePlantPage- sprite! \n");
     return 1;

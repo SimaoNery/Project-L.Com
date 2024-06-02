@@ -6,10 +6,8 @@ static const redirect_t redirect[] = {
   {LIGHT_MASK, LIGHT_TOPIC},
   {BUZZER_MASK, BUZZER_TOPIC},
   {LCD_DISPLAY_TEXT_MASK, LCD_DISPLAY_TEXT_TOPIC},
-  {LCD_DISPLAY_ANIMATION_MASK, LCD_DISPLAY_ANIMATION_TOPIC},
   {MOTOR_MASK, MOTOR_TOPIC},
   {HUMIDITY_SENSOR_MASK, HUMIDITY_SENSOR_TOPIC},
-  {DECIBEL_SENSOR_MASK, DECIBEL_SENSOR_TOPIC},
   {CAMERA_MASK, CAMERA_TOPIC}};
 
 int serial_port_send_message(int socketfd, const void *message) {
@@ -25,6 +23,7 @@ void mosquitto_humidity_received(const struct mosquitto_message *msg) {
   uint8_t humidity[4];
   memcpy(humidity, msg->payload, sizeof(humidity));
 
+  printf("%s",(const char*) msg->payload);
   for (int i = 0; i < 4; i++) {
     int attempts = 5;
     while ((attempts--) && serial_port_send_message(sockfd, &humidity[i]));
@@ -69,7 +68,7 @@ void mosquitto_commmand_byte_received(uint8_t command) {
 void mosquitto_on_message_received(struct mosquitto *mosq, void *userdata, const struct mosquitto_message *message) {
   const char *topic = (const char *) message->topic;
   size_t num_topics = sizeof(messageHandler) / sizeof(messageHandler[0]);
-
+  
   for (size_t i = 0; i < num_topics; i++) {
     if (strcmp(topic, messageHandler[i].topic) == 0) {
       messageHandler[i].handler(message);
@@ -105,7 +104,7 @@ int mosquitto_initial_config() {
   mosquitto_connect_callback_set(mosq, mosquitto_initial_connection);
   mosquitto_message_callback_set(mosq, mosquitto_on_message_received);
 
-  int rc = mosquitto_connect(mosq, "192.168.1.65", 8443, 60);
+  int rc = mosquitto_connect(mosq, MQTT_HOST, MQTT_PORT, 60);
   if (rc != MOSQ_ERR_SUCCESS) {
     fprintf(stderr, "Unable to connect to MQTT broker: %s\n", mosquitto_strerror(rc));
     return 1;

@@ -1,0 +1,185 @@
+\doxysection{help.\+c}
+\hypertarget{help_8c_source}{}\label{help_8c_source}\index{/Users/wagner/Desktop/faculdade/2 ano/LCOM/MINIX-\/LCOM/shared/g4/proj/src/handlers/command\_line/help.c@{/Users/wagner/Desktop/faculdade/2 ano/LCOM/MINIX-\/LCOM/shared/g4/proj/src/handlers/command\_line/help.c}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}help.h"{}}}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00019}\mbox{\hyperlink{group__Help_gad1a89d01ea36e3c49e7dc5085d67e6c5}{00019}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group__Help_gad1a89d01ea36e3c49e7dc5085d67e6c5}{help}}(\textcolor{keywordtype}{char}\ *args[])\ \{}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00020}00020\ \ \ \textcolor{keywordflow}{if}\ (args[0]\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00021}00021\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)nAvailable\ commands:\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00022}00022\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ exit\ -\/\ Exits\ the\ console\ and\ returns\ to\ the\ main\ menu.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00023}00023\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ fan\_off\ -\/\ Turns\ off\ the\ fan.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00024}00024\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ fan\_on\ -\/\ Turns\ on\ the\ fan\ with\ an\ optional\ power\ setting.\ "{}}}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Optionally,\ set\ a\ timer\ to\ turn\ off\ the\ fan.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00026}00026\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ get\_humidity\_and\_temperature\ -\/\ Retrieves\ and\ displays\ the\ "{}}}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}current\ humidity\ and\ temperature\ of\ the\ house.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00028}00028\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ get\_sound\_intensity\ -\/\ Retrieves\ and\ displays\ the\ current\ sound\ "{}}}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}intensity\ level\ in\ the\ house.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00030}00030\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ help\ -\/\ Provides\ a\ general\ description\ of\ each\ available\ command\ "{}}}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}or\ detailed\ information\ about\ a\ specific\ command.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00032}00032\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ horns\_off\ -\/\ Turns\ off\ specified\ horns\ or\ both\ horns\ if\ no\ "{}}}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}arguments\ are\ provided.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00034}00034\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ horns\_on\ -\/\ Turns\ on\ specified\ horns\ or\ both\ horns\ if\ no\ "{}}}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}arguments\ are\ provided.\ Optionally,\ set\ a\ timer\ to\ turn\ off\ the\ "{}}}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}horns\ or\ set\ a\ honking\ period.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00037}00037\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ lights\_off\ -\/\ Turns\ off\ specified\ lights\ or\ all\ lights\ if\ no\ "{}}}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}arguments\ are\ provided.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00039}00039\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ lights\_on\ -\/\ Turns\ on\ specified\ lights\ or\ all\ lights\ if\ no\ "{}}}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}arguments\ are\ provided.\ Optionally,\ set\ a\ timer\ to\ turn\ off\ the\ "{}}}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}lights\ or\ set\ a\ blinking\ period.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00042}00042\ \ \ \ \ printf(}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00043}00043\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ write\_message\ -\/\ Displays\ the\ specified\ message\ on\ the\ screen.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00044}00044\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(args[0],\ \textcolor{stringliteral}{"{}help"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00045}00045\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)nhelp\ [\ command\_name\ ]\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00046}00046\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Provides\ a\ general\ description\ of\ each\ available\ command\ or\ "{}}}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}detailed\ information\ about\ a\ specific\ command.\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00048}00048\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Arguments:\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00049}00049\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ command\_name\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00050}00050\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ Specifies\ the\ name\ of\ the\ command\ to\ get\ detailed\ information\ "{}}}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}about.\ If\ no\ command\ name\ is\ provided,\ a\ list\ of\ all\ available\ "{}}}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}commands\ with\ their\ general\ descriptions\ will\ be\ displayed.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00053}00053\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(args[0],\ \textcolor{stringliteral}{"{}lights\_on"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00054}00054\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00055}00055\ \ \ \ \ printf(\textcolor{stringliteral}{"{}lights\_on\ [\ light\_number\ ...\ ]\ [\ -\/t\ \{\ time\_s\ |\ time\_m\ |\ time\_h\ \}\ ]\ "{}}}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}[\ -\/p\ \{\ period\_s\ |\ period\_m\ \}\ ]\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00057}00057\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Turns\ on\ specified\ lights\ or\ all\ lights\ if\ no\ arguments\ are\ "{}}}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}provided.\ Optionally,\ set\ a\ timer\ to\ turn\ off\ the\ lights\ or\ set\ a\ "{}}}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}blinking\ period.\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00060}00060\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Options:\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00061}00061\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ -\/t\ \{\ time\ |\ time\_s\ |\ time\_m\ |\ time\_h\ \}\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00062}00062\ \ \ \ \ printf(}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00063}00063\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ Sets\ a\ timer\ to\ turn\ off\ the\ lights\ after\ the\ specified\ time.\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00064}00064\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ Arguments:\ \(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00065}00065\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ \ \ \ time:\ Time\ in\ seconds\ (default\ if\ no\ unit\ is\ provided,\ e.g.,\ "{}}}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}-\/t\ 12).\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00067}00067\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ \ \ \ time\_s:\ Time\ in\ seconds\ (e.g.,\ -\/t\ 12s).\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00068}00068\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ \ \ \ time\_m:\ Time\ in\ minutes\ (e.g.,\ -\/t\ 5m).\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00069}00069\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ \ \ \ time\_h:\ Time\ in\ hours\ (e.g.,\ -\/t\ 1h).\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00070}00070\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00071}00071\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ -\/p\ \{\ period\ |\ period\_s\ |\ period\_m\ \}\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00072}00072\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ Sets\ the\ period\ of\ blinking.\ If\ this\ flag\ is\ not\ set,\ the\ "{}}}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}lights\ do\ not\ blink.\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00074}00074\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ Arguments:\ \(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00075}00075\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ \ \ \ period:\ Period\ in\ seconds\ (default\ if\ no\ unit\ is\ provided,\ "{}}}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}e.g.,\ -\/p\ 2).\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00077}00077\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ \ \ \ period\_s:\ Blinking\ period\ in\ seconds\ (e.g.,\ -\/p\ 2s).\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00078}00078\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ \ \ \ period\_m:\ Blinking\ period\ in\ minutes\ (e.g.,\ -\/p\ 1m).\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00079}00079\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00080}00080\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Arguments:\ \(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00081}00081\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ light\_number\ ...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00082}00082\ \ \ \ \ printf(}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00083}00083\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ A\ list\ of\ one\ or\ more\ light\ numbers\ (e.g.,\ 1\ 2\ 3)\ specifying\ which\ "{}}}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00084}00084\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}lights\ to\ turn\ on.\ If\ it\ is\ not\ provided,\ all\ lights\ will\ turn\ on.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00085}00085\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00086}00086\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(args[0],\ \textcolor{stringliteral}{"{}lights\_off"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00087}00087\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00088}00088\ \ \ \ \ printf(\textcolor{stringliteral}{"{}lights\_off\ [\ light\_number\ ...\ ]\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00089}00089\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Turns\ off\ specified\ lights\ or\ all\ lights\ if\ no\ arguments\ are\ "{}}}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}provided.\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00091}00091\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Arguments:\ \(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00092}00092\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ light\_number\ ...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00093}00093\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ A\ list\ of\ one\ or\ more\ light\ numbers\ (e.g.,\ 1\ 2\ 3)\ specifying\ "{}}}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}which\ lights\ to\ turn\ off.\ If\ it\ is\ not\ provided,\ all\ lights\ will\ "{}}}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}turn\ off.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00096}00096\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00097}00097\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(args[0],\ \textcolor{stringliteral}{"{}horns\_on"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00098}00098\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00099}00099\ \ \ \ \ printf(\textcolor{stringliteral}{"{}horns\_on\ [\ horn\_number\ ...\ ]\ [\ -\/t\ \{\ time\_s\ |\ time\_m\ |\ time\_h\ \}\ ]\ [\ "{}}}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}-\/p\ \{\ period\_s\ |\ period\_m\ \}\ ]\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00101}00101\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Turns\ on\ specified\ horns\ or\ both\ horns\ if\ no\ arguments\ are\ "{}}}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}provided.\ Optionally,\ set\ a\ timer\ to\ turn\ off\ the\ horns\ or\ set\ a\ "{}}}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}honking\ period.\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00104}00104\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Options:\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00105}00105\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ -\/t\ \{\ time\ |\ time\_s\ |\ time\_m\ |\ time\_h\ \}\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00106}00106\ \ \ \ \ printf(}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00107}00107\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ Sets\ a\ timer\ to\ turn\ off\ the\ horns\ after\ the\ specified\ time.\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00108}00108\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ Arguments:\ \(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00109}00109\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ \ \ \ time:\ Time\ in\ seconds\ (default\ if\ no\ unit\ is\ provided,\ e.g.,\ "{}}}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}-\/t\ 12).\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00111}00111\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ \ \ \ time\_s:\ Time\ in\ seconds\ (e.g.,\ -\/t\ 12s).\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00112}00112\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ \ \ \ time\_m:\ Time\ in\ minutes\ (e.g.,\ -\/t\ 5m).\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00113}00113\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ \ \ \ time\_h:\ Time\ in\ hours\ (e.g.,\ -\/t\ 1h).\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00114}00114\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00115}00115\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ -\/p\ \{\ period\ |\ period\_s\ |\ period\_m\ \}\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00116}00116\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ Sets\ the\ period\ of\ honking.\ If\ this\ flag\ is\ not\ set,\ the\ horns\ "{}}}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}do\ not\ honk\ repeatedly.\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00118}00118\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ Arguments:\ \(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00119}00119\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ \ \ \ period:\ Period\ in\ seconds\ (default\ if\ no\ unit\ is\ provided,\ "{}}}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}e.g.,\ -\/p\ 2).\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00121}00121\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ \ \ \ period\_s:\ Honking\ period\ in\ seconds\ (e.g.,\ -\/p\ 2s).\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00122}00122\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ \ \ \ period\_m:\ Honking\ period\ in\ minutes\ (e.g.,\ -\/p\ 1m).\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00123}00123\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00124}00124\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Arguments:\ \(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00125}00125\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ horn\_number\ ...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00126}00126\ \ \ \ \ printf(}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00127}00127\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ A\ list\ of\ one\ or\ two\ horn\ numbers\ (e.g.,\ 1\ 2)\ specifying\ which\ "{}}}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00128}00128\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}horns\ to\ turn\ on.\ If\ it\ is\ not\ provided,\ both\ horns\ will\ turn\ on.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00129}00129\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00130}00130\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(args[0],\ \textcolor{stringliteral}{"{}horns\_off"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00131}00131\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00132}00132\ \ \ \ \ printf(\textcolor{stringliteral}{"{}horns\_off\ [\ horn\_number\ ...\ ]\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00133}00133\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Turns\ off\ specified\ horns\ or\ both\ horns\ if\ no\ arguments\ are\ "{}}}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}provided.\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00135}00135\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Arguments:\ \(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00136}00136\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ horn\_number\ ...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00137}00137\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ A\ list\ of\ one\ or\ two\ horn\ numbers\ (e.g.,\ 1\ 2)\ specifying\ which\ "{}}}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}horns\ to\ turn\ off.\ If\ it\ is\ not\ provided,\ both\ horns\ will\ turn\ "{}}}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}off.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00140}00140\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00141}00141\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(args[0],\ \textcolor{stringliteral}{"{}fan\_on"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00142}00142\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00143}00143\ \ \ \ \ printf(\textcolor{stringliteral}{"{}fan\_on\ [\ power\ ]\ [\ -\/t\ \{\ time\_s\ |\ time\_m\ |\ time\_h\ \}\ ]\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00144}00144\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Turns\ on\ the\ fan\ with\ an\ optional\ power\ setting.\ Optionally,\ set\ a\ "{}}}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}timer\ to\ turn\ off\ the\ fan.\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00146}00146\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Options:\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00147}00147\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ -\/t\ \{\ time\ |\ time\_s\ |\ time\_m\ |\ time\_h\ \}\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00148}00148\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ Sets\ a\ timer\ to\ turn\ off\ the\ fan\ after\ the\ specified\ time.\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00149}00149\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ Arguments:\ \(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00150}00150\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ \ \ \ time:\ Time\ in\ seconds\ (default\ if\ no\ unit\ is\ provided,\ e.g.,\ "{}}}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}-\/t\ 12).\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00152}00152\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ \ \ \ time\_s:\ Time\ in\ seconds\ (e.g.,\ -\/t\ 12s).\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00153}00153\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ \ \ \ time\_m:\ Time\ in\ minutes\ (e.g.,\ -\/t\ 5m).\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00154}00154\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ \ \ \ time\_h:\ Time\ in\ hours\ (e.g.,\ -\/t\ 1h).\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00155}00155\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00156}00156\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Arguments:\ \(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00157}00157\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ power\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00158}00158\ \ \ \ \ printf(}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00159}00159\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ Specifies\ the\ power\ level\ of\ the\ fan.\ A\ number\ from\ 1\ to\ 31\ (e.g.,\ "{}}}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00160}00160\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}15).\ If\ it\ is\ not\ provided,\ the\ fan\ is\ turned\ on\ at\ maximum\ power.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00161}00161\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00162}00162\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(args[0],\ \textcolor{stringliteral}{"{}fan\_off"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00163}00163\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00164}00164\ \ \ \ \ printf(\textcolor{stringliteral}{"{}fan\_off\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00165}00165\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Turns\ off\ the\ fan.\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00166}00166\ \ \ \ \ printf(\textcolor{stringliteral}{"{}This\ command\ does\ not\ require\ any\ arguments.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00167}00167\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00168}00168\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(args[0],\ \textcolor{stringliteral}{"{}write\_message"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00169}00169\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00170}00170\ \ \ \ \ printf(\textcolor{stringliteral}{"{}write\_message\ <message>\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00171}00171\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Displays\ the\ specified\ message\ on\ the\ screen.\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00172}00172\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Arguments:\ \(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00173}00173\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ message\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00174}00174\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ Specifies\ the\ message\ to\ display\ (e.g.,\ Hello,\ World!)\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00175}00175\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00176}00176\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(args[0],\ \textcolor{stringliteral}{"{}get\_humidity\_and\_temperature"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00177}00177\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00178}00178\ \ \ \ \ printf(\textcolor{stringliteral}{"{}get\_humidity\_and\_temperature\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00179}00179\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Retrieves\ and\ displays\ the\ current\ humidity\ and\ temperature\ of\ the\ "{}}}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00180}00180\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}house.\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00181}00181\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00182}00182\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(args[0],\ \textcolor{stringliteral}{"{}get\_sound\_intensity"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00183}00183\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00184}00184\ \ \ \ \ printf(\textcolor{stringliteral}{"{}get\_sound\_intensity\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00185}00185\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Retrieves\ and\ displays\ the\ current\ sound\ intensity\ level\ in\ the\ "{}}}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00186}00186\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}house.\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00187}00187\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00188}00188\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(args[0],\ \textcolor{stringliteral}{"{}exit"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00189}00189\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00190}00190\ \ \ \ \ printf(\textcolor{stringliteral}{"{}exit\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00191}00191\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Exits\ the\ console\ and\ returns\ to\ the\ main\ menu.\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00192}00192\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00193}00193\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00194}00194\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Unknown\ command:\ \%s\(\backslash\)n"{}},\ args[0]);}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00195}00195\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{help_8c_source_l00196}00196\ \}}
+
+\end{DoxyCode}

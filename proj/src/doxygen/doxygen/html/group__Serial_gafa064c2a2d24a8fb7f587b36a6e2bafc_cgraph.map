@@ -1,0 +1,5 @@
+<map id="get_serial_port_status" name="get_serial_port_status">
+<area shape="rect" id="Node000001" title="Retrieves the status from the serial port." alt="" coords="5,5,155,31"/>
+<area shape="rect" id="Node000002" href="$group__Utils.html#ga2b56f50ba159e9d5115ed1a75eff15d9" title="Reads a byte from the specified port and store it in uint8_t variable." alt="" coords="203,5,293,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="155,16,187,16,187,21,155,21"/>
+</map>

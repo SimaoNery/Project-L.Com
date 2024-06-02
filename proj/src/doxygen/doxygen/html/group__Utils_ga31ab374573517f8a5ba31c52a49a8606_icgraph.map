@@ -1,0 +1,5 @@
+<map id="util_get_LSB" name="util_get_LSB">
+<area shape="rect" id="Node000001" title="Retrieves the least significant byte (LSB) of a 16&#45;bit value." alt="" coords="193,5,288,31"/>
+<area shape="rect" id="Node000002" href="$group__Timer.html#gaca1506be74dfc71c6f90772ca269c619" title="Sets the frequency of a specified timer." alt="" coords="5,5,145,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="177,21,145,21,145,16,177,16"/>
+</map>

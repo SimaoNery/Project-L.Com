@@ -1,0 +1,47 @@
+\doxysection{i8042.\+h}
+\hypertarget{i8042_8h_source}{}\label{i8042_8h_source}\index{/Users/wagner/Desktop/faculdade/2 ano/LCOM/MINIX-\/LCOM/shared/g4/proj/src/drivers/mouse\_keyboard/i8042.h@{/Users/wagner/Desktop/faculdade/2 ano/LCOM/MINIX-\/LCOM/shared/g4/proj/src/drivers/mouse\_keyboard/i8042.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{i8042_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ \_LCOM\_I8042\_H\_}}
+\DoxyCodeLine{\Hypertarget{i8042_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ \_LCOM\_I8042\_H\_}}
+\DoxyCodeLine{\Hypertarget{i8042_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{i8042_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <lcom/lcf.h>}}
+\DoxyCodeLine{\Hypertarget{i8042_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{i8042_8h_source_l00011}00011\ \textcolor{preprocessor}{\#define\ KBD\_IRQ\ 1\ }}
+\DoxyCodeLine{\Hypertarget{i8042_8h_source_l00012}00012\ \textcolor{preprocessor}{\#define\ MOUSE\_IRQ\ 12}}
+\DoxyCodeLine{\Hypertarget{i8042_8h_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{i8042_8h_source_l00014}00014\ \textcolor{preprocessor}{\#define\ MOUSE\ 1}}
+\DoxyCodeLine{\Hypertarget{i8042_8h_source_l00015}00015\ \textcolor{preprocessor}{\#define\ KEYBOARD\ 0}}
+\DoxyCodeLine{\Hypertarget{i8042_8h_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{i8042_8h_source_l00017}00017\ \textcolor{preprocessor}{\#define\ ESC\_BRK\ 0x81}}
+\DoxyCodeLine{\Hypertarget{i8042_8h_source_l00018}00018\ \textcolor{preprocessor}{\#define\ BRK\_MASK\ 0x80}}
+\DoxyCodeLine{\Hypertarget{i8042_8h_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{i8042_8h_source_l00020}00020\ \textcolor{comment}{/*\ I/O\ port\ addresses\ */}}
+\DoxyCodeLine{\Hypertarget{i8042_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{i8042_8h_source_l00022}00022\ \textcolor{preprocessor}{\#define\ STATUS\_REG\ 0x64\ }}
+\DoxyCodeLine{\Hypertarget{i8042_8h_source_l00023}00023\ \textcolor{preprocessor}{\#define\ OUT\_BUF\ \ \ \ 0x60\ }}
+\DoxyCodeLine{\Hypertarget{i8042_8h_source_l00025}00025\ \textcolor{preprocessor}{\#define\ READ\_CMD\_BYTE\ 0x20}}
+\DoxyCodeLine{\Hypertarget{i8042_8h_source_l00026}00026\ \textcolor{preprocessor}{\#define\ KBC\_IN\_BUF\ 0x64}}
+\DoxyCodeLine{\Hypertarget{i8042_8h_source_l00027}00027\ \textcolor{preprocessor}{\#define\ WRT\_CMD\_BYTE\ 0x60}}
+\DoxyCodeLine{\Hypertarget{i8042_8h_source_l00028}00028\ \textcolor{preprocessor}{\#define\ ENABLE\_KBD\_INT\ BIT(0)}}
+\DoxyCodeLine{\Hypertarget{i8042_8h_source_l00029}00029\ \textcolor{preprocessor}{\#define\ ENABLE\_MOUSE\_INT\ BIT(1)}}
+\DoxyCodeLine{\Hypertarget{i8042_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{i8042_8h_source_l00031}00031\ \textcolor{preprocessor}{\#define\ DISABLE\_DATA\_REPORTING\ 0xF5}}
+\DoxyCodeLine{\Hypertarget{i8042_8h_source_l00032}00032\ \textcolor{preprocessor}{\#define\ ENABLE\_DATA\_REPORTING\ 0xF4}}
+\DoxyCodeLine{\Hypertarget{i8042_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{i8042_8h_source_l00034}00034\ \textcolor{preprocessor}{\#define\ INB\_FULL\ 0x02}}
+\DoxyCodeLine{\Hypertarget{i8042_8h_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{i8042_8h_source_l00036}00036\ \textcolor{preprocessor}{\#define\ IBF\_MASK\ 0x02}}
+\DoxyCodeLine{\Hypertarget{i8042_8h_source_l00037}00037\ \textcolor{preprocessor}{\#define\ IBF\ 0x02}}
+\DoxyCodeLine{\Hypertarget{i8042_8h_source_l00038}00038\ \textcolor{preprocessor}{\#define\ KBD\_READ\_STATUS\_OK\ 0xE1}}
+\DoxyCodeLine{\Hypertarget{i8042_8h_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{i8042_8h_source_l00040}00040\ \textcolor{preprocessor}{\#define\ DELAY\_US\ 20000}}
+\DoxyCodeLine{\Hypertarget{i8042_8h_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{i8042_8h_source_l00042}00042\ \textcolor{preprocessor}{\#define\ ACK\ 0xFA}}
+\DoxyCodeLine{\Hypertarget{i8042_8h_source_l00043}00043\ \textcolor{preprocessor}{\#define\ NACK\ 0xFE}}
+\DoxyCodeLine{\Hypertarget{i8042_8h_source_l00044}00044\ \textcolor{preprocessor}{\#define\ ERROR\ 0xFC}}
+\DoxyCodeLine{\Hypertarget{i8042_8h_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{i8042_8h_source_l00046}00046\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_LCOM\_I8042\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{i8042_8h_source_l00047}00047\ }
+
+\end{DoxyCode}

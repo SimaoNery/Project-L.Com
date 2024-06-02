@@ -1,0 +1,57 @@
+\doxysection{/\+Users/wagner/\+Desktop/faculdade/2 ano/\+LCOM/\+MINIX-\/\+LCOM/shared/g4/proj/src/main.c}
+\hypertarget{main_8c_source}{}\label{main_8c_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00001}00001\ \textcolor{comment}{//\ IMPORTANT:\ you\ must\ include\ the\ following\ line\ in\ all\ your\ C\ files}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <lcom/lcf.h>}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}project.h"{}}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00019}00019\ \textcolor{keywordtype}{int}\ main(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ *argv[])\ \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00020}00020\ \ \ \textcolor{comment}{//\ sets\ the\ language\ of\ LCF\ messages\ (can\ be\ either\ EN-\/US\ or\ PT-\/PT)}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00021}00021\ \ \ lcf\_set\_language(\textcolor{stringliteral}{"{}EN-\/US"{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00023}00023\ \ \ \textcolor{comment}{//\ enables\ to\ log\ function\ invocations\ that\ are\ being\ "{}wrapped"{}\ by\ LCF}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00024}00024\ \ \ \textcolor{comment}{//\ [comment\ this\ out\ if\ you\ don't\ want/need/\ it]}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00026}00026\ \ \ \textcolor{comment}{//lcf\_trace\_calls("{}/home/lcom/labs/proj/src/trace.txt"{});}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00028}00028\ \ \ \textcolor{comment}{//\ enables\ to\ save\ the\ output\ of\ printf\ function\ calls\ on\ a\ file}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00029}00029\ \ \ \textcolor{comment}{//\ [comment\ this\ out\ if\ you\ don't\ want/need\ it]}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00030}00030\ \ \ \textcolor{comment}{//lcf\_log\_output("{}/home/lcom/labs/proj/src/output.txt"{});}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00032}00032\ \ \ \textcolor{comment}{//\ handles\ control\ over\ to\ LCF}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00033}00033\ \ \ \textcolor{comment}{//\ [LCF\ handles\ command\ line\ arguments\ and\ invokes\ the\ right\ function]}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00034}00034\ \ \ \textcolor{keywordflow}{if}\ (lcf\_start(argc,\ argv))}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00035}00035\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00037}00037\ \ \ \textcolor{comment}{//\ LCF\ clean\ up\ tasks}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00038}00038\ \ \ \textcolor{comment}{//\ [must\ be\ the\ last\ statement\ before\ return]}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00039}00039\ \ \ lcf\_cleanup();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00041}00041\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00042}00042\ \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00052}00052\ int\ (proj\_main\_loop)()\ \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00053}00053\ \ \ \textcolor{keywordflow}{if}(project\_start()\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00054}00054\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ start\ the\ project!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00055}00055\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00056}00056\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00058}00058\ \ \ \textcolor{keywordflow}{if}(project\_loop()\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00059}00059\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ run\ the\ project!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00060}00060\ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00061}00061\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00063}00063\ \ \ \textcolor{keywordflow}{if}(project\_stop()\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00064}00064\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ stop\ the\ project!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00065}00065\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00066}00066\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00068}00068\ \ \ printf(\textcolor{stringliteral}{"{}Success!!!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00069}00069\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00070}00070\ \}}
+
+\end{DoxyCode}

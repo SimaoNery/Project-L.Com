@@ -1,0 +1,72 @@
+\doxysection{serial\+\_\+port\+\_\+handler.\+c}
+\hypertarget{serial__port__handler_8c_source}{}\label{serial__port__handler_8c_source}\index{/Users/wagner/Desktop/faculdade/2 ano/LCOM/MINIX-\/LCOM/shared/g4/proj/src/handlers/serial\_port\_handler.c@{/Users/wagner/Desktop/faculdade/2 ano/LCOM/MINIX-\/LCOM/shared/g4/proj/src/handlers/serial\_port\_handler.c}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}serial\_port\_handler.h"{}}}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00003}00003\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ asking\_for\_humidity\_and\_temp;}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00004}00004\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ asking\_for\_sound;}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00006}00006\ \textcolor{keywordtype}{int}\ humidity\_temp[4]\ =\ \{0\};}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00007}00007\ \textcolor{keywordtype}{int}\ sound\_intensity[2]\ =\ \{0\};}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00008}00008\ \textcolor{keywordtype}{int}\ counter\_serial\_port\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00010}00010\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ lock;}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00012}00012\ \textcolor{keywordtype}{void}\ serial\_port\_main\_menu\_handler()\ \{\}}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00020}00020\ \textcolor{keywordtype}{void}\ serial\_port\_control\_shell\_handler()\ \{}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00021}00021\ \ \ \mbox{\hyperlink{group__Serial_ga528a1e579cedabb490a7195e2f2287cf}{serial\_port\_int\_handler}}();}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00022}00022\ \ \ \textcolor{keywordflow}{if}\ (asking\_for\_humidity\_and\_temp)\ \{}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00023}00023\ \ \ \ \ \mbox{\hyperlink{group__Queue_gacf430581987580e06036874af6ec371d}{pop}}(\mbox{\hyperlink{group__Serial_ga796e46e751768b26348479e789bf90a4}{get\_queue}}(),\ \&humidity\_temp[counter\_serial\_port++]);}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00024}00024\ \ \ \ \ \textcolor{keywordflow}{if}\ (counter\_serial\_port\ ==\ 4)\ \{}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00025}00025\ \ \ \ \ \ \ counter\_serial\_port\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00026}00026\ \ \ \ \ \ \ asking\_for\_humidity\_and\_temp\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00027}00027\ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Humidity:\ \%d,\%d\%\%\(\backslash\)n"{}},\ humidity\_temp[0],\ humidity\_temp[1]);}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00028}00028\ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Temperature:\ \%d,\%dC"{}},\ humidity\_temp[2],\ humidity\_temp[3]);}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00029}00029\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00030}00030\ \ \ \ \ \mbox{\hyperlink{group__Serial_ga1426ccf57ad167e5c2b59cfff90772d9}{serial\_port\_clear\_int}}();}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00031}00031\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00032}00032\ \}}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00040}00040\ \textcolor{keywordtype}{void}\ serial\_port\_settings\_handler\ ()\ \{}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00042}00042\ \ \ \textcolor{keywordflow}{if}\ (asking\_for\_sound)\ \{}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00043}00043\ \ \ \ \ \mbox{\hyperlink{group__Queue_gacf430581987580e06036874af6ec371d}{pop}}(\mbox{\hyperlink{group__Serial_ga796e46e751768b26348479e789bf90a4}{get\_queue}}(),\ \&sound\_intensity[counter\_serial\_port++]);}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00044}00044\ \ \ \ \ \textcolor{keywordflow}{if}\ (counter\_serial\_port\ ==\ 2)\ \{}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00045}00045\ \ \ \ \ \ \ counter\_serial\_port\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00046}00046\ \ \ \ \ \ \ asking\_for\_sound\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00047}00047\ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Sound\ intensity:\ \%d,\%ddB\(\backslash\)n"{}},\ sound\_intensity[0],}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ sound\_intensity[1]);}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00049}00049\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00050}00050\ \ \ \ \ \mbox{\hyperlink{group__Serial_ga1426ccf57ad167e5c2b59cfff90772d9}{serial\_port\_clear\_int}}();}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00051}00051\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00052}00052\ \}}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00054}00054\ \textcolor{keywordtype}{void}\ serial\_port\_house\_plant\_handler()\ \{}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00055}00055\ \ \ \mbox{\hyperlink{group__Serial_ga528a1e579cedabb490a7195e2f2287cf}{serial\_port\_int\_handler}}();}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00056}00056\ \ \ \textcolor{keywordflow}{if}\ (asking\_for\_humidity\_and\_temp)\ \{}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00057}00057\ \ \ \ \ \mbox{\hyperlink{group__Queue_gacf430581987580e06036874af6ec371d}{pop}}(\mbox{\hyperlink{group__Serial_ga796e46e751768b26348479e789bf90a4}{get\_queue}}(),\ \&humidity\_temp[counter\_serial\_port++]);}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00058}00058\ \ \ \ \ \textcolor{keywordflow}{if}\ (counter\_serial\_port\ ==\ 4)\ \{}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00059}00059\ \ \ \ \ \ \ counter\_serial\_port\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00060}00060\ \ \ \ \ \ \ asking\_for\_humidity\_and\_temp\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00061}00061\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00062}00062\ \ \ \ \ \mbox{\hyperlink{group__Serial_ga1426ccf57ad167e5c2b59cfff90772d9}{serial\_port\_clear\_int}}();}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00063}00063\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00065}00065\ \ \ \textcolor{keywordflow}{if}\ (asking\_for\_sound)\ \{}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00066}00066\ \ \ \ \ \mbox{\hyperlink{group__Queue_gacf430581987580e06036874af6ec371d}{pop}}(\mbox{\hyperlink{group__Serial_ga796e46e751768b26348479e789bf90a4}{get\_queue}}(),\ \&sound\_intensity[counter\_serial\_port++]);}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00067}00067\ \ \ \ \ \textcolor{keywordflow}{if}\ (counter\_serial\_port\ ==\ 2)\ \{}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00068}00068\ \ \ \ \ \ \ counter\_serial\_port\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00069}00069\ \ \ \ \ \ \ asking\_for\_sound\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00070}00070\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00071}00071\ \ \ \ \ \mbox{\hyperlink{group__Serial_ga1426ccf57ad167e5c2b59cfff90772d9}{serial\_port\_clear\_int}}();}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00072}00072\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00073}00073\ \}}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00075}00075\ \textcolor{keywordtype}{void}\ serial\_port\_security\_camera\_handler()\ \{\}}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00077}00077\ \textcolor{keywordtype}{void}\ serial\_port\_help\_handler()\ \{\}}
+\DoxyCodeLine{\Hypertarget{serial__port__handler_8c_source_l00078}00078\ }
+
+\end{DoxyCode}

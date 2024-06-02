@@ -1,0 +1,7 @@
+<map id="rtc_is_binary" name="rtc_is_binary">
+<area shape="rect" id="Node000001" title="Checks if the RTC is in binary mode." alt="" coords="154,31,249,56"/>
+<area shape="rect" id="Node000002" href="$group__Real.html#ga6028be0c2f6834191783cd629f324a2b" title="Retrieves the current time from the RTC." alt="" coords="9,5,102,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="138,35,102,29,103,24,139,30"/>
+<area shape="rect" id="Node000003" href="$group__Real.html#gae91804ce10b51363ab8dcee2bb002c5e" title="Sets the RTC alarm time." alt="" coords="5,55,106,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="139,56,107,62,106,57,138,51"/>
+</map>

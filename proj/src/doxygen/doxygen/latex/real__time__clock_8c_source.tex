@@ -1,0 +1,149 @@
+\doxysection{real\+\_\+time\+\_\+clock.\+c}
+\hypertarget{real__time__clock_8c_source}{}\label{real__time__clock_8c_source}\index{/Users/wagner/Desktop/faculdade/2 ano/LCOM/MINIX-\/LCOM/shared/g4/proj/src/drivers/real\_time\_clock/real\_time\_clock.c@{/Users/wagner/Desktop/faculdade/2 ano/LCOM/MINIX-\/LCOM/shared/g4/proj/src/drivers/real\_time\_clock/real\_time\_clock.c}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}real\_time\_clock.h"{}}}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00006}00006\ \textcolor{keywordtype}{int}\ rtc\_hook\_id\ =\ 5;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00007}00007\ \mbox{\hyperlink{structreal__time__info}{real\_time\_info}}\ time\_info;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00008}00008\ uint8\_t\ config\_RTC;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00018}\mbox{\hyperlink{group__Real__time__clock_ga432373ee35ebe371ba9117440aee1120}{00018}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__Real__time__clock_ga432373ee35ebe371ba9117440aee1120}{rtc\_get\_config}}(uint8\_t\ reg,\ uint8\_t\ *config)\ \{}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00019}00019\ \ \ \ \ \textcolor{keywordflow}{if}\ (sys\_outb(RTC\_ADDR\_REG,\ reg))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00020}00020\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Utils_ga2b56f50ba159e9d5115ed1a75eff15d9}{util\_sys\_inb}}(RTC\_DATA\_REG,\ config))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00021}00021\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00022}00022\ \}}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00032}\mbox{\hyperlink{group__Real__time__clock_ga23d1a50bd368370628d600ed988f9026}{00032}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__Real__time__clock_ga23d1a50bd368370628d600ed988f9026}{rtc\_set\_config}}(uint8\_t\ reg,\ uint8\_t\ config)\ \{}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00033}00033\ \ \ \ \ \textcolor{keywordflow}{if}\ (sys\_outb(RTC\_ADDR\_REG,\ reg))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00034}00034\ \ \ \ \ \textcolor{keywordflow}{if}\ (sys\_outb(RTC\_DATA\_REG,\ config))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00035}00035\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00036}00036\ \}}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00045}\mbox{\hyperlink{group__Real__time__clock_ga198a58b91a28900ddc932ff05b18b93f}{00045}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__Real__time__clock_ga198a58b91a28900ddc932ff05b18b93f}{rtc\_activate\_interrupt}}(uint8\_t\ interrupt)\ \{}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00046}00046\ \ \ \ \ uint8\_t\ config;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00047}00047\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real__time__clock_ga432373ee35ebe371ba9117440aee1120}{rtc\_get\_config}}(RTC\_REG\_B,\ \&config))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00048}00048\ \ \ \ \ config\ |=\ interrupt;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00049}00049\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real__time__clock_ga23d1a50bd368370628d600ed988f9026}{rtc\_set\_config}}(RTC\_REG\_B,\ config))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00050}00050\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00051}00051\ \}}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00059}\mbox{\hyperlink{group__Real__time__clock_ga69fa71c482d1774ffabd29aa86b4ec29}{00059}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__Real__time__clock_ga69fa71c482d1774ffabd29aa86b4ec29}{rtc\_deactivate\_interrupts}}()\ \{}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00060}00060\ \ \ \ \ uint8\_t\ config;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00061}00061\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real__time__clock_ga432373ee35ebe371ba9117440aee1120}{rtc\_get\_config}}(RTC\_REG\_B,\ \&config))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00062}00062\ \ \ \ \ config\ \&=\ 0x8F;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00063}00063\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real__time__clock_ga23d1a50bd368370628d600ed988f9026}{rtc\_set\_config}}(RTC\_REG\_B,\ config))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00064}00064\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00065}00065\ \}}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00073}\mbox{\hyperlink{group__Real__time__clock_ga5873dc86f56c4a2a8ea8f7faf07ef798}{00073}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__Real__time__clock_ga5873dc86f56c4a2a8ea8f7faf07ef798}{rtc\_is\_binary}}()\ \{}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00074}00074\ \ \ \ \ uint8\_t\ result;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00075}00075\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real__time__clock_ga432373ee35ebe371ba9117440aee1120}{rtc\_get\_config}}(RTC\_REG\_B,\ \&result))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00076}00076\ \ \ \ \ \textcolor{keywordflow}{return}\ result\ \&\ BINARY;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00077}00077\ \}}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00086}\mbox{\hyperlink{group__Real__time__clock_ga01fecdb3049618e4f75df07d67ef6c64}{00086}}\ uint8\_t\ \mbox{\hyperlink{group__Real__time__clock_ga01fecdb3049618e4f75df07d67ef6c64}{transform\_to\_binary}}(uint8\_t\ bcd\_number)\ \{}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00087}00087\ \ \ \ \ \textcolor{keywordflow}{return}\ ((bcd\_number\ >>\ 4)\ *\ 10)\ +\ (bcd\_number\ \&\ 0xF);}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00088}00088\ \}}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00097}\mbox{\hyperlink{group__Real__time__clock_gafc889a1e426b086c029dd89a555641da}{00097}}\ uint8\_t\ \mbox{\hyperlink{group__Real__time__clock_gafc889a1e426b086c029dd89a555641da}{transform\_to\_bcd}}(uint8\_t\ binary\_number)\ \{}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00098}00098\ \ \ \ \textcolor{keywordtype}{int}\ bcdResult\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00099}00099\ \ \ \ \textcolor{keywordtype}{int}\ shift\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00101}00101\ \ \ \ \textcolor{keywordflow}{while}\ (binary\_number\ >\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00102}00102\ \ \ \ \ \ \ bcdResult\ |=\ (binary\_number\ \%\ 10)\ <<\ (shift++\ <<\ 2);}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00103}00103\ \ \ \ \ \ \ binary\_number\ /=\ 10;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00104}00104\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00106}00106\ \ \ \ \textcolor{keywordflow}{return}\ bcdResult;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00107}00107\ \}}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00118}\mbox{\hyperlink{group__Real__time__clock_gae91804ce10b51363ab8dcee2bb002c5e}{00118}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__Real__time__clock_gae91804ce10b51363ab8dcee2bb002c5e}{rtc\_set\_alarm}}(uint8\_t\ hours,\ uint8\_t\ minutes,\ uint8\_t\ seconds)\ \{}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00119}00119\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real__time__clock_ga5873dc86f56c4a2a8ea8f7faf07ef798}{rtc\_is\_binary}}())\ \{}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00120}00120\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real__time__clock_ga23d1a50bd368370628d600ed988f9026}{rtc\_set\_config}}(HOURS\_ALARM,\ hours))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00121}00121\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real__time__clock_ga23d1a50bd368370628d600ed988f9026}{rtc\_set\_config}}(MINUTES\_ALARM,\ minutes))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00122}00122\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real__time__clock_ga23d1a50bd368370628d600ed988f9026}{rtc\_set\_config}}(SECONDS\_ALARM,\ seconds))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00123}00123\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00124}00124\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00125}00125\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real__time__clock_ga23d1a50bd368370628d600ed988f9026}{rtc\_set\_config}}(HOURS\_ALARM,\ \mbox{\hyperlink{group__Real__time__clock_gafc889a1e426b086c029dd89a555641da}{transform\_to\_bcd}}(hours)))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00126}00126\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real__time__clock_ga23d1a50bd368370628d600ed988f9026}{rtc\_set\_config}}(MINUTES\_ALARM,\ \mbox{\hyperlink{group__Real__time__clock_gafc889a1e426b086c029dd89a555641da}{transform\_to\_bcd}}(minutes)))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00127}00127\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real__time__clock_ga23d1a50bd368370628d600ed988f9026}{rtc\_set\_config}}(SECONDS\_ALARM,\ \mbox{\hyperlink{group__Real__time__clock_gafc889a1e426b086c029dd89a555641da}{transform\_to\_bcd}}(seconds)))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00128}00128\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00130}00130\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00131}00131\ \}}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00139}\mbox{\hyperlink{group__Real__time__clock_ga75dad42881d64cf07cf1bdc2979a7056}{00139}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group__Real__time__clock_ga75dad42881d64cf07cf1bdc2979a7056}{rtc\_ih}}()\ \{}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00140}00140\ \ \ \ \ \mbox{\hyperlink{group__Real__time__clock_ga432373ee35ebe371ba9117440aee1120}{rtc\_get\_config}}(RTC\_REG\_C,\ \&config\_RTC);}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00141}00141\ \}}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00142}00142\ }
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00149}\mbox{\hyperlink{group__Real__time__clock_ga6028be0c2f6834191783cd629f324a2b}{00149}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__Real__time__clock_ga6028be0c2f6834191783cd629f324a2b}{rtc\_get\_time}}()\ \{}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00150}00150\ }
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00151}00151\ \ \ \ \ uint8\_t\ out;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00152}00152\ }
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00153}00153\ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00154}00154\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real__time__clock_ga432373ee35ebe371ba9117440aee1120}{rtc\_get\_config}}(RTC\_REG\_A,\ \&out))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00155}00155\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (out\ \&\ RTC\_UIP);}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00156}00156\ }
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00157}00157\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real__time__clock_ga5873dc86f56c4a2a8ea8f7faf07ef798}{rtc\_is\_binary}}())\ \{}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00158}00158\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real__time__clock_ga432373ee35ebe371ba9117440aee1120}{rtc\_get\_config}}(SECONDS,\ \&out))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00159}00159\ \ \ \ \ \ \ \ \ time\_info.seconds\ =\ out;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00160}00160\ }
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00161}00161\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real__time__clock_ga432373ee35ebe371ba9117440aee1120}{rtc\_get\_config}}(MINUTES,\ \&out))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00162}00162\ \ \ \ \ \ \ \ \ time\_info.minutes\ =\ out;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00163}00163\ }
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00164}00164\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real__time__clock_ga432373ee35ebe371ba9117440aee1120}{rtc\_get\_config}}(HOURS,\ \&out))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00165}00165\ \ \ \ \ \ \ \ \ time\_info.hours\ =\ out;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00166}00166\ }
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00167}00167\ }
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00168}00168\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real__time__clock_ga432373ee35ebe371ba9117440aee1120}{rtc\_get\_config}}(DAY\_OF\_THE\_MONTH,\ \&out))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00169}00169\ \ \ \ \ \ \ \ \ time\_info.day\ =\ out;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00170}00170\ }
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00171}00171\ }
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00172}00172\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real__time__clock_ga432373ee35ebe371ba9117440aee1120}{rtc\_get\_config}}(MONTH,\ \&out))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00173}00173\ \ \ \ \ \ \ \ \ time\_info.month\ =\ out;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00174}00174\ }
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00175}00175\ }
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00176}00176\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real__time__clock_ga432373ee35ebe371ba9117440aee1120}{rtc\_get\_config}}(YEAR,\ \&out))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00177}00177\ \ \ \ \ \ \ \ \ time\_info.year\ =\ out;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00178}00178\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00179}00179\ }
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00180}00180\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00181}00181\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real__time__clock_ga432373ee35ebe371ba9117440aee1120}{rtc\_get\_config}}(SECONDS,\ \&out))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00182}00182\ \ \ \ \ \ \ \ \ time\_info.seconds\ =\ \mbox{\hyperlink{group__Real__time__clock_ga01fecdb3049618e4f75df07d67ef6c64}{transform\_to\_binary}}(out);}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00183}00183\ }
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00184}00184\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real__time__clock_ga432373ee35ebe371ba9117440aee1120}{rtc\_get\_config}}(MINUTES,\ \&out))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00185}00185\ \ \ \ \ \ \ \ \ time\_info.minutes\ =\ \mbox{\hyperlink{group__Real__time__clock_ga01fecdb3049618e4f75df07d67ef6c64}{transform\_to\_binary}}(out);}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00186}00186\ }
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00187}00187\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real__time__clock_ga432373ee35ebe371ba9117440aee1120}{rtc\_get\_config}}(HOURS,\ \&out))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00188}00188\ \ \ \ \ \ \ \ \ time\_info.hours\ =\ \mbox{\hyperlink{group__Real__time__clock_ga01fecdb3049618e4f75df07d67ef6c64}{transform\_to\_binary}}(out);}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00189}00189\ }
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00190}00190\ }
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00191}00191\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real__time__clock_ga432373ee35ebe371ba9117440aee1120}{rtc\_get\_config}}(DAY\_OF\_THE\_MONTH,\ \&out))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00192}00192\ \ \ \ \ \ \ \ \ time\_info.day\ =\ \mbox{\hyperlink{group__Real__time__clock_ga01fecdb3049618e4f75df07d67ef6c64}{transform\_to\_binary}}(out);}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00193}00193\ }
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00194}00194\ }
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00195}00195\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real__time__clock_ga432373ee35ebe371ba9117440aee1120}{rtc\_get\_config}}(MONTH,\ \&out))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00196}00196\ \ \ \ \ \ \ \ \ time\_info.month\ =\ \mbox{\hyperlink{group__Real__time__clock_ga01fecdb3049618e4f75df07d67ef6c64}{transform\_to\_binary}}(out);}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00197}00197\ }
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00198}00198\ }
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00199}00199\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Real__time__clock_ga432373ee35ebe371ba9117440aee1120}{rtc\_get\_config}}(YEAR,\ \&out))\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00200}00200\ \ \ \ \ \ \ \ \ time\_info.year\ =\ \mbox{\hyperlink{group__Real__time__clock_ga01fecdb3049618e4f75df07d67ef6c64}{transform\_to\_binary}}(out);}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00201}00201\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00202}00202\ }
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00203}00203\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00204}00204\ \}}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00205}00205\ }
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00213}\mbox{\hyperlink{group__Real__time__clock_ga5171a9c0f54940fe60f7500896afcc86}{00213}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__Real__time__clock_ga5171a9c0f54940fe60f7500896afcc86}{rtc\_subscribe\_int}}(uint8\_t\ *bit\_no)\ \{}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00214}00214\ \ \ \ \ \textcolor{keywordflow}{if}\ (bit\_no\ ==\ NULL)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00215}00215\ \ \ \ \ *bit\_no\ =\ BIT(rtc\_hook\_id);}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00216}00216\ \ \ \ \ \textcolor{keywordflow}{return}\ sys\_irqsetpolicy(IRQ\_RTC,\ IRQ\_REENABLE,\ \&rtc\_hook\_id);}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00217}00217\ }
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00218}00218\ \}}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00219}00219\ }
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00226}\mbox{\hyperlink{group__Real__time__clock_gab8f17bf5280c908c8b199a90fefcc758}{00226}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__Real__time__clock_gab8f17bf5280c908c8b199a90fefcc758}{rtc\_unsubscribe\_int}}()\ \{}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00227}00227\ \ \ \ \ \textcolor{keywordflow}{return}\ sys\_irqrmpolicy(\&rtc\_hook\_id);}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00228}00228\ \}}
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00229}00229\ }
+\DoxyCodeLine{\Hypertarget{real__time__clock_8c_source_l00230}00230\ }
+
+\end{DoxyCode}

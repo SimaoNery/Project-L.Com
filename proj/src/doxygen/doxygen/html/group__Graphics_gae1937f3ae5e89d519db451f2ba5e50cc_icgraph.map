@@ -1,0 +1,5 @@
+<map id="unmap_frame_buffer" name="unmap_frame_buffer">
+<area shape="rect" id="Node000001" title="Unmaps the frame buffer." alt="" coords="180,5,320,31"/>
+<area shape="rect" id="Node000002" href="$group__Graphics.html#gae3e0f491782c537cbd9ba342164c6f96" title="Changes the screen resolution." alt="" coords="5,5,132,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,21,132,21,132,16,164,16"/>
+</map>

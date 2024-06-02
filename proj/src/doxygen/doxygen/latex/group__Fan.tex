@@ -1,0 +1,189 @@
+\doxysection{Fan}
+\hypertarget{group__Fan}{}\label{group__Fan}\index{Fan@{Fan}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group__Fan_ga2013bd7ad8f2a334b5c5b5cf655747b1}{fan\+\_\+on}} (char \texorpdfstring{$\ast$}{*}args\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Turns the fan on with specified power and optional timer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__Fan_gaf1d36feee8a9fb72efd3ac19af589467}{fan\+\_\+off}} ()
+\begin{DoxyCompactList}\small\item\em Turns the fan off. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{group__Fan_gaf1d36feee8a9fb72efd3ac19af589467}\index{Fan@{Fan}!fan\_off@{fan\_off}}
+\index{fan\_off@{fan\_off}!Fan@{Fan}}
+\doxysubsubsection{\texorpdfstring{fan\_off()}{fan\_off()}}
+{\footnotesize\ttfamily \label{group__Fan_gaf1d36feee8a9fb72efd3ac19af589467} 
+void fan\+\_\+off (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Turns the fan off. 
+
+This function turns the fan off by resetting the command, counter, and timer. 
+
+Definition at line \mbox{\hyperlink{fan_8c_source_l00124}{124}} of file \mbox{\hyperlink{fan_8c_source}{fan.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00125\ \ \ fan\_counter\ =\ 0;}
+\DoxyCodeLine{00126\ \ \ fan\_time\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00127\ \ \ command\_fan\ =\ FAN\_ID;}
+\DoxyCodeLine{00128\ \ \ \mbox{\hyperlink{group__Serial_ga16017eb641d6cfecc03e1591b8226554}{send\_serial\_port\_msg}}(command\_fan);}
+\DoxyCodeLine{00129\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Fan_gaf1d36feee8a9fb72efd3ac19af589467_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Fan_gaf1d36feee8a9fb72efd3ac19af589467_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Fan_ga2013bd7ad8f2a334b5c5b5cf655747b1}\index{Fan@{Fan}!fan\_on@{fan\_on}}
+\index{fan\_on@{fan\_on}!Fan@{Fan}}
+\doxysubsubsection{\texorpdfstring{fan\_on()}{fan\_on()}}
+{\footnotesize\ttfamily \label{group__Fan_ga2013bd7ad8f2a334b5c5b5cf655747b1} 
+void fan\+\_\+on (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{args}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Turns the fan on with specified power and optional timer. 
+
+This function turns the fan on with a specified power level. If a timer is provided, the fan will run for the specified duration. The power level should be between 1 and 31. The timer can be specified in seconds (s), minutes (m), or hours (h).
+
+
+\begin{DoxyParams}{Parameters}
+{\em args} & An array of strings representing the command arguments. The first argument can be the power level, and the second argument can be the timer in the format "{}-\/t $<$time$>$$<$unit$>$"{} where $<$unit$>$ can be \textquotesingle{}s\textquotesingle{}, \textquotesingle{}m\textquotesingle{}, or \textquotesingle{}h\textquotesingle{}. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{fan_8c_source_l00023}{23}} of file \mbox{\hyperlink{fan_8c_source}{fan.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ uint8\_t\ command\_aux\ =\ FAN\_ID;}
+\DoxyCodeLine{00026\ \ \ uint32\_t\ fan\_counter\_aux\ =\ 0;}
+\DoxyCodeLine{00027\ \ \ \textcolor{keywordtype}{bool}\ fan\_time\_aux\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \textcolor{keywordflow}{if}\ (args[i]\ ==\ NULL)}
+\DoxyCodeLine{00032\ \ \ \ \ command\_aux\ |=\ FAN\_MAX\_POWER;}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(args[0],\ \textcolor{stringliteral}{"{}-\/t"{}})\ !=\ 0)\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ i++;}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{char}\ *endptr;}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{long}\ power\ =\ 0;}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ power\ =\ strtol(args[0],\ \&endptr,\ 10);}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordflow}{if}\ (endptr\ !=\ args[0]\ \&\&\ power\ >\ 0\ \&\&\ power\ <=\ 31)\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ command\_aux\ |=\ (uint8\_t)power;}
+\DoxyCodeLine{00043\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Please\ provide\ a\ power\ value\ between\ 1\ and\ 31.\(\backslash\)n"{}});}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00046\ \ \ \ \ \}}
+\DoxyCodeLine{00047\ \ \ \}}
+\DoxyCodeLine{00048\ \ \ \textcolor{keywordflow}{if}\ (args[i]\ !=\ NULL)\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ 0)}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ command\_aux\ |=\ FAN\_MAX\_POWER;}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordflow}{if}\ (strcmp(args[i],\ \textcolor{stringliteral}{"{}-\/t"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ i++;}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (args[i]\ !=\ NULL)\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ *string\_part;}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ uint32\_t\ time\ =\ strtod(args[i],\ \&string\_part);}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (time\ >\ 0)\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((strcmp(string\_part,\ \textcolor{stringliteral}{"{}s"{}})\ ==\ 0)\ ||\ (strlen(string\_part)\ ==\ 0))\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (time\ <=\ 86400)\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fan\_counter\_aux\ =\ time;}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fan\_time\_aux\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Please\ provide\ a\ time\ in\ seconds\ up\ to\ 86400\ and\ no\ more\ "{}}}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}than\ that.\(\backslash\)n"{}});}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(string\_part,\ \textcolor{stringliteral}{"{}m"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (time\ <=\ 1440)\ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ time\ *=\ 60;}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fan\_counter\_aux\ =\ time;}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fan\_time\_aux\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Please\ provide\ a\ time\ in\ minutes\ up\ to\ 1440\ and\ no\ more\ "{}}}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}than\ that.\(\backslash\)n"{}});}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(string\_part,\ \textcolor{stringliteral}{"{}h"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (time\ <=\ 24)\ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ time\ *=\ 3600;}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fan\_counter\_aux\ =\ time;}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fan\_time\_aux\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Please\ provide\ a\ time\ in\ hours\ up\ to\ 24\ and\ no\ more\ than\ "{}}}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}that.\(\backslash\)n"{}});}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%s\ is\ not\ a\ valid\ unit\ of\ time.\(\backslash\)n"{}},\ string\_part);}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Invalid\ time\ provided:\ \%s\(\backslash\)n"{}},\ args[i]);}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}No\ time\ was\ provided.\(\backslash\)n"{}});}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Invalid\ argument:\ \%s\(\backslash\)n"{}},\ args[i]);}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00105\ \ \ \ \ \}}
+\DoxyCodeLine{00106\ \ \ \}}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ command\_fan\ =\ command\_aux;}
+\DoxyCodeLine{00109\ \ \ \mbox{\hyperlink{group__Serial_ga16017eb641d6cfecc03e1591b8226554}{send\_serial\_port\_msg}}(command\_fan);}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \textcolor{keywordflow}{if}\ (fan\_time\_aux)\ \{}
+\DoxyCodeLine{00112\ \ \ \ \ fan\_counter\ =\ fan\_counter\_aux;}
+\DoxyCodeLine{00113\ \ \ \ \ fan\_time\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00114\ \ \ \}}
+\DoxyCodeLine{00115\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Fan_ga2013bd7ad8f2a334b5c5b5cf655747b1_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Fan_ga2013bd7ad8f2a334b5c5b5cf655747b1_icgraph}
+\end{center}
+\end{figure}

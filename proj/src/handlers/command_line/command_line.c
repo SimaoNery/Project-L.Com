@@ -1,5 +1,9 @@
 #include "command_line.h"
 
+/**
+ * @defgroup Command_Line Command_Line
+ * 
+ */
 extern uint16_t resolution;
 extern uint8_t page_state;
 
@@ -9,6 +13,7 @@ int line_length = 0; // Track the length of the current line
 
 
 /*!
+ * @ingroup Command_Line Command_Line
  * @brief Processes the input scancode and updates the command line buffer.
  * 
  * This function translates the scancode to a character and updates the command line buffer.
@@ -62,6 +67,7 @@ bool altgr_pressed = false;
 bool caps_lock = false;
 
 /*!
+  * @ingroup Command_Line Command_Line
  * @brief Deletes the character at the current cursor position in the command line buffer.
  * 
  * This function removes the character at the current cursor position and updates the buffer and cursor position accordingly.
@@ -85,6 +91,7 @@ void delete_character() {
 }
 
 /*!
+  * @ingroup Command_Line Command_Line
  * @brief Translates a scancode to a character and updates the command line buffer.
  * 
  * This function handles special keys (e.g., Shift, Caps Lock, Backspace) and translates scancodes to characters.
@@ -187,6 +194,7 @@ char *tokens[MAX_TOKENS];
 
 
 /*!
+  * @ingroup Command_Line Command_Line
  * @brief Tokenizes the command line buffer into individual tokens.
  * 
  * This function splits the command line buffer into tokens separated by spaces.
@@ -208,6 +216,7 @@ void tokenize_line(char* line_buffer) {
 }
 
 /*!
+  * @ingroup Command_Line Command_Line
  * @brief Handles the command entered in the command line buffer.
  * 
  * This function processes the command entered in the command line buffer and executes the corresponding action.

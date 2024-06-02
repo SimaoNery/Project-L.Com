@@ -1,0 +1,7 @@
+<map id="rtc_deactivate_interrupts" name="rtc_deactivate_interrupts">
+<area shape="rect" id="Node000001" title="Deactivates RTC interrupts." alt="" coords="5,31,170,56"/>
+<area shape="rect" id="Node000002" href="$group__Real.html#ga432373ee35ebe371ba9117440aee1120" title="Retrieves the configuration from a specified RTC register." alt="" coords="218,5,321,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="170,29,202,25,203,30,170,35"/>
+<area shape="rect" id="Node000003" href="$group__Real.html#ga23d1a50bd368370628d600ed988f9026" title="Sets the configuration of a specified RTC register." alt="" coords="218,55,321,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="170,52,203,56,202,61,170,57"/>
+</map>

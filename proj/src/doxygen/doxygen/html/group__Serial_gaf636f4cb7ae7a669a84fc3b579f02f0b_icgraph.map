@@ -1,0 +1,5 @@
+<map id="read_serial_port_msg" name="read_serial_port_msg">
+<area shape="rect" id="Node000001" title="Reads a message from the serial port." alt="" coords="205,5,350,31"/>
+<area shape="rect" id="Node000002" href="$group__Serial.html#ga528a1e579cedabb490a7195e2f2287cf" title="Serial port interrupt handler." alt="" coords="5,5,157,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="189,21,157,21,157,16,189,16"/>
+</map>

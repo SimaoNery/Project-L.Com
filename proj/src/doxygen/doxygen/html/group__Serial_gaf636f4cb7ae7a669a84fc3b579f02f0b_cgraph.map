@@ -1,0 +1,10 @@
+<map id="read_serial_port_msg" name="read_serial_port_msg">
+<area shape="rect" id="Node000001" title="Reads a message from the serial port." alt="" coords="5,56,151,82"/>
+<area shape="rect" id="Node000002" href="$group__Serial.html#gafa064c2a2d24a8fb7f587b36a6e2bafc" title="Retrieves the status from the serial port." alt="" coords="199,5,348,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="130,53,206,33,207,38,131,58"/>
+<area shape="rect" id="Node000003" href="$group__Utils.html#ga2b56f50ba159e9d5115ed1a75eff15d9" title="Reads a byte from the specified port and store it in uint8_t variable." alt="" coords="396,31,486,56"/>
+<area shape="poly" id="edge4_Node000001_Node000003" title=" " alt="" coords="151,61,380,45,381,50,151,66"/>
+<area shape="rect" id="Node000004" href="$group__Queue.html#ga095518c09a8928fba317675f1c7984af" title="Adds an element to the queue." alt="" coords="249,107,298,132"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="131,80,234,107,233,112,130,85"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="349,27,381,32,380,37,348,32"/>
+</map>

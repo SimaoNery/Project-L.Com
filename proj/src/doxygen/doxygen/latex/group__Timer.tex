@@ -1,0 +1,294 @@
+\doxysection{Timer}
+\hypertarget{group__Timer}{}\label{group__Timer}\index{Timer@{Timer}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__Timer_gaca1506be74dfc71c6f90772ca269c619}{timer\+\_\+set\+\_\+frequency}} (uint8\+\_\+t timer, uint32\+\_\+t freq)
+\begin{DoxyCompactList}\small\item\em Sets the frequency of a specified timer. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Timer_ga6f786481e80308348d629d605ffa2d84}{timer\+\_\+subscribe\+\_\+int}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}bit\+\_\+no)
+\begin{DoxyCompactList}\small\item\em Subscribes to timer interrupts. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Timer_gab9eea51549744bca5c5c923b388bb4ee}{timer\+\_\+unsubscribe\+\_\+int}} ()
+\begin{DoxyCompactList}\small\item\em Unsubscribes from timer interrupts. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__Timer_ga10fc9c867b15c7da6649311c9987cd17}{timer\+\_\+int\+\_\+handler}} ()
+\begin{DoxyCompactList}\small\item\em Timer interrupt handler. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Timer_gafafc1891c876602d55b894103b1841a7}{timer\+\_\+get\+\_\+conf}} (uint8\+\_\+t timer, uint8\+\_\+t \texorpdfstring{$\ast$}{*}st)
+\begin{DoxyCompactList}\small\item\em Retrieves the configuration of a specified timer. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Timer_ga2f6a1c71f61dce5b3b6eecba83e7d7e9}{timer\+\_\+display\+\_\+conf}} (uint8\+\_\+t timer, uint8\+\_\+t st, enum timer\+\_\+status\+\_\+field field)
+\begin{DoxyCompactList}\small\item\em Displays the configuration of a specified timer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{group__Timer_ga2f6a1c71f61dce5b3b6eecba83e7d7e9}\index{Timer@{Timer}!timer\_display\_conf@{timer\_display\_conf}}
+\index{timer\_display\_conf@{timer\_display\_conf}!Timer@{Timer}}
+\doxysubsubsection{\texorpdfstring{timer\_display\_conf()}{timer\_display\_conf()}}
+{\footnotesize\ttfamily \label{group__Timer_ga2f6a1c71f61dce5b3b6eecba83e7d7e9} 
+int timer\+\_\+display\+\_\+conf (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{timer}{, }\item[{uint8\+\_\+t}]{st}{, }\item[{enum timer\+\_\+status\+\_\+field}]{field}{}\end{DoxyParamCaption})}
+
+
+
+Displays the configuration of a specified timer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em timer} & The timer to display the configuration for (0, 1, or 2). \\
+\hline
+{\em st} & The status byte of the timer. \\
+\hline
+{\em field} & The field of the status byte to display. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Returns 0 upon success and 1 upon failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{timer_8c_source_l00114}{114}} of file \mbox{\hyperlink{timer_8c_source}{timer.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00115\ \ \ \textcolor{keywordflow}{if}\ (timer\ >\ 2)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \textcolor{keyword}{union\ }timer\_status\_field\_val\ val;}
+\DoxyCodeLine{00118\ \ \ uint8\_t\ bits5\_4;}
+\DoxyCodeLine{00119\ \ \ uint8\_t\ bits1\_2\_3;}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \textcolor{keywordflow}{switch}\ (field)}
+\DoxyCodeLine{00122\ \ \ \{}
+\DoxyCodeLine{00123\ \ \ \textcolor{keywordflow}{case}\ tsf\_all:}
+\DoxyCodeLine{00124\ \ \ \ \ val.byte\ =\ st;}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordflow}{break};\ \ }
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \textcolor{keywordflow}{case}\ tsf\_initial:}
+\DoxyCodeLine{00128\ \ \ \ \ bits5\_4\ =\ (st\ >>\ 4)\ \&\ 0x03;}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordflow}{if}\ (bits5\_4\ ==\ 1)\ \{}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ val.in\_mode\ =\ LSB\_only;}
+\DoxyCodeLine{00132\ \ \ \ \ \}}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (bits5\_4\ ==\ 2)\ \{}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ val.in\_mode\ =\ MSB\_only;}
+\DoxyCodeLine{00135\ \ \ \ \ \}\ }
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (bits5\_4\ ==\ 3)\ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ val.in\_mode\ =\ MSB\_after\_LSB;}
+\DoxyCodeLine{00138\ \ \ \ \ \}}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ val.in\_mode\ =\ INVAL\_val;}
+\DoxyCodeLine{00141\ \ \ \ \ \}}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \textcolor{keywordflow}{case}\ tsf\_mode:}
+\DoxyCodeLine{00146\ \ \ \ \ bits1\_2\_3\ =\ (st\ >>\ 1)\ \&\ 0x07;}
+\DoxyCodeLine{00147\ \ \ \ \ val.count\_mode\ =\ (bits1\_2\_3\ >\ 5)\ ?\ (bits1\_2\_3\ \%\ 2\ ==\ 0\ ?\ 2\ :\ 3)\ :\ bits1\_2\_3;}
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \ \ \textcolor{keywordflow}{case}\ tsf\_base:}
+\DoxyCodeLine{00151\ \ \ \ \ val.bcd\ =\ \mbox{\hyperlink{group__i8254_ga325b992a371d5d981c4eceff42fa5956}{TIMER\_BCD}}\ \&\ st;}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00156\ \ \ \}}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \ \ \textcolor{keywordflow}{return}\ timer\_print\_config(timer,\ field,\ val);}
+\DoxyCodeLine{00159\ \}}
+
+\end{DoxyCode}
+\Hypertarget{group__Timer_gafafc1891c876602d55b894103b1841a7}\index{Timer@{Timer}!timer\_get\_conf@{timer\_get\_conf}}
+\index{timer\_get\_conf@{timer\_get\_conf}!Timer@{Timer}}
+\doxysubsubsection{\texorpdfstring{timer\_get\_conf()}{timer\_get\_conf()}}
+{\footnotesize\ttfamily \label{group__Timer_gafafc1891c876602d55b894103b1841a7} 
+int timer\+\_\+get\+\_\+conf (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{timer}{, }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{st}{}\end{DoxyParamCaption})}
+
+
+
+Retrieves the configuration of a specified timer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em timer} & The timer to retrieve the configuration from (0, 1, or 2). \\
+\hline
+{\em st} & Pointer to a variable where the configuration will be stored. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Returns 0 upon success and 1 upon failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{timer_8c_source_l00093}{93}} of file \mbox{\hyperlink{timer_8c_source}{timer.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00094\ \ \ \textcolor{keywordflow}{if}\ (timer\ >\ 2\ ||\ st\ ==\ NULL)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ uint8\_t\ readBackCmd;}
+\DoxyCodeLine{00097\ \ \ readBackCmd\ =\ \mbox{\hyperlink{group__i8254_ga4c2eecbfb96744a9c2af71dba75ecb18}{TIMER\_RB\_CMD}}\ |\ TIMER\_RB\_COUNT\_\ |\ BIT(timer\ +\ 1);}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \textcolor{keywordtype}{int}\ send\ =\ sys\_outb(\mbox{\hyperlink{group__i8254_ga282832448fb0281ef53d243c1cd48491}{TIMER\_CTRL}},\ readBackCmd);}
+\DoxyCodeLine{00100\ \ \ \textcolor{keywordflow}{if}\ (send)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{group__Utils_ga2b56f50ba159e9d5115ed1a75eff15d9}{util\_sys\_inb}}(\mbox{\hyperlink{group__i8254_gacc9ff9df4a9674a1ce9ba08fc4a4679e}{TIMER\_0}}\ +\ timer,\ st);}
+\DoxyCodeLine{00103\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=264pt]{group__Timer_gafafc1891c876602d55b894103b1841a7_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=301pt]{group__Timer_gafafc1891c876602d55b894103b1841a7_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Timer_ga10fc9c867b15c7da6649311c9987cd17}\index{Timer@{Timer}!timer\_int\_handler@{timer\_int\_handler}}
+\index{timer\_int\_handler@{timer\_int\_handler}!Timer@{Timer}}
+\doxysubsubsection{\texorpdfstring{timer\_int\_handler()}{timer\_int\_handler()}}
+{\footnotesize\ttfamily \label{group__Timer_ga10fc9c867b15c7da6649311c9987cd17} 
+void timer\+\_\+int\+\_\+handler (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Timer interrupt handler. 
+
+Increments the global counter variable. 
+
+Definition at line \mbox{\hyperlink{timer_8c_source_l00081}{81}} of file \mbox{\hyperlink{timer_8c_source}{timer.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00082\ \ \ counter++;}
+\DoxyCodeLine{00083\ \}}
+
+\end{DoxyCode}
+\Hypertarget{group__Timer_gaca1506be74dfc71c6f90772ca269c619}\index{Timer@{Timer}!timer\_set\_frequency@{timer\_set\_frequency}}
+\index{timer\_set\_frequency@{timer\_set\_frequency}!Timer@{Timer}}
+\doxysubsubsection{\texorpdfstring{timer\_set\_frequency()}{timer\_set\_frequency()}}
+{\footnotesize\ttfamily \label{group__Timer_gaca1506be74dfc71c6f90772ca269c619} 
+int timer\+\_\+set\+\_\+frequency (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{timer}{, }\item[{uint32\+\_\+t}]{freq}{}\end{DoxyParamCaption})}
+
+
+
+Sets the frequency of a specified timer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em timer} & The timer to configure (0, 1, or 2). \\
+\hline
+{\em freq} & The desired frequency. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Returns 0 upon success and 1 upon failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{timer_8c_source_l00020}{20}} of file \mbox{\hyperlink{timer_8c_source}{timer.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00021\ \ \ \textcolor{keywordflow}{if}\ (timer\ >\ 2)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00022\ \ \ \textcolor{keywordflow}{if}\ (freq\ <\ 19\ ||\ freq\ >\ \mbox{\hyperlink{group__i8254_gacf926951944b6cf370b7229ebd50dd8b}{TIMER\_FREQ}})\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ uint8\_t\ current\_config;}
+\DoxyCodeLine{00025\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Timer_gafafc1891c876602d55b894103b1841a7}{timer\_get\_conf}}(timer,\ \&current\_config)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00026\ \ \ }
+\DoxyCodeLine{00027\ \ \ current\_config\ =\ 0x0F\ \&\ current\_config;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ uint8\_t\ mask\ =\ ((timer\ <<\ 2)\ |\ 0x3)\ <<\ 4;}
+\DoxyCodeLine{00030\ \ }
+\DoxyCodeLine{00031\ \ \ current\_config\ =\ current\_config\ |\ mask;}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \textcolor{keywordflow}{if}\ (sys\_outb(\mbox{\hyperlink{group__i8254_ga282832448fb0281ef53d243c1cd48491}{TIMER\_CTRL}},\ current\_config)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ uint32\_t\ value\ =\ \mbox{\hyperlink{group__i8254_gacf926951944b6cf370b7229ebd50dd8b}{TIMER\_FREQ}}\ /\ freq;}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ uint8\_t\ freq\_lsb;}
+\DoxyCodeLine{00038\ \ \ uint8\_t\ freq\_msb;}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Utils_ga31ab374573517f8a5ba31c52a49a8606}{util\_get\_LSB}}(value,\ \&freq\_lsb)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00041\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Utils_gafc6ca7a9a39943ff1792d206da514a59}{util\_get\_MSB}}(value,\ \&freq\_msb)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00042\ \ \ }
+\DoxyCodeLine{00043\ \ \ \textcolor{keywordflow}{if}\ (sys\_outb(\mbox{\hyperlink{group__i8254_gacc9ff9df4a9674a1ce9ba08fc4a4679e}{TIMER\_0}}\ +\ timer,\ freq\_lsb)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00044\ \ \ \textcolor{keywordflow}{if}\ (sys\_outb(\mbox{\hyperlink{group__i8254_gacc9ff9df4a9674a1ce9ba08fc4a4679e}{TIMER\_0}}\ +\ timer,\ freq\_msb)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00047\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Timer_gaca1506be74dfc71c6f90772ca269c619_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Timer_ga6f786481e80308348d629d605ffa2d84}\index{Timer@{Timer}!timer\_subscribe\_int@{timer\_subscribe\_int}}
+\index{timer\_subscribe\_int@{timer\_subscribe\_int}!Timer@{Timer}}
+\doxysubsubsection{\texorpdfstring{timer\_subscribe\_int()}{timer\_subscribe\_int()}}
+{\footnotesize\ttfamily \label{group__Timer_ga6f786481e80308348d629d605ffa2d84} 
+int timer\+\_\+subscribe\+\_\+int (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{bit\+\_\+no}{}\end{DoxyParamCaption})}
+
+
+
+Subscribes to timer interrupts. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bit\+\_\+no} & Pointer to a variable where the bit number will be stored. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Returns 0 upon success and 1 upon failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{timer_8c_source_l00056}{56}} of file \mbox{\hyperlink{timer_8c_source}{timer.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \textcolor{keywordflow}{if}\ (bit\_no\ ==\ NULL)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ *bit\_no\ =\ BIT(timer\_hook\_id);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \textcolor{keywordflow}{return}\ sys\_irqsetpolicy(\mbox{\hyperlink{group__i8254_ga30bf84c312af248cb81bb224e09f9ba8}{TIMER0\_IRQ}},\ IRQ\_REENABLE,\ \&timer\_hook\_id);}
+\DoxyCodeLine{00063\ \}}
+
+\end{DoxyCode}
+\Hypertarget{group__Timer_gab9eea51549744bca5c5c923b388bb4ee}\index{Timer@{Timer}!timer\_unsubscribe\_int@{timer\_unsubscribe\_int}}
+\index{timer\_unsubscribe\_int@{timer\_unsubscribe\_int}!Timer@{Timer}}
+\doxysubsubsection{\texorpdfstring{timer\_unsubscribe\_int()}{timer\_unsubscribe\_int()}}
+{\footnotesize\ttfamily \label{group__Timer_gab9eea51549744bca5c5c923b388bb4ee} 
+int timer\+\_\+unsubscribe\+\_\+int (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Unsubscribes from timer interrupts. 
+
+\begin{DoxyReturn}{Returns}
+int Returns 0 upon success and 1 upon failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{timer_8c_source_l00071}{71}} of file \mbox{\hyperlink{timer_8c_source}{timer.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00072\ \ \ \textcolor{keywordflow}{return}\ sys\_irqrmpolicy(\&timer\_hook\_id);}
+\DoxyCodeLine{00073\ \}}
+
+\end{DoxyCode}

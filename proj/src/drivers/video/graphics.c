@@ -3,6 +3,10 @@
 extern uint8_t page_state;
 extern uint16_t resolution;
 
+/**
+ * @defgroup Graphics Graphics
+ * 
+ */
 uint8_t *video_mem;
 uint8_t *front_buffer;
 uint8_t *back_buffer;
@@ -13,6 +17,7 @@ unsigned int vram_size;
 int buffer = 0;
 
 /*!
+ * @ingroup Graphics Graphics
  * @brief Normalizes a color value based on the bits per pixel.
  * 
  * @param color The color value to normalize.
@@ -29,6 +34,7 @@ int(normalize_color)(uint32_t color, uint32_t *normalized_color) {
 }
 
 /*!
+ * @ingroup Graphics Graphics
  * @brief Sets the graphics mode.
  * 
  * @param mode The graphics mode to set.
@@ -52,6 +58,7 @@ int(vg_set_graphics_mode)(uint16_t mode) {
 }
 
 /*!
+ * @ingroup Graphics Graphics
  * @brief Sets the text mode.
  * 
  * @param mode The text mode to set.
@@ -75,6 +82,7 @@ int(vg_set_text_mode)(uint16_t mode) {
 }
 
 /*!
+ * @ingroup Graphics Graphics
  * @brief Maps the frame buffer for page flipping.
  * 
  * @param mode The graphics mode to set.
@@ -116,6 +124,7 @@ int(map_frame_buffer_page_flipping)(uint16_t mode) {
 }
 
 /*!
+ * @ingroup Graphics Graphics
  * @brief Maps the frame buffer for triple buffering.
  * 
  * @param mode The graphics mode to set.
@@ -158,6 +167,7 @@ int (map_frame_buffer_triple_buffering)(uint16_t mode) {
 }
 
 /*!
+ * @ingroup Graphics Graphics
  * @brief Draws a pixel on the screen.
  * 
  * @param x The x-coordinate of the pixel.
@@ -182,6 +192,7 @@ int(vg_draw_pixel)(uint16_t x, uint16_t y, uint32_t color) {
 }
 
 /*!
+ * @ingroup Graphics Graphics
  * @brief Clears the back buffer.
  * 
  * @return int Returns 0 upon success and 1 upon failure.
@@ -193,6 +204,7 @@ int (clear_back_buffer)() {
 }
 
 /*!
+ * @ingroup Graphics Graphics
  * @brief Sets the display start for page flipping.
  * 
  * @return int Returns 0 upon success and 1 upon failure.
@@ -224,6 +236,7 @@ int (set_display_start_page_flipping)() {
 }
 
 /*!
+ * @ingroup Graphics Graphics
  * @brief Sets the display start for triple buffering.
  * 
  * @return int Returns 0 upon success and 1 upon failure.
@@ -264,6 +277,7 @@ int (set_display_start_triple_buffering)() {
 }
 
 /*!
+ * @ingroup Graphics Graphics
  * @brief Swaps the front and back buffers.
  * 
  * @return int Returns 0 upon success and 1 upon failure.
@@ -287,6 +301,7 @@ int (swap_buffers)() {
 }
 
 /*!
+ * @ingroup Graphics Graphics
  * @brief Changes the screen resolution.
  * 
  * @param res The new resolution to set.
@@ -333,6 +348,7 @@ int (change_resolution)(int res) {
 }
 
 /*!
+ * @ingroup Graphics Graphics
  * @brief Unmaps the frame buffer.
  * 
  * @return int Returns 0 upon success and 1 upon failure.
@@ -371,6 +387,7 @@ int unmap_frame_buffer() {
 }
 
 /*!
+ * @ingroup Graphics Graphics
  * @brief Copies the buffers for triple buffering.
  * 
  * @return int Returns 0 upon success and 1 upon failure.
@@ -397,6 +414,7 @@ int (triple_copy)() {
 }
 
 /*!
+ * @ingroup Graphics Graphics
  * @brief Maps the frame buffer based on the resolution.
  * 
  * @param res The resolution to set.
@@ -421,6 +439,7 @@ int (map_frame_buffer)(int res) {
 }
 
 /*!
+ * @ingroup Graphics Graphics
  * @brief Manages the buffering method based on the resolution.
  * 
  * @return int Returns 0 upon success and 1 upon failure.
@@ -444,6 +463,7 @@ int (buffering_method)() {
 }
 
 /*!
+ * @ingroup Graphics Graphics
  * @brief Waits until the last scheduled change has occured 
  * 
  * @return int Returns 0 upon success and 1 upon failure.

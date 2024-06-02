@@ -1,5 +1,21 @@
 #include "help.h"
+/**
+ * @defgroup Help Help
+ * 
+ */
 
+
+/**
+ * @ingroup Help Help
+ * @brief Provides help information for available commands.
+ *
+ * This function displays a list of available commands with their general descriptions.
+ * If a specific command is provided as an argument, detailed information about that command is displayed.
+ *
+ * @param args An array of strings representing the command arguments. The first argument
+ *             can be the name of the command to get detailed information about. If no command name
+ *             is provided, a list of all available commands with their general descriptions will be displayed.
+ */
 void help(char *args[]) {
   if (args[0] == NULL) {
     printf("\nAvailable commands:\n");

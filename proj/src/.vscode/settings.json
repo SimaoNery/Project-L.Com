@@ -14,6 +14,7 @@
     "*.xpm": "c",
     "serial_port_handler.h": "c",
     "mouse.h": "c",
-    "lights.h": "c"
+    "lights.h": "c",
+    "real_time_clock.h": "c"
   },
 }

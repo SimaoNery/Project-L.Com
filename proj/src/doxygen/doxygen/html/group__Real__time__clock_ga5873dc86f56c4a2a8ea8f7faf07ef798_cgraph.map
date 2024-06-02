@@ -1,0 +1,7 @@
+<map id="rtc_is_binary" name="rtc_is_binary">
+<area shape="rect" id="Node000001" title="Checks if the RTC is in binary mode." alt="" coords="5,5,101,31"/>
+<area shape="rect" id="Node000002" href="$group__Real__time__clock.html#ga432373ee35ebe371ba9117440aee1120" title="Retrieves the configuration from a specified RTC register." alt="" coords="149,5,252,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="101,16,133,16,133,21,101,21"/>
+<area shape="rect" id="Node000003" href="$group__Utils.html#ga2b56f50ba159e9d5115ed1a75eff15d9" title="Reads a byte from the specified port and store it in uint8_t variable." alt="" coords="300,5,390,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="253,16,284,16,284,21,253,21"/>
+</map>

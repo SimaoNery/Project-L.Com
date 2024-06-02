@@ -167,12 +167,7 @@ int(draw_housePlant_buttons)() {
     printf("Error: Problems occurred trying to draw -adjustFanPower- sprite! \n");
     return 1;
   };
-
-  if (draw_sprite(cam) != 0) {
-    printf("Error: Problems occurred trying to draw -cam- sprite! \n");
-    return 1;
-  };
-
+  
   if (draw_sprite(db) != 0) {
     printf("Error: Problems occurred trying to draw -db- sprite! \n");
     return 1;

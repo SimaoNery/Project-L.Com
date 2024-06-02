@@ -102,11 +102,6 @@ int (destroy_all_sprites)() {
         return 1;
     }
 
-    if(destroy_sprite(cam) != 0) {
-        printf("Error: problems occured while trying to destroy -cam- sprite! \n");
-        return 1;
-    }
-
     if(destroy_sprite(db) != 0) {
         printf("Error: problems occured while trying to destroy -db- sprite! \n");
         return 1;
@@ -294,12 +289,6 @@ int (load_sprites_1152x864)() {
         return 1;
     }
 
-    cam = create_sprite((xpm_map_t)cam_1152_864_xpm, 608, 652);
-    if(cam == NULL) {
-        printf("Error: Problems occured while trying to load -cam- sprite! \n");
-        return 1;
-    }
-
     db = create_sprite((xpm_map_t)db_1152_864_xpm, 0, 0);
     if(db == NULL) {
         printf("Error: Problems occured while trying to load -db- sprite! \n");
@@ -316,21 +305,21 @@ int (load_sprites_1152x864)() {
     if(fan == NULL) {
         printf("Error: Problems occured while trying to load -fan- sprite! \n");
         return 1;
-    }
+    }   
 
-    horn1 = create_sprite((xpm_map_t)horn_1152_864_xpm, 577, 655);
+    horn1 = create_sprite((xpm_map_t)horn_1152_864_xpm, 577, 647);
     if(horn1 == NULL) {
         printf("Error: Problems occured while trying to load -horn1- sprite! \n");
         return 1;
     }
 
-    horn2 = create_sprite((xpm_map_t)horn_1152_864_xpm, 637, 655);
+    horn2 = create_sprite((xpm_map_t)horn_1152_864_xpm, 637, 647);
     if(horn2 == NULL) {
         printf("Error: Problems occured while trying to load -horn2- sprite! \n");
         return 1;
     }    
 
-    humidity_and_temperature = create_sprite((xpm_map_t)humidity_and_temperature_1152_864_xpm, 216, 392);
+    humidity_and_temperature = create_sprite((xpm_map_t)humidity_and_temperature_1152_864_xpm, 216, 390);
     if(humidity_and_temperature == NULL) {
         printf("Error: Problems occured while trying to load -humidity_and_temperature- sprite! \n");
         return 1;
@@ -342,25 +331,25 @@ int (load_sprites_1152x864)() {
         return 1;
     }
 
-    light_horizontal2 = create_sprite((xpm_map_t)light_1152_864_xpm, 463, 264);
+    light_horizontal2 = create_sprite((xpm_map_t)light_1152_864_xpm, 430, 264);
     if(light_horizontal2 == NULL) {
         printf("Error: Problems occured while trying to load -lightHorizontal2- sprite! \n");
         return 1;
     }
 
-    light_vertical1 = create_sprite((xpm_map_t)light_vertical_1152_864_xpm, 153, 569);
+    light_vertical1 = create_sprite((xpm_map_t)light_vertical_1152_864_xpm, 120, 569);
     if(light_vertical1 == NULL) {
         printf("Error: Problems occured while trying to load -lightVertical1- sprite! \n");
         return 1;
     }
 
-    light_vertical2 = create_sprite((xpm_map_t)light_vertical_1152_864_xpm, 352, 569);
+    light_vertical2 = create_sprite((xpm_map_t)light_vertical_1152_864_xpm, 361, 569);
     if(light_vertical2 == NULL) {
         printf("Error: Problems occured while trying to load -lightVertical2- sprite! \n");
         return 1;
     }
 
-    light_vertical3 = create_sprite((xpm_map_t)light_vertical_1152_864_xpm, 703, 367);
+    light_vertical3 = create_sprite((xpm_map_t)light_vertical_1152_864_xpm, 675, 367);
     if(light_vertical3 == NULL) {
         printf("Error: Problems occured while trying to load -lightVertical3- sprite! \n");
         return 1;
@@ -378,7 +367,7 @@ int (load_sprites_1152x864)() {
         return 1;
     }
 
-    read_sound_intensity = create_sprite((xpm_map_t)read_sound_intensity_1152_864_xpm, 851, 679);
+    read_sound_intensity = create_sprite((xpm_map_t)read_sound_intensity_1152_864_xpm, 855, 679);
     if(read_sound_intensity == NULL) {
         printf("Error: Problems occured while trying to load -read_sound_intensity- sprite! \n");
         return 1;
@@ -390,7 +379,7 @@ int (load_sprites_1152x864)() {
         return 1;
     }
 
-    sound_intensity= create_sprite((xpm_map_t)sound_intensity_1152_864_xpm, 249, 436);
+    sound_intensity= create_sprite((xpm_map_t)sound_intensity_1152_864_xpm, 242, 427);
     if(sound_intensity == NULL) {
         printf("Error: Problems occured while trying to load -sound_intensity- sprite! \n");
         return 1;
@@ -485,12 +474,6 @@ int (load_sprites_800x600)() {
         return 1;
     }
 
-    cam = create_sprite((xpm_map_t)cam_800_600_xpm, 422, 450);
-    if(cam == NULL) {
-        printf("Error: Problems occured while trying to load -cam- sprite! \n");
-        return 1;
-    }
-
     db = create_sprite((xpm_map_t)db_800_600_xpm, 0, 0);
     if(db == NULL) {
         printf("Error: Problems occured while trying to load -db- sprite! \n");
@@ -581,7 +564,7 @@ int (load_sprites_800x600)() {
         return 1;
     }
 
-    sound_intensity= create_sprite((xpm_map_t)sound_intensity_800_600_xpm, 170, 298);
+    sound_intensity= create_sprite((xpm_map_t)sound_intensity_800_600_xpm, 170, 299);
     if(sound_intensity == NULL) {
         printf("Error: Problems occured while trying to load -sound_intensity- sprite! \n");
         return 1;

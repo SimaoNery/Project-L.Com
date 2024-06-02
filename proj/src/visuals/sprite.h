@@ -97,7 +97,6 @@ Sprite *backArrow;
 
 //HousePlant Buttons
 Sprite *adjustFanPower;
-Sprite *cam;
 Sprite *db;
 Sprite *degrees_celcius;
 Sprite *fan;

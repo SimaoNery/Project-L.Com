@@ -15,7 +15,6 @@ extern Sprite *backArrow;
 extern Sprite *housePlant;
 
 extern Sprite *adjustFanPower;
-extern Sprite *cam;
 extern Sprite *db;
 extern Sprite *degrees_celcius;
 extern Sprite *fan;
@@ -103,9 +102,6 @@ void mouse_house_plant_handler() {
   if (mouse_packet.x >= adjustFanPower->x && mouse_packet.x <= adjustFanPower->x + adjustFanPower->width && mouse_packet.y >= adjustFanPower->y && mouse_packet.y <= adjustFanPower->y + adjustFanPower->height)  {
     adjustFanPower->hover = true;
   }
-  else if (mouse_packet.x >= cam->x && mouse_packet.x <= cam->x + cam->width && mouse_packet.y >= cam->y && mouse_packet.y <= cam->y + cam->height)  {
-    cam->hover = true;
-  }
   else if (mouse_packet.x >= db->x && mouse_packet.x <= db->x + db->width && mouse_packet.y >= db->y && mouse_packet.y <= db->y + db->height)  {
     db->hover = true;
   }
@@ -161,7 +157,6 @@ void mouse_house_plant_handler() {
 
   else {
     adjustFanPower->hover = false;
-    cam->hover = false;
     db->hover = false;
     degrees_celcius->hover = false;
     fan->hover = false;

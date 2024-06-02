@@ -57,8 +57,6 @@ int(vg_set_text_mode)(uint16_t mode) {
 }
 
 int(map_frame_buffer_page_flipping)(uint16_t mode) {
-  printf("GOT CALLED 1111111 \n");
-
   memset(&vmi_p, 0, sizeof(vmi_p));
 
   int attempts = 10;
@@ -90,17 +88,10 @@ int(map_frame_buffer_page_flipping)(uint16_t mode) {
   front_buffer = video_mem;
   back_buffer = video_mem + vram_size;
 
-  printf("Video Mem Address: %p, Size: %u bytes\n", (void*)video_mem, vram_size);
-  printf("Front Buffer Address: %p, Size: %u bytes\n", (void*)front_buffer, vram_size);
-  printf("Back Buffer Address: %p, Size: %u bytes\n", (void*)back_buffer, vram_size);
-  printf("Extra Buffer Address: %p, Size: %u bytes\n", (void*)extra_buffer, vram_size);
-
   return 0;
 }
 
 int (map_frame_buffer_triple_buffering)(uint16_t mode) {
-  printf("GOT CALLED TRIPLEEEE \n");
-
   memset(&vmi_p, 0, sizeof(vmi_p));
 
   int attempts = 10;
@@ -132,11 +123,6 @@ int (map_frame_buffer_triple_buffering)(uint16_t mode) {
   front_buffer = video_mem;
   back_buffer = video_mem + vram_size;
   extra_buffer = video_mem + 2 * vram_size; 
-
-  printf("Video Mem Address: %p, Size: %u bytes\n", (void*)video_mem, vram_size);
-  printf("Front Buffer Address: %p, Size: %u bytes\n", (void*)front_buffer, vram_size);
-  printf("Back Buffer Address: %p, Size: %u bytes\n", (void*)back_buffer, vram_size);
-  printf("Extra Buffer Address: %p, Size: %u bytes\n", (void*)extra_buffer, vram_size);
 
   return 0;
 }

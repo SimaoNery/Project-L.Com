@@ -19,7 +19,7 @@ PROG=proj
 
 
 # source code files to be compiled 
-SRCS = 	utils.c timer.c KBC.c keyboard.c mouse.c graphics.c draw.c sprite.c project.c main.c real_time_clock.c timer_handler.c keyboard_handler.c mouse_handler.c real_time_clock_handler.c command_line.c lights.c queue.c serial.c
+SRCS =     utils.c timer.c KBC.c keyboard.c mouse.c graphics.c draw.c sprite.c project.c main.c real_time_clock.c timer_handler.c keyboard_handler.c mouse_handler.c real_time_clock_handler.c command_line.c lights.c queue.c serial.c serial_port_handler.c fan.c house_state.c display_text.c horns.c help.c
 
 # additional compilation flags
 # "-Wall -Wextra -Werror -I . -std=c11 -Wno-unused-parameter" are already set

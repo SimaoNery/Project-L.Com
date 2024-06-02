@@ -87,6 +87,9 @@ int draw_resolution() {
 
 int draw_house_plant() {
 
+  send_serial_port_msg(BIT(7));
+  send_serial_port_msg(0xA0)); //1010 0000
+
   if(draw_sprite(housePlant) != 0) {
      printf("Error: Problems occured while trying to draw -housePlantPage- sprite! \n");
     return 1;
@@ -167,12 +170,7 @@ int(draw_housePlant_buttons)() {
     printf("Error: Problems occurred trying to draw -adjustFanPower- sprite! \n");
     return 1;
   };
-
-  if (draw_sprite(cam) != 0) {
-    printf("Error: Problems occurred trying to draw -cam- sprite! \n");
-    return 1;
-  };
-
+  
   if (draw_sprite(db) != 0) {
     printf("Error: Problems occurred trying to draw -db- sprite! \n");
     return 1;

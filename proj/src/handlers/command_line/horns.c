@@ -1,35 +1,27 @@
-#include "lights.h"
+#include "horns.h"
 
-uint8_t command = 0;
+uint8_t command_horns = HORN_ID;
 
-uint32_t lights_counter[5] = {0};
-bool count_time[5] = {false};
+uint32_t horns_counter[2] = {0};
+bool count_time_horns[2] = {false};
 
-uint32_t blink_counter[5] = {0};
-bool blink_time[5] = {false};
+uint32_t blink_counter_horns[2] = {0};
+bool blink_time_horns[2] = {false};
 
-/*!
- * @brief Turns on specified lights based on the provided arguments.
- * 
- * This function parses the arguments to determine which lights to turn on, whether to set a timer, or to enable blinking.
- * It updates the command variable and associated counters for timing and blinking, then sends a message to the serial port.
- * 
- * @param args Array of arguments specifying which lights to turn on and optional timers or blinking periods.
- */
-void lights_on(char *args[]) {
+void horns_on(char *args[]) {
 
   uint8_t command_aux = 0;
 
-  uint32_t lights_counter_aux[5] = {0};
-  bool count_time_aux[5] = {false};
+  uint32_t horns_counter_aux[2] = {0};
+  bool count_time_horns_aux[2] = {false};
 
-  uint32_t blink_counter_aux[5] = {0};
-  bool blink_time_aux[5] = {false};
+  uint32_t blink_counter_horns_aux[2] = {0};
+  bool blink_time_horns_aux[2] = {false};
 
-  uint8_t lights[] = {LIGHT_1, LIGHT_2, LIGHT_3, LIGHT_4, LIGHT_5};
+  uint8_t lights[] = {HORN_1, HORN_2};
 
   if (args[0] == NULL) {
-    command_aux |= LIGHT_5 | LIGHT_4 | LIGHT_3 | LIGHT_2 | LIGHT_1;
+    command_aux |= HORN_2 | HORN_1;
   }
 
   bool parsing_args = true;
@@ -44,7 +36,7 @@ void lights_on(char *args[]) {
       if (strcmp(args[i], "-t") == 0) {
 
         if (i == 0)
-          command_aux |= LIGHT_5 | LIGHT_4 | LIGHT_3 | LIGHT_2 | LIGHT_1;
+          command_aux |= HORN_2 | HORN_1;
 
         parsing_args = false;
         parsing_lights = false;
@@ -53,7 +45,7 @@ void lights_on(char *args[]) {
       } else if (strcmp(args[i], "-p") == 0) {
 
         if (i == 0)
-          command_aux &= LIGHT_4 | LIGHT_3 | LIGHT_2 | LIGHT_1;
+          command_aux |= HORN_2 | HORN_1;
 
         parsing_args = false;
         parsing_lights = false;
@@ -61,22 +53,13 @@ void lights_on(char *args[]) {
 
       } else if (parsing_lights) {
         if (strcmp(args[i], "1") == 0) {
-          command_aux |= LIGHT_1;
+          command_aux |= HORN_1;
 
         } else if (strcmp(args[i], "2") == 0) {
-          command_aux |= LIGHT_2;
-
-        } else if (strcmp(args[i], "3") == 0) {
-          command_aux |= LIGHT_3;
-
-        } else if (strcmp(args[i], "4") == 0) {
-          command_aux |= LIGHT_4;
-
-        } else if (strcmp(args[i], "5") == 0) {
-          command_aux |= LIGHT_5;
+          command_aux |= HORN_2;
 
         } else {
-          printf("There is no such light: %s\n", args[i]);
+          printf("There is no such horn: %s\n", args[i]);
           return;
         }
       } else {
@@ -90,10 +73,10 @@ void lights_on(char *args[]) {
       if (time > 0) {
         if ((strcmp(string_part, "s") == 0) || (strlen(string_part) == 0)) {
           if (time <= 86400) {
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < 2; i++) {
               if (command_aux & lights[i]) {
-                lights_counter_aux[i] = time;
-                count_time_aux[i] = true;
+                horns_counter_aux[i] = time;
+                count_time_horns_aux[i] = true;
               }
             }
             parsing_time = false;
@@ -106,10 +89,10 @@ void lights_on(char *args[]) {
         } else if (strcmp(string_part, "m") == 0) {
           if (time <= 1440) {
             time *= 60;
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < 2; i++) {
               if (command_aux & lights[i]) {
-                lights_counter_aux[i] = time;
-                count_time_aux[i] = true;
+                horns_counter_aux[i] = time;
+                count_time_horns_aux[i] = true;
               }
             }
             parsing_time = false;
@@ -123,10 +106,10 @@ void lights_on(char *args[]) {
         } else if (strcmp(string_part, "h") == 0) {
           if (time <= 24) {
             time *= 3600;
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < 2; i++) {
               if (command_aux & lights[i]) {
-                lights_counter_aux[i] = time;
-                count_time_aux[i] = true;
+                horns_counter_aux[i] = time;
+                count_time_horns_aux[i] = true;
               }
             }
             parsing_time = false;
@@ -157,10 +140,10 @@ void lights_on(char *args[]) {
       if (time > 0) {
         if ((strcmp(string_part, "s") == 0) || (strlen(string_part) == 0)) {
           if (time <= 300) {
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < 2; i++) {
               if (command_aux & lights[i]) {
-                blink_counter_aux[i] = time;
-                blink_time_aux[i] = true;
+                blink_counter_horns_aux[i] = time;
+                blink_time_horns_aux[i] = true;
               }
             }
 
@@ -175,10 +158,10 @@ void lights_on(char *args[]) {
 
           if (time <= 5) {
             time *= 60;
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < 2; i++) {
               if (command_aux & lights[i]) {
-                blink_counter_aux[i] = time;
-                blink_time_aux[i] = true;
+                blink_counter_horns_aux[i] = time;
+                blink_time_horns_aux[i] = true;
               }
             }
 
@@ -204,86 +187,62 @@ void lights_on(char *args[]) {
       }
     }
   }
-  command |= command_aux;
-  send_serial_port_msg(command);
+  command_horns |= command_aux;
+  send_serial_port_msg(command_horns);
 
-  for (int i = 0; i < 5; i++) {
-    if (count_time_aux[i]) {
-      count_time[i] = true;
-      lights_counter[i] = lights_counter_aux[i];
+  for (int i = 0; i < 2; i++) {
+    if (count_time_horns_aux[i]) {
+      count_time_horns[i] = true;
+      horns_counter[i] = horns_counter_aux[i];
     }
 
-    if (blink_time_aux[i]) {
-      blink_time[i] = true;
-      blink_counter[i] = blink_counter_aux[i];
+    if (blink_time_horns_aux[i]) {
+      blink_time_horns[i] = true;
+      blink_counter_horns[i] = blink_counter_horns_aux[i];
     }
   }
 }
 
-/*!
- * @brief Turns off specified lights based on the provided arguments.
- * 
- * This function parses the arguments to determine which lights to turn off.
- * It updates the command variable and resets the counters for the lights being turned off, then sends a message to the serial port.
- * 
- * @param args Array of arguments specifying which lights to turn off.
- */
-void lights_off(char *args[]) {
+void horns_off(char *args[]) {
 
-  uint8_t command_aux = command;
+  uint8_t command_aux = command_horns;
 
-  bool turn_off[5] = {false};
+  bool turn_off[2] = {false};
 
   if (args[0] == NULL) {
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 2; i++) {
       turn_off[i] = true;
     }
-    command_aux = 0;
+    command_aux = HORN_ID;
   }
 
   for (int i = 0; args[i] != NULL; i++) {
     if (strcmp(args[i], "1") == 0) {
       turn_off[i] = true;
 
-      command_aux &= ~(LIGHT_1);
+      command_aux &= ~(HORN_1);
 
     } else if (strcmp(args[i], "2") == 0) {
 
       turn_off[i] = true;
 
-      command_aux &= ~(LIGHT_2);
-
-    } else if (strcmp(args[i], "3") == 0) {
-
-      turn_off[i] = true;
-
-      command_aux &= ~(LIGHT_3);
-
-    } else if (strcmp(args[i], "4") == 0) {
-
-      turn_off[i] = true;
-
-    } else if (strcmp(args[i], "5") == 0) {
-
-      turn_off[i] = true;
-
-      command_aux &= ~(LIGHT_5);
+      command_aux &= ~(HORN_2);
 
     } else {
-      printf("There is no such light: %s\n", args[i]);
+      printf("There is no such horn: %s\n", args[i]);
       return;
     }
   }
 
-  for (int i = 0; i < 5; i++) {
+  for (int i = 0; i < 2; i++) {
     if (turn_off[i]) {
-      count_time[i] = false;
-      lights_counter[i] = 0;
-      blink_time[i] = false;
-      blink_counter[i] = 0;
+      count_time_horns[i] = false;
+      horns_counter[i] = 0;
+      blink_time_horns[i] = false;
+      blink_counter_horns[i] = 0;
     }
   }
 
-  command = command_aux;
-  send_serial_port_msg(command);
+  command_horns = command_aux;
+  send_serial_port_msg(command_horns);
 }

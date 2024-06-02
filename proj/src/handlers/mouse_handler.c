@@ -15,7 +15,6 @@ extern Sprite *backArrow;
 extern Sprite *housePlant;
 
 extern Sprite *adjustFanPower;
-extern Sprite *cam;
 extern Sprite *db;
 extern Sprite *degrees_celcius;
 extern Sprite *fan;
@@ -103,11 +102,16 @@ void mouse_control_shell_handler () {
   parse_bytes_to_packet();
 }
 
+<<<<<<< HEAD
 /*!
  * @brief Handles mouse input for the house plant section.
  * 
  * This function processes mouse packets, updates the cursor position, and checks for button hovers and clicks.
  */
+=======
+
+
+>>>>>>> refs/remotes/origin/Project
 void mouse_house_plant_handler() {
   mouse_ih();
   if(packet_number == 3) {
@@ -118,24 +122,56 @@ void mouse_house_plant_handler() {
 
   if (mouse_packet.x >= adjustFanPower->x && mouse_packet.x <= adjustFanPower->x + adjustFanPower->width && mouse_packet.y >= adjustFanPower->y && mouse_packet.y <= adjustFanPower->y + adjustFanPower->height)  {
     adjustFanPower->hover = true;
-  }
-  else if (mouse_packet.x >= cam->x && mouse_packet.x <= cam->x + cam->width && mouse_packet.y >= cam->y && mouse_packet.y <= cam->y + cam->height)  {
-    cam->hover = true;
-  }
-  else if (mouse_packet.x >= db->x && mouse_packet.x <= db->x + db->width && mouse_packet.y >= db->y && mouse_packet.y <= db->y + db->height)  {
-    db->hover = true;
-  }
-  else if (mouse_packet.x >= degrees_celcius->x && mouse_packet.x <= degrees_celcius->x + degrees_celcius->width && mouse_packet.y >= degrees_celcius->y && mouse_packet.y <= degrees_celcius->y + degrees_celcius->height)  {
-    degrees_celcius->hover = true;
+    
   }
   else if (mouse_packet.x >= fan->x && mouse_packet.x <= fan->x + fan->width && mouse_packet.y >= fan->y && mouse_packet.y <= fan->y + fan->height)  {
-    fan->hover = true;
+    if (mouse_packet.left_button) {
+      if (db->hover) {
+        db->hover = false;
+        send_serial_port_msg(0x70);
+      } else {
+        db->hover = false;
+        send_serial_port_msg(0x7F);
+      }
+    }
   }
   else if (mouse_packet.x >= horn1->x && mouse_packet.x <= horn1->x + horn1->width && mouse_packet.y >= horn1->y && mouse_packet.y <= horn1->y + horn1->height)  {
-    horn1->hover = true;
+    if (mouse_packet.left_button) {
+      if (horn1->hover) {
+        horn1->hover = false;
+        if (horn2->hover) {
+          send_serial_port_msg(0x22);
+        } else {
+          send_serial_port_msg(0x20);
+        }
+        
+      } else {
+        if (horn2->hover) {
+          send_serial_port_msg(0x23);
+        } else {
+          send_serial_port_msg(0x21);
+        }
+      }
+    }
   }
   else if (mouse_packet.x >= horn2->x && mouse_packet.x <= horn2->x + horn2->width && mouse_packet.y >= horn2->y && mouse_packet.y <= horn2->y + horn2->height)  {
-    horn2->hover = true;
+    if (mouse_packet.left_button) {
+      if (horn2->hover) {
+        horn2->hover = false;
+        if (horn1->hover) {
+          send_serial_port_msg(0x21);
+        } else {
+          send_serial_port_msg(0x20);
+        }
+
+      } else {
+        if (horn1->hover) {
+          send_serial_port_msg(0x23);
+        } else {
+          send_serial_port_msg(0x22);
+        }
+      }
+    }
   }
   else if (mouse_packet.x >= humidity_and_temperature->x && mouse_packet.x <= humidity_and_temperature->x + humidity_and_temperature->width && mouse_packet.y >= humidity_and_temperature->y && mouse_packet.y <= humidity_and_temperature->y + humidity_and_temperature->height)  {
     humidity_and_temperature->hover = true;
@@ -167,9 +203,6 @@ void mouse_house_plant_handler() {
   else if (mouse_packet.x >= read_temperature->x && mouse_packet.x <= read_temperature->x + read_temperature->width && mouse_packet.y >= read_temperature->y && mouse_packet.y <= read_temperature->y + read_temperature->height)  {
     read_temperature->hover = true;
   }
-  else if (mouse_packet.x >= sound_intensity->x && mouse_packet.x <= sound_intensity->x + sound_intensity->width && mouse_packet.y >= sound_intensity->y && mouse_packet.y <= sound_intensity->y + sound_intensity->height)  {
-    sound_intensity->hover = true;
-  }
 
   else if (mouse_packet.x >= backArrow->x && mouse_packet.x <= backArrow->x + bigResolutionButton->width && mouse_packet.y >= backArrow->y && mouse_packet.y <= backArrow->y + backArrow->height)  {
     if (mouse_packet.left_button) page_state = MAIN_MENU;
@@ -177,7 +210,6 @@ void mouse_house_plant_handler() {
 
   else {
     adjustFanPower->hover = false;
-    cam->hover = false;
     db->hover = false;
     degrees_celcius->hover = false;
     fan->hover = false;

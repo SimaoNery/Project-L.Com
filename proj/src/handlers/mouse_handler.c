@@ -30,7 +30,7 @@ extern Sprite *percentage;
 extern Sprite *read_humidity;
 extern Sprite *read_sound_intensity;
 extern Sprite *read_temperature;
-extern Sprite *sound_intensity;
+extern Sprite *sound_int;
 
 
 void mouse_main_menu_handler () {
@@ -89,7 +89,9 @@ void mouse_main_menu_handler () {
 
 void mouse_control_shell_handler () {
   mouse_ih();
-  parse_bytes_to_packet();
+  if(packet_number == 3) {
+     parse_bytes_to_packet();
+  }
 }
 
 
@@ -207,7 +209,7 @@ void mouse_house_plant_handler() {
     read_humidity->hover = false;
     read_sound_intensity->hover = false;
     read_temperature->hover = false;
-    sound_intensity->hover = false;
+    sound_int->hover = false;
   }
 
   packet_number = 0;

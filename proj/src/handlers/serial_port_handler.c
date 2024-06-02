@@ -9,7 +9,6 @@ int counter_serial_port = 0;
 
 extern bool lock;
 
-<<<<<<< HEAD
 void serial_port_main_menu_handler() {}
 
 void serial_port_control_shell_handler() {
@@ -24,9 +23,6 @@ void serial_port_control_shell_handler() {
     }
     serial_port_clear_int();
   }
-=======
-void serial_port_settings_handler () {}
->>>>>>> refs/remotes/origin/Project
 
   if (asking_for_sound) {
     pop(get_queue(), &sound_intensity[counter_serial_port++]);
@@ -40,10 +36,30 @@ void serial_port_settings_handler () {}
   }
 }
 
-void serial_port_house_plant_handler() {}
+void serial_port_house_plant_handler() {
+  serial_port_int_handler();
+  if (asking_for_humidity_and_temp) {
+    pop(get_queue(), &humidity_temp[counter_serial_port++]);
+    if (counter_serial_port == 4) {
+      counter_serial_port = 0;
+      asking_for_humidity_and_temp = false;
+    }
+    serial_port_clear_int();
+  }
+
+  if (asking_for_sound) {
+    pop(get_queue(), &sound_intensity[counter_serial_port++]);
+    if (counter_serial_port == 2) {
+      counter_serial_port = 0;
+      asking_for_sound = false;
+    }
+    serial_port_clear_int();
+  }
+}
 
 void serial_port_security_camera_handler() {}
 
 void serial_port_settings_handler() {}
 
 void serial_port_help_handler() {}
+

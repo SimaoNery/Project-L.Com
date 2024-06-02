@@ -32,6 +32,18 @@
 #include "xpm_files/RES_800_600/house_plant-buttons/degrees_celsius_800_600.xpm"
 #include "xpm_files/RES_800_600/house_plant-buttons/percentage_800_600.xpm"
 #include "xpm_files/RES_800_600/house_plant-buttons/db_800_600.xpm"
+#include "xpm_files/RES_800_600/time/colon_800_600.xpm"
+#include "xpm_files/RES_800_600/time/slash_800_600.xpm"
+#include "xpm_files/RES_800_600/time/zero_800_600.xpm"
+#include "xpm_files/RES_800_600/time/one_800_600.xpm"
+#include "xpm_files/RES_800_600/time/two_800_600.xpm"
+#include "xpm_files/RES_800_600/time/three_800_600.xpm"
+#include "xpm_files/RES_800_600/time/four_800_600.xpm"
+#include "xpm_files/RES_800_600/time/five_800_600.xpm"
+#include "xpm_files/RES_800_600/time/six_800_600.xpm"
+#include "xpm_files/RES_800_600/time/seven_800_600.xpm"
+#include "xpm_files/RES_800_600/time/eight_800_600.xpm"
+#include "xpm_files/RES_800_600/time/nine_800_600.xpm"
 
 
 #include "xpm_files/RES_1152_864/main_menu_1152_864.xpm"
@@ -61,6 +73,19 @@
 #include "xpm_files/RES_1152_864/house_plant_buttons/read_sound_intensity_1152_864.xpm"
 #include "xpm_files/RES_1152_864/house_plant_buttons/read_temperature_1152_864.xpm"
 #include "xpm_files/RES_1152_864/house_plant_buttons/sound_intensity_1152_864.xpm"
+#include "xpm_files/RES_1152_864/time/colon_1152_864.xpm"
+#include "xpm_files/RES_1152_864/time/slash_1152_864.xpm"
+#include "xpm_files/RES_1152_864/time/zero_1152_864.xpm"
+#include "xpm_files/RES_1152_864/time/one_1152_864.xpm"
+#include "xpm_files/RES_1152_864/time/two_1152_864.xpm"
+#include "xpm_files/RES_1152_864/time/three_1152_864.xpm"
+#include "xpm_files/RES_1152_864/time/four_1152_864.xpm"
+#include "xpm_files/RES_1152_864/time/five_1152_864.xpm"
+#include "xpm_files/RES_1152_864/time/six_1152_864.xpm"
+#include "xpm_files/RES_1152_864/time/seven_1152_864.xpm"
+#include "xpm_files/RES_1152_864/time/eight_1152_864.xpm"
+#include "xpm_files/RES_1152_864/time/nine_1152_864.xpm"
+
 
 #define TRANSPARENT_COLOR 4
 
@@ -112,7 +137,23 @@ Sprite *percentage;
 Sprite *read_humidity;
 Sprite *read_sound_intensity;
 Sprite *read_temperature;
-Sprite *sound_intensity;
+Sprite *sound_int;
+
+
+//time
+Sprite *colon;
+Sprite *slash;
+Sprite *zero;
+Sprite *one;
+Sprite *two;
+Sprite *three;
+Sprite *four;
+Sprite *five;
+Sprite *six;
+Sprite *seven;
+Sprite *eight;
+Sprite *nine;
+
 
 
 

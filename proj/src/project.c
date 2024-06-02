@@ -37,12 +37,12 @@ static const handler_t real_time_clock_handler[] = {
     {real_time_clock_help_handler}
 };
 
-/*static const handler_t serial_port_handler[] = {
+static const handler_t serial_port_handler[] = {
     {serial_port_main_menu_handler},
     {serial_port_house_plant_handler},
     {serial_port_settings_handler},
     {serial_port_help_handler}
-};*/
+};
 
 uint8_t irq_timer, irq_keyboard, irq_mouse, irq_real_time_clock, irq_serial_port;
 uint16_t resolution = RES_800_600;
@@ -50,7 +50,7 @@ bool running = true;
 uint8_t page_state = MAIN_MENU;
 
 int (project_start)() {
-
+    printf("TESTE \n");
     if(map_frame_buffer(resolution) != 0) {
       printf("Error: Problems occured while trying to map frame buffer! \n");
       return 1;
@@ -101,11 +101,15 @@ int (project_start)() {
         return 1;
     }
 
+      printf("TESTE \n");
+
     return 0;
 }
 
 int (project_loop)() {
   int r;
+
+  if(rtc_get_time() != 0) return 1;
 
   if(draw_page() != 0) {
     printf("Error: Problems occured while trying to draw the main menu! \n");
@@ -141,9 +145,9 @@ int (project_loop)() {
             real_time_clock_handler[page_state].handler();
           }
 
-          /*if (msg.m_notify.interrupts & irq_serial_port) {
+          if (msg.m_notify.interrupts & irq_serial_port) {
             serial_port_handler[page_state].handler(serial_port_handler);
-          }*/
+          }
          
         break;
       default:

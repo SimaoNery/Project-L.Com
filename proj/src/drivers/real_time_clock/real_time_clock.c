@@ -2,6 +2,7 @@
 
 int rtc_hook_id = 5;
 real_time_info time_info;
+uint8_t config_RTC;
 
 int rtc_get_config(uint8_t reg, uint8_t *config) {
     if (sys_outb(RTC_ADDR_REG, reg)) return 1;
@@ -69,18 +70,8 @@ int rtc_set_alarm(uint8_t hours, uint8_t minutes, uint8_t seconds) {
     return 0;
 }
 
-void handle_alarm_int() {}
-void handle_update_int() {}
-void handle_periodic_int() {}
-
 void rtc_ih() {
-    uint8_t config;
-
-    rtc_get_config(RTC_REG_C, &config);
-
-    if(config & RTC_AF) handle_alarm_int();
-    if(config & RTC_UF) handle_update_int();
-    if(config & RTC_PF) handle_periodic_int();
+    rtc_get_config(RTC_REG_C, &config_RTC);
 }
 
 

@@ -26,12 +26,10 @@ extern uint32_t blink_counter_horns[2];
 extern bool blink_time_horns[2];
 uint32_t counter_horns_b[2] = {0};
 
-void handle_alarm_int() {}
 void handle_update_int() {
   rtc_get_time();
   draw_date_time();
 }
-void handle_periodic_int() {}
 
 extern uint8_t config_RTC;
 int count_rtc = 0;
@@ -120,14 +118,8 @@ void timer_control_shell_handler() {
 
 void timer_house_plant_handler() {}
 
-<<<<<<< HEAD
-void timer_security_camera_handler() {}
 
 void timer_settings_handler() {}
-=======
-void timer_settings_handler () {}
-
-void timer_help_handler () {}
->>>>>>> refs/remotes/origin/Project
 
 void timer_help_handler() {}
+

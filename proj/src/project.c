@@ -49,6 +49,11 @@ uint16_t resolution = RES_800_600;
 bool running = true;
 uint8_t page_state = MAIN_MENU;
 
+/*!
+ * @brief Initializes the project by setting up graphics, loading sprites, and subscribing to interrupts.
+ * 
+ * @return int Returns 0 on success, 1 on failure.
+ */
 int (project_start)() {
 
     if(map_frame_buffer(resolution) != 0) {
@@ -104,6 +109,11 @@ int (project_start)() {
     return 0;
 }
 
+/*!
+ * @brief Main loop of the project, handling interrupts and drawing pages.
+ * 
+ * @return int Returns 0 on success, 1 on failure.
+ */
 int (project_loop)() {
   int r;
 
@@ -155,6 +165,11 @@ int (project_loop)() {
   return 0;
 }
 
+/*!
+ * @brief Cleans up the project by unsubscribing from interrupts and clearing resources.
+ * 
+ * @return int Returns 0 on success, 1 on failure.
+ */
 int (project_stop)() {
 
     if(timer_unsubscribe_int()) {

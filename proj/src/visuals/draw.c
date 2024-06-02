@@ -3,6 +3,14 @@
 extern uint8_t page_state;
 extern uint16_t resolution;
 
+
+/*!
+ * @brief Draws the current page based on the page state.
+ * 
+ * This function switches between different page states and calls the appropriate drawing functions.
+ * 
+ * @return int Returns 0 on success, 1 on failure.
+ */
 int draw_page() {
   switch (page_state) {
     case MAIN_MENU:
@@ -24,6 +32,13 @@ int draw_page() {
   return 0;
 }
 
+/*!
+ * @brief Draws the main menu page.
+ * 
+ * This function draws the main menu sprite, main buttons, and the mouse pointer.
+ * 
+ * @return int Returns 0 on success, 1 on failure.
+ */
 int draw_main_menu() {
   if (draw_sprite(mainMenu) != 0) {
     printf("Error: Problems occured while trying to draw -mainMenu- sprite! \n");
@@ -48,6 +63,13 @@ int draw_main_menu() {
   return 0;
 }
 
+/*!
+ * @brief Draws the control shell page.
+ * 
+ * This function exits the video graphics mode and prints the control shell welcome message.
+ * 
+ * @return int Returns 0 on success, 1 on failure.
+ */
 int draw_control_shell() {
   if (vg_exit() != 0) return 1;
 
@@ -61,6 +83,14 @@ int draw_display_message() {
   return 0;
 }
 
+/*!
+ * @brief Draws the resolution page.
+ * 
+ * This function draws the resolution page sprite, resolution buttons, and the mouse pointer.
+ * It also detects the buffering method.
+ * 
+ * @return int Returns 0 on success, 1 on failure.
+ */
 int draw_resolution() {
   if(draw_sprite(resolutionPage) != 0) {
     printf("Error: Problems occured while trying to draw -resolutionPage- sprite! \n");
@@ -85,10 +115,18 @@ int draw_resolution() {
   return 0;
 }
 
+/*!
+ * @brief Draws the house plant page.
+ * 
+ * This function sends serial port messages, draws the house plant sprite, house plant buttons, and the mouse pointer.
+ * It also detects the buffering method.
+ * 
+ * @return int Returns 0 on success, 1 on failure.
+ */
 int draw_house_plant() {
 
   send_serial_port_msg(BIT(7));
-  send_serial_port_msg(0xA0)); //1010 0000
+  send_serial_port_msg(0xA0);
 
   if(draw_sprite(housePlant) != 0) {
      printf("Error: Problems occured while trying to draw -housePlantPage- sprite! \n");
@@ -117,6 +155,13 @@ int draw_help() {
   return 0;
 }
 
+/*!
+ * @brief Draws the main menu buttons.
+ * 
+ * This function draws the control shell button, house plant button, exit button, help button, and resolution button.
+ * 
+ * @return int Returns 0 on success, 1 on failure.
+ */
 int draw_main_buttons() {
   if (draw_sprite(controlShellButton) != 0) {
     printf("Error: Problems occured trying to draw -controlShellButton- sprite! \n");
@@ -146,6 +191,13 @@ int draw_main_buttons() {
   return 0;
 }
 
+/*!
+ * @brief Draws the resolutions  buttons.
+ * 
+ * This function draws the resolutions buttons
+ * 
+ * @return int Returns 0 on success, 1 on failure.
+ */
 int (draw_resolution_buttons)() {
   if (draw_sprite(smallResolutionButton) != 0) {
     printf("Error: Problems occured trying to draw -smallResolutionButton- sprite! \n");
@@ -165,6 +217,14 @@ int (draw_resolution_buttons)() {
   return 0;
 }
 
+
+/*!
+ * @brief Draws the House Plant buttons.
+ * 
+ * This function draws the House Plant buttons
+ * 
+ * @return int Returns 0 on success, 1 on failure.
+ */
 int(draw_housePlant_buttons)() {
   if (draw_sprite(adjustFanPower) != 0) {
     printf("Error: Problems occurred trying to draw -adjustFanPower- sprite! \n");

@@ -1,5 +1,5 @@
-#ifndef _LIGHTS_H_
-#define _LIGHTS_H_
+#ifndef _DISPLAY_TEXT_H_
+#define _DISPLAY_TEXT_H_
 
 #include <lcom/lcf.h>
 #include <stdint.h>
@@ -8,7 +8,6 @@
 #include "CMD.h"
 #include "drivers/serial_port/serial.h"
 
-void lights_on(char *args[]);
-void lights_off(char *args[]);
+void display_text(char *args[]);
 
-#endif /*_LIGHTS_*/
+#endif /*_DISPLAY_TEXT_*/

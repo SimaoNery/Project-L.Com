@@ -304,7 +304,7 @@ int (load_sprites_1152x864)() {
         return 1;
     }
 
-    adjustFanPower = create_sprite((xpm_map_t)adjust_fan_power_button_1152_864_xpm, 798, 266);
+    adjustFanPower = create_sprite((xpm_map_t)adjust_fan_power_button_1152_864_xpm, 798, 265);
     if(adjustFanPower == NULL) {
         printf("Error: Problems occured while trying to load -adjustFanPower- sprite! \n");
         return 1;
@@ -346,7 +346,7 @@ int (load_sprites_1152x864)() {
         return 1;
     }    
 
-    humidity_and_temperature = create_sprite((xpm_map_t)humidity_and_temperature_1152_864_xpm, 216, 392);
+    humidity_and_temperature = create_sprite((xpm_map_t)humidity_and_temperature_1152_864_xpm, 212, 389);
     if(humidity_and_temperature == NULL) {
         printf("Error: Problems occured while trying to load -humidity_and_temperature- sprite! \n");
         return 1;
@@ -406,7 +406,7 @@ int (load_sprites_1152x864)() {
         return 1;
     }
 
-    sound_intensity= create_sprite((xpm_map_t)sound_intensity_1152_864_xpm, 249, 436);
+    sound_intensity= create_sprite((xpm_map_t)sound_intensity_1152_864_xpm, 242, 429);
     if(sound_intensity == NULL) {
         printf("Error: Problems occured while trying to load -sound_intensity- sprite! \n");
         return 1;

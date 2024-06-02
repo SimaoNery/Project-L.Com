@@ -1,5 +1,5 @@
-#ifndef _LIGHTS_H_
-#define _LIGHTS_H_
+#ifndef _HORNS_H_
+#define _HORNS_H_
 
 #include <lcom/lcf.h>
 #include <stdint.h>
@@ -8,7 +8,7 @@
 #include "CMD.h"
 #include "drivers/serial_port/serial.h"
 
-void lights_on(char *args[]);
-void lights_off(char *args[]);
+void horns_on(char *args[]);
+void horns_off(char *args[]);
 
-#endif /*_LIGHTS_*/
+#endif /*_HORNS_*/

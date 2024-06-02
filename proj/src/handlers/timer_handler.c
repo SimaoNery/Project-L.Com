@@ -1,5 +1,10 @@
 #include "timer_handler.h"
 
+/**
+ * @defgroup Timer_Handler Timer_Handler 
+ * 
+ */
+
 extern uint8_t command;
 
 extern uint32_t lights_counter[5];
@@ -28,7 +33,7 @@ uint32_t counter_horns_b[2] = {0};
 
 /*!
  * @brief Handles the update interrupt.
- * 
+ * @ingroup Timer_Handler Timer_Handler 
  * This function retrieves the current time from the RTC and updates the display.
  */
 void handle_update_int() {
@@ -41,7 +46,7 @@ int count_rtc = 0;
 
 /*!
  * @brief Handles timer interrupts for the main menu.
- * 
+ * @ingroup Timer_Handler Timer_Handler 
  * This function increments the RTC counter and updates the display every hour.
  */
 void timer_main_menu_handler() {
@@ -53,7 +58,7 @@ void timer_main_menu_handler() {
 
 /*!
  * @brief Handles timer interrupts for the control shell.
- * 
+ * @ingroup Timer_Handler Timer_Handler 
  * This function manages the countdown and blinking timers for lights, horns, and the fan.
  */
 void timer_control_shell_handler() {

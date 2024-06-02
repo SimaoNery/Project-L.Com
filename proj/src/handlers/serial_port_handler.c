@@ -1,5 +1,10 @@
 #include "serial_port_handler.h"
 
+/**
+ * @defgroup Serial_Port Serial_Port
+ * 
+ */
+
 extern bool asking_for_humidity_and_temp;
 extern bool asking_for_sound;
 
@@ -13,7 +18,7 @@ void serial_port_main_menu_handler() {}
 
 /*!
  * @brief Handles serial port input for the control shell.
- * 
+ * @ingroup Serial_Port Serial_Port
  * This function processes serial port interrupts and retrieves humidity and temperature data if requested.
  * It prints the humidity and temperature data once all data points are received.
  */
@@ -33,7 +38,7 @@ void serial_port_control_shell_handler() {
 
 /*!
  * @brief Handles serial port input for the settings menu.
- * 
+ * @ingroup Serial_Port Serial_Port
  * This function processes serial port interrupts and retrieves sound intensity data if requested.
  * It prints the sound intensity data once all data points are received.
  */

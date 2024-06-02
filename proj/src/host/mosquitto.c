@@ -1,10 +1,16 @@
 #include "mosquitto.h"
 
+/**
+ * @defgroup Mosquitto Mosquitto
+ * 
+ */
+
 struct mosquitto *mosq = NULL;
 int sockfd;
 
 /*!
  * @brief Structure to map device masks to MQTT topics.
+ * @ingroup Mosquitto Mosquitto
  */
 static const redirect_t redirect[] = {
   {LIGHT_MASK, LIGHT_TOPIC},
@@ -17,7 +23,7 @@ static const redirect_t redirect[] = {
 
 /*!
  * @brief Sends a message through the serial port.
- * 
+ * @ingroup Mosquitto Mosquitto
  * @param socketfd The file descriptor of the socket.
  * @param message The message to be sent.
  * @return int Returns 0 on success, 1 on failure.
@@ -33,7 +39,7 @@ int serial_port_send_message(int socketfd, const void *message) {
 
 /*!
  * @brief Callback function for receiving humidity data via MQTT.
- * 
+ * @ingroup Mosquitto Mosquitto
  * @param msg The received MQTT message.
  */
 void mosquitto_humidity_received(const struct mosquitto_message *msg) {
@@ -49,7 +55,7 @@ void mosquitto_humidity_received(const struct mosquitto_message *msg) {
 
 /*!
  * @brief Callback function for receiving decibel data via MQTT.
- * 
+ * @ingroup Mosquitto Mosquitto 
  * @param msg The received MQTT message.
  */
 void mosquitto_decibel_received(const struct mosquitto_message *msg) {
@@ -64,7 +70,7 @@ void mosquitto_decibel_received(const struct mosquitto_message *msg) {
 
 /*!
  * @brief Callback function for receiving camera photo data via MQTT.
- * 
+ * @ingroup Mosquitto Mosquitto
  * @param msg The received MQTT message.
  */
 void mosquitto_camera_photo_received(const struct mosquitto_message *msg) {
@@ -77,6 +83,7 @@ void mosquitto_camera_photo_received(const struct mosquitto_message *msg) {
 
 /*!
  * @brief Structure to map MQTT topics to their respective handlers.
+ * @ingroup Mosquitto Mosquitto
  */
 static const MessageHandler_t messageHandler[] = {
   {HUMIDITY_TOPIC_RX, mosquitto_humidity_received},
@@ -86,7 +93,7 @@ static const MessageHandler_t messageHandler[] = {
 
 /*!
  * @brief Publishes a command byte to the appropriate MQTT topic.
- * 
+ * @ingroup Mosquitto Mosquitto
  * @param command The command byte to be published.
  */
 void mosquitto_commmand_byte_received(uint8_t command) {
@@ -101,7 +108,7 @@ void mosquitto_commmand_byte_received(uint8_t command) {
 
 /*!
  * @brief Function for receiving MQTT messages.
- * 
+ * @ingroup Mosquitto Mosquitto
  * @param mosq The Mosquitto instance.
  * @param userdata User data provided in mosquitto_new.
  * @param message The received MQTT message.
@@ -119,7 +126,7 @@ void mosquitto_on_message_received(struct mosquitto *mosq, void *userdata, const
 
 /*!
  * @brief  Function for initial connection to the MQTT broker.
- * 
+ * @ingroup Mosquitto Mosquitto
  * @param mosq The Mosquitto instance.
  * @param userdata User data provided in mosquitto_new.
  * @param rc The connection result code.
@@ -142,7 +149,7 @@ void mosquitto_initial_connection(struct mosquitto *mosq, void *userdata, int rc
 
 /*!
  * @brief Initializes the Mosquitto library and connects to the MQTT broker.
- * 
+ * @ingroup Mosquitto Mosquitto
  * @return int Returns 0 on success, 1 on failure.
  */
 int mosquitto_initial_config() {
@@ -169,6 +176,7 @@ int mosquitto_initial_config() {
 
 /*!
  * @brief Cleans up the Mosquitto library and disconnects from the MQTT broker.
+ * @ingroup Mosquitto Mosquitto
  */
 void mosquitto_clean() {
   mosquitto_disconnect(mosq);
@@ -178,7 +186,7 @@ void mosquitto_clean() {
 
 /*!
  * @brief Thread function to handle server-side socket communication.
- * 
+ * @ingroup Mosquitto Mosquitto
  * @param arg Arguments for the thread (unused).
  * @return void* Returns NULL.
  */
@@ -245,7 +253,7 @@ void *server_thread(void *arg) {
 
 /*!
  * @brief Main function to initialize and run the MQTT and socket server.
- * 
+ * @ingroup Mosquitto Mosquitto
  * @return int Returns 0 on success, 1 on failure.
  */
 int main() {

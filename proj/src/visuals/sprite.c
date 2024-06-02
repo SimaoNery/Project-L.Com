@@ -52,11 +52,6 @@ int (destroy_all_sprites)() {
         return 1;
     }
 
-    if(destroy_sprite(securityCameraButton) != 0) {
-        printf("Error: problems occured while trying to destroy -securityCameraButton- sprite! \n");
-        return 1;
-    }
-
     if(destroy_sprite(exitButton) != 0) {
         printf("Error: problems occured while trying to destroy -exitButton- sprite! \n");
         return 1;
@@ -195,11 +190,6 @@ int (destroy_all_sprites)() {
         return 1;
     }
 
-    if(destroy_sprite(take_picture) != 0) {
-        printf("Error: problems occured while trying to destroy -take_picture- sprite! \n");
-        return 1;
-    }
-
     return 0;
 }
 
@@ -238,19 +228,13 @@ int (load_sprites_1152x864)() {
         return 1;
     }
 
-    housePlantButton = create_sprite((xpm_map_t)house_plant_button_1152_864_xpm, 112, 660);
+    housePlantButton = create_sprite((xpm_map_t)house_plant_button_1152_864_xpm, 112, 496);
      if(housePlantButton == NULL) {
         printf("Error: Problems occured while trying to load -housePlantButton- sprite! \n");
         return 1;
     }
 
-    securityCameraButton = create_sprite((xpm_map_t) security_camera_1152_864_xpm, 112, 496);
-     if(securityCameraButton == NULL) {
-        printf("Error: Problems occured while trying to load -securityCameraButton- sprite! \n");
-        return 1;
-    }
-
-    exitButton = create_sprite((xpm_map_t) exit_button_1152_864_xpm, 656, 660);
+    exitButton = create_sprite((xpm_map_t) exit_button_1152_864_xpm, 383, 660);
      if(exitButton == NULL) {
         printf("Error: Problems occured while trying to load -exitButton- sprite! \n");
         return 1;
@@ -412,12 +396,6 @@ int (load_sprites_1152x864)() {
         return 1;
     }
 
-    take_picture = create_sprite((xpm_map_t)take_picture_1152_864_xpm, 608, 652);
-    if(take_picture == NULL) {
-        printf("Error: Problems occured while trying to load -takePicture- sprite! \n");
-        return 1;
-    }
-
     return 0;
 }
 
@@ -440,19 +418,13 @@ int (load_sprites_800x600)() {
         return 1;
     }
 
-     housePlantButton = create_sprite((xpm_map_t)house_plant_button_800_600_xpm, 78, 458);
+     housePlantButton = create_sprite((xpm_map_t)house_plant_button_800_600_xpm, 78, 344);
      if(housePlantButton == NULL) {
         printf("Error: Problems occured while trying to load -housePlantText- sprite! \n");
         return 1;
     }
 
-    securityCameraButton = create_sprite((xpm_map_t) security_camera_button_800_600_xpm, 78, 344);
-    if(securityCameraButton == NULL) {
-        printf("Error: Problems occured while trying to load -securityCameraText- sprite! \n");
-        return 1;
-    }
-
-    exitButton = create_sprite((xpm_map_t) exit_button_800_600_xpm, 456, 458);
+    exitButton = create_sprite((xpm_map_t) exit_button_800_600_xpm, 266, 458);
      if(exitButton == NULL) {
         printf("Error: Problems occured while trying to load -exitButton- sprite! \n");
         return 1;
@@ -498,6 +470,120 @@ int (load_sprites_800x600)() {
     backArrow = create_sprite((xpm_map_t)back_arrow_800_600_xpm, 10, 10);
     if(bigResolutionButton == NULL) {
         printf("Error: Problems occured while trying to load -backArrow- sprite! \n");
+        return 1;
+    }
+
+    housePlant = create_sprite((xpm_map_t)house_plant_800_600_xpm, 0, 0);
+    if(housePlant == NULL) {
+        printf("Error: Problems occured while trying to load -housePlant- sprite! \n");
+        return 1;
+    }
+
+    adjustFanPower = create_sprite((xpm_map_t)adjust_fan_power_button_800_600_xpm, 545, 165);
+    if(adjustFanPower == NULL) {
+        printf("Error: Problems occured while trying to load -adjustFanPower- sprite! \n");
+        return 1;
+    }
+
+    cam = create_sprite((xpm_map_t)cam_800_600_xpm, 422, 450);
+    if(cam == NULL) {
+        printf("Error: Problems occured while trying to load -cam- sprite! \n");
+        return 1;
+    }
+
+    db = create_sprite((xpm_map_t)db_800_600_xpm, 0, 0);
+    if(db == NULL) {
+        printf("Error: Problems occured while trying to load -db- sprite! \n");
+        return 1;
+    }
+
+    degrees_celcius = create_sprite((xpm_map_t)degrees_celsius_800_600_xpm, 0, 0);
+    if(degrees_celcius == NULL) {
+        printf("Error: Problems occured while trying to load -degreeCelsius- sprite! \n");
+        return 1;
+    }
+
+    fan = create_sprite((xpm_map_t)fan_800_600_xpm, 149, 298);
+    if(fan == NULL) {
+        printf("Error: Problems occured while trying to load -fan- sprite! \n");
+        return 1;
+    }
+
+    horn1 = create_sprite((xpm_map_t)horn_800_600_xpm, 400, 450);
+    if(horn1 == NULL) {
+        printf("Error: Problems occured while trying to load -horn1- sprite! \n");
+        return 1;
+    }
+
+    horn2 = create_sprite((xpm_map_t)horn_800_600_xpm, 442, 450);
+    if(horn2 == NULL) {
+        printf("Error: Problems occured while trying to load -horn2- sprite! \n");
+        return 1;
+    }    
+
+    humidity_and_temperature = create_sprite((xpm_map_t)humidity_and_temperature_800_600_xpm, 150, 270);
+    if(humidity_and_temperature == NULL) {
+        printf("Error: Problems occured while trying to load -humidity_and_temperature- sprite! \n");
+        return 1;
+    }
+
+    light_horizontal1 = create_sprite((xpm_map_t)light_800_600_xpm, 134, 183);
+    if(light_horizontal1 == NULL) {
+        printf("Error: Problems occured while trying to load -lightHorizontal1- sprite! \n");
+        return 1;
+    }
+
+    light_horizontal2 = create_sprite((xpm_map_t)light_800_600_xpm, 290, 183);
+    if(light_horizontal2 == NULL) {
+        printf("Error: Problems occured while trying to load -lightHorizontal2- sprite! \n");
+        return 1;
+    }
+
+    light_vertical1 = create_sprite((xpm_map_t)light_vertical_800_600_xpm, 84, 395);
+    if(light_vertical1 == NULL) {
+        printf("Error: Problems occured while trying to load -lightVertical1- sprite! \n");
+        return 1;
+    }
+
+    light_vertical2 = create_sprite((xpm_map_t)light_vertical_800_600_xpm, 225, 395);
+    if(light_vertical2 == NULL) {
+        printf("Error: Problems occured while trying to load -lightVertical2- sprite! \n");
+        return 1;
+    }
+
+    light_vertical3 = create_sprite((xpm_map_t)light_vertical_800_600_xpm, 468, 255);
+    if(light_vertical3 == NULL) {
+        printf("Error: Problems occured while trying to load -lightVertical3- sprite! \n");
+        return 1;
+    }        
+
+    percentage = create_sprite((xpm_map_t)percentage_800_600_xpm, 0, 0);
+    if(percentage == NULL) {
+        printf("Error: Problems occured while trying to load -percentage- sprite! \n");
+        return 1;
+    }
+
+    read_humidity = create_sprite((xpm_map_t)read_humidity_button_800_600_xpm, 584, 245);
+    if(read_humidity == NULL) {
+        printf("Error: Problems occured while trying to load -readHumidity- sprite! \n");
+        return 1;
+    }
+
+    read_sound_intensity = create_sprite((xpm_map_t)read_sound_intensity_800_600_xpm, 550, 470);
+    if(read_sound_intensity == NULL) {
+        printf("Error: Problems occured while trying to load -read_sound_intensity- sprite! \n");
+        return 1;
+    }
+
+    read_temperature = create_sprite((xpm_map_t)read_temperature_800_600_xpm, 584, 357);
+    if(read_temperature== NULL) {
+        printf("Error: Problems occured while trying to load -read_temperature- sprite! \n");
+        return 1;
+    }
+
+    sound_intensity= create_sprite((xpm_map_t)sound_intensity_800_600_xpm, 170, 298);
+    if(sound_intensity == NULL) {
+        printf("Error: Problems occured while trying to load -sound_intensity- sprite! \n");
         return 1;
     }
 

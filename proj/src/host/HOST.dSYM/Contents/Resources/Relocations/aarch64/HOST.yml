@@ -1,0 +1,21 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     HOST
+relocations:
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _serial_port_send_message, symObjAddr: 0x0, symBinAddr: 0x1000031A4, symSize: 0x68 }
+  - { offsetInCU: 0x3F, offset: 0x3F, size: 0x8, addend: 0x0, symName: _mosq, symObjAddr: 0x3288, symBinAddr: 0x100008000, symSize: 0x0 }
+  - { offsetInCU: 0x6C, offset: 0x6C, size: 0x8, addend: 0x0, symName: _sockfd, symBinAddr: 0x100008008, symSize: 0x0 }
+  - { offsetInCU: 0x88, offset: 0x88, size: 0x8, addend: 0x0, symName: _redirect, symObjAddr: 0xCA0, symBinAddr: 0x100004108, symSize: 0x0 }
+  - { offsetInCU: 0xED, offset: 0xED, size: 0x8, addend: 0x0, symName: _messageHandler, symObjAddr: 0xD00, symBinAddr: 0x100004168, symSize: 0x0 }
+  - { offsetInCU: 0x1D0, offset: 0x1D0, size: 0x8, addend: 0x0, symName: _serial_port_send_message, symObjAddr: 0x0, symBinAddr: 0x1000031A4, symSize: 0x68 }
+  - { offsetInCU: 0x206, offset: 0x206, size: 0x8, addend: 0x0, symName: _mosquitto_humidity_received, symObjAddr: 0x68, symBinAddr: 0x10000320C, symSize: 0xE4 }
+  - { offsetInCU: 0x270, offset: 0x270, size: 0x8, addend: 0x0, symName: _mosquitto_decibel_received, symObjAddr: 0x14C, symBinAddr: 0x1000032F0, symSize: 0xC8 }
+  - { offsetInCU: 0x2DA, offset: 0x2DA, size: 0x8, addend: 0x0, symName: _mosquitto_camera_photo_received, symObjAddr: 0x214, symBinAddr: 0x1000033B8, symSize: 0xB0 }
+  - { offsetInCU: 0x336, offset: 0x336, size: 0x8, addend: 0x0, symName: _mosquitto_commmand_byte_received, symObjAddr: 0x2C4, symBinAddr: 0x100003468, symSize: 0xD8 }
+  - { offsetInCU: 0x376, offset: 0x376, size: 0x8, addend: 0x0, symName: _mosquitto_on_message_received, symObjAddr: 0x39C, symBinAddr: 0x100003540, symSize: 0xB8 }
+  - { offsetInCU: 0x3EE, offset: 0x3EE, size: 0x8, addend: 0x0, symName: _mosquitto_initial_connection, symObjAddr: 0x454, symBinAddr: 0x1000035F8, symSize: 0x100 }
+  - { offsetInCU: 0x44A, offset: 0x44A, size: 0x8, addend: 0x0, symName: _mosquitto_initial_config, symObjAddr: 0x554, symBinAddr: 0x1000036F8, symSize: 0x128 }
+  - { offsetInCU: 0x472, offset: 0x472, size: 0x8, addend: 0x0, symName: _mosquitto_clean, symObjAddr: 0x67C, symBinAddr: 0x100003820, symSize: 0x38 }
+  - { offsetInCU: 0x487, offset: 0x487, size: 0x8, addend: 0x0, symName: _server_thread, symObjAddr: 0x6B4, symBinAddr: 0x100003858, symSize: 0x22C }
+  - { offsetInCU: 0x51F, offset: 0x51F, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x8E0, symBinAddr: 0x100003A84, symSize: 0x12C }
+...

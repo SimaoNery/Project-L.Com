@@ -7,13 +7,31 @@ extern int packet_number;
 extern mouse_packet_t mouse_packet;
 extern Sprite *controlShellButton;
 extern Sprite *housePlantButton;
-extern Sprite *securityCameraButton;
 extern Sprite *exitButton;
 extern Sprite *helpButton;
-extern Sprite *settingsButton;
-extern Sprite *resolutionButton;
+extern Sprite *resolutionPage;
 extern Sprite *normalCursor;
 extern Sprite *backArrow;
+extern Sprite *housePlant;
+
+extern Sprite *adjustFanPower;
+extern Sprite *cam;
+extern Sprite *db;
+extern Sprite *degrees_celcius;
+extern Sprite *fan;
+extern Sprite *horn1;
+extern Sprite *horn2;
+extern Sprite *humidity_and_temperature;
+extern Sprite *light_horizontal1;
+extern Sprite *light_horizontal2;
+extern Sprite *light_vertical1;
+extern Sprite *light_vertical2;
+extern Sprite *light_vertical3;
+extern Sprite *percentage;
+extern Sprite *read_humidity;
+extern Sprite *read_sound_intensity;
+extern Sprite *read_temperature;
+extern Sprite *sound_intensity;
 
 
 void mouse_main_menu_handler () {
@@ -35,12 +53,6 @@ void mouse_main_menu_handler () {
       
       if (mouse_packet.left_button) page_state = HOUSE_PLANT;
       else housePlantButton->hover = true;
-    }
-
-    else if (mouse_packet.x >= securityCameraButton->x && mouse_packet.x <= securityCameraButton->x + securityCameraButton->width && mouse_packet.y >= securityCameraButton->y && mouse_packet.y <= securityCameraButton->y + securityCameraButton->height)  {
-      
-      if (mouse_packet.left_button) page_state = SECURITY_CAMERA;
-      else securityCameraButton->hover = true;
     }
 
     else if (mouse_packet.x >= exitButton->x && mouse_packet.x <= exitButton->x + exitButton->width && mouse_packet.y >= exitButton->y && mouse_packet.y <= exitButton->y + exitButton->height)  {
@@ -65,7 +77,6 @@ void mouse_main_menu_handler () {
 
       controlShellButton->hover = false;
       housePlantButton->hover = false;
-      securityCameraButton->hover = false;
       exitButton->hover = false;
       helpButton->hover = false;
       resolutionButton->hover = false;
@@ -86,7 +97,8 @@ void mouse_control_shell_handler () {
 
 void mouse_house_plant_handler() {
   mouse_ih();
-  parse_bytes_to_packet();
+  if(packet_number == 3) {
+    parse_bytes_to_packet();
 
   normalCursor->x = mouse_packet.x;
   normalCursor->y = mouse_packet.y;
@@ -178,17 +190,12 @@ void mouse_house_plant_handler() {
   else if (mouse_packet.x >= read_temperature->x && mouse_packet.x <= read_temperature->x + read_temperature->width && mouse_packet.y >= read_temperature->y && mouse_packet.y <= read_temperature->y + read_temperature->height)  {
     read_temperature->hover = truadjustFanPower;
   }
-  else if (mouse_packet.x >= take_picture->x && mouse_packet.x <= take_picture->x + take_picture->width && mouse_packet.y >= take_picture->y && mouse_packet.y <= take_picture->y + take_picture->height)  {
-    take_picture->hover = true;
-  }
-  else {
-    controlShellButton->hover = false;
-    housePlantButton->hover = false;
-    securityCameraButton->hover = false;
-    exitButton->hover = false;
-    helpButton->hover = false;
-    resolutionButton->hover = false;
 
+  else if (mouse_packet.x >= backArrow->x && mouse_packet.x <= backArrow->x + bigResolutionButton->width && mouse_packet.y >= backArrow->y && mouse_packet.y <= backArrow->y + backArrow->height)  {
+    if (mouse_packet.left_button) page_state = MAIN_MENU;
+  }
+
+  else {
     adjustFanPower->hover = false;
     cam->hover = false;
     db->hover = false;
@@ -207,11 +214,11 @@ void mouse_house_plant_handler() {
     read_sound_intensity->hover = false;
     read_temperature->hover = false;
     sound_intensity->hover = false;
-    take_picture->hover = false;
   }
 
   packet_number = 0;
   draw_page();
+  }
 }
 
 

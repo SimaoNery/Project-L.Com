@@ -9,7 +9,6 @@ static const handler_t timer_handler[] = {
     {timer_main_menu_handler},
     {timer_control_shell_handler},
     {timer_house_plant_handler},
-    {timer_security_camera_handler},
     {timer_settings_handler},
     {timer_help_handler}
 };
@@ -18,7 +17,6 @@ static const handler_t keyboard_handler[] = {
     {keyboard_main_menu_handler},
     {keyboard_control_shell_handler},
     {keyboard_house_plant_handler},
-    {keyboard_security_camera_handler},
     {keyboard_settings_handler},
     {keyboard_help_handler}
 };
@@ -27,7 +25,6 @@ static const handler_t mouse_handler[] = {
     {mouse_main_menu_handler},
     {mouse_control_shell_handler},
     {mouse_house_plant_handler},
-    {mouse_security_camera_handler},
     {mouse_settings_handler},
     {mouse_help_handler}
 };
@@ -36,7 +33,6 @@ static const handler_t real_time_clock_handler[] = {
     {real_time_clock_main_menu_handler},
     {real_time_clock_control_shell_handler},
     {real_time_clock_house_plant_handler},
-    {real_time_clock_security_camera_handler},
     {real_time_clock_settings_handler},
     {real_time_clock_help_handler}
 };
@@ -44,13 +40,12 @@ static const handler_t real_time_clock_handler[] = {
 /*static const handler_t serial_port_handler[] = {
     {serial_port_main_menu_handler},
     {serial_port_house_plant_handler},
-    {serial_port_security_camera_handler},
     {serial_port_settings_handler},
     {serial_port_help_handler}
 };*/
 
 uint8_t irq_timer, irq_keyboard, irq_mouse, irq_real_time_clock, irq_serial_port;
-uint16_t resolution = RES_1152_864;
+uint16_t resolution = RES_800_600;
 bool running = true;
 uint8_t page_state = MAIN_MENU;
 

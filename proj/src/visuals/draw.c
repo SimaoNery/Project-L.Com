@@ -13,9 +13,6 @@ int draw_page() {
     case HOUSE_PLANT:
       draw_house_plant();
       break;
-    case SECURITY_CAMERA:
-      draw_security_camera();
-      break;
     case RESOLUTION:
       draw_resolution();
       break;
@@ -64,26 +61,6 @@ int draw_display_message() {
   return 0;
 }
 
-int draw_security_camera() {
-  
-  if (draw_sprite(mainMenu) != 0) {
-    printf("Error: Problems occured while trying to draw -mainMenu- sprite! \n");
-    return 1;
-  }
-
-  if (draw_main_buttons() != 0) {
-    printf("Error: Problems occured while trying to draw Main Menu buttons! \n");
-    return 1;
-  }
-
-  if (draw_sprite(normalCursor) != 0) {
-    printf("Error: Problems occured while trying to draw the mouse pointer! \n");
-    return 1;
-  }
-  printf("conaça");
-  return 0;
-}
-
 int draw_resolution() {
   if(draw_sprite(resolutionPage) != 0) {
     printf("Error: Problems occured while trying to draw -resolutionPage- sprite! \n");
@@ -119,7 +96,7 @@ int draw_house_plant() {
   }
 
   if(draw_housePlant_buttons() != 0) {
-    printf("Error: Problems occured while trying to draw -housePlantButtons- sprite! \n");
+    printf("Error: Problems occured while trying to draw housePlant buttons! \n");
     return 1;
   }
 
@@ -148,11 +125,6 @@ int draw_main_buttons() {
 
   if (draw_sprite(housePlantButton) != 0) {
     printf("Error: Problems occured trying to draw -housePlantButton- sprite! \n");
-    return 1;
-  };
-
-  if (draw_sprite(securityCameraButton) != 0) {
-    printf("Error: Problems occured trying to draw -securityCameraButton- sprite! \n");
     return 1;
   };
 
@@ -281,11 +253,6 @@ int(draw_housePlant_buttons)() {
 
   if (draw_sprite(sound_intensity) != 0) {
     printf("Error: Problems occurred trying to draw -sound_intensity- sprite! \n");
-    return 1;
-  };
-
-  if (draw_sprite(take_picture) != 0) {
-    printf("Error: Problems occurred trying to draw -take_picture- sprite! \n");
     return 1;
   };
 

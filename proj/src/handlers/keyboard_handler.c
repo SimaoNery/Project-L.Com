@@ -21,9 +21,13 @@ void keyboard_control_shell_handler() {
 
 void keyboard_house_plant_handler() {}
 
+<<<<<<< HEAD
 void keyboard_security_camera_handler() {}
 
 void keyboard_settings_handler() {
+=======
+void keyboard_settings_handler () {
+>>>>>>> refs/remotes/origin/Project
   kbc_int_handler();
   if (out_buf == 0x81)
     running = false;

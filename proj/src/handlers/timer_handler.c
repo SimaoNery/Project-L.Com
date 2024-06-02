@@ -120,8 +120,14 @@ void timer_control_shell_handler() {
 
 void timer_house_plant_handler() {}
 
+<<<<<<< HEAD
 void timer_security_camera_handler() {}
 
 void timer_settings_handler() {}
+=======
+void timer_settings_handler () {}
+
+void timer_help_handler () {}
+>>>>>>> refs/remotes/origin/Project
 
 void timer_help_handler() {}

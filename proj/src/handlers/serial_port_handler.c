@@ -9,6 +9,7 @@ int counter_serial_port = 0;
 
 extern bool lock;
 
+<<<<<<< HEAD
 void serial_port_main_menu_handler() {}
 
 void serial_port_control_shell_handler() {
@@ -23,6 +24,9 @@ void serial_port_control_shell_handler() {
     }
     serial_port_clear_int();
   }
+=======
+void serial_port_settings_handler () {}
+>>>>>>> refs/remotes/origin/Project
 
   if (asking_for_sound) {
     pop(get_queue(), &sound_intensity[counter_serial_port++]);

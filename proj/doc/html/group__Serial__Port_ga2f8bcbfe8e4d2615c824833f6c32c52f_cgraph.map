@@ -1,0 +1,24 @@
+<map id="serial_port_control_shell_handler" name="serial_port_control_shell_handler">
+<area shape="rect" id="Node000001" title="Handles serial port input for the control shell.This function processes serial port interrupts and re..." alt="" coords="5,74,133,115"/>
+<area shape="rect" id="Node000002" href="$group__Serial.html#ga796e46e751768b26348479e789bf90a4" title="Retrieves the queue used by the serial port." alt="" coords="216,5,297,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="120,71,207,35,209,40,122,76"/>
+<area shape="rect" id="Node000003" href="$group__Queue.html#gacf430581987580e06036874af6ec371d" title="Removes an element from the queue." alt="" coords="627,56,669,82"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="133,89,611,68,612,73,133,94"/>
+<area shape="rect" id="Node000004" href="$group__Serial.html#ga1426ccf57ad167e5c2b59cfff90772d9" title="Clears the serial port interrupts." alt="" coords="188,107,325,132"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="133,100,173,106,172,111,132,105"/>
+<area shape="rect" id="Node000006" href="$group__Serial.html#ga528a1e579cedabb490a7195e2f2287cf" title="Serial port interrupt handler." alt="" coords="181,156,332,182"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="114,113,182,142,197,148,195,153,180,147,112,118"/>
+<area shape="rect" id="Node000005" href="$group__Queue.html#gad727910848ebf0f74179f809b6eeda7e" title="Clears all elements from the queue." alt="" coords="407,107,498,132"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="325,117,391,117,391,122,325,122"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="498,105,611,75,612,81,499,110"/>
+<area shape="rect" id="Node000007" href="$group__Serial.html#gaf636f4cb7ae7a669a84fc3b579f02f0b" title="Reads a message from the serial port." alt="" coords="380,156,525,182"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="333,166,365,166,365,172,333,172"/>
+<area shape="rect" id="Node000009" href="$group__Utils.html#ga2b56f50ba159e9d5115ed1a75eff15d9" title="Reads a byte from the specified port and store it in uint8_t variable." alt="" coords="771,156,861,182"/>
+<area shape="poly" id="edge12_Node000006_Node000009" title=" " alt="" coords="285,180,362,212,413,230,471,245,533,257,597,261,661,257,722,242,761,220,792,191,796,195,764,224,724,247,661,263,597,267,533,262,470,251,412,235,360,217,283,185"/>
+<area shape="rect" id="Node000008" href="$group__Serial.html#gafa064c2a2d24a8fb7f587b36a6e2bafc" title="Retrieves the status from the serial port." alt="" coords="573,105,723,131"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="504,153,580,133,582,138,506,158"/>
+<area shape="poly" id="edge11_Node000007_Node000009" title=" " alt="" coords="526,166,755,166,755,172,526,172"/>
+<area shape="rect" id="Node000010" href="$group__Queue.html#ga095518c09a8928fba317675f1c7984af" title="Adds an element to the queue." alt="" coords="623,207,673,232"/>
+<area shape="poly" id="edge10_Node000007_Node000010" title=" " alt="" coords="506,180,609,207,607,212,504,185"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="694,129,757,148,756,154,692,134"/>
+</map>

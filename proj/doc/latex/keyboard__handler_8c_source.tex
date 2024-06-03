@@ -1,0 +1,42 @@
+\doxysection{keyboard\+\_\+handler.\+c}
+\hypertarget{keyboard__handler_8c_source}{}\label{keyboard__handler_8c_source}\index{/Users/wagner/Desktop/faculdade/2 ano/LCOM/MINIX-\/LCOM/shared/g4/proj/src/handlers/keyboard\_handler.c@{/Users/wagner/Desktop/faculdade/2 ano/LCOM/MINIX-\/LCOM/shared/g4/proj/src/handlers/keyboard\_handler.c}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{keyboard__handler_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}keyboard\_handler.h"{}}}
+\DoxyCodeLine{\Hypertarget{keyboard__handler_8c_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{\Hypertarget{keyboard__handler_8c_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{keyboard__handler_8c_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{keyboard__handler_8c_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{\Hypertarget{keyboard__handler_8c_source_l00010}00010\ \textcolor{keyword}{extern}\ uint8\_t\ out\_buf;}
+\DoxyCodeLine{\Hypertarget{keyboard__handler_8c_source_l00011}00011\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ running;}
+\DoxyCodeLine{\Hypertarget{keyboard__handler_8c_source_l00012}00012\ \textcolor{keyword}{extern}\ uint8\_t\ page\_state;}
+\DoxyCodeLine{\Hypertarget{keyboard__handler_8c_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{keyboard__handler_8c_source_l00020}\mbox{\hyperlink{group__Keyboard__handler_ga2b71ccacbe8da924634c2b7c7e21b1db}{00020}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group__Keyboard__handler_ga2b71ccacbe8da924634c2b7c7e21b1db}{keyboard\_main\_menu\_handler}}\ ()\ \{}
+\DoxyCodeLine{\Hypertarget{keyboard__handler_8c_source_l00021}00021\ \ \ \mbox{\hyperlink{group__Keyboard_ga94bd4739999831fafc0e5e6560aa8687}{kbc\_int\_handler}}();}
+\DoxyCodeLine{\Hypertarget{keyboard__handler_8c_source_l00022}00022\ \ \ \textcolor{keywordflow}{if}\ (out\_buf\ ==\ 0x81)}
+\DoxyCodeLine{\Hypertarget{keyboard__handler_8c_source_l00023}00023\ \ \ \ \ running\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{keyboard__handler_8c_source_l00024}00024\ \}}
+\DoxyCodeLine{\Hypertarget{keyboard__handler_8c_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{keyboard__handler_8c_source_l00032}\mbox{\hyperlink{group__Keyboard__handler_gaafc38d06c830847598f11eac8aae8578}{00032}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group__Keyboard__handler_gaafc38d06c830847598f11eac8aae8578}{keyboard\_control\_shell\_handler}}\ ()\ \{}
+\DoxyCodeLine{\Hypertarget{keyboard__handler_8c_source_l00033}00033\ \ \ \mbox{\hyperlink{group__Keyboard_ga94bd4739999831fafc0e5e6560aa8687}{kbc\_int\_handler}}();}
+\DoxyCodeLine{\Hypertarget{keyboard__handler_8c_source_l00034}00034\ \ \ \mbox{\hyperlink{group__Command__Line_gaf30ad16b140d480d643e6a2451b6d9db}{input\_to\_command\_line}}(out\_buf);}
+\DoxyCodeLine{\Hypertarget{keyboard__handler_8c_source_l00035}00035\ \}}
+\DoxyCodeLine{\Hypertarget{keyboard__handler_8c_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{keyboard__handler_8c_source_l00043}\mbox{\hyperlink{group__Keyboard__handler_gab032a4a1f53334d969ec6b4e0b2d7f0a}{00043}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group__Keyboard__handler_gab032a4a1f53334d969ec6b4e0b2d7f0a}{keyboard\_house\_plant\_handler}}()\ \{\}}
+\DoxyCodeLine{\Hypertarget{keyboard__handler_8c_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{keyboard__handler_8c_source_l00051}\mbox{\hyperlink{group__Keyboard__handler_gac60b537e0e660da90af3e7bf7b2c404a}{00051}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group__Keyboard__handler_gac60b537e0e660da90af3e7bf7b2c404a}{keyboard\_settings\_handler}}\ ()\ \{}
+\DoxyCodeLine{\Hypertarget{keyboard__handler_8c_source_l00052}00052\ \ \ \mbox{\hyperlink{group__Keyboard_ga94bd4739999831fafc0e5e6560aa8687}{kbc\_int\_handler}}();}
+\DoxyCodeLine{\Hypertarget{keyboard__handler_8c_source_l00053}00053\ \ \ \textcolor{keywordflow}{if}\ (out\_buf\ ==\ 0x81)}
+\DoxyCodeLine{\Hypertarget{keyboard__handler_8c_source_l00054}00054\ \ \ \ \ running\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{keyboard__handler_8c_source_l00055}00055\ \}}
+\DoxyCodeLine{\Hypertarget{keyboard__handler_8c_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{keyboard__handler_8c_source_l00063}\mbox{\hyperlink{group__Keyboard__handler_ga7df98bcd186f88ee53f5418cc9450e26}{00063}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group__Keyboard__handler_ga7df98bcd186f88ee53f5418cc9450e26}{keyboard\_help\_handler}}()\ \{}
+\DoxyCodeLine{\Hypertarget{keyboard__handler_8c_source_l00064}00064\ \ \ \mbox{\hyperlink{group__Keyboard_ga94bd4739999831fafc0e5e6560aa8687}{kbc\_int\_handler}}();}
+\DoxyCodeLine{\Hypertarget{keyboard__handler_8c_source_l00065}00065\ \ \ \textcolor{keywordflow}{if}\ (out\_buf\ ==\ 0x81)\ \{}
+\DoxyCodeLine{\Hypertarget{keyboard__handler_8c_source_l00066}00066\ \ \ \ \ page\_state\ =\ MAIN\_MENU;}
+\DoxyCodeLine{\Hypertarget{keyboard__handler_8c_source_l00067}00067\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{keyboard__handler_8c_source_l00068}00068\ \ \ \mbox{\hyperlink{group__Draw_gab708de60ac9ff4a5ec5f067b8965fda3}{draw\_page}}();}
+\DoxyCodeLine{\Hypertarget{keyboard__handler_8c_source_l00069}00069\ \}}
+\DoxyCodeLine{\Hypertarget{keyboard__handler_8c_source_l00070}00070\ }
+
+\end{DoxyCode}

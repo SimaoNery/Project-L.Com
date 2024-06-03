@@ -1,0 +1,27 @@
+<map id="timer_main_menu_handler" name="timer_main_menu_handler">
+<area shape="rect" id="Node000001" title="Handles timer interrupts for the main menu.This function increments the RTC counter and updates the d..." alt="" coords="5,81,179,107"/>
+<area shape="rect" id="Node000002" href="$group__Timer__Handler.html#ga67384da4f2c923d94548c81b4ca3a064" title="Handles the update interrupt.This function retrieves the current time from the RTC and updates the di..." alt="" coords="227,81,353,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="179,92,211,92,211,97,179,97"/>
+<area shape="rect" id="Node000003" href="$group__Draw.html#ga77aa5892dbaec23e07aa9523bf2e2e60" title="Draws the current date and time on the screen." alt="" coords="401,31,514,56"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="334,78,397,59,399,64,336,83"/>
+<area shape="rect" id="Node000008" href="$group__Real__time__clock.html#ga6028be0c2f6834191783cd629f324a2b" title="Retrieves the current time from the RTC." alt="" coords="411,107,504,132"/>
+<area shape="poly" id="edge8_Node000002_Node000008" title=" " alt="" coords="354,101,396,108,395,113,353,106"/>
+<area shape="rect" id="Node000004" href="$group__Draw.html#gac1f43f29e9853b35feda6ab6a19bf84b" title="Draws a digit date sprite at the specified position." alt="" coords="747,5,859,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="503,27,562,16,650,10,731,11,731,16,650,15,563,21,504,33"/>
+<area shape="rect" id="Node000007" href="$group__Draw.html#ga37a02de713c35021c8b8dfa71d4e1371" title="Draws unit sprites based on the given time value." alt="" coords="569,31,692,56"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="515,41,554,41,554,46,515,46"/>
+<area shape="rect" id="Node000005" href="$group__Sprite.html#ga6c75fbf31230126d2f19b29deaf24b2f" title="Draws a sprite on the screen.This function draws the sprite&#39;s pixels on the screen,..." alt="" coords="908,5,996,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="860,16,893,16,893,21,860,21"/>
+<area shape="rect" id="Node000006" href="$group__Graphics.html#ga6f895de9725f9f231f9a7f74b6087f60" title="Draws a pixel on the screen." alt="" coords="1045,5,1150,31"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="997,16,1030,16,1030,21,997,21"/>
+<area shape="poly" id="edge7_Node000007_Node000004" title=" " alt="" coords="692,32,731,26,732,31,693,37"/>
+<area shape="rect" id="Node000009" href="$group__Real__time__clock.html#ga432373ee35ebe371ba9117440aee1120" title="Retrieves the configuration from a specified RTC register." alt="" coords="751,107,855,132"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="505,117,736,117,736,122,505,122"/>
+<area shape="rect" id="Node000011" href="$group__Real__time__clock.html#ga5873dc86f56c4a2a8ea8f7faf07ef798" title="Checks if the RTC is in binary mode." alt="" coords="583,132,678,158"/>
+<area shape="poly" id="edge11_Node000008_Node000011" title=" " alt="" coords="505,124,568,133,567,138,504,129"/>
+<area shape="rect" id="Node000012" href="$group__Real__time__clock.html#ga01fecdb3049618e4f75df07d67ef6c64" title="Converts a BCD number to binary." alt="" coords="562,181,699,207"/>
+<area shape="poly" id="edge13_Node000008_Node000012" title=" " alt="" coords="485,130,563,168,576,173,574,178,561,173,483,135"/>
+<area shape="rect" id="Node000010" href="$group__Utils.html#ga2b56f50ba159e9d5115ed1a75eff15d9" title="Reads a byte from the specified port and store it in uint8_t variable." alt="" coords="907,107,997,132"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="855,117,891,117,891,122,855,122"/>
+<area shape="poly" id="edge12_Node000011_Node000009" title=" " alt="" coords="678,135,735,127,736,132,679,140"/>
+</map>

@@ -1,0 +1,14 @@
+<map id="mouse_control_shell_handler" name="mouse_control_shell_handler">
+<area shape="rect" id="Node000001" title="Handles mouse input for the control shell.This function processes mouse packets and updates the mouse..." alt="" coords="5,49,146,89"/>
+<area shape="rect" id="Node000002" href="$group__Mouse.html#ga834b6d7efe311484d6da234db333cb97" title="Mouse interrupt handler." alt="" coords="233,31,311,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="146,57,218,48,218,53,147,62"/>
+<area shape="rect" id="Node000006" href="$group__Mouse.html#ga7c710bdb2e70366f9830f54dcbf7a95a" title="Parses the bytes read from the mouse into a mouse packet." alt="" coords="194,80,350,106"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="147,75,178,79,178,84,146,80"/>
+<area shape="rect" id="Node000003" href="$group__KBC.html#gabf94de0c90d8a01ca918eadf04065ebb" title="Reads the output from the specified port of the Keyboard Controller (KBC)." alt="" coords="398,31,515,56"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="311,41,382,41,382,46,311,46"/>
+<area shape="rect" id="Node000004" href="$group__KBC.html#ga1ea22dc7f1cd587ad7715408bddb3c4e" title="Retrieves the status from the Keyboard Controller (KBC)." alt="" coords="563,5,674,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="515,32,547,27,548,32,516,37"/>
+<area shape="rect" id="Node000005" href="$group__Utils.html#ga2b56f50ba159e9d5115ed1a75eff15d9" title="Reads a byte from the specified port and store it in uint8_t variable." alt="" coords="722,31,812,56"/>
+<area shape="poly" id="edge5_Node000003_Node000005" title=" " alt="" coords="516,41,706,41,706,46,516,46"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="675,25,707,31,706,36,674,30"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="load_sprites" name="load_sprites">
+<area shape="rect" id="Node000001" title="Loads sprites based on the specified resolution.This function determines which resolution&#45;specific sp..." alt="" coords="5,31,97,56"/>
+<area shape="rect" id="Node000002" href="$group__Sprite.html#ga683f039988a3d9079ed293102af29dba" title="Loads sprites for the 1152x864 resolution.This function creates and initializes all the sprites neede..." alt="" coords="145,5,299,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="97,34,129,29,130,35,97,39"/>
+<area shape="rect" id="Node000004" href="$group__Sprite.html#ga40ccb13fdbc9085d728c2e4432553794" title="Loads sprites for the 800x600 resolution.This function creates and initializes all the sprites needed..." alt="" coords="148,55,296,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="97,47,133,52,132,58,97,53"/>
+<area shape="rect" id="Node000003" href="$group__Sprite.html#gac7d3801d2d8cb4108c171766c8cfaff1" title="Creates a sprite from the given XPM map.This function allocates memory for a new Sprite object,..." alt="" coords="347,31,443,56"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="300,27,332,32,331,37,299,32"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="296,55,331,50,332,55,296,60"/>
+</map>

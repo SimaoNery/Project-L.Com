@@ -1,0 +1,7 @@
+<map id="mosquitto_initial_config" name="mosquitto_initial_config">
+<area shape="rect" id="Node000001" title="Initializes the Mosquitto library and connects to the MQTT broker." alt="" coords="5,35,163,60"/>
+<area shape="rect" id="Node000002" href="$group__Mosquitto.html#gabc659c5801704589564eb1c9ef9ebfdd" title="Function for initial connection to the MQTT broker." alt="" coords="211,5,396,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="163,34,195,30,195,35,163,40"/>
+<area shape="rect" id="Node000003" href="$group__Mosquitto.html#ga9ec76b81a42ba9f0ee4baa1cfffce939" title="Function for receiving MQTT messages." alt="" coords="224,55,383,96"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="163,55,209,61,208,66,163,60"/>
+</map>

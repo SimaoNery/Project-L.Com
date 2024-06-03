@@ -1,5 +1,0 @@
-<map id="rtc_is_binary" name="rtc_is_binary">
-<area shape="rect" id="Node000001" title="Checks if the RTC is in binary mode." alt="" coords="5,5,101,31"/>
-<area shape="rect" id="Node000002" href="$group__Real.html#ga432373ee35ebe371ba9117440aee1120" title="Retrieves the configuration from a specified RTC register." alt="" coords="149,5,252,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="101,16,133,16,133,21,101,21"/>
-</map>

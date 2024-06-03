@@ -1,0 +1,496 @@
+\doxysection{Serial}
+\hypertarget{group__Serial}{}\label{group__Serial}\index{Serial@{Serial}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__Serial_ga715abe70eb0b9a74d1f406e26832f6a6}{serial\+\_\+initial\+\_\+config}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the serial port configuration. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Serial_ga9e5988172a95cfb57bedb0be3f5199f6}{serial\+\_\+port\+\_\+subscribe\+\_\+int}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}bit\+\_\+no)
+\begin{DoxyCompactList}\small\item\em Subscribes serial port interrupts. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Serial_gafd52bd27bbf8c2323c4f5e2dddc7bc11}{serial\+\_\+port\+\_\+unsubscribe\+\_\+int}} ()
+\begin{DoxyCompactList}\small\item\em Unsubscribes serial port interrupts. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Serial_gafa064c2a2d24a8fb7f587b36a6e2bafc}{get\+\_\+serial\+\_\+port\+\_\+status}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}st)
+\begin{DoxyCompactList}\small\item\em Retrieves the status from the serial port. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Serial_ga16017eb641d6cfecc03e1591b8226554}{send\+\_\+serial\+\_\+port\+\_\+msg}} (uint8\+\_\+t msg)
+\begin{DoxyCompactList}\small\item\em Sends a message through the serial port. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Serial_gaf636f4cb7ae7a669a84fc3b579f02f0b}{read\+\_\+serial\+\_\+port\+\_\+msg}} ()
+\begin{DoxyCompactList}\small\item\em Reads a message from the serial port. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__Serial_ga528a1e579cedabb490a7195e2f2287cf}{serial\+\_\+port\+\_\+int\+\_\+handler}} ()
+\begin{DoxyCompactList}\small\item\em Serial port interrupt handler. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Serial_ga1426ccf57ad167e5c2b59cfff90772d9}{serial\+\_\+port\+\_\+clear\+\_\+int}} ()
+\begin{DoxyCompactList}\small\item\em Clears the serial port interrupts. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__Serial_ga36391949ef6d64bc727631024db240b9}{serial\+\_\+port\+\_\+clear\+\_\+all}} ()
+\begin{DoxyCompactList}\small\item\em Deletes the queue and frees its memory. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structqueue}{queue\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{group__Serial_ga796e46e751768b26348479e789bf90a4}{get\+\_\+queue}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the queue used by the serial port. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{group__Serial_ga796e46e751768b26348479e789bf90a4}\index{Serial@{Serial}!get\_queue@{get\_queue}}
+\index{get\_queue@{get\_queue}!Serial@{Serial}}
+\doxysubsubsection{\texorpdfstring{get\_queue()}{get\_queue()}}
+{\footnotesize\ttfamily \label{group__Serial_ga796e46e751768b26348479e789bf90a4} 
+\mbox{\hyperlink{structqueue}{queue\+\_\+t}} \texorpdfstring{$\ast$}{*} get\+\_\+queue (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Retrieves the queue used by the serial port. 
+
+\begin{DoxyReturn}{Returns}
+queue\+\_\+t\texorpdfstring{$\ast$}{*} Pointer to the queue. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{serial_8c_source_l00222}{222}} of file \mbox{\hyperlink{serial_8c_source}{serial.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00223\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structqueue}{queue}};}
+\DoxyCodeLine{00224\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=278pt]{group__Serial_ga796e46e751768b26348479e789bf90a4_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Serial_gafa064c2a2d24a8fb7f587b36a6e2bafc}\index{Serial@{Serial}!get\_serial\_port\_status@{get\_serial\_port\_status}}
+\index{get\_serial\_port\_status@{get\_serial\_port\_status}!Serial@{Serial}}
+\doxysubsubsection{\texorpdfstring{get\_serial\_port\_status()}{get\_serial\_port\_status()}}
+{\footnotesize\ttfamily \label{group__Serial_gafa064c2a2d24a8fb7f587b36a6e2bafc} 
+int get\+\_\+serial\+\_\+port\+\_\+status (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{st}{}\end{DoxyParamCaption})}
+
+
+
+Retrieves the status from the serial port. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em st} & Pointer to a variable where the status will be stored. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Returns 0 upon success and 1 upon failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{serial_8c_source_l00092}{92}} of file \mbox{\hyperlink{serial_8c_source}{serial.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00093\ \ \ \textcolor{keywordflow}{if}\ (st\ ==\ NULL)}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{group__Utils_ga2b56f50ba159e9d5115ed1a75eff15d9}{util\_sys\_inb}}(COM1\_BASE\_REG\ +\ LSR,\ st);}
+\DoxyCodeLine{00097\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=296pt]{group__Serial_gafa064c2a2d24a8fb7f587b36a6e2bafc_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Serial_gafa064c2a2d24a8fb7f587b36a6e2bafc_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Serial_gaf636f4cb7ae7a669a84fc3b579f02f0b}\index{Serial@{Serial}!read\_serial\_port\_msg@{read\_serial\_port\_msg}}
+\index{read\_serial\_port\_msg@{read\_serial\_port\_msg}!Serial@{Serial}}
+\doxysubsubsection{\texorpdfstring{read\_serial\_port\_msg()}{read\_serial\_port\_msg()}}
+{\footnotesize\ttfamily \label{group__Serial_gaf636f4cb7ae7a669a84fc3b579f02f0b} 
+int read\+\_\+serial\+\_\+port\+\_\+msg (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Reads a message from the serial port. 
+
+\begin{DoxyReturn}{Returns}
+int Returns 0 upon success and 1 upon failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{serial_8c_source_l00131}{131}} of file \mbox{\hyperlink{serial_8c_source}{serial.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00132\ \ \ uint8\_t\ st;}
+\DoxyCodeLine{00133\ \ \ uint8\_t\ msg;}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Serial_gafa064c2a2d24a8fb7f587b36a6e2bafc}{get\_serial\_port\_status}}(\&st))\ \{}
+\DoxyCodeLine{00136\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Failed\ to\ get\ status\ of\ the\ serial\ port\(\backslash\)n"{}});}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00138\ \ \ \}}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \ \ \textcolor{keywordflow}{if}\ (st\ \&\ RECEIVER\_READY)\ \{}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Utils_ga2b56f50ba159e9d5115ed1a75eff15d9}{util\_sys\_inb}}(COM1\_BASE\_REG\ +\ RBR,\ \&msg))\ \{}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Failed\ sys\_inb\ RBR\(\backslash\)n"{}});}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00144\ \ \ \ \ \}}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordflow}{if}\ (st\ \&\ SER\_OVERRUN\_ERR)\ \{}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error\ reading\ serial\ port\ Overrun\ Error\(\backslash\)n"{}});}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00149\ \ \ \ \ \}}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keywordflow}{if}\ (st\ \&\ SER\_PARITY\_ERR)\ \{}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error\ reading\ serial\ port\ Parity\ Error\(\backslash\)n"{}});}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00154\ \ \ \ \ \}}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keywordflow}{if}\ (st\ \&\ SER\_FRAME\_ERR)\ \{}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error\ reading\ serial\ port\ Frame\ Error\(\backslash\)n"{}});}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00159\ \ \ \ \ \}}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{group__Queue_ga095518c09a8928fba317675f1c7984af}{push}}(\mbox{\hyperlink{structqueue}{queue}},\ msg))}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00164\ \ \ \}}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00167\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Serial_gaf636f4cb7ae7a669a84fc3b579f02f0b_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Serial_gaf636f4cb7ae7a669a84fc3b579f02f0b_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Serial_ga16017eb641d6cfecc03e1591b8226554}\index{Serial@{Serial}!send\_serial\_port\_msg@{send\_serial\_port\_msg}}
+\index{send\_serial\_port\_msg@{send\_serial\_port\_msg}!Serial@{Serial}}
+\doxysubsubsection{\texorpdfstring{send\_serial\_port\_msg()}{send\_serial\_port\_msg()}}
+{\footnotesize\ttfamily \label{group__Serial_ga16017eb641d6cfecc03e1591b8226554} 
+int send\+\_\+serial\+\_\+port\+\_\+msg (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{msg}{}\end{DoxyParamCaption})}
+
+
+
+Sends a message through the serial port. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & The message to be sent. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Returns 0 upon success and 1 upon failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{serial_8c_source_l00106}{106}} of file \mbox{\hyperlink{serial_8c_source}{serial.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00107\ \ \ uint8\_t\ st;}
+\DoxyCodeLine{00108\ \ \ uint8\_t\ att\ =\ ATTEMPTS;}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Serial_gafa064c2a2d24a8fb7f587b36a6e2bafc}{get\_serial\_port\_status}}(\&st))\ \{}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Failed\ to\ get\ status\ of\ the\ serial\ port\(\backslash\)n"{}});}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00114\ \ \ \ \ \}}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordflow}{if}\ (st\ \&\ TRANSMITTER\_EMPTY)\ \{}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ sys\_outb(COM1\_BASE\_REG\ +\ THR,\ msg);}
+\DoxyCodeLine{00118\ \ \ \ \ \}}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \}\ \textcolor{keywordflow}{while}\ (att-\/-\/\ >\ 0);}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00123\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Serial_ga16017eb641d6cfecc03e1591b8226554_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Serial_ga16017eb641d6cfecc03e1591b8226554_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Serial_ga715abe70eb0b9a74d1f406e26832f6a6}\index{Serial@{Serial}!serial\_initial\_config@{serial\_initial\_config}}
+\index{serial\_initial\_config@{serial\_initial\_config}!Serial@{Serial}}
+\doxysubsubsection{\texorpdfstring{serial\_initial\_config()}{serial\_initial\_config()}}
+{\footnotesize\ttfamily \label{group__Serial_ga715abe70eb0b9a74d1f406e26832f6a6} 
+int serial\+\_\+initial\+\_\+config (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the serial port configuration. 
+
+Creates a new queue and sets up the serial port configuration registers.
+
+\begin{DoxyReturn}{Returns}
+int Returns 0 upon success and 1 upon failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{serial_8c_source_l00019}{19}} of file \mbox{\hyperlink{serial_8c_source}{serial.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00020\ \ \ \textcolor{keywordflow}{if}\ ((\mbox{\hyperlink{structqueue}{queue}}\ =\ \mbox{\hyperlink{group__Queue_ga1641e32ca81e22bdf17ae7fdf554973b}{new\_queue}}())\ ==\ NULL)\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Failed\ to\ create\ queue\(\backslash\)n"{}});}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00023\ \ \ \}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ uint8\_t\ ier;}
+\DoxyCodeLine{00026\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Utils_ga2b56f50ba159e9d5115ed1a75eff15d9}{util\_sys\_inb}}(COM1\_BASE\_REG\ +\ IER,\ \&ier))\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Failed\ sys\_inb\ IER\(\backslash\)n"{}});}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00029\ \ \ \}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ ier\ \&=\ IER\_LS4B\_MASK;}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \textcolor{keywordflow}{if}\ (sys\_outb(COM1\_BASE\_REG\ +\ IER,\ ier\ |\ BIT(0)))\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Failed\ sys\_outb\ IER\(\backslash\)n"{}});}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00036\ \ \ \}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ uint8\_t\ lcr\ =\ 0;}
+\DoxyCodeLine{00039\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Utils_ga2b56f50ba159e9d5115ed1a75eff15d9}{util\_sys\_inb}}(COM1\_BASE\_REG\ +\ LCR,\ \&lcr))\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Failed\ sys\_inb\ LCR\(\backslash\)n"{}});}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00042\ \ \ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ lcr\ |=\ 0x0B;}
+\DoxyCodeLine{00045\ \ \ lcr\ \&=\ 0xCB;}
+\DoxyCodeLine{00046\ \ \ \textcolor{keywordflow}{if}\ (sys\_outb(COM1\_BASE\_REG\ +\ LCR,\ lcr))\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Failed\ sys\_outb\ LCR\(\backslash\)n"{}});}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00049\ \ \ \}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00052\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{group__Serial_ga715abe70eb0b9a74d1f406e26832f6a6_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Serial_ga36391949ef6d64bc727631024db240b9}\index{Serial@{Serial}!serial\_port\_clear\_all@{serial\_port\_clear\_all}}
+\index{serial\_port\_clear\_all@{serial\_port\_clear\_all}!Serial@{Serial}}
+\doxysubsubsection{\texorpdfstring{serial\_port\_clear\_all()}{serial\_port\_clear\_all()}}
+{\footnotesize\ttfamily \label{group__Serial_ga36391949ef6d64bc727631024db240b9} 
+void serial\+\_\+port\+\_\+clear\+\_\+all (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Deletes the queue and frees its memory. 
+
+
+
+Definition at line \mbox{\hyperlink{serial_8c_source_l00212}{212}} of file \mbox{\hyperlink{serial_8c_source}{serial.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00213\ \ \ \mbox{\hyperlink{group__Queue_ga7b0221e1c302d1af3349ffa0a71b7c08}{delete\_queue}}(\mbox{\hyperlink{structqueue}{queue}});}
+\DoxyCodeLine{00214\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=292pt]{group__Serial_ga36391949ef6d64bc727631024db240b9_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Serial_ga1426ccf57ad167e5c2b59cfff90772d9}\index{Serial@{Serial}!serial\_port\_clear\_int@{serial\_port\_clear\_int}}
+\index{serial\_port\_clear\_int@{serial\_port\_clear\_int}!Serial@{Serial}}
+\doxysubsubsection{\texorpdfstring{serial\_port\_clear\_int()}{serial\_port\_clear\_int()}}
+{\footnotesize\ttfamily \label{group__Serial_ga1426ccf57ad167e5c2b59cfff90772d9} 
+int serial\+\_\+port\+\_\+clear\+\_\+int (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Clears the serial port interrupts. 
+
+\begin{DoxyReturn}{Returns}
+int Returns 0 upon success and 1 upon failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{serial_8c_source_l00196}{196}} of file \mbox{\hyperlink{serial_8c_source}{serial.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00197\ \ \ \textcolor{keywordflow}{if}\ (sys\_outb(COM1\_BASE\_REG\ +\ FCR,\ FIFO\_CLEAR))\ \{}
+\DoxyCodeLine{00198\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Failed\ sys\_out\ FCR\(\backslash\)n"{}});}
+\DoxyCodeLine{00199\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00200\ \ \ \}}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ \ \ \mbox{\hyperlink{group__Queue_gad727910848ebf0f74179f809b6eeda7e}{clear\_queue}}(\mbox{\hyperlink{structqueue}{queue}});}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00205\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Serial_ga1426ccf57ad167e5c2b59cfff90772d9_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=320pt]{group__Serial_ga1426ccf57ad167e5c2b59cfff90772d9_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Serial_ga528a1e579cedabb490a7195e2f2287cf}\index{Serial@{Serial}!serial\_port\_int\_handler@{serial\_port\_int\_handler}}
+\index{serial\_port\_int\_handler@{serial\_port\_int\_handler}!Serial@{Serial}}
+\doxysubsubsection{\texorpdfstring{serial\_port\_int\_handler()}{serial\_port\_int\_handler()}}
+{\footnotesize\ttfamily \label{group__Serial_ga528a1e579cedabb490a7195e2f2287cf} 
+void serial\+\_\+port\+\_\+int\+\_\+handler (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Serial port interrupt handler. 
+
+Handles the serial port interrupts by reading the interrupt identification register and processing the appropriate interrupt. 
+
+Definition at line \mbox{\hyperlink{serial_8c_source_l00176}{176}} of file \mbox{\hyperlink{serial_8c_source}{serial.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00177\ \ \ uint8\_t\ interrupt\_ident;}
+\DoxyCodeLine{00178\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Utils_ga2b56f50ba159e9d5115ed1a75eff15d9}{util\_sys\_inb}}(COM1\_BASE\_REG\ +\ IIR,\ \&interrupt\_ident))}
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00180\ \ \ \textcolor{keywordflow}{if}\ ((interrupt\_ident\ \&\ NO\_INT\_PENDING))\ \{}
+\DoxyCodeLine{00181\ \ \ \ \ printf(\textcolor{stringliteral}{"{}No\ interrupt\ pending\(\backslash\)n"{}});}
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00183\ \ \ \}}
+\DoxyCodeLine{00184\ \ \ \textcolor{keywordflow}{if}\ ((interrupt\_ident\ \&\ INT\_PENDING)\ ==\ CHAR\_TIMEOUT\_FIFO)\ \{}
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{group__Serial_gaf636f4cb7ae7a669a84fc3b579f02f0b}{read\_serial\_port\_msg}}())}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00187\ \ \ \}}
+\DoxyCodeLine{00188\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Serial_ga528a1e579cedabb490a7195e2f2287cf_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=325pt]{group__Serial_ga528a1e579cedabb490a7195e2f2287cf_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Serial_ga9e5988172a95cfb57bedb0be3f5199f6}\index{Serial@{Serial}!serial\_port\_subscribe\_int@{serial\_port\_subscribe\_int}}
+\index{serial\_port\_subscribe\_int@{serial\_port\_subscribe\_int}!Serial@{Serial}}
+\doxysubsubsection{\texorpdfstring{serial\_port\_subscribe\_int()}{serial\_port\_subscribe\_int()}}
+{\footnotesize\ttfamily \label{group__Serial_ga9e5988172a95cfb57bedb0be3f5199f6} 
+int serial\+\_\+port\+\_\+subscribe\+\_\+int (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{bit\+\_\+no}{}\end{DoxyParamCaption})}
+
+
+
+Subscribes serial port interrupts. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bit\+\_\+no} & Pointer to a variable where the bit number will be stored. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Returns 0 upon success and 1 upon failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{serial_8c_source_l00061}{61}} of file \mbox{\hyperlink{serial_8c_source}{serial.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00062\ \ \ \textcolor{keywordflow}{if}\ (bit\_no\ ==\ NULL)}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ *bit\_no\ =\ BIT(serial\_port\_hook\_id);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \textcolor{keywordflow}{if}\ (sys\_irqsetpolicy(COM1\_IRQ,\ IRQ\_REENABLE\ |\ IRQ\_EXCLUSIVE,\ \&serial\_port\_hook\_id))\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Failed\ to\ subscribe\ Serial\ Port\ Interrupts\(\backslash\)n"{}});}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00070\ \ \ \}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00073\ \}}
+
+\end{DoxyCode}
+\Hypertarget{group__Serial_gafd52bd27bbf8c2323c4f5e2dddc7bc11}\index{Serial@{Serial}!serial\_port\_unsubscribe\_int@{serial\_port\_unsubscribe\_int}}
+\index{serial\_port\_unsubscribe\_int@{serial\_port\_unsubscribe\_int}!Serial@{Serial}}
+\doxysubsubsection{\texorpdfstring{serial\_port\_unsubscribe\_int()}{serial\_port\_unsubscribe\_int()}}
+{\footnotesize\ttfamily \label{group__Serial_gafd52bd27bbf8c2323c4f5e2dddc7bc11} 
+int serial\+\_\+port\+\_\+unsubscribe\+\_\+int (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Unsubscribes serial port interrupts. 
+
+\begin{DoxyReturn}{Returns}
+int Returns 0 upon success and 1 upon failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{serial_8c_source_l00081}{81}} of file \mbox{\hyperlink{serial_8c_source}{serial.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00082\ \ \ \textcolor{keywordflow}{return}\ sys\_irqrmpolicy(\&serial\_port\_hook\_id);}
+\DoxyCodeLine{00083\ \}}
+
+\end{DoxyCode}

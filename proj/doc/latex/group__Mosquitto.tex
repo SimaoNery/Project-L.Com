@@ -1,0 +1,586 @@
+\doxysection{Mosquitto}
+\hypertarget{group__Mosquitto}{}\label{group__Mosquitto}\index{Mosquitto@{Mosquitto}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__Mosquitto_ga09163d6a77160235996b8b4b72288d6f}{serial\+\_\+port\+\_\+send\+\_\+message}} (int socketfd, const void \texorpdfstring{$\ast$}{*}message)
+\begin{DoxyCompactList}\small\item\em Sends a message through the serial port. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__Mosquitto_ga5783173947246c5fc7cb4fbe5c799add}{mosquitto\+\_\+humidity\+\_\+received}} (const struct mosquitto\+\_\+message \texorpdfstring{$\ast$}{*}msg)
+\begin{DoxyCompactList}\small\item\em Callback function for receiving humidity data via MQTT. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__Mosquitto_gac06ebbfab570b0b73d361a2ba37aa7c1}{mosquitto\+\_\+decibel\+\_\+received}} (const struct mosquitto\+\_\+message \texorpdfstring{$\ast$}{*}msg)
+\begin{DoxyCompactList}\small\item\em Callback function for receiving decibel data via MQTT. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__Mosquitto_ga6bdffe4ec8b7dd1902628909ec82a79e}{mosquitto\+\_\+camera\+\_\+photo\+\_\+received}} (const struct mosquitto\+\_\+message \texorpdfstring{$\ast$}{*}msg)
+\begin{DoxyCompactList}\small\item\em Callback function for receiving camera photo data via MQTT. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__Mosquitto_gad7d41d403223a45509d8029b10fdac85}{mosquitto\+\_\+commmand\+\_\+byte\+\_\+received}} (uint8\+\_\+t command)
+\begin{DoxyCompactList}\small\item\em Publishes a command byte to the appropriate MQTT topic. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__Mosquitto_ga9ec76b81a42ba9f0ee4baa1cfffce939}{mosquitto\+\_\+on\+\_\+message\+\_\+received}} (struct mosquitto \texorpdfstring{$\ast$}{*}mosq, void \texorpdfstring{$\ast$}{*}userdata, const struct mosquitto\+\_\+message \texorpdfstring{$\ast$}{*}message)
+\begin{DoxyCompactList}\small\item\em Function for receiving MQTT messages. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__Mosquitto_gabc659c5801704589564eb1c9ef9ebfdd}{mosquitto\+\_\+initial\+\_\+connection}} (struct mosquitto \texorpdfstring{$\ast$}{*}mosq, void \texorpdfstring{$\ast$}{*}userdata, int rc)
+\begin{DoxyCompactList}\small\item\em Function for initial connection to the MQTT broker. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Mosquitto_ga5b1032f1bcabf3e6072efe46811dec02}{mosquitto\+\_\+initial\+\_\+config}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the Mosquitto library and connects to the MQTT broker. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__Mosquitto_ga5ef2455688ddea6a88fed6feabf9c70f}{mosquitto\+\_\+clean}} ()
+\begin{DoxyCompactList}\small\item\em Cleans up the Mosquitto library and disconnects from the MQTT broker. \end{DoxyCompactList}\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{group__Mosquitto_ga5025b066f93febe70ff06a183b614cee}{server\+\_\+thread}} (void \texorpdfstring{$\ast$}{*}arg)
+\begin{DoxyCompactList}\small\item\em Thread function to handle server-\/side socket communication. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Mosquitto_gae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function to initialize and run the MQTT and socket server. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{group__Mosquitto_gae66f6b31b5ad750f1fe042a706a4e3d4}\index{Mosquitto@{Mosquitto}!main@{main}}
+\index{main@{main}!Mosquitto@{Mosquitto}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{group__Mosquitto_gae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Main function to initialize and run the MQTT and socket server. 
+
+\begin{DoxyReturn}{Returns}
+int Returns 0 on success, 1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{mosquitto_8c_source_l00259}{259}} of file \mbox{\hyperlink{mosquitto_8c_source}{mosquitto.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00260\ \ \ \textcolor{comment}{/*\ Initial\ connection\ of\ the\ socket\ */}}
+\DoxyCodeLine{00261\ \ \ \textcolor{keywordtype}{int}\ attempts\ =\ 10;}
+\DoxyCodeLine{00262\ }
+\DoxyCodeLine{00263\ \ \ }
+\DoxyCodeLine{00264\ \ \ pthread\_t\ socket\_thread;}
+\DoxyCodeLine{00265\ \ \ \textcolor{keywordflow}{if}\ (pthread\_create(\&socket\_thread,\ NULL,\ \mbox{\hyperlink{group__Mosquitto_ga5025b066f93febe70ff06a183b614cee}{server\_thread}},\ NULL)\ !=\ 0)\ \{}
+\DoxyCodeLine{00266\ \ \ \ \ perror(\textcolor{stringliteral}{"{}Failed\ to\ create\ socket\ read\ thread"{}});}
+\DoxyCodeLine{00267\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00268\ \ \ \}\ }
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00270\ \ \ \textcolor{comment}{/*\ Initial\ connection\ of\ the\ mosquitto\ server\ */}}
+\DoxyCodeLine{00271\ \ \ printf(\textcolor{stringliteral}{"{}Connecting\ to\ mosquitto\ broker\(\backslash\)n"{}});}
+\DoxyCodeLine{00272\ \ \ fflush(stdout);}
+\DoxyCodeLine{00273\ \ \ \textcolor{keywordtype}{int}\ mosquitto\_conf\ =\ \mbox{\hyperlink{group__Mosquitto_ga5b1032f1bcabf3e6072efe46811dec02}{mosquitto\_initial\_config}}();}
+\DoxyCodeLine{00274\ \ \ \textcolor{keywordflow}{while}\ ((attempts-\/-\/\ >\ 0)\ \&\&\ (mosquitto\_conf\ !=\ 0))\ \{}
+\DoxyCodeLine{00275\ \ \ \ \ sleep(1);}
+\DoxyCodeLine{00276\ \ \ \ \ mosquitto\_conf\ =\ \mbox{\hyperlink{group__Mosquitto_ga5b1032f1bcabf3e6072efe46811dec02}{mosquitto\_initial\_config}}();}
+\DoxyCodeLine{00277\ \ \ \ \ fflush(stdout);}
+\DoxyCodeLine{00278\ \ \ \}}
+\DoxyCodeLine{00279\ }
+\DoxyCodeLine{00280\ \ \ \textcolor{keywordflow}{if}\ (mosquitto\_conf)\ \{}
+\DoxyCodeLine{00281\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Unable\ to\ connect\ to\ mosquitto\ broker\(\backslash\)n"{}});}
+\DoxyCodeLine{00282\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00283\ \ \ \}}
+\DoxyCodeLine{00284\ \ \ \textcolor{keywordflow}{else}\ \{\ \ }
+\DoxyCodeLine{00285\ \ \ \ \ \textcolor{keywordflow}{while}(1);}
+\DoxyCodeLine{00286\ \ \ \}}
+\DoxyCodeLine{00287\ }
+\DoxyCodeLine{00288\ \ \ pthread\_join(socket\_thread,\ NULL);}
+\DoxyCodeLine{00289\ }
+\DoxyCodeLine{00290\ \ \ close(sockfd);}
+\DoxyCodeLine{00291\ \ \ \mbox{\hyperlink{group__Mosquitto_ga5ef2455688ddea6a88fed6feabf9c70f}{mosquitto\_clean}}();}
+\DoxyCodeLine{00292\ }
+\DoxyCodeLine{00293\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00294\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Mosquitto_gae66f6b31b5ad750f1fe042a706a4e3d4_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Mosquitto_ga6bdffe4ec8b7dd1902628909ec82a79e}\index{Mosquitto@{Mosquitto}!mosquitto\_camera\_photo\_received@{mosquitto\_camera\_photo\_received}}
+\index{mosquitto\_camera\_photo\_received@{mosquitto\_camera\_photo\_received}!Mosquitto@{Mosquitto}}
+\doxysubsubsection{\texorpdfstring{mosquitto\_camera\_photo\_received()}{mosquitto\_camera\_photo\_received()}}
+{\footnotesize\ttfamily \label{group__Mosquitto_ga6bdffe4ec8b7dd1902628909ec82a79e} 
+void mosquitto\+\_\+camera\+\_\+photo\+\_\+received (\begin{DoxyParamCaption}\item[{const struct mosquitto\+\_\+message \texorpdfstring{$\ast$}{*}}]{msg}{}\end{DoxyParamCaption})}
+
+
+
+Callback function for receiving camera photo data via MQTT. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & The received MQTT message. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{mosquitto_8c_source_l00076}{76}} of file \mbox{\hyperlink{mosquitto_8c_source}{mosquitto.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00077\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 153600;\ i\ +=\ 8)\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{char}\ buffer[8];}
+\DoxyCodeLine{00079\ \ \ \ \ memcpy(buffer,\ (\textcolor{keywordtype}{char}\ *)\ msg-\/>payload\ +\ i,\ 8);}
+\DoxyCodeLine{00080\ \ \ \ \ \mbox{\hyperlink{group__Mosquitto_ga09163d6a77160235996b8b4b72288d6f}{serial\_port\_send\_message}}(sockfd,\ buffer);}
+\DoxyCodeLine{00081\ \ \ \}}
+\DoxyCodeLine{00082\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Mosquitto_ga6bdffe4ec8b7dd1902628909ec82a79e_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Mosquitto_ga5ef2455688ddea6a88fed6feabf9c70f}\index{Mosquitto@{Mosquitto}!mosquitto\_clean@{mosquitto\_clean}}
+\index{mosquitto\_clean@{mosquitto\_clean}!Mosquitto@{Mosquitto}}
+\doxysubsubsection{\texorpdfstring{mosquitto\_clean()}{mosquitto\_clean()}}
+{\footnotesize\ttfamily \label{group__Mosquitto_ga5ef2455688ddea6a88fed6feabf9c70f} 
+void mosquitto\+\_\+clean (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Cleans up the Mosquitto library and disconnects from the MQTT broker. 
+
+
+
+Definition at line \mbox{\hyperlink{mosquitto_8c_source_l00181}{181}} of file \mbox{\hyperlink{mosquitto_8c_source}{mosquitto.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00182\ \ \ mosquitto\_disconnect(mosq);}
+\DoxyCodeLine{00183\ \ \ mosquitto\_destroy(mosq);}
+\DoxyCodeLine{00184\ \ \ mosquitto\_lib\_cleanup();}
+\DoxyCodeLine{00185\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=240pt]{group__Mosquitto_ga5ef2455688ddea6a88fed6feabf9c70f_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Mosquitto_gad7d41d403223a45509d8029b10fdac85}\index{Mosquitto@{Mosquitto}!mosquitto\_commmand\_byte\_received@{mosquitto\_commmand\_byte\_received}}
+\index{mosquitto\_commmand\_byte\_received@{mosquitto\_commmand\_byte\_received}!Mosquitto@{Mosquitto}}
+\doxysubsubsection{\texorpdfstring{mosquitto\_commmand\_byte\_received()}{mosquitto\_commmand\_byte\_received()}}
+{\footnotesize\ttfamily \label{group__Mosquitto_gad7d41d403223a45509d8029b10fdac85} 
+void mosquitto\+\_\+commmand\+\_\+byte\+\_\+received (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{command}{}\end{DoxyParamCaption})}
+
+
+
+Publishes a command byte to the appropriate MQTT topic. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & The command byte to be published. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{mosquitto_8c_source_l00099}{99}} of file \mbox{\hyperlink{mosquitto_8c_source}{mosquitto.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00100\ \ \ uint8\_t\ device\ =\ (command\ >>\ 5);}
+\DoxyCodeLine{00101\ \ \ uint8\_t\ param\ =\ command\ \&\ 0x1F;}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ printf(\textcolor{stringliteral}{"{}Publishing\ to\ device:\ \%x\(\backslash\)n"{}},\ device);}
+\DoxyCodeLine{00104\ \ \ printf(\textcolor{stringliteral}{"{}Parameter:\ \%x\(\backslash\)n"{}},\ param);}
+\DoxyCodeLine{00105\ \ \ printf(\textcolor{stringliteral}{"{}Topic:\ \%s\(\backslash\)n"{}},\ redirect[device].topic);}
+\DoxyCodeLine{00106\ \ \ mosquitto\_publish(mosq,\ NULL,\ redirect[device].topic,\ 1,\ \&param,\ 1,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00107\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Mosquitto_gad7d41d403223a45509d8029b10fdac85_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Mosquitto_gac06ebbfab570b0b73d361a2ba37aa7c1}\index{Mosquitto@{Mosquitto}!mosquitto\_decibel\_received@{mosquitto\_decibel\_received}}
+\index{mosquitto\_decibel\_received@{mosquitto\_decibel\_received}!Mosquitto@{Mosquitto}}
+\doxysubsubsection{\texorpdfstring{mosquitto\_decibel\_received()}{mosquitto\_decibel\_received()}}
+{\footnotesize\ttfamily \label{group__Mosquitto_gac06ebbfab570b0b73d361a2ba37aa7c1} 
+void mosquitto\+\_\+decibel\+\_\+received (\begin{DoxyParamCaption}\item[{const struct mosquitto\+\_\+message \texorpdfstring{$\ast$}{*}}]{msg}{}\end{DoxyParamCaption})}
+
+
+
+Callback function for receiving decibel data via MQTT. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & The received MQTT message. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{mosquitto_8c_source_l00061}{61}} of file \mbox{\hyperlink{mosquitto_8c_source}{mosquitto.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00062\ \ \ uint8\_t\ decibel[2];}
+\DoxyCodeLine{00063\ \ \ memcpy(decibel,\ msg-\/>payload,\ \textcolor{keyword}{sizeof}(decibel));}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 2;\ i++)\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{int}\ attempts\ =\ 5;}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordflow}{while}\ ((attempts-\/-\/)\ \&\&\ \mbox{\hyperlink{group__Mosquitto_ga09163d6a77160235996b8b4b72288d6f}{serial\_port\_send\_message}}(sockfd,\ \&decibel[i]));}
+\DoxyCodeLine{00068\ \ \ \}}
+\DoxyCodeLine{00069\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Mosquitto_gac06ebbfab570b0b73d361a2ba37aa7c1_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Mosquitto_ga5783173947246c5fc7cb4fbe5c799add}\index{Mosquitto@{Mosquitto}!mosquitto\_humidity\_received@{mosquitto\_humidity\_received}}
+\index{mosquitto\_humidity\_received@{mosquitto\_humidity\_received}!Mosquitto@{Mosquitto}}
+\doxysubsubsection{\texorpdfstring{mosquitto\_humidity\_received()}{mosquitto\_humidity\_received()}}
+{\footnotesize\ttfamily \label{group__Mosquitto_ga5783173947246c5fc7cb4fbe5c799add} 
+void mosquitto\+\_\+humidity\+\_\+received (\begin{DoxyParamCaption}\item[{const struct mosquitto\+\_\+message \texorpdfstring{$\ast$}{*}}]{msg}{}\end{DoxyParamCaption})}
+
+
+
+Callback function for receiving humidity data via MQTT. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & The received MQTT message. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{mosquitto_8c_source_l00045}{45}} of file \mbox{\hyperlink{mosquitto_8c_source}{mosquitto.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00046\ \ \ uint8\_t\ humidity[4];}
+\DoxyCodeLine{00047\ \ \ memcpy(humidity,\ msg-\/>payload,\ \textcolor{keyword}{sizeof}(humidity));}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ printf(\textcolor{stringliteral}{"{}\%s"{}},(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*)\ msg-\/>payload);}
+\DoxyCodeLine{00050\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 4;\ i++)\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{int}\ attempts\ =\ 5;}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordflow}{while}\ ((attempts-\/-\/)\ \&\&\ \mbox{\hyperlink{group__Mosquitto_ga09163d6a77160235996b8b4b72288d6f}{serial\_port\_send\_message}}(sockfd,\ \&humidity[i]));}
+\DoxyCodeLine{00053\ \ \ \}}
+\DoxyCodeLine{00054\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=349pt]{group__Mosquitto_ga5783173947246c5fc7cb4fbe5c799add_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Mosquitto_ga5b1032f1bcabf3e6072efe46811dec02}\index{Mosquitto@{Mosquitto}!mosquitto\_initial\_config@{mosquitto\_initial\_config}}
+\index{mosquitto\_initial\_config@{mosquitto\_initial\_config}!Mosquitto@{Mosquitto}}
+\doxysubsubsection{\texorpdfstring{mosquitto\_initial\_config()}{mosquitto\_initial\_config()}}
+{\footnotesize\ttfamily \label{group__Mosquitto_ga5b1032f1bcabf3e6072efe46811dec02} 
+int mosquitto\+\_\+initial\+\_\+config (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the Mosquitto library and connects to the MQTT broker. 
+
+\begin{DoxyReturn}{Returns}
+int Returns 0 on success, 1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{mosquitto_8c_source_l00155}{155}} of file \mbox{\hyperlink{mosquitto_8c_source}{mosquitto.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00156\ \ \ mosquitto\_lib\_init();}
+\DoxyCodeLine{00157\ \ \ mosq\ =\ mosquitto\_new(NULL,\ \textcolor{keyword}{true},\ NULL);}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \ \ \textcolor{keywordflow}{if}\ (!mosq)\ \{}
+\DoxyCodeLine{00160\ \ \ \ \ fprintf(stderr,\ \textcolor{stringliteral}{"{}Error:\ Out\ of\ memory.\(\backslash\)n"{}});}
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00162\ \ \ \}}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ mosquitto\_connect\_callback\_set(mosq,\ \mbox{\hyperlink{group__Mosquitto_gabc659c5801704589564eb1c9ef9ebfdd}{mosquitto\_initial\_connection}});}
+\DoxyCodeLine{00165\ \ \ mosquitto\_message\_callback\_set(mosq,\ \mbox{\hyperlink{group__Mosquitto_ga9ec76b81a42ba9f0ee4baa1cfffce939}{mosquitto\_on\_message\_received}});}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \ \ \textcolor{keywordtype}{int}\ rc\ =\ mosquitto\_connect(mosq,\ MQTT\_HOST,\ MQTT\_PORT,\ 60);}
+\DoxyCodeLine{00168\ \ \ \textcolor{keywordflow}{if}\ (rc\ !=\ MOSQ\_ERR\_SUCCESS)\ \{}
+\DoxyCodeLine{00169\ \ \ \ \ fprintf(stderr,\ \textcolor{stringliteral}{"{}Unable\ to\ connect\ to\ MQTT\ broker:\ \%s\(\backslash\)n"{}},\ mosquitto\_strerror(rc));}
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00171\ \ \ \}}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \ \ mosquitto\_loop\_start(mosq);}
+\DoxyCodeLine{00174\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00175\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Mosquitto_ga5b1032f1bcabf3e6072efe46811dec02_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=271pt]{group__Mosquitto_ga5b1032f1bcabf3e6072efe46811dec02_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Mosquitto_gabc659c5801704589564eb1c9ef9ebfdd}\index{Mosquitto@{Mosquitto}!mosquitto\_initial\_connection@{mosquitto\_initial\_connection}}
+\index{mosquitto\_initial\_connection@{mosquitto\_initial\_connection}!Mosquitto@{Mosquitto}}
+\doxysubsubsection{\texorpdfstring{mosquitto\_initial\_connection()}{mosquitto\_initial\_connection()}}
+{\footnotesize\ttfamily \label{group__Mosquitto_gabc659c5801704589564eb1c9ef9ebfdd} 
+void mosquitto\+\_\+initial\+\_\+connection (\begin{DoxyParamCaption}\item[{struct mosquitto \texorpdfstring{$\ast$}{*}}]{mosq}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{userdata}{, }\item[{int}]{rc}{}\end{DoxyParamCaption})}
+
+
+
+Function for initial connection to the MQTT broker. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mosq} & The Mosquitto instance. \\
+\hline
+{\em userdata} & User data provided in mosquitto\+\_\+new. \\
+\hline
+{\em rc} & The connection result code. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{mosquitto_8c_source_l00134}{134}} of file \mbox{\hyperlink{mosquitto_8c_source}{mosquitto.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00135\ \ \ \textcolor{keywordflow}{if}\ (rc\ ==\ 0)\ \{}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *topics[]\ =\ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ HUMIDITY\_TOPIC\_RX,}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ DECIBEL\_TOPIC\_RX,}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ CAMERA\_PHOTO\_TOPIC\_RX\};}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordflow}{if}\ (mosquitto\_subscribe\_multiple(mosq,\ NULL,\ \textcolor{keyword}{sizeof}(topics)\ /\ \textcolor{keyword}{sizeof}(topics[0]),\ (\textcolor{keywordtype}{char}\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const})\ topics,\ 1,\ 0,\ NULL)\ !=\ MOSQ\_ERR\_SUCCESS)\ \{}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error\ subscribing\ to\ topics\(\backslash\)n"{}});}
+\DoxyCodeLine{00143\ \ \ \ \ \}}
+\DoxyCodeLine{00144\ \ \ \}}
+\DoxyCodeLine{00145\ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00146\ \ \ \ \ fprintf(stderr,\ \textcolor{stringliteral}{"{}Failed\ to\ connect\ to\ MQTT\ broker:\ \%s\(\backslash\)n"{}},\ mosquitto\_connack\_string(rc));}
+\DoxyCodeLine{00147\ \ \ \}}
+\DoxyCodeLine{00148\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Mosquitto_gabc659c5801704589564eb1c9ef9ebfdd_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Mosquitto_ga9ec76b81a42ba9f0ee4baa1cfffce939}\index{Mosquitto@{Mosquitto}!mosquitto\_on\_message\_received@{mosquitto\_on\_message\_received}}
+\index{mosquitto\_on\_message\_received@{mosquitto\_on\_message\_received}!Mosquitto@{Mosquitto}}
+\doxysubsubsection{\texorpdfstring{mosquitto\_on\_message\_received()}{mosquitto\_on\_message\_received()}}
+{\footnotesize\ttfamily \label{group__Mosquitto_ga9ec76b81a42ba9f0ee4baa1cfffce939} 
+void mosquitto\+\_\+on\+\_\+message\+\_\+received (\begin{DoxyParamCaption}\item[{struct mosquitto \texorpdfstring{$\ast$}{*}}]{mosq}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{userdata}{, }\item[{const struct mosquitto\+\_\+message \texorpdfstring{$\ast$}{*}}]{message}{}\end{DoxyParamCaption})}
+
+
+
+Function for receiving MQTT messages. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mosq} & The Mosquitto instance. \\
+\hline
+{\em userdata} & User data provided in mosquitto\+\_\+new. \\
+\hline
+{\em message} & The received MQTT message. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{mosquitto_8c_source_l00116}{116}} of file \mbox{\hyperlink{mosquitto_8c_source}{mosquitto.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00117\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *topic\ =\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *)\ message-\/>topic;}
+\DoxyCodeLine{00118\ \ \ \textcolor{keywordtype}{size\_t}\ num\_topics\ =\ \textcolor{keyword}{sizeof}(messageHandler)\ /\ \textcolor{keyword}{sizeof}(messageHandler[0]);}
+\DoxyCodeLine{00119\ \ \ }
+\DoxyCodeLine{00120\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ num\_topics;\ i++)\ \{}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordflow}{if}\ (strcmp(topic,\ messageHandler[i].topic)\ ==\ 0)\ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ messageHandler[i].handler(message);}
+\DoxyCodeLine{00123\ \ \ \ \ \}}
+\DoxyCodeLine{00124\ \ \ \}}
+\DoxyCodeLine{00125\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Mosquitto_ga9ec76b81a42ba9f0ee4baa1cfffce939_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Mosquitto_ga09163d6a77160235996b8b4b72288d6f}\index{Mosquitto@{Mosquitto}!serial\_port\_send\_message@{serial\_port\_send\_message}}
+\index{serial\_port\_send\_message@{serial\_port\_send\_message}!Mosquitto@{Mosquitto}}
+\doxysubsubsection{\texorpdfstring{serial\_port\_send\_message()}{serial\_port\_send\_message()}}
+{\footnotesize\ttfamily \label{group__Mosquitto_ga09163d6a77160235996b8b4b72288d6f} 
+int serial\+\_\+port\+\_\+send\+\_\+message (\begin{DoxyParamCaption}\item[{int}]{socketfd}{, }\item[{const void \texorpdfstring{$\ast$}{*}}]{message}{}\end{DoxyParamCaption})}
+
+
+
+Sends a message through the serial port. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em socketfd} & The file descriptor of the socket. \\
+\hline
+{\em message} & The message to be sent. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Returns 0 on success, 1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{mosquitto_8c_source_l00031}{31}} of file \mbox{\hyperlink{mosquitto_8c_source}{mosquitto.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00032\ \ \ \textcolor{keywordflow}{if}\ (send(socketfd,\ message,\ 1,\ 0)\ !=\ 1)\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ perror(\textcolor{stringliteral}{"{}Send\ failed"{}});}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00035\ \ \ \}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00038\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Mosquitto_ga09163d6a77160235996b8b4b72288d6f_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Mosquitto_ga5025b066f93febe70ff06a183b614cee}\index{Mosquitto@{Mosquitto}!server\_thread@{server\_thread}}
+\index{server\_thread@{server\_thread}!Mosquitto@{Mosquitto}}
+\doxysubsubsection{\texorpdfstring{server\_thread()}{server\_thread()}}
+{\footnotesize\ttfamily \label{group__Mosquitto_ga5025b066f93febe70ff06a183b614cee} 
+void \texorpdfstring{$\ast$}{*} server\+\_\+thread (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{arg}{}\end{DoxyParamCaption})}
+
+
+
+Thread function to handle server-\/side socket communication. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arg} & Arguments for the thread (unused). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void\texorpdfstring{$\ast$}{*} Returns NULL. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{mosquitto_8c_source_l00193}{193}} of file \mbox{\hyperlink{mosquitto_8c_source}{mosquitto.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{keyword}{struct\ }sockaddr\_in\ server\_addr,\ client\_addr;}
+\DoxyCodeLine{00195\ \ \ \ \ socklen\_t\ client\_addr\_len\ =\ \textcolor{keyword}{sizeof}(client\_addr);}
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{keywordtype}{int}\ client\_socket;}
+\DoxyCodeLine{00197\ \ \ \ \ uint8\_t\ buffer[1];}
+\DoxyCodeLine{00198\ \ \ \ \ ssize\_t\ bytes\_read;}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00200\ \ \ \ \ sockfd\ =\ socket(AF\_INET,\ SOCK\_STREAM,\ 0);}
+\DoxyCodeLine{00201\ \ \ \ \ \textcolor{keywordflow}{if}\ (sockfd\ ==\ -\/1)\ \{}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ perror(\textcolor{stringliteral}{"{}Socket\ creation\ failed"{}});}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ exit(EXIT\_FAILURE);}
+\DoxyCodeLine{00204\ \ \ \ \ \}}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \ \ \ \ server\_addr.sin\_family\ =\ AF\_INET;}
+\DoxyCodeLine{00207\ \ \ \ \ server\_addr.sin\_addr.s\_addr\ =\ inet\_addr(SERVER\_IP);}
+\DoxyCodeLine{00208\ \ \ \ \ server\_addr.sin\_port\ =\ htons(SERVER\_PORT);}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{keywordflow}{if}\ (bind(sockfd,\ (\textcolor{keyword}{struct}\ sockaddr\ *)\&server\_addr,\ \textcolor{keyword}{sizeof}(server\_addr))\ <\ 0)\ \{}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ perror(\textcolor{stringliteral}{"{}Bind\ failed"{}});}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ close(sockfd);}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ exit(EXIT\_FAILURE);}
+\DoxyCodeLine{00214\ \ \ \ \ \}}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00216\ \ \ \ \ \textcolor{keywordflow}{if}\ (listen(sockfd,\ 3)\ <\ 0)\ \{}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ perror(\textcolor{stringliteral}{"{}Listen\ failed"{}});}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ close(sockfd);}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ exit(EXIT\_FAILURE);}
+\DoxyCodeLine{00220\ \ \ \ \ \}}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Server\ listening\ on\ \%s:\%d\(\backslash\)n"{}},\ SERVER\_IP,\ SERVER\_PORT);}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00224\ \ \ \ \ \textcolor{keywordflow}{while}\ (1)\ \{}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ client\_socket\ =\ accept(sockfd,\ (\textcolor{keyword}{struct}\ sockaddr\ *)\&client\_addr,\ \&client\_addr\_len);}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (client\_socket\ <\ 0)\ \{}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \ \ perror(\textcolor{stringliteral}{"{}Accept\ failed"{}});}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Client\ connected\(\backslash\)n"{}});}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ ((bytes\_read\ =\ read(client\_socket,\ buffer,\ \textcolor{keyword}{sizeof}(buffer)))\ >\ 0)\ \{}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (bytes\_read\ ==\ 1)\ \{}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint8\_t\ received\_byte\ =\ buffer[0];}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Received\ byte:\ 0x\%02x\(\backslash\)n"{}},\ received\_byte);}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__Mosquitto_gad7d41d403223a45509d8029b10fdac85}{mosquitto\_commmand\_byte\_received}}(received\_byte);}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (bytes\_read\ ==\ -\/1)\ \{}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ perror(\textcolor{stringliteral}{"{}Read\ from\ client\ failed"{}});}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ close(client\_socket);}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Client\ disconnected\(\backslash\)n"{}});}
+\DoxyCodeLine{00247\ \ \ \ \ \}}
+\DoxyCodeLine{00248\ }
+\DoxyCodeLine{00249\ \ \ \ \ close(sockfd);}
+\DoxyCodeLine{00250\ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{00251\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=306pt]{group__Mosquitto_ga5025b066f93febe70ff06a183b614cee_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{group__Mosquitto_ga5025b066f93febe70ff06a183b614cee_icgraph}
+\end{center}
+\end{figure}

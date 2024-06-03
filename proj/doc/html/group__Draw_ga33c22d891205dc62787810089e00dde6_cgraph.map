@@ -1,0 +1,12 @@
+<map id="draw_humidity" name="draw_humidity">
+<area shape="rect" id="Node000001" title="Draws the humidity value on the screen." alt="" coords="5,5,111,31"/>
+<area shape="rect" id="Node000002" href="$group__Draw.html#ga895bacaa423c3442c107c9c03459b22d" title="Draws a digit sprite at the specified position." alt="" coords="340,5,458,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="111,16,324,16,324,21,111,21"/>
+<area shape="rect" id="Node000005" href="$group__Draw.html#ga9cbf1ad6f35259e08b9f544f5014daf5" title="Draws value sprites at the specified position." alt="" coords="159,31,292,56"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="111,23,144,28,143,34,111,29"/>
+<area shape="rect" id="Node000003" href="$group__Sprite.html#ga6c75fbf31230126d2f19b29deaf24b2f" title="Draws a sprite on the screen.This function draws the sprite&#39;s pixels on the screen,..." alt="" coords="506,5,595,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="459,16,490,16,490,21,459,21"/>
+<area shape="rect" id="Node000004" href="$group__Graphics.html#ga6f895de9725f9f231f9a7f74b6087f60" title="Draws a pixel on the screen." alt="" coords="643,5,747,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="595,16,627,16,627,21,595,21"/>
+<area shape="poly" id="edge5_Node000005_Node000002" title=" " alt="" coords="292,31,324,26,325,32,293,36"/>
+</map>

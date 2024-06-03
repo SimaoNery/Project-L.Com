@@ -1,0 +1,23 @@
+<map id="draw_housePlant_buttons" name="draw_housePlant_buttons">
+<area shape="rect" id="Node000001" title="Draws the House Plant buttons.This function draws the House Plant buttons." alt="" coords="955,137,1126,163"/>
+<area shape="rect" id="Node000002" href="$group__Draw.html#gaec3f64d85077b79c7351e933d1ae2c77" title="Draws the house plant page.This function sends serial port messages, draws the house plant sprite,..." alt="" coords="781,137,907,163"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="940,152,907,152,907,147,940,147"/>
+<area shape="rect" id="Node000003" href="$group__Draw.html#gab708de60ac9ff4a5ec5f067b8965fda3" title="Draws the current page based on the page state.This function switches between different page states a..." alt="" coords="648,137,733,163"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="765,152,733,152,733,147,765,147"/>
+<area shape="rect" id="Node000004" href="$group__Command__Line.html#ga5b45f56b0bc963c356a7cc16f211ed4d" title="Handles the command entered in the command line buffer." alt="" coords="446,13,569,39"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="671,126,640,87,621,68,599,52,568,39,570,34,602,47,624,64,644,84,675,123"/>
+<area shape="rect" id="Node000007" href="$group__Keyboard__handler.html#ga7df98bcd186f88ee53f5418cc9450e26" title="Handles keyboard input for the help section." alt="" coords="430,62,584,88"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="655,131,599,101,568,91,570,86,601,97,658,126"/>
+<area shape="rect" id="Node000008" href="$group__Mouse__Handler.html#ga2bff763b32fe778a79e7f396a161b102" title="Interrupt Handler of the help page." alt="" coords="437,112,577,137"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="633,144,577,137,578,131,633,139"/>
+<area shape="rect" id="Node000009" href="$group__Mouse__Handler.html#ga11465ad01a50c8b4faa1c803b8d8fa19" title="Handles mouse input for the house plant section.This function processes mouse packets,..." alt="" coords="414,161,600,187"/>
+<area shape="poly" id="edge8_Node000003_Node000009" title=" " alt="" coords="633,160,601,164,601,159,632,155"/>
+<area shape="rect" id="Node000010" href="$group__Mouse__Handler.html#ga13954acae9127bf7fa31015aa0177735" title="Handles mouse input for the main menu.This function processes mouse packets and updates the cursor po..." alt="" coords="416,210,599,236"/>
+<area shape="poly" id="edge9_Node000003_Node000010" title=" " alt="" coords="657,173,601,201,570,212,568,207,599,197,655,168"/>
+<area shape="rect" id="Node000011" href="$group__Mouse__Handler.html#gac63ee6f5260e431a9252b78077fe37c2" title="Handles mouse input for the settings menu.This function processes mouse packets, updates the cursor p..." alt="" coords="426,260,588,285"/>
+<area shape="poly" id="edge10_Node000003_Node000011" title=" " alt="" coords="674,177,644,215,624,234,602,251,579,261,577,256,599,246,620,230,640,212,670,174"/>
+<area shape="rect" id="Node000005" href="$group__Command__Line.html#gaf30ad16b140d480d643e6a2451b6d9db" title="Processes the input scancode and updates the command line buffer." alt="" coords="208,13,366,39"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="430,28,366,28,366,23,430,23"/>
+<area shape="rect" id="Node000006" href="$group__Keyboard__handler.html#gaafc38d06c830847598f11eac8aae8578" title="Handles keyboard input for the control shell." alt="" coords="5,5,160,46"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="192,28,160,28,160,23,192,23"/>
+</map>

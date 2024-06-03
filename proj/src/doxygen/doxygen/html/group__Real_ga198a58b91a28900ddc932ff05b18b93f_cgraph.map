@@ -1,7 +1,0 @@
-<map id="rtc_activate_interrupt" name="rtc_activate_interrupt">
-<area shape="rect" id="Node000001" title="Activates a specified RTC interrupt." alt="" coords="5,31,149,56"/>
-<area shape="rect" id="Node000002" href="$group__Real.html#ga432373ee35ebe371ba9117440aee1120" title="Retrieves the configuration from a specified RTC register." alt="" coords="197,5,300,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="148,30,181,25,182,31,149,36"/>
-<area shape="rect" id="Node000003" href="$group__Real.html#ga23d1a50bd368370628d600ed988f9026" title="Sets the configuration of a specified RTC register." alt="" coords="197,55,300,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="149,51,181,55,181,61,149,56"/>
-</map>

@@ -1,0 +1,429 @@
+\doxysection{Mouse\+\_\+\+Handler}
+\hypertarget{group__Mouse__Handler}{}\label{group__Mouse__Handler}\index{Mouse\_Handler@{Mouse\_Handler}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group__Mouse__Handler_ga13954acae9127bf7fa31015aa0177735}{mouse\+\_\+main\+\_\+menu\+\_\+handler}} ()
+\begin{DoxyCompactList}\small\item\em Handles mouse input for the main menu.
+
+This function processes mouse packets and updates the cursor position and button states. It also checks for button clicks and updates the page state accordingly. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__Mouse__Handler_gab498b96d35519ddd425b24de354e077d}{mouse\+\_\+control\+\_\+shell\+\_\+handler}} ()
+\begin{DoxyCompactList}\small\item\em Handles mouse input for the control shell.
+
+This function processes mouse packets and updates the mouse packet structure. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__Mouse__Handler_ga11465ad01a50c8b4faa1c803b8d8fa19}{mouse\+\_\+house\+\_\+plant\+\_\+handler}} ()
+\begin{DoxyCompactList}\small\item\em Handles mouse input for the house plant section.
+
+This function processes mouse packets, updates the cursor position, and checks for button hovers and clicks. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__Mouse__Handler_ga4ceac04961a924fb652f91786e301fa7}{mouse\+\_\+security\+\_\+camera\+\_\+handler}} ()
+\begin{DoxyCompactList}\small\item\em Handles mouse input for the security camera section.
+
+This function processes mouse packets and updates the mouse packet structure. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__Mouse__Handler_gac63ee6f5260e431a9252b78077fe37c2}{mouse\+\_\+settings\+\_\+handler}} ()
+\begin{DoxyCompactList}\small\item\em Handles mouse input for the settings menu.
+
+This function processes mouse packets, updates the cursor position, and checks for button hovers and clicks. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__Mouse__Handler_ga2bff763b32fe778a79e7f396a161b102}{mouse\+\_\+help\+\_\+handler}} ()
+\begin{DoxyCompactList}\small\item\em Interrupt Handler of the help page. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{group__Mouse__Handler_gab498b96d35519ddd425b24de354e077d}\index{Mouse\_Handler@{Mouse\_Handler}!mouse\_control\_shell\_handler@{mouse\_control\_shell\_handler}}
+\index{mouse\_control\_shell\_handler@{mouse\_control\_shell\_handler}!Mouse\_Handler@{Mouse\_Handler}}
+\doxysubsubsection{\texorpdfstring{mouse\_control\_shell\_handler()}{mouse\_control\_shell\_handler()}}
+{\footnotesize\ttfamily \label{group__Mouse__Handler_gab498b96d35519ddd425b24de354e077d} 
+void mouse\+\_\+control\+\_\+shell\+\_\+handler (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Handles mouse input for the control shell.
+
+This function processes mouse packets and updates the mouse packet structure. 
+
+
+
+Definition at line \mbox{\hyperlink{mouse__handler_8c_source_l00104}{104}} of file \mbox{\hyperlink{mouse__handler_8c_source}{mouse\+\_\+handler.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00105\ \ \ \mbox{\hyperlink{group__Mouse_ga834b6d7efe311484d6da234db333cb97}{mouse\_ih}}();}
+\DoxyCodeLine{00106\ \ \ \textcolor{keywordflow}{if}(packet\_number\ ==\ 3)\ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \ \mbox{\hyperlink{group__Mouse_ga7c710bdb2e70366f9830f54dcbf7a95a}{parse\_bytes\_to\_packet}}();}
+\DoxyCodeLine{00108\ \ \ \}}
+\DoxyCodeLine{00109\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Mouse__Handler_gab498b96d35519ddd425b24de354e077d_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Mouse__Handler_ga2bff763b32fe778a79e7f396a161b102}\index{Mouse\_Handler@{Mouse\_Handler}!mouse\_help\_handler@{mouse\_help\_handler}}
+\index{mouse\_help\_handler@{mouse\_help\_handler}!Mouse\_Handler@{Mouse\_Handler}}
+\doxysubsubsection{\texorpdfstring{mouse\_help\_handler()}{mouse\_help\_handler()}}
+{\footnotesize\ttfamily \label{group__Mouse__Handler_ga2bff763b32fe778a79e7f396a161b102} 
+void mouse\+\_\+help\+\_\+handler (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Interrupt Handler of the help page. 
+
+
+
+Definition at line \mbox{\hyperlink{mouse__handler_8c_source_l00288}{288}} of file \mbox{\hyperlink{mouse__handler_8c_source}{mouse\+\_\+handler.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00289\ \ \ \mbox{\hyperlink{group__Mouse_ga834b6d7efe311484d6da234db333cb97}{mouse\_ih}}();}
+\DoxyCodeLine{00290\ \ \ \textcolor{keywordflow}{if}\ (packet\_number\ ==\ 3)\ \{}
+\DoxyCodeLine{00291\ \ \ \ \ \mbox{\hyperlink{group__Mouse_ga7c710bdb2e70366f9830f54dcbf7a95a}{parse\_bytes\_to\_packet}}();}
+\DoxyCodeLine{00292\ }
+\DoxyCodeLine{00293\ \ \ \ \ normalCursor-\/>x\ =\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.x;}
+\DoxyCodeLine{00294\ \ \ \ \ normalCursor-\/>y\ =\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.y;}
+\DoxyCodeLine{00295\ }
+\DoxyCodeLine{00296\ \ \ }
+\DoxyCodeLine{00297\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.x\ >=\ backArrow-\/>x\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.x\ <=\ backArrow-\/>x\ +\ bigResolutionButton-\/>width\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.y\ >=\ backArrow-\/>y\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.y\ <=\ backArrow-\/>y\ +\ backArrow-\/>height)\ \ \{}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.left\_button)\ page\_state\ =\ MAIN\_MENU;}
+\DoxyCodeLine{00299\ \ \ \ \ \}}
+\DoxyCodeLine{00300\ }
+\DoxyCodeLine{00301\ \ \ \ \ packet\_number\ =\ 0;}
+\DoxyCodeLine{00302\ \ \ \ \ \mbox{\hyperlink{group__Draw_gab708de60ac9ff4a5ec5f067b8965fda3}{draw\_page}}();}
+\DoxyCodeLine{00303\ \ \ \}}
+\DoxyCodeLine{00304\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Mouse__Handler_ga2bff763b32fe778a79e7f396a161b102_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Mouse__Handler_ga11465ad01a50c8b4faa1c803b8d8fa19}\index{Mouse\_Handler@{Mouse\_Handler}!mouse\_house\_plant\_handler@{mouse\_house\_plant\_handler}}
+\index{mouse\_house\_plant\_handler@{mouse\_house\_plant\_handler}!Mouse\_Handler@{Mouse\_Handler}}
+\doxysubsubsection{\texorpdfstring{mouse\_house\_plant\_handler()}{mouse\_house\_plant\_handler()}}
+{\footnotesize\ttfamily \label{group__Mouse__Handler_ga11465ad01a50c8b4faa1c803b8d8fa19} 
+void mouse\+\_\+house\+\_\+plant\+\_\+handler (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Handles mouse input for the house plant section.
+
+This function processes mouse packets, updates the cursor position, and checks for button hovers and clicks. 
+
+
+
+Definition at line \mbox{\hyperlink{mouse__handler_8c_source_l00117}{117}} of file \mbox{\hyperlink{mouse__handler_8c_source}{mouse\+\_\+handler.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00118\ \ \ \mbox{\hyperlink{group__Mouse_ga834b6d7efe311484d6da234db333cb97}{mouse\_ih}}();}
+\DoxyCodeLine{00119\ \ \ \textcolor{keywordflow}{if}(packet\_number\ ==\ 3)\ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \mbox{\hyperlink{group__Mouse_ga7c710bdb2e70366f9830f54dcbf7a95a}{parse\_bytes\_to\_packet}}();}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ normalCursor-\/>x\ =\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.x;}
+\DoxyCodeLine{00123\ \ \ \ \ normalCursor-\/>y\ =\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.y;}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.x\ >=\ fan-\/>x\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.x\ <=\ fan-\/>x\ +\ fan-\/>width\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.y\ >=\ fan-\/>y\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.y\ <=\ fan-\/>y\ +\ fan-\/>height)\ \ \{}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.left\_button)\ \{}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (db-\/>hover)\ \{}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ db-\/>hover\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__Serial_ga16017eb641d6cfecc03e1591b8226554}{send\_serial\_port\_msg}}(0x70);}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ db-\/>hover\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__Serial_ga16017eb641d6cfecc03e1591b8226554}{send\_serial\_port\_msg}}(0x7F);}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00134\ \ \ \ \ \}}
+\DoxyCodeLine{00135\ \ \ \}}
+\DoxyCodeLine{00136\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.x\ >=\ horn1-\/>x\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.x\ <=\ horn1-\/>x\ +\ horn1-\/>width\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.y\ >=\ horn1-\/>y\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.y\ <=\ horn1-\/>y\ +\ horn1-\/>height)\ \ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.left\_button)\ \{}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (horn1-\/>hover)\ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ horn1-\/>hover\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (horn2-\/>hover)\ \{}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__Serial_ga16017eb641d6cfecc03e1591b8226554}{send\_serial\_port\_msg}}(0x22);}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__Serial_ga16017eb641d6cfecc03e1591b8226554}{send\_serial\_port\_msg}}(0x20);}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (horn2-\/>hover)\ \{}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__Serial_ga16017eb641d6cfecc03e1591b8226554}{send\_serial\_port\_msg}}(0x23);}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__Serial_ga16017eb641d6cfecc03e1591b8226554}{send\_serial\_port\_msg}}(0x21);}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00153\ \ \ \ \ \}}
+\DoxyCodeLine{00154\ \ \ \}}
+\DoxyCodeLine{00155\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.x\ >=\ horn2-\/>x\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.x\ <=\ horn2-\/>x\ +\ horn2-\/>width\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.y\ >=\ horn2-\/>y\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.y\ <=\ horn2-\/>y\ +\ horn2-\/>height)\ \ \{}
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.left\_button)\ \{}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (horn2-\/>hover)\ \{}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ horn2-\/>hover\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (horn1-\/>hover)\ \{}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__Serial_ga16017eb641d6cfecc03e1591b8226554}{send\_serial\_port\_msg}}(0x21);}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__Serial_ga16017eb641d6cfecc03e1591b8226554}{send\_serial\_port\_msg}}(0x20);}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (horn1-\/>hover)\ \{}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__Serial_ga16017eb641d6cfecc03e1591b8226554}{send\_serial\_port\_msg}}(0x23);}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__Serial_ga16017eb641d6cfecc03e1591b8226554}{send\_serial\_port\_msg}}(0x22);}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00172\ \ \ \ \ \}}
+\DoxyCodeLine{00173\ \ \ \}}
+\DoxyCodeLine{00174\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.x\ >=\ humidity\_and\_temperature-\/>x\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.x\ <=\ humidity\_and\_temperature-\/>x\ +\ humidity\_and\_temperature-\/>width\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.y\ >=\ humidity\_and\_temperature-\/>y\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.y\ <=\ humidity\_and\_temperature-\/>y\ +\ humidity\_and\_temperature-\/>height)\ \ \{}
+\DoxyCodeLine{00175\ \ \ \ \ humidity\_and\_temperature-\/>hover\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00176\ \ \ \}}
+\DoxyCodeLine{00177\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.x\ >=\ light\_horizontal1-\/>x\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.x\ <=\ light\_horizontal1-\/>x\ +\ light\_horizontal1-\/>width\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.y\ >=\ light\_horizontal1-\/>y\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.y\ <=\ light\_horizontal1-\/>y\ +\ light\_horizontal1-\/>height)\ \ \{}
+\DoxyCodeLine{00178\ \ \ \ \ light\_horizontal1-\/>hover\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00179\ \ \ \}}
+\DoxyCodeLine{00180\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.x\ >=\ light\_horizontal2-\/>x\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.x\ <=\ light\_horizontal2-\/>x\ +\ light\_horizontal2-\/>width\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.y\ >=\ light\_horizontal2-\/>y\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.y\ <=\ light\_horizontal2-\/>y\ +\ light\_horizontal2-\/>height)\ \ \{}
+\DoxyCodeLine{00181\ \ \ \ \ light\_horizontal2-\/>hover\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00182\ \ \ \}}
+\DoxyCodeLine{00183\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.x\ >=\ light\_vertical1-\/>x\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.x\ <=\ light\_vertical1-\/>x\ +\ light\_vertical1-\/>width\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.y\ >=\ light\_vertical1-\/>y\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.y\ <=\ light\_vertical1-\/>y\ +\ light\_vertical1-\/>height)\ \ \{}
+\DoxyCodeLine{00184\ \ \ \ \ light\_vertical1-\/>hover\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00185\ \ \ \}}
+\DoxyCodeLine{00186\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.x\ >=\ light\_vertical2-\/>x\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.x\ <=\ light\_vertical2-\/>x\ +\ light\_vertical2-\/>width\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.y\ >=\ light\_vertical2-\/>y\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.y\ <=\ light\_vertical2-\/>y\ +\ light\_vertical2-\/>height)\ \ \{}
+\DoxyCodeLine{00187\ \ \ \ \ light\_vertical2-\/>hover\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00188\ \ \ \}}
+\DoxyCodeLine{00189\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.x\ >=\ light\_vertical3-\/>x\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.x\ <=\ light\_vertical3-\/>x\ +\ light\_vertical3-\/>width\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.y\ >=\ light\_vertical3-\/>y\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.y\ <=\ light\_vertical3-\/>y\ +\ light\_vertical3-\/>height)\ \ \{}
+\DoxyCodeLine{00190\ \ \ \ \ light\_vertical3-\/>hover\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00191\ \ \ \}}
+\DoxyCodeLine{00192\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.x\ >=\ percentage-\/>x\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.x\ <=\ percentage-\/>x\ +\ percentage-\/>width\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.y\ >=\ percentage-\/>y\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.y\ <=\ percentage-\/>y\ +\ percentage-\/>height)\ \ \{}
+\DoxyCodeLine{00193\ \ \ \ \ percentage-\/>hover\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00194\ \ \ \}}
+\DoxyCodeLine{00195\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.x\ >=\ read\_humidity-\/>x\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.x\ <=\ read\_humidity-\/>x\ +\ read\_humidity-\/>width\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.y\ >=\ read\_humidity-\/>y\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.y\ <=\ read\_humidity-\/>y\ +\ read\_humidity-\/>height)\ \ \{}
+\DoxyCodeLine{00196\ \ \ \ \ read\_humidity-\/>hover\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00197\ \ \ \}}
+\DoxyCodeLine{00198\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.x\ >=\ read\_sound\_intensity-\/>x\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.x\ <=\ read\_sound\_intensity-\/>x\ +\ read\_sound\_intensity-\/>width\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.y\ >=\ read\_sound\_intensity-\/>y\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.y\ <=\ read\_sound\_intensity-\/>y\ +\ read\_sound\_intensity-\/>height)\ \ \{}
+\DoxyCodeLine{00199\ \ \ \ \ read\_sound\_intensity-\/>hover\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00200\ \ \ \}}
+\DoxyCodeLine{00201\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.x\ >=\ read\_temperature-\/>x\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.x\ <=\ read\_temperature-\/>x\ +\ read\_temperature-\/>width\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.y\ >=\ read\_temperature-\/>y\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.y\ <=\ read\_temperature-\/>y\ +\ read\_temperature-\/>height)\ \ \{}
+\DoxyCodeLine{00202\ \ \ \ \ read\_temperature-\/>hover\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00203\ \ \ \}}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00205\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.x\ >=\ backArrow-\/>x\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.x\ <=\ backArrow-\/>x\ +\ bigResolutionButton-\/>width\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.y\ >=\ backArrow-\/>y\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.y\ <=\ backArrow-\/>y\ +\ backArrow-\/>height)\ \ \{}
+\DoxyCodeLine{00206\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.left\_button)\ page\_state\ =\ MAIN\_MENU;}
+\DoxyCodeLine{00207\ \ \ \}}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00210\ \ \ \ \ db-\/>hover\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00211\ \ \ \ \ degrees\_celcius-\/>hover\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00212\ \ \ \ \ fan-\/>hover\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00213\ \ \ \ \ horn1-\/>hover\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00214\ \ \ \ \ horn2-\/>hover\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00215\ \ \ \ \ humidity\_and\_temperature-\/>hover\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00216\ \ \ \ \ light\_horizontal1-\/>hover\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00217\ \ \ \ \ light\_horizontal2-\/>hover\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00218\ \ \ \ \ light\_vertical1-\/>hover\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00219\ \ \ \ \ light\_vertical2-\/>hover\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00220\ \ \ \ \ light\_vertical3-\/>hover\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00221\ \ \ \ \ percentage-\/>hover\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00222\ \ \ \ \ read\_humidity-\/>hover\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00223\ \ \ \ \ read\_sound\_intensity-\/>hover\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00224\ \ \ \ \ read\_temperature-\/>hover\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00225\ \ \ \ \ sound\_int-\/>hover\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00226\ \ \ \}}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ \ \ packet\_number\ =\ 0;}
+\DoxyCodeLine{00229\ \ \ \mbox{\hyperlink{group__Draw_gab708de60ac9ff4a5ec5f067b8965fda3}{draw\_page}}();}
+\DoxyCodeLine{00230\ \ \ \}}
+\DoxyCodeLine{00231\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Mouse__Handler_ga11465ad01a50c8b4faa1c803b8d8fa19_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Mouse__Handler_ga13954acae9127bf7fa31015aa0177735}\index{Mouse\_Handler@{Mouse\_Handler}!mouse\_main\_menu\_handler@{mouse\_main\_menu\_handler}}
+\index{mouse\_main\_menu\_handler@{mouse\_main\_menu\_handler}!Mouse\_Handler@{Mouse\_Handler}}
+\doxysubsubsection{\texorpdfstring{mouse\_main\_menu\_handler()}{mouse\_main\_menu\_handler()}}
+{\footnotesize\ttfamily \label{group__Mouse__Handler_ga13954acae9127bf7fa31015aa0177735} 
+void mouse\+\_\+main\+\_\+menu\+\_\+handler (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Handles mouse input for the main menu.
+
+This function processes mouse packets and updates the cursor position and button states. It also checks for button clicks and updates the page state accordingly. 
+
+
+
+Definition at line \mbox{\hyperlink{mouse__handler_8c_source_l00045}{45}} of file \mbox{\hyperlink{mouse__handler_8c_source}{mouse\+\_\+handler.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00046\ \ \ \mbox{\hyperlink{group__Mouse_ga834b6d7efe311484d6da234db333cb97}{mouse\_ih}}();}
+\DoxyCodeLine{00047\ \ \ \textcolor{keywordflow}{if}\ (packet\_number\ ==\ 3)\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{group__Mouse_ga7c710bdb2e70366f9830f54dcbf7a95a}{parse\_bytes\_to\_packet}}();}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ normalCursor-\/>x\ =\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.x;}
+\DoxyCodeLine{00051\ \ \ \ \ normalCursor-\/>y\ =\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.y;}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.x\ >=\ controlShellButton-\/>x\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.x\ <=\ controlShellButton-\/>x\ +\ controlShellButton-\/>width\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.y\ >=\ controlShellButton-\/>y\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.y\ <=\ controlShellButton-\/>y\ +\ controlShellButton-\/>height)\ \ \{}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.left\_button)\ page\_state\ =\ CONTROL\_SHELL;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ controlShellButton-\/>hover\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00058\ \ \ \ \ \}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.x\ >=\ housePlantButton-\/>x\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.x\ <=\ housePlantButton-\/>x\ +\ housePlantButton-\/>width\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.y\ >=\ housePlantButton-\/>y\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.y\ <=\ housePlantButton-\/>y\ +\ housePlantButton-\/>height)\ \ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.left\_button)\ page\_state\ =\ HOUSE\_PLANT;}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ housePlantButton-\/>hover\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00064\ \ \ \ \ \}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.x\ >=\ exitButton-\/>x\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.x\ <=\ exitButton-\/>x\ +\ exitButton-\/>width\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.y\ >=\ exitButton-\/>y\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.y\ <=\ exitButton-\/>y\ +\ exitButton-\/>height)\ \ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.left\_button)\ running\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ exitButton-\/>hover\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00070\ \ \ \ \ \}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.x\ >=\ helpButton-\/>x\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.x\ <=\ helpButton-\/>x\ +\ helpButton-\/>width\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.y\ >=\ helpButton-\/>y\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.y\ <=\ helpButton-\/>y\ +\ helpButton-\/>height)\ \ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.left\_button)\ page\_state\ =\ HELP;}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ helpButton-\/>hover\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00076\ \ \ \ \ \}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.x\ >=\ resolutionButton-\/>x\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.x\ <=\ resolutionButton-\/>x\ +\ resolutionButton-\/>width\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.y\ >=\ resolutionButton-\/>y\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.y\ <=\ resolutionButton-\/>y\ +\ resolutionButton-\/>height)\ \ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ }
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.left\_button)\ page\_state\ =\ RESOLUTION;}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ resolutionButton-\/>hover\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00082\ \ \ \ \ \}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \ \ controlShellButton-\/>hover\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ housePlantButton-\/>hover\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ exitButton-\/>hover\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ helpButton-\/>hover\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ resolutionButton-\/>hover\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ }
+\DoxyCodeLine{00092\ \ \ \ \ \}}
+\DoxyCodeLine{00093\ \ \ \ \ packet\_number\ =\ 0;}
+\DoxyCodeLine{00094\ \ \ \ \ \mbox{\hyperlink{group__Draw_gab708de60ac9ff4a5ec5f067b8965fda3}{draw\_page}}();}
+\DoxyCodeLine{00095\ \ \ \}}
+\DoxyCodeLine{00096\ \ \ }
+\DoxyCodeLine{00097\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Mouse__Handler_ga13954acae9127bf7fa31015aa0177735_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Mouse__Handler_ga4ceac04961a924fb652f91786e301fa7}\index{Mouse\_Handler@{Mouse\_Handler}!mouse\_security\_camera\_handler@{mouse\_security\_camera\_handler}}
+\index{mouse\_security\_camera\_handler@{mouse\_security\_camera\_handler}!Mouse\_Handler@{Mouse\_Handler}}
+\doxysubsubsection{\texorpdfstring{mouse\_security\_camera\_handler()}{mouse\_security\_camera\_handler()}}
+{\footnotesize\ttfamily \label{group__Mouse__Handler_ga4ceac04961a924fb652f91786e301fa7} 
+void mouse\+\_\+security\+\_\+camera\+\_\+handler (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Handles mouse input for the security camera section.
+
+This function processes mouse packets and updates the mouse packet structure. 
+
+
+
+Definition at line \mbox{\hyperlink{mouse__handler_8c_source_l00238}{238}} of file \mbox{\hyperlink{mouse__handler_8c_source}{mouse\+\_\+handler.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00239\ \ \ \mbox{\hyperlink{group__Mouse_ga834b6d7efe311484d6da234db333cb97}{mouse\_ih}}();}
+\DoxyCodeLine{00240\ \ \ \mbox{\hyperlink{group__Mouse_ga7c710bdb2e70366f9830f54dcbf7a95a}{parse\_bytes\_to\_packet}}();}
+\DoxyCodeLine{00241\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Mouse__Handler_ga4ceac04961a924fb652f91786e301fa7_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Mouse__Handler_gac63ee6f5260e431a9252b78077fe37c2}\index{Mouse\_Handler@{Mouse\_Handler}!mouse\_settings\_handler@{mouse\_settings\_handler}}
+\index{mouse\_settings\_handler@{mouse\_settings\_handler}!Mouse\_Handler@{Mouse\_Handler}}
+\doxysubsubsection{\texorpdfstring{mouse\_settings\_handler()}{mouse\_settings\_handler()}}
+{\footnotesize\ttfamily \label{group__Mouse__Handler_gac63ee6f5260e431a9252b78077fe37c2} 
+void mouse\+\_\+settings\+\_\+handler (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Handles mouse input for the settings menu.
+
+This function processes mouse packets, updates the cursor position, and checks for button hovers and clicks. 
+
+
+
+Definition at line \mbox{\hyperlink{mouse__handler_8c_source_l00248}{248}} of file \mbox{\hyperlink{mouse__handler_8c_source}{mouse\+\_\+handler.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00249\ \ \ \mbox{\hyperlink{group__Mouse_ga834b6d7efe311484d6da234db333cb97}{mouse\_ih}}();}
+\DoxyCodeLine{00250\ \ \ \textcolor{keywordflow}{if}\ (packet\_number\ ==\ 3)\ \{}
+\DoxyCodeLine{00251\ \ \ \ \ \mbox{\hyperlink{group__Mouse_ga7c710bdb2e70366f9830f54dcbf7a95a}{parse\_bytes\_to\_packet}}();}
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00253\ \ \ \ \ normalCursor-\/>x\ =\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.x;}
+\DoxyCodeLine{00254\ \ \ \ \ normalCursor-\/>y\ =\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.y;}
+\DoxyCodeLine{00255\ }
+\DoxyCodeLine{00256\ \ \ }
+\DoxyCodeLine{00257\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.x\ >=\ smallResolutionButton-\/>x\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.x\ <=\ smallResolutionButton-\/>x\ +\ smallResolutionButton-\/>width\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.y\ >=\ smallResolutionButton-\/>y\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.y\ <=\ smallResolutionButton-\/>y\ +\ smallResolutionButton-\/>height)\ \ \{}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ smallResolutionButton-\/>hover\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.left\_button)\ \mbox{\hyperlink{group__Graphics_gae3e0f491782c537cbd9ba342164c6f96}{change\_resolution}}(RES\_800\_600);}
+\DoxyCodeLine{00260\ \ \ \ \ \}}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00262\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.x\ >=\ bigResolutionButton-\/>x\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.x\ <=\ bigResolutionButton-\/>x\ +\ bigResolutionButton-\/>width\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.y\ >=\ bigResolutionButton-\/>y\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.y\ <=\ bigResolutionButton-\/>y\ +\ bigResolutionButton-\/>height)\ \ \{}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ bigResolutionButton-\/>hover\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.left\_button)\ \mbox{\hyperlink{group__Graphics_gae3e0f491782c537cbd9ba342164c6f96}{change\_resolution}}(RES\_1152\_864);}
+\DoxyCodeLine{00265\ \ \ \ \ \}}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00267\ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.x\ >=\ backArrow-\/>x\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.x\ <=\ backArrow-\/>x\ +\ bigResolutionButton-\/>width\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.y\ >=\ backArrow-\/>y\ \&\&\ \mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.y\ <=\ backArrow-\/>y\ +\ backArrow-\/>height)\ \ \{}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structmouse__packet}{mouse\_packet}}.left\_button)\ page\_state\ =\ MAIN\_MENU;}
+\DoxyCodeLine{00269\ \ \ \ \ \}}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00271\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00272\ }
+\DoxyCodeLine{00273\ \ \ \ \ \ \ smallResolutionButton-\/>hover\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ bigResolutionButton-\/>hover\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ }
+\DoxyCodeLine{00276\ \ \ \ \ \}}
+\DoxyCodeLine{00277\ }
+\DoxyCodeLine{00278\ \ \ \ \ packet\_number\ =\ 0;}
+\DoxyCodeLine{00279\ \ \ \ \ \mbox{\hyperlink{group__Draw_gab708de60ac9ff4a5ec5f067b8965fda3}{draw\_page}}();}
+\DoxyCodeLine{00280\ \ \ \}}
+\DoxyCodeLine{00281\ }
+\DoxyCodeLine{00282\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Mouse__Handler_gac63ee6f5260e431a9252b78077fe37c2_cgraph}
+\end{center}
+\end{figure}

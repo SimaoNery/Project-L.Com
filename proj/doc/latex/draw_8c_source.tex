@@ -1,0 +1,492 @@
+\doxysection{draw.\+c}
+\hypertarget{draw_8c_source}{}\label{draw_8c_source}\index{/Users/wagner/Desktop/faculdade/2 ano/LCOM/MINIX-\/LCOM/shared/g4/proj/src/visuals/draw.c@{/Users/wagner/Desktop/faculdade/2 ano/LCOM/MINIX-\/LCOM/shared/g4/proj/src/visuals/draw.c}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}draw.h"{}}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00008}00008\ \textcolor{keyword}{extern}\ uint8\_t\ page\_state;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00009}00009\ \textcolor{keyword}{extern}\ uint16\_t\ resolution;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00011}00011\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structreal__time__info}{real\_time\_info}}\ time\_info;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00013}00013\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ humidity\_temp[4];}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00014}00014\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ sound\_intensity[2];}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00023}\mbox{\hyperlink{group__Draw_gab708de60ac9ff4a5ec5f067b8965fda3}{00023}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__Draw_gab708de60ac9ff4a5ec5f067b8965fda3}{draw\_page}}()\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00024}00024\ \ \ \textcolor{keywordflow}{switch}\ (page\_state)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00025}00025\ \ \ \ \ \textcolor{keywordflow}{case}\ MAIN\_MENU:}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00026}00026\ \ \ \ \ \ \ \mbox{\hyperlink{group__Draw_gad7ca2d21a727f7d55afef2392de3b5f8}{draw\_main\_menu}}();}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00027}00027\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00028}00028\ \ \ \ \ \textcolor{keywordflow}{case}\ CONTROL\_SHELL:}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00029}00029\ \ \ \ \ \ \ draw\_control\_shell();}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00030}00030\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00031}00031\ \ \ \ \ \textcolor{keywordflow}{case}\ HOUSE\_PLANT:}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00032}00032\ \ \ \ \ \ \ \mbox{\hyperlink{group__Draw_gaec3f64d85077b79c7351e933d1ae2c77}{draw\_house\_plant}}();}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00033}00033\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00034}00034\ \ \ \ \ \textcolor{keywordflow}{case}\ RESOLUTION:}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00035}00035\ \ \ \ \ \ \ \mbox{\hyperlink{group__Draw_ga6305b70c3fe62546c38d818d92cb784a}{draw\_resolution}}();}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00036}00036\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00037}00037\ \ \ \ \ \textcolor{keywordflow}{case}\ HELP:}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00038}00038\ \ \ \ \ \ \ draw\_help();}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00039}00039\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00040}00040\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00042}00042\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00043}00043\ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00052}\mbox{\hyperlink{group__Draw_gad7ca2d21a727f7d55afef2392de3b5f8}{00052}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__Draw_gad7ca2d21a727f7d55afef2392de3b5f8}{draw\_main\_menu}}()\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00053}00053\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(mainMenu)\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00054}00054\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ draw\ -\/mainMenu-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00055}00055\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00056}00056\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00058}00058\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_ga77aa5892dbaec23e07aa9523bf2e2e60}{draw\_date\_time}}()\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00059}00059\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ draw\ the\ date\ and\ time!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00060}00060\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00061}00061\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00063}00063\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_gaf4eaa4b2b77231bf1696747c632af8a7}{draw\_main\_buttons}}()\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00064}00064\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ draw\ Main\ Menu\ buttons!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00065}00065\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00066}00066\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00068}00068\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(normalCursor)\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00069}00069\ \ \ \ \ printf(\textcolor{stringliteral}{"{}ErrorDISABLE\_DATA\_REPORTING:\ Problems\ occured\ while\ trying\ to\ draw\ the\ mouse\ pointer!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00070}00070\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00071}00071\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00073}00073\ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Graphics_ga4f129396b28e32728e9f92e8858c4f00}{buffering\_method}}()\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00074}00074\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error\ detecting\ buffering\ method!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00075}00075\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00076}00076\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00078}00078\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00079}00079\ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00088}00088\ \textcolor{keywordtype}{int}\ draw\_control\_shell()\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00089}00089\ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Mouse_gaecdd51f940be83961956458c45d902e4}{write\_mouse\_cmd}}(DISABLE\_DATA\_REPORTING)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00091}00091\ \ \ \textcolor{keywordflow}{if}\ (vg\_exit()\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00093}00093\ \ \ printf(\textcolor{stringliteral}{"{}Welcome\ to\ Wagner's\ House\ Control\ Shell!\(\backslash\)nYour\ house's\ devices\ are\ at\ the\ distance\ of\ a\ command.\(\backslash\)nType\ help\ for\ a\ list\ of\ commands\ or\ exit\ to\ leave\ the\ shell.\(\backslash\)nminix\$\ "{}});}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00095}00095\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00096}00096\ \ \ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00097}00097\ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00099}00099\ \textcolor{keywordtype}{int}\ draw\_display\_message()\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00100}00100\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00101}00101\ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00111}\mbox{\hyperlink{group__Draw_ga6305b70c3fe62546c38d818d92cb784a}{00111}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__Draw_ga6305b70c3fe62546c38d818d92cb784a}{draw\_resolution}}()\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00112}00112\ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(resolutionPage)\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00113}00113\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ draw\ -\/resolutionPage-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00114}00114\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00115}00115\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00117}00117\ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Draw_gaa30d2b1357c9de82a2dca4bab3fdfa9c}{draw\_resolution\_buttons}}()\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00118}00118\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ draw\ Resolution\ Page\ Buttons!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00119}00119\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00120}00120\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00122}00122\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(normalCursor)\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00123}00123\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ draw\ the\ mouse\ pointer!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00124}00124\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00125}00125\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00127}00127\ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Graphics_ga4f129396b28e32728e9f92e8858c4f00}{buffering\_method}}()\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00128}00128\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error\ detecting\ buffering\ method!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00129}00129\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00130}00130\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00132}00132\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00133}00133\ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00143}\mbox{\hyperlink{group__Draw_gaec3f64d85077b79c7351e933d1ae2c77}{00143}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__Draw_gaec3f64d85077b79c7351e933d1ae2c77}{draw\_house\_plant}}()\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00144}00144\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00145}00145\ \ \ \mbox{\hyperlink{group__Serial_ga16017eb641d6cfecc03e1591b8226554}{send\_serial\_port\_msg}}(BIT(7));}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00146}00146\ \ \ \mbox{\hyperlink{group__Serial_ga16017eb641d6cfecc03e1591b8226554}{send\_serial\_port\_msg}}(0xA0);}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00147}00147\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00148}00148\ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(housePlant)\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00149}00149\ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ draw\ -\/housePlantPage-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00150}00150\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00151}00151\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00152}00152\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00153}00153\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_ga33c22d891205dc62787810089e00dde6}{draw\_humidity}}()\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00154}00154\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ draw\ the\ !\ \(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00155}00155\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00156}00156\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00157}00157\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00158}00158\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_ga473c4126179530af9119bcbc3d5bc3f7}{draw\_temperature}}()\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00159}00159\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ draw\ the\ date\ and\ time!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00160}00160\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00161}00161\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00162}00162\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00163}00163\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_ga2b030dfcf9c9580d4abf9500387eb1c8}{draw\_sound\_intensity}}()\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00164}00164\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ draw\ the\ date\ and\ time!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00165}00165\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00166}00166\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00167}00167\ \ \ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00168}00168\ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Draw_ga24c926d472482e72c7219880c7ccd5c4}{draw\_housePlant\_buttons}}()\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00169}00169\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ draw\ housePlant\ buttons!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00170}00170\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00171}00171\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00172}00172\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00173}00173\ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(normalCursor)\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00174}00174\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ draw\ the\ mouse\ pointer!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00175}00175\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00176}00176\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00177}00177\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00178}00178\ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Graphics_ga4f129396b28e32728e9f92e8858c4f00}{buffering\_method}}()\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00179}00179\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error\ detecting\ buffering\ method!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00180}00180\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00181}00181\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00182}00182\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00183}00183\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00184}00184\ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00185}00185\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00186}00186\ \textcolor{keywordtype}{int}\ draw\_help()\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00187}00187\ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(helpPage)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00188}00188\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00189}00189\ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(backArrow)\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00190}00190\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ while\ trying\ to\ draw\ -\/backArrow-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00191}00191\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00192}00192\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00193}00193\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00194}00194\ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(normalCursor)\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00195}00195\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ draw\ the\ mouse\ pointer!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00196}00196\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00197}00197\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00198}00198\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00199}00199\ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Graphics_ga4f129396b28e32728e9f92e8858c4f00}{buffering\_method}}()\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00200}00200\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error\ detecting\ buffering\ method!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00201}00201\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00202}00202\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00203}00203\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00204}00204\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00205}00205\ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00206}00206\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00214}\mbox{\hyperlink{group__Draw_gaf4eaa4b2b77231bf1696747c632af8a7}{00214}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__Draw_gaf4eaa4b2b77231bf1696747c632af8a7}{draw\_main\_buttons}}()\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00215}00215\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(controlShellButton)\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00216}00216\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ trying\ to\ draw\ -\/controlShellButton-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00217}00217\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00218}00218\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00219}00219\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00220}00220\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(housePlantButton)\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00221}00221\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ trying\ to\ draw\ -\/housePlantButton-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00222}00222\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00223}00223\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00224}00224\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00225}00225\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(exitButton)\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00226}00226\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ trying\ to\ draw\ -\/displayMessageButton-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00227}00227\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00228}00228\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00229}00229\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00230}00230\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(helpButton)\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00231}00231\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ trying\ to\ draw\ -\/helpButtonButton-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00232}00232\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00233}00233\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00234}00234\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00235}00235\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(resolutionButton)\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00236}00236\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ trying\ to\ draw\ -\/resolutionButton-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00237}00237\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00238}00238\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00239}00239\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00240}00240\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00241}00241\ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00242}00242\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00250}\mbox{\hyperlink{group__Draw_gaa30d2b1357c9de82a2dca4bab3fdfa9c}{00250}}\ int\ (\mbox{\hyperlink{group__Draw_gaa30d2b1357c9de82a2dca4bab3fdfa9c}{draw\_resolution\_buttons}})()\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00251}00251\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(smallResolutionButton)\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00252}00252\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ trying\ to\ draw\ -\/smallResolutionButton-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00253}00253\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00254}00254\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00255}00255\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00256}00256\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(bigResolutionButton)\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00257}00257\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ trying\ to\ draw\ -\/bigResolutionButton-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00258}00258\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00259}00259\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00260}00260\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00261}00261\ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(backArrow)\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00262}00262\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occured\ while\ trying\ to\ draw\ -\/backArrow-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00263}00263\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00264}00264\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00265}00265\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00266}00266\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00267}00267\ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00268}00268\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00269}00269\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00277}\mbox{\hyperlink{group__Draw_ga24c926d472482e72c7219880c7ccd5c4}{00277}}\ int(\mbox{\hyperlink{group__Draw_ga24c926d472482e72c7219880c7ccd5c4}{draw\_housePlant\_buttons}})()\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00278}00278\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(fan)\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00279}00279\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ trying\ to\ draw\ -\/fan-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00280}00280\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00281}00281\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00282}00282\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00283}00283\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(horn1)\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00284}00284\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ trying\ to\ draw\ -\/horn1-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00285}00285\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00286}00286\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00287}00287\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00288}00288\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(horn2)\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00289}00289\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ trying\ to\ draw\ -\/horn2-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00290}00290\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00291}00291\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00292}00292\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00293}00293\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(humidity\_and\_temperature)\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00294}00294\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ trying\ to\ draw\ -\/humidity\_and\_temperature-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00295}00295\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00296}00296\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00297}00297\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00298}00298\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(light\_horizontal1)\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00299}00299\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ trying\ to\ draw\ -\/light\_horizontal1-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00300}00300\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00301}00301\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00302}00302\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00303}00303\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(light\_horizontal2)\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00304}00304\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ trying\ to\ draw\ -\/light\_horizontal2-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00305}00305\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00306}00306\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00307}00307\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00308}00308\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(light\_vertical1)\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00309}00309\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ trying\ to\ draw\ -\/light\_vertical1-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00310}00310\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00311}00311\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00312}00312\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00313}00313\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(light\_vertical2)\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00314}00314\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ trying\ to\ draw\ -\/light\_vertical2-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00315}00315\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00316}00316\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00317}00317\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00318}00318\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(light\_vertical3)\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00319}00319\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ trying\ to\ draw\ -\/light\_vertical3-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00320}00320\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00321}00321\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00322}00322\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00323}00323\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(read\_humidity)\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00324}00324\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ trying\ to\ draw\ -\/read\_humidity-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00325}00325\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00326}00326\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00327}00327\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00328}00328\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(read\_sound\_intensity)\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00329}00329\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ trying\ to\ draw\ -\/read\_sound\_intensity-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00330}00330\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00331}00331\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00332}00332\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00333}00333\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(read\_temperature)\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00334}00334\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ trying\ to\ draw\ -\/read\_temperature-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00335}00335\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00336}00336\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00337}00337\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00338}00338\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(sound\_int)\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00339}00339\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ trying\ to\ draw\ -\/sound\_int-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00340}00340\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00341}00341\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00342}00342\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00343}00343\ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(backArrow)\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00344}00344\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ while\ trying\ to\ draw\ -\/backArrow-\/\ sprite!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00345}00345\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00346}00346\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00347}00347\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00348}00348\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00349}00349\ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00361}\mbox{\hyperlink{group__Draw_ga895bacaa423c3442c107c9c03459b22d}{00361}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__Draw_ga895bacaa423c3442c107c9c03459b22d}{draw\_digit\_value}}(\mbox{\hyperlink{structSprite}{Sprite}}*\ to\_draw,\ \textcolor{keywordtype}{int}\ height,\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ *x\_counter)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00362}00362\ \ \ to\_draw-\/>x\ =\ width\ +\ *x\_counter;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00363}00363\ \ \ to\_draw-\/>y\ =\ height;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00364}00364\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00365}00365\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(to\_draw)\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00366}00366\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ trying\ to\ draw!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00367}00367\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00368}00368\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00369}00369\ \ \ *x\_counter\ +=\ to\_draw-\/>width;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00370}00370\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00371}00371\ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00372}00372\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00382}\mbox{\hyperlink{group__Draw_gac1f43f29e9853b35feda6ab6a19bf84b}{00382}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__Draw_gac1f43f29e9853b35feda6ab6a19bf84b}{draw\_digit\_date}}(\mbox{\hyperlink{structSprite}{Sprite}}*\ to\_draw,\ \textcolor{keywordtype}{int}\ *x\_counter)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00383}00383\ \ \ to\_draw-\/>x\ =\ *x\_counter;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00384}00384\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Sprite_ga6c75fbf31230126d2f19b29deaf24b2f}{draw\_sprite}}(to\_draw)\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00385}00385\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ Problems\ occurred\ trying\ to\ draw!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00386}00386\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00387}00387\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00388}00388\ \ \ *x\_counter\ +=\ to\_draw-\/>width;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00389}00389\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00390}00390\ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00391}00391\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00401}\mbox{\hyperlink{group__Draw_ga37a02de713c35021c8b8dfa71d4e1371}{00401}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__Draw_ga37a02de713c35021c8b8dfa71d4e1371}{draw\_unit\_sprites}}(uint8\_t\ time\_val,\ \textcolor{keywordtype}{int}\ *x\_counter)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00402}00402\ \ \ \textcolor{keywordtype}{char}\ num\_str[3];}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00403}00403\ \ \ sprintf(num\_str,\ \textcolor{stringliteral}{"{}\%02u"{}},\ time\_val);\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00404}00404\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00405}00405\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ num\_str[i]\ !=\ \textcolor{charliteral}{'\(\backslash\)0'};\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00406}00406\ \ \ \ \ \textcolor{keywordflow}{switch}\ (num\_str[i])\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00407}00407\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'0'}:}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00408}00408\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_gac1f43f29e9853b35feda6ab6a19bf84b}{draw\_digit\_date}}(zero,\ x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00409}00409\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00410}00410\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'1'}:}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00411}00411\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_gac1f43f29e9853b35feda6ab6a19bf84b}{draw\_digit\_date}}(one,\ x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00412}00412\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00413}00413\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'2'}:}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00414}00414\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_gac1f43f29e9853b35feda6ab6a19bf84b}{draw\_digit\_date}}(two,\ x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00415}00415\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00416}00416\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'3'}:}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00417}00417\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_gac1f43f29e9853b35feda6ab6a19bf84b}{draw\_digit\_date}}(three,\ x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00418}00418\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00419}00419\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'4'}:}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00420}00420\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_gac1f43f29e9853b35feda6ab6a19bf84b}{draw\_digit\_date}}(four,\ x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00421}00421\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00422}00422\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'5'}:}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00423}00423\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_gac1f43f29e9853b35feda6ab6a19bf84b}{draw\_digit\_date}}(five,\ x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00424}00424\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00425}00425\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'6'}:}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00426}00426\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_gac1f43f29e9853b35feda6ab6a19bf84b}{draw\_digit\_date}}(six,\ x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00427}00427\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00428}00428\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'7'}:}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00429}00429\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_gac1f43f29e9853b35feda6ab6a19bf84b}{draw\_digit\_date}}(seven,\ x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00430}00430\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00431}00431\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'8'}:}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00432}00432\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_gac1f43f29e9853b35feda6ab6a19bf84b}{draw\_digit\_date}}(eight,\ x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00433}00433\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00434}00434\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'9'}:}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00435}00435\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_gac1f43f29e9853b35feda6ab6a19bf84b}{draw\_digit\_date}}(nine,\ x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00436}00436\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00437}00437\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00438}00438\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00439}00439\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00440}00440\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00441}00441\ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00442}00442\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00454}\mbox{\hyperlink{group__Draw_ga9cbf1ad6f35259e08b9f544f5014daf5}{00454}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__Draw_ga9cbf1ad6f35259e08b9f544f5014daf5}{draw\_value\_sprites}}(\textcolor{keywordtype}{int}\ val,\ \textcolor{keywordtype}{int}\ height,\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ *x\_counter)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00455}00455\ \ \ \textcolor{keywordtype}{char}\ num\_str[3];}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00456}00456\ \ \ sprintf(num\_str,\ \textcolor{stringliteral}{"{}\%0d"{}},\ val);\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00457}00457\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00458}00458\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ num\_str[i]\ !=\ \textcolor{charliteral}{'\(\backslash\)0'};\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00459}00459\ \ \ \ \ \textcolor{keywordflow}{switch}\ (num\_str[i])\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00460}00460\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'0'}:}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00461}00461\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_ga895bacaa423c3442c107c9c03459b22d}{draw\_digit\_value}}(zero,\ height,\ width,\ x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00462}00462\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00463}00463\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'1'}:}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00464}00464\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_ga895bacaa423c3442c107c9c03459b22d}{draw\_digit\_value}}(one,\ height,\ width,\ x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00465}00465\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00466}00466\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'2'}:}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00467}00467\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_ga895bacaa423c3442c107c9c03459b22d}{draw\_digit\_value}}(two,\ height,\ width,\ x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00468}00468\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00469}00469\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'3'}:}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00470}00470\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_ga895bacaa423c3442c107c9c03459b22d}{draw\_digit\_value}}(three,\ height,\ width,\ x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00471}00471\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00472}00472\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'4'}:}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00473}00473\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_ga895bacaa423c3442c107c9c03459b22d}{draw\_digit\_value}}(four,\ height,\ width,\ x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00474}00474\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00475}00475\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'5'}:}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00476}00476\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_ga895bacaa423c3442c107c9c03459b22d}{draw\_digit\_value}}(five,\ height,\ width,\ x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00477}00477\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00478}00478\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'6'}:}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00479}00479\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_ga895bacaa423c3442c107c9c03459b22d}{draw\_digit\_value}}(six,\ height,\ width,\ x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00480}00480\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00481}00481\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'7'}:}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00482}00482\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_ga895bacaa423c3442c107c9c03459b22d}{draw\_digit\_value}}(seven,\ height,\ width,\ x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00483}00483\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00484}00484\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'8'}:}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00485}00485\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_ga895bacaa423c3442c107c9c03459b22d}{draw\_digit\_value}}(eight,\ height,\ width,\ x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00486}00486\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00487}00487\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'9'}:}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00488}00488\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_ga895bacaa423c3442c107c9c03459b22d}{draw\_digit\_value}}(nine,\ height,\ width,\ x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00489}00489\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00490}00490\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00491}00491\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00492}00492\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00493}00493\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00494}00494\ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00495}00495\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00503}\mbox{\hyperlink{group__Draw_ga77aa5892dbaec23e07aa9523bf2e2e60}{00503}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__Draw_ga77aa5892dbaec23e07aa9523bf2e2e60}{draw\_date\_time}}()\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00504}00504\ \ \ uint8\_t\ year\ =\ time\_info.year;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00505}00505\ \ \ uint8\_t\ month\ =\ time\_info.month;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00506}00506\ \ \ uint8\_t\ day\ =\ time\_info.day;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00507}00507\ \ \ uint8\_t\ hour\ =\ time\_info.hours;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00508}00508\ \ \ uint8\_t\ minute\ =\ time\_info.minutes;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00509}00509\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00510}00510\ \ \ \textcolor{keywordtype}{int}\ x\_counter\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00511}00511\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00512}00512\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_gac1f43f29e9853b35feda6ab6a19bf84b}{draw\_digit\_date}}(two,\ \&x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00513}00513\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_gac1f43f29e9853b35feda6ab6a19bf84b}{draw\_digit\_date}}(zero,\ \&x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00514}00514\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_ga37a02de713c35021c8b8dfa71d4e1371}{draw\_unit\_sprites}}(year,\ \&x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00515}00515\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_gac1f43f29e9853b35feda6ab6a19bf84b}{draw\_digit\_date}}(slash,\ \&x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00516}00516\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_ga37a02de713c35021c8b8dfa71d4e1371}{draw\_unit\_sprites}}(month,\ \&x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00517}00517\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_gac1f43f29e9853b35feda6ab6a19bf84b}{draw\_digit\_date}}(slash,\ \&x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00518}00518\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_ga37a02de713c35021c8b8dfa71d4e1371}{draw\_unit\_sprites}}(day,\ \&x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00519}00519\ \ \ x\_counter\ +=\ two-\/>width;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00520}00520\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_ga37a02de713c35021c8b8dfa71d4e1371}{draw\_unit\_sprites}}(hour,\ \&x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00521}00521\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_gac1f43f29e9853b35feda6ab6a19bf84b}{draw\_digit\_date}}(colon,\ \&x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00522}00522\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_ga37a02de713c35021c8b8dfa71d4e1371}{draw\_unit\_sprites}}(minute,\ \&x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00523}00523\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00524}00524\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00525}00525\ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00526}00526\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00534}\mbox{\hyperlink{group__Draw_ga33c22d891205dc62787810089e00dde6}{00534}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__Draw_ga33c22d891205dc62787810089e00dde6}{draw\_humidity}}()\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00535}00535\ \ \ \textcolor{keywordtype}{int}\ humidity\ =\ (humidity\_temp[0]\ <<\ 8)\ |\ (humidity\_temp[1]);}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00536}00536\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00537}00537\ \ \ \textcolor{keywordtype}{int}\ x\_counter\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00538}00538\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00539}00539\ \ \ \textcolor{keywordtype}{int}\ x\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00540}00540\ \ \ \textcolor{keywordtype}{int}\ y\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00541}00541\ \ \ \textcolor{keywordflow}{if}\ (resolution\ ==\ (uint16\_t)RES\_1152\_864)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00542}00542\ \ \ \ \ x\ =\ 975;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00543}00543\ \ \ \ \ y\ =\ 325;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00544}00544\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00545}00545\ \ \ \ \ x\ =\ 675;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00546}00546\ \ \ \ \ y\ =\ 205;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00547}00547\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00548}00548\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_ga9cbf1ad6f35259e08b9f544f5014daf5}{draw\_value\_sprites}}(humidity,\ y,\ x,\ \&x\_counter)\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00549}00549\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00550}00550\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00551}00551\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00552}00552\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_ga895bacaa423c3442c107c9c03459b22d}{draw\_digit\_value}}(percentage,\ y,\ x,\ \&x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00553}00553\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00554}00554\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00555}00555\ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00556}00556\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00564}\mbox{\hyperlink{group__Draw_ga473c4126179530af9119bcbc3d5bc3f7}{00564}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__Draw_ga473c4126179530af9119bcbc3d5bc3f7}{draw\_temperature}}()\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00565}00565\ \ \ \textcolor{keywordtype}{int}\ temperature\ =\ (humidity\_temp[2]\ <<\ 8)\ |\ (humidity\_temp[3]);}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00566}00566\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00567}00567\ \ \ \textcolor{keywordtype}{int}\ x\_counter\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00568}00568\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00569}00569\ \ \ \textcolor{keywordtype}{int}\ x\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00570}00570\ \ \ \textcolor{keywordtype}{int}\ y\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00571}00571\ \ \ \textcolor{keywordflow}{if}\ (resolution\ ==\ (uint16\_t)RES\_1152\_864)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00572}00572\ \ \ \ \ x\ =\ 995;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00573}00573\ \ \ \ \ y\ =\ 475;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00574}00574\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00575}00575\ \ \ \ \ x\ =\ 682;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00576}00576\ \ \ \ \ y\ =\ 319;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00577}00577\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00578}00578\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00579}00579\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_ga9cbf1ad6f35259e08b9f544f5014daf5}{draw\_value\_sprites}}(temperature,\ y,\ x,\ \&x\_counter)\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00580}00580\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00581}00581\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00582}00582\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00583}00583\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_ga895bacaa423c3442c107c9c03459b22d}{draw\_digit\_value}}(degrees\_celcius,\ y,\ x,\ \&x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00584}00584\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00585}00585\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00586}00586\ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00587}00587\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00595}\mbox{\hyperlink{group__Draw_ga2b030dfcf9c9580d4abf9500387eb1c8}{00595}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__Draw_ga2b030dfcf9c9580d4abf9500387eb1c8}{draw\_sound\_intensity}}()\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00596}00596\ \ \ \textcolor{keywordtype}{int}\ sound\ =\ (sound\_intensity[0]\ <<\ 8)\ |\ (sound\_intensity[1]);}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00597}00597\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00598}00598\ \ \ \textcolor{keywordtype}{int}\ x\_counter\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00599}00599\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00600}00600\ \ \ \textcolor{keywordtype}{int}\ x\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00601}00601\ \ \ \textcolor{keywordtype}{int}\ y\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00602}00602\ \ \ \textcolor{keywordflow}{if}\ (resolution\ ==\ (uint16\_t)RES\_1152\_864)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00603}00603\ \ \ \ \ x\ =\ 1010;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00604}00604\ \ \ \ \ y\ =\ 625;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00605}00605\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00606}00606\ \ \ \ \ x\ =\ 690;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00607}00607\ \ \ \ \ y\ =\ 429;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00608}00608\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00609}00609\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00610}00610\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_ga9cbf1ad6f35259e08b9f544f5014daf5}{draw\_value\_sprites}}(sound,\ y,\ x,\ \&x\_counter)\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00611}00611\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00612}00612\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00613}00613\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00614}00614\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__Draw_ga895bacaa423c3442c107c9c03459b22d}{draw\_digit\_value}}(db,\ y,\ x,\ \&x\_counter)\ !=\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00615}00615\ }
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00616}00616\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{draw_8c_source_l00617}00617\ \}}
+
+\end{DoxyCode}

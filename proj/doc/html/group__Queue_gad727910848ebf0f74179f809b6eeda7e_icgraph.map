@@ -1,0 +1,9 @@
+<map id="clear_queue" name="clear_queue">
+<area shape="rect" id="Node000001" title="Clears all elements from the queue." alt="" coords="373,46,464,72"/>
+<area shape="rect" id="Node000002" href="$group__Serial.html#ga1426ccf57ad167e5c2b59cfff90772d9" title="Clears the serial port interrupts." alt="" coords="188,46,325,72"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="357,62,325,62,325,56,357,56"/>
+<area shape="rect" id="Node000003" href="$group__Serial__Port.html#ga2f8bcbfe8e4d2615c824833f6c32c52f" title="Handles serial port input for the control shell.This function processes serial port interrupts and re..." alt="" coords="9,5,136,46"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="172,46,136,40,137,35,173,41"/>
+<area shape="rect" id="Node000004" href="$group__Serial__Port.html#ga6828f89a55043dc4ca10b4c04adb8d8e" title="Handles serial port input for the settings menu.This function processes serial port interrupts and re..." alt="" coords="5,71,140,111"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="172,76,140,82,139,77,171,71"/>
+</map>

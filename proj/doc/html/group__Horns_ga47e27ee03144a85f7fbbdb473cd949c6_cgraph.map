@@ -1,0 +1,9 @@
+<map id="horns_on" name="horns_on">
+<area shape="rect" id="Node000001" title="Turns the horns on with optional timer and blinking period." alt="" coords="5,5,80,31"/>
+<area shape="rect" id="Node000002" href="$group__Serial.html#ga16017eb641d6cfecc03e1591b8226554" title="Sends a message through the serial port." alt="" coords="128,5,276,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="80,16,112,16,112,21,80,21"/>
+<area shape="rect" id="Node000003" href="$group__Serial.html#gafa064c2a2d24a8fb7f587b36a6e2bafc" title="Retrieves the status from the serial port." alt="" coords="324,5,473,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="277,16,309,16,309,21,277,21"/>
+<area shape="rect" id="Node000004" href="$group__Utils.html#ga2b56f50ba159e9d5115ed1a75eff15d9" title="Reads a byte from the specified port and store it in uint8_t variable." alt="" coords="521,5,612,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="474,16,506,16,506,21,474,21"/>
+</map>

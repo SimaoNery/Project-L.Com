@@ -1,0 +1,25 @@
+<map id="draw_resolution" name="draw_resolution">
+<area shape="rect" id="Node000001" title="Draws the resolution page.This function draws the resolution page sprite, resolution buttons,..." alt="" coords="5,189,118,215"/>
+<area shape="rect" id="Node000002" href="$group__Graphics.html#ga4f129396b28e32728e9f92e8858c4f00" title="Manages the buffering method based on the resolution." alt="" coords="186,128,308,153"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="102,186,190,156,192,161,104,191"/>
+<area shape="rect" id="Node000009" href="$group__Draw.html#gaa30d2b1357c9de82a2dca4bab3fdfa9c" title="Draws the resolutions buttons.This function draws the resolutions buttons." alt="" coords="166,189,328,215"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="118,199,150,199,150,204,118,204"/>
+<area shape="rect" id="Node000010" href="$group__Sprite.html#ga6c75fbf31230126d2f19b29deaf24b2f" title="Draws a sprite on the screen.This function draws the sprite&#39;s pixels on the screen,..." alt="" coords="382,240,470,265"/>
+<area shape="poly" id="edge12_Node000001_Node000010" title=" " alt="" coords="112,212,166,224,272,238,366,246,366,252,271,244,165,230,111,218"/>
+<area shape="rect" id="Node000003" href="$group__Graphics.html#gad1d0642d73fd9d01692127e5daa39219" title="Swaps the front and back buffers." alt="" coords="376,70,475,96"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="289,124,368,99,370,104,290,129"/>
+<area shape="rect" id="Node000006" href="$group__Graphics.html#gaa74f5c4ff747396f4fc47ff7b6e54d40" title="Copies the buffers for triple buffering." alt="" coords="384,128,468,153"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="308,138,368,138,368,143,308,143"/>
+<area shape="rect" id="Node000004" href="$group__Graphics.html#ga0f35f330c5fc115729ebd486a1a4e7da" title="Clears the back buffer." alt="" coords="539,70,663,96"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="476,80,523,80,523,86,476,86"/>
+<area shape="rect" id="Node000005" href="$group__Graphics.html#ga36f9ffa14b373e0c27abbb6a48060758" title="Sets the display start for page flipping." alt="" coords="523,5,679,46"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="467,67,521,49,523,54,468,72"/>
+<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="467,124,544,99,546,104,468,129"/>
+<area shape="rect" id="Node000007" href="$group__Graphics.html#ga38896d3324498790d6c2324d14deac2f" title="Sets the display start for triple buffering." alt="" coords="523,120,679,161"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="468,138,508,138,508,143,468,143"/>
+<area shape="rect" id="Node000008" href="$group__Graphics.html#gad36fbad5794d448fb823db87ca9a0b2f" title="Waits until the last scheduled change has occured." alt="" coords="538,185,664,226"/>
+<area shape="poly" id="edge8_Node000006_Node000008" title=" " alt="" coords="463,151,531,177,529,182,461,156"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="296,213,367,233,366,238,294,218"/>
+<area shape="rect" id="Node000011" href="$group__Graphics.html#ga6f895de9725f9f231f9a7f74b6087f60" title="Draws a pixel on the screen." alt="" coords="549,250,653,276"/>
+<area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="470,252,534,256,533,262,470,258"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="lights_off" name="lights_off">
+<area shape="rect" id="Node000001" title="Turns off specified lights based on the provided arguments." alt="" coords="585,13,660,39"/>
+<area shape="rect" id="Node000002" href="$group__Command__Line.html#ga5b45f56b0bc963c356a7cc16f211ed4d" title="Handles the command entered in the command line buffer." alt="" coords="414,13,537,39"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="570,28,537,28,537,23,570,23"/>
+<area shape="rect" id="Node000003" href="$group__Command__Line.html#gaf30ad16b140d480d643e6a2451b6d9db" title="Processes the input scancode and updates the command line buffer." alt="" coords="208,13,366,39"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="398,28,366,28,366,23,398,23"/>
+<area shape="rect" id="Node000004" href="$group__Keyboard__handler.html#gaafc38d06c830847598f11eac8aae8578" title="Handles keyboard input for the control shell." alt="" coords="5,5,160,46"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="192,28,160,28,160,23,192,23"/>
+</map>

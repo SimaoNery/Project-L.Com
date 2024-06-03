@@ -1,9 +1,0 @@
-<map id="vg_set_graphics_mode" name="vg_set_graphics_mode">
-<area shape="rect" id="Node000001" title="Sets the graphics mode." alt="" coords="386,31,541,56"/>
-<area shape="rect" id="Node000002" href="$group__Graphics.html#gae3e0f491782c537cbd9ba342164c6f96" title="Changes the screen resolution." alt="" coords="212,5,338,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="370,34,338,29,339,24,371,28"/>
-<area shape="rect" id="Node000003" href="$group__Command__Line.html#ga5b45f56b0bc963c356a7cc16f211ed4d" title="Handles the command entered in the command line buffer." alt="" coords="213,55,337,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="371,58,337,62,337,57,370,53"/>
-<area shape="rect" id="Node000004" href="$group__Command__Line.html#gaf30ad16b140d480d643e6a2451b6d9db" title="Processes the input scancode and updates the command line buffer." alt="" coords="5,55,164,80"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="197,70,164,70,164,65,197,65"/>
-</map>

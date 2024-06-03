@@ -1,0 +1,7 @@
+<map id="load_sprites" name="load_sprites">
+<area shape="rect" id="Node000001" title="Loads sprites based on the specified resolution.This function determines which resolution&#45;specific sp..." alt="" coords="390,5,481,31"/>
+<area shape="rect" id="Node000002" href="$group__Graphics.html#gae3e0f491782c537cbd9ba342164c6f96" title="Changes the screen resolution." alt="" coords="216,5,342,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="375,21,342,21,342,16,375,16"/>
+<area shape="rect" id="Node000003" href="$group__Mouse__Handler.html#gac63ee6f5260e431a9252b78077fe37c2" title="Handles mouse input for the settings menu.This function processes mouse packets, updates the cursor p..." alt="" coords="5,5,168,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="200,21,168,21,168,16,200,16"/>
+</map>

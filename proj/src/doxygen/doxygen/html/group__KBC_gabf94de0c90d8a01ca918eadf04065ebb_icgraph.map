@@ -1,9 +1,0 @@
-<map id="read_kbc_output" name="read_kbc_output">
-<area shape="rect" id="Node000001" title="Reads the output from the specified port of the Keyboard Controller (KBC)." alt="" coords="166,55,283,80"/>
-<area shape="rect" id="Node000002" href="$group__Keyboard.html#ga94bd4739999831fafc0e5e6560aa8687" title="Keyboard interrupt handler." alt="" coords="5,5,118,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,52,106,34,107,29,166,47"/>
-<area shape="rect" id="Node000003" href="$group__Keyboard.html#ga61f4ddd33c411ceee0c71b8890c19775" title="Restores the keyboard controller to its default state." alt="" coords="17,55,106,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="150,70,106,70,106,65,150,65"/>
-<area shape="rect" id="Node000004" href="$group__Mouse.html#ga834b6d7efe311484d6da234db333cb97" title="Mouse interrupt handler." alt="" coords="23,104,100,130"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="166,88,101,108,100,103,164,83"/>
-</map>

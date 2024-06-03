@@ -1,0 +1,83 @@
+<map id="mouse_help_handler" name="mouse_help_handler">
+<area shape="rect" id="Node000001" title="Interrupt Handler of the help page." alt="" coords="5,657,146,682"/>
+<area shape="rect" id="Node000002" href="$group__Draw.html#gab708de60ac9ff4a5ec5f067b8965fda3" title="Draws the current page based on the page state.This function switches between different page states a..." alt="" coords="230,419,314,445"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="86,654,248,456,252,459,90,658"/>
+<area shape="rect" id="Node000029" href="$group__Mouse.html#ga834b6d7efe311484d6da234db333cb97" title="Mouse interrupt handler." alt="" coords="233,657,311,682"/>
+<area shape="poly" id="edge44_Node000001_Node000029" title=" " alt="" coords="146,667,217,667,217,672,146,672"/>
+<area shape="rect" id="Node000032" href="$group__Mouse.html#ga7c710bdb2e70366f9830f54dcbf7a95a" title="Parses the bytes read from the mouse into a mouse packet." alt="" coords="194,706,350,732"/>
+<area shape="poly" id="edge49_Node000001_Node000032" title=" " alt="" coords="130,680,204,699,202,704,129,686"/>
+<area shape="rect" id="Node000003" href="$group__Draw.html#gaec3f64d85077b79c7351e933d1ae2c77" title="Draws the house plant page.This function sends serial port messages, draws the house plant sprite,..." alt="" coords="398,595,524,621"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="289,443,436,582,433,586,285,447"/>
+<area shape="rect" id="Node000022" href="$group__Draw.html#gad7ca2d21a727f7d55afef2392de3b5f8" title="Draws the main menu page.This function draws the main menu sprite, main buttons, and the mouse pointe..." alt="" coords="400,123,523,149"/>
+<area shape="poly" id="edge29_Node000002_Node000022" title=" " alt="" coords="279,417,441,161,446,164,284,420"/>
+<area shape="rect" id="Node000027" href="$group__Draw.html#ga6305b70c3fe62546c38d818d92cb784a" title="Draws the resolution page.This function draws the resolution page sprite, resolution buttons,..." alt="" coords="405,305,517,330"/>
+<area shape="poly" id="edge39_Node000002_Node000027" title=" " alt="" coords="294,417,424,336,427,341,296,421"/>
+<area shape="rect" id="Node000004" href="$group__Graphics.html#ga4f129396b28e32728e9f92e8858c4f00" title="Manages the buffering method based on the resolution." alt="" coords="586,347,707,373"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="470,593,624,384,629,387,474,596"/>
+<area shape="rect" id="Node000011" href="$group__Draw.html#ga24c926d472482e72c7219880c7ccd5c4" title="Draws the House Plant buttons.This function draws the House Plant buttons." alt="" coords="769,570,940,596"/>
+<area shape="poly" id="edge11_Node000003_Node000011" title=" " alt="" coords="525,601,753,587,753,592,525,607"/>
+<area shape="rect" id="Node000012" href="$group__Sprite.html#ga6c75fbf31230126d2f19b29deaf24b2f" title="Draws a sprite on the screen.This function draws the sprite&#39;s pixels on the screen,..." alt="" coords="1198,199,1287,225"/>
+<area shape="poly" id="edge22_Node000003_Node000012" title=" " alt="" coords="506,592,572,576,862,543,1057,519,1149,504,1175,477,1196,444,1212,408,1224,370,1236,298,1239,240,1244,241,1241,298,1229,371,1217,409,1201,446,1180,480,1152,509,1057,525,863,548,573,581,508,597"/>
+<area shape="rect" id="Node000014" href="$group__Draw.html#ga33c22d891205dc62787810089e00dde6" title="Draws the humidity value on the screen." alt="" coords="594,621,699,646"/>
+<area shape="poly" id="edge14_Node000003_Node000014" title=" " alt="" coords="525,614,579,622,578,627,524,619"/>
+<area shape="rect" id="Node000017" href="$group__Draw.html#ga2b030dfcf9c9580d4abf9500387eb1c8" title="Draws the sound intensity value on the screen." alt="" coords="573,671,720,697"/>
+<area shape="poly" id="edge19_Node000003_Node000017" title=" " alt="" coords="491,619,573,656,591,663,589,668,571,661,489,624"/>
+<area shape="rect" id="Node000018" href="$group__Draw.html#ga473c4126179530af9119bcbc3d5bc3f7" title="Draws the temperature value on the screen." alt="" coords="584,722,709,748"/>
+<area shape="poly" id="edge23_Node000003_Node000018" title=" " alt="" coords="476,620,516,662,544,686,574,707,585,713,582,718,571,712,541,690,513,666,472,623"/>
+<area shape="rect" id="Node000019" href="$group__Serial.html#ga16017eb641d6cfecc03e1591b8226554" title="Sends a message through the serial port." alt="" coords="572,797,721,822"/>
+<area shape="poly" id="edge26_Node000003_Node000019" title=" " alt="" coords="472,620,512,683,541,722,574,758,610,786,607,790,571,762,537,725,508,686,468,623"/>
+<area shape="rect" id="Node000005" href="$group__Graphics.html#gad1d0642d73fd9d01692127e5daa39219" title="Swaps the front and back buffers." alt="" coords="805,405,904,430"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="697,371,791,397,790,403,695,376"/>
+<area shape="rect" id="Node000008" href="$group__Graphics.html#gaa74f5c4ff747396f4fc47ff7b6e54d40" title="Copies the buffers for triple buffering." alt="" coords="812,347,897,373"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="708,357,796,357,796,363,708,363"/>
+<area shape="rect" id="Node000006" href="$group__Graphics.html#ga0f35f330c5fc115729ebd486a1a4e7da" title="Clears the back buffer." alt="" coords="1007,405,1131,430"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="904,415,991,415,991,420,904,420"/>
+<area shape="rect" id="Node000007" href="$group__Graphics.html#ga36f9ffa14b373e0c27abbb6a48060758" title="Sets the display start for page flipping." alt="" coords="992,454,1147,495"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="905,428,977,448,976,453,904,433"/>
+<area shape="poly" id="edge8_Node000008_Node000006" title=" " alt="" coords="898,369,1004,397,1002,403,896,374"/>
+<area shape="rect" id="Node000009" href="$group__Graphics.html#ga38896d3324498790d6c2324d14deac2f" title="Sets the display start for triple buffering." alt="" coords="992,274,1147,315"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="896,345,984,318,986,323,898,350"/>
+<area shape="rect" id="Node000010" href="$group__Graphics.html#gad36fbad5794d448fb823db87ca9a0b2f" title="Waits until the last scheduled change has occured." alt="" coords="1006,340,1132,380"/>
+<area shape="poly" id="edge10_Node000008_Node000010" title=" " alt="" coords="897,357,990,357,990,363,897,363"/>
+<area shape="poly" id="edge12_Node000011_Node000012" title=" " alt="" coords="931,594,984,597,1042,593,1099,578,1125,566,1148,549,1165,527,1180,494,1206,407,1224,314,1235,240,1240,241,1229,315,1211,408,1185,496,1170,530,1152,553,1128,570,1101,583,1043,598,984,602,931,599"/>
+<area shape="rect" id="Node000013" href="$group__Graphics.html#ga6f895de9725f9f231f9a7f74b6087f60" title="Draws a pixel on the screen." alt="" coords="1335,199,1439,225"/>
+<area shape="poly" id="edge13_Node000012_Node000013" title=" " alt="" coords="1287,209,1319,209,1319,215,1287,215"/>
+<area shape="rect" id="Node000015" href="$group__Draw.html#ga895bacaa423c3442c107c9c03459b22d" title="Draws a digit sprite at the specified position." alt="" coords="1010,671,1128,697"/>
+<area shape="poly" id="edge15_Node000014_Node000015" title=" " alt="" coords="700,636,940,663,995,670,994,676,940,668,699,641"/>
+<area shape="rect" id="Node000016" href="$group__Draw.html#ga9cbf1ad6f35259e08b9f544f5014daf5" title="Draws value sprites at the specified position." alt="" coords="788,722,921,748"/>
+<area shape="poly" id="edge17_Node000014_Node000016" title=" " alt="" coords="692,644,722,656,775,684,821,711,818,716,772,688,720,661,690,649"/>
+<area shape="poly" id="edge16_Node000015_Node000012" title=" " alt="" coords="1086,669,1118,639,1148,600,1171,552,1189,502,1216,399,1231,307,1237,240,1242,241,1236,308,1221,400,1194,503,1176,554,1153,603,1122,643,1090,673"/>
+<area shape="poly" id="edge18_Node000016_Node000015" title=" " alt="" coords="911,719,996,699,997,704,913,724"/>
+<area shape="poly" id="edge20_Node000017_Node000015" title=" " alt="" coords="721,681,994,681,994,687,721,687"/>
+<area shape="poly" id="edge21_Node000017_Node000016" title=" " alt="" coords="703,695,785,715,783,720,702,700"/>
+<area shape="poly" id="edge24_Node000018_Node000015" title=" " alt="" coords="693,746,744,757,806,766,873,768,939,758,967,748,993,734,1038,705,1041,709,996,739,969,753,941,763,874,773,806,771,743,763,692,751"/>
+<area shape="poly" id="edge25_Node000018_Node000016" title=" " alt="" coords="709,732,772,732,772,737,709,737"/>
+<area shape="rect" id="Node000020" href="$group__Serial.html#gafa064c2a2d24a8fb7f587b36a6e2bafc" title="Retrieves the status from the serial port." alt="" coords="780,823,929,849"/>
+<area shape="poly" id="edge27_Node000019_Node000020" title=" " alt="" coords="722,816,765,822,764,827,721,822"/>
+<area shape="rect" id="Node000021" href="$group__Utils.html#ga2b56f50ba159e9d5115ed1a75eff15d9" title="Reads a byte from the specified port and store it in uint8_t variable." alt="" coords="1024,873,1114,898"/>
+<area shape="poly" id="edge28_Node000020_Node000021" title=" " alt="" coords="914,847,1009,869,1008,874,913,852"/>
+<area shape="poly" id="edge30_Node000022_Node000004" title=" " alt="" coords="475,148,627,334,623,337,471,151"/>
+<area shape="poly" id="edge38_Node000022_Node000012" title=" " alt="" coords="523,128,641,122,798,122,885,126,975,134,1064,147,1151,166,1181,176,1208,189,1205,194,1178,181,1150,171,1063,152,974,140,885,132,798,127,641,128,524,134"/>
+<area shape="rect" id="Node000023" href="$group__Draw.html#ga77aa5892dbaec23e07aa9523bf2e2e60" title="Draws the current date and time on the screen." alt="" coords="590,22,703,48"/>
+<area shape="poly" id="edge31_Node000022_Node000023" title=" " alt="" coords="480,120,571,64,596,52,599,57,574,69,483,125"/>
+<area shape="rect" id="Node000026" href="$group__Draw.html#gaf4eaa4b2b77231bf1696747c632af8a7" title="Draws the main menu buttons.This function draws the control shell button, house plant button,..." alt="" coords="787,73,922,98"/>
+<area shape="poly" id="edge36_Node000022_Node000026" title=" " alt="" coords="523,123,572,115,771,91,772,96,573,120,524,128"/>
+<area shape="rect" id="Node000024" href="$group__Draw.html#gac1f43f29e9853b35feda6ab6a19bf84b" title="Draws a digit date sprite at the specified position." alt="" coords="1013,22,1125,48"/>
+<area shape="poly" id="edge32_Node000023_Node000024" title=" " alt="" coords="703,19,768,8,854,3,940,8,999,17,998,22,940,13,854,8,769,13,704,24"/>
+<area shape="rect" id="Node000025" href="$group__Draw.html#ga37a02de713c35021c8b8dfa71d4e1371" title="Draws unit sprites based on the given time value." alt="" coords="793,23,916,49"/>
+<area shape="poly" id="edge34_Node000023_Node000025" title=" " alt="" coords="703,33,777,33,777,38,703,38"/>
+<area shape="poly" id="edge33_Node000024_Node000012" title=" " alt="" coords="1119,46,1152,65,1179,93,1202,125,1233,184,1228,186,1197,127,1175,96,1149,69,1117,50"/>
+<area shape="poly" id="edge35_Node000025_Node000024" title=" " alt="" coords="916,33,997,33,997,38,916,38"/>
+<area shape="poly" id="edge37_Node000026_Node000012" title=" " alt="" coords="922,77,974,77,1033,82,1094,94,1152,115,1175,130,1195,148,1226,185,1222,188,1191,151,1171,134,1149,120,1092,99,1032,87,974,83,922,83"/>
+<area shape="poly" id="edge40_Node000027_Node000004" title=" " alt="" coords="518,328,574,341,572,346,517,333"/>
+<area shape="poly" id="edge43_Node000027_Node000012" title=" " alt="" coords="491,302,572,272,687,244,778,228,870,218,988,209,1091,206,1183,207,1183,212,1091,211,988,215,870,224,778,233,688,249,573,277,493,307"/>
+<area shape="rect" id="Node000028" href="$group__Draw.html#gaa30d2b1357c9de82a2dca4bab3fdfa9c" title="Draws the resolutions buttons.This function draws the resolutions buttons." alt="" coords="988,225,1150,250"/>
+<area shape="poly" id="edge41_Node000027_Node000028" title=" " alt="" coords="517,308,972,247,973,253,518,313"/>
+<area shape="poly" id="edge42_Node000028_Node000012" title=" " alt="" coords="1150,223,1182,218,1183,223,1151,228"/>
+<area shape="rect" id="Node000030" href="$group__KBC.html#gabf94de0c90d8a01ca918eadf04065ebb" title="Reads the output from the specified port of the Keyboard Controller (KBC)." alt="" coords="588,873,705,898"/>
+<area shape="poly" id="edge45_Node000029_Node000030" title=" " alt="" coords="312,677,351,691,406,722,479,769,615,861,612,866,477,773,404,727,349,696,310,682"/>
+<area shape="poly" id="edge48_Node000030_Node000021" title=" " alt="" coords="701,896,769,908,854,914,940,908,1009,897,1010,902,940,913,854,919,768,913,700,902"/>
+<area shape="rect" id="Node000031" href="$group__KBC.html#ga1ea22dc7f1cd587ad7715408bddb3c4e" title="Retrieves the status from the Keyboard Controller (KBC)." alt="" coords="799,873,910,898"/>
+<area shape="poly" id="edge46_Node000030_Node000031" title=" " alt="" coords="706,883,783,883,783,888,706,888"/>
+<area shape="poly" id="edge47_Node000031_Node000021" title=" " alt="" coords="910,883,1008,883,1008,888,910,888"/>
+</map>

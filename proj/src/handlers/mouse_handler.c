@@ -127,11 +127,10 @@ void mouse_house_plant_handler() {
   normalCursor->x = mouse_packet.x;
   normalCursor->y = mouse_packet.y;
 
-  if (mouse_packet.x >= adjustFanPower->x && mouse_packet.x <= adjustFanPower->x + adjustFanPower->width && mouse_packet.y >= adjustFanPower->y && mouse_packet.y <= adjustFanPower->y + adjustFanPower->height)  {
-    adjustFanPower->hover = true;
-    
-  }
-  else if (mouse_packet.x >= fan->x && mouse_packet.x <= fan->x + fan->width && mouse_packet.y >= fan->y && mouse_packet.y <= fan->y + fan->height)  {
+
+
+
+  if (mouse_packet.x >= fan->x && mouse_packet.x <= fan->x + fan->width && mouse_packet.y >= fan->y && mouse_packet.y <= fan->y + fan->height)  {
     if (mouse_packet.left_button) {
       if (fan->hover) {
         fan->hover = false;
@@ -296,7 +295,30 @@ void mouse_house_plant_handler() {
   }
 
   else if (mouse_packet.x >= backArrow->x && mouse_packet.x <= backArrow->x + bigResolutionButton->width && mouse_packet.y >= backArrow->y && mouse_packet.y <= backArrow->y + backArrow->height)  {
-    if (mouse_packet.left_button) page_state = MAIN_MENU;
+    if (mouse_packet.left_button) {
+      page_state = MAIN_MENU;
+      zero->x = 0;
+      zero->y = 0;
+      one->x = 0;
+      one->y = 0;
+      two->x = 0;
+      two->y = 0;
+      three->x = 0;
+      three->y = 0;
+      four->x = 0;
+      four->y = 0;
+      five->x = 0;
+      five->y = 0;
+      six->x = 0;
+      six->y = 0;
+      seven->x = 0;
+      seven->y = 0;
+      eight->x = 0;
+      eight->y = 0;
+      nine->x = 0;
+      nine->y = 0;
+
+    }
   }
 
   else {

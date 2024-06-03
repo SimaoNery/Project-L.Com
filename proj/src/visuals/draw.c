@@ -615,3 +615,4 @@ int draw_sound_intensity() {
 
   return 0;
 }
+

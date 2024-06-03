@@ -45,7 +45,7 @@ static const handler_t serial_port_handler[] = {
 };
 
 uint8_t irq_timer, irq_keyboard, irq_mouse, irq_real_time_clock, irq_serial_port;
-uint16_t resolution = RES_1152_864;
+uint16_t resolution = RES_800_600;
 bool running = true;
 uint8_t page_state = MAIN_MENU;
 

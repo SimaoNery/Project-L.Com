@@ -1,0 +1,7 @@
+<map id="serial_initial_config" name="serial_initial_config">
+<area shape="rect" id="Node000001" title="Initializes the serial port configuration." alt="" coords="5,31,137,56"/>
+<area shape="rect" id="Node000002" href="$group__Queue.html#ga1641e32ca81e22bdf17ae7fdf554973b" title="Creates a new queue." alt="" coords="186,5,274,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="137,30,170,25,171,30,138,36"/>
+<area shape="rect" id="Node000003" href="$group__Utils.html#ga2b56f50ba159e9d5115ed1a75eff15d9" title="Reads a byte from the specified port and store it in uint8_t variable." alt="" coords="185,55,275,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="138,51,170,56,169,61,137,56"/>
+</map>

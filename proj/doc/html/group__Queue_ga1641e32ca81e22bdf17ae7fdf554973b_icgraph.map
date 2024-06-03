@@ -1,0 +1,5 @@
+<map id="new_queue" name="new_queue">
+<area shape="rect" id="Node000001" title="Creates a new queue." alt="" coords="185,5,272,31"/>
+<area shape="rect" id="Node000002" href="$group__Serial.html#ga715abe70eb0b9a74d1f406e26832f6a6" title="Initializes the serial port configuration." alt="" coords="5,5,137,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="169,21,137,21,137,16,169,16"/>
+</map>

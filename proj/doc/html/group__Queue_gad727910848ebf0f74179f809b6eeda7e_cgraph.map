@@ -1,0 +1,5 @@
+<map id="clear_queue" name="clear_queue">
+<area shape="rect" id="Node000001" title="Clears all elements from the queue." alt="" coords="5,5,97,31"/>
+<area shape="rect" id="Node000002" href="$group__Queue.html#gacf430581987580e06036874af6ec371d" title="Removes an element from the queue." alt="" coords="145,5,187,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="97,16,129,16,129,21,97,21"/>
+</map>

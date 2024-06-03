@@ -1,0 +1,5 @@
+<map id="change_resolution" name="change_resolution">
+<area shape="rect" id="Node000001" title="Changes the screen resolution." alt="" coords="216,5,342,31"/>
+<area shape="rect" id="Node000002" href="$group__Mouse__Handler.html#gac63ee6f5260e431a9252b78077fe37c2" title="Handles mouse input for the settings menu.This function processes mouse packets, updates the cursor p..." alt="" coords="5,5,168,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="200,21,168,21,168,16,200,16"/>
+</map>

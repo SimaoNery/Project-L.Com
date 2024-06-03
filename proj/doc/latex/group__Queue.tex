@@ -1,0 +1,276 @@
+\doxysection{Queue}
+\hypertarget{group__Queue}{}\label{group__Queue}\index{Queue@{Queue}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structqueue}{queue}}
+\begin{DoxyCompactList}\small\item\em Structure representing a queue. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structqueue}{queue\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{group__Queue_ga1641e32ca81e22bdf17ae7fdf554973b}{new\+\_\+queue}} ()
+\begin{DoxyCompactList}\small\item\em Creates a new queue. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__Queue_ga7b0221e1c302d1af3349ffa0a71b7c08}{delete\+\_\+queue}} (\mbox{\hyperlink{structqueue}{queue\+\_\+t}} \texorpdfstring{$\ast$}{*}q)
+\begin{DoxyCompactList}\small\item\em Deletes a queue and frees its memory. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Queue_ga095518c09a8928fba317675f1c7984af}{push}} (\mbox{\hyperlink{structqueue}{queue\+\_\+t}} \texorpdfstring{$\ast$}{*}q, int n)
+\begin{DoxyCompactList}\small\item\em Adds an element to the queue. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__Queue_gacf430581987580e06036874af6ec371d}{pop}} (\mbox{\hyperlink{structqueue}{queue\+\_\+t}} \texorpdfstring{$\ast$}{*}q, int \texorpdfstring{$\ast$}{*}n)
+\begin{DoxyCompactList}\small\item\em Removes an element from the queue. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__Queue_gad727910848ebf0f74179f809b6eeda7e}{clear\+\_\+queue}} (\mbox{\hyperlink{structqueue}{queue\+\_\+t}} \texorpdfstring{$\ast$}{*}q)
+\begin{DoxyCompactList}\small\item\em Clears all elements from the queue. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__Queue_ga66e6200db9ddf970a1fae5f27ee9e2d5}{is\+\_\+empty}} (\mbox{\hyperlink{structqueue}{queue\+\_\+t}} \texorpdfstring{$\ast$}{*}q)
+\begin{DoxyCompactList}\small\item\em Checks if the queue is empty. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{group__Queue_gad727910848ebf0f74179f809b6eeda7e}\index{Queue@{Queue}!clear\_queue@{clear\_queue}}
+\index{clear\_queue@{clear\_queue}!Queue@{Queue}}
+\doxysubsubsection{\texorpdfstring{clear\_queue()}{clear\_queue()}}
+{\footnotesize\ttfamily \label{group__Queue_gad727910848ebf0f74179f809b6eeda7e} 
+void clear\+\_\+queue (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structqueue}{queue\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{q}{}\end{DoxyParamCaption})}
+
+
+
+Clears all elements from the queue. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em q} & Pointer to the queue structure. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{queue_8c_source_l00133}{133}} of file \mbox{\hyperlink{queue_8c_source}{queue.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordtype}{int}\ p;}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordflow}{while}\ (q-\/>count\ >\ 0)}
+\DoxyCodeLine{00136\ \ \ \ \ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__Queue_gacf430581987580e06036874af6ec371d}{pop}}(q,\&p);}
+\DoxyCodeLine{00138\ \ \ \ \ \}}
+\DoxyCodeLine{00139\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{group__Queue_gad727910848ebf0f74179f809b6eeda7e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Queue_gad727910848ebf0f74179f809b6eeda7e_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Queue_ga7b0221e1c302d1af3349ffa0a71b7c08}\index{Queue@{Queue}!delete\_queue@{delete\_queue}}
+\index{delete\_queue@{delete\_queue}!Queue@{Queue}}
+\doxysubsubsection{\texorpdfstring{delete\_queue()}{delete\_queue()}}
+{\footnotesize\ttfamily \label{group__Queue_ga7b0221e1c302d1af3349ffa0a71b7c08} 
+void delete\+\_\+queue (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structqueue}{queue\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{q}{}\end{DoxyParamCaption})}
+
+
+
+Deletes a queue and frees its memory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em q} & Pointer to the queue structure. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{queue_8c_source_l00084}{84}} of file \mbox{\hyperlink{queue_8c_source}{queue.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00085\ \ \ \ \ free(q-\/>buf);}
+\DoxyCodeLine{00086\ \ \ \ \ free(q);}
+\DoxyCodeLine{00087\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=292pt]{group__Queue_ga7b0221e1c302d1af3349ffa0a71b7c08_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Queue_ga66e6200db9ddf970a1fae5f27ee9e2d5}\index{Queue@{Queue}!is\_empty@{is\_empty}}
+\index{is\_empty@{is\_empty}!Queue@{Queue}}
+\doxysubsubsection{\texorpdfstring{is\_empty()}{is\_empty()}}
+{\footnotesize\ttfamily \label{group__Queue_ga66e6200db9ddf970a1fae5f27ee9e2d5} 
+bool is\+\_\+empty (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structqueue}{queue\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{q}{}\end{DoxyParamCaption})}
+
+
+
+Checks if the queue is empty. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em q} & Pointer to the queue structure. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool Returns true if the queue is empty, otherwise false. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{queue_8c_source_l00148}{148}} of file \mbox{\hyperlink{queue_8c_source}{queue.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordflow}{return}\ (q-\/>count\ ==\ 0);}
+\DoxyCodeLine{00150\ \}}
+
+\end{DoxyCode}
+\Hypertarget{group__Queue_ga1641e32ca81e22bdf17ae7fdf554973b}\index{Queue@{Queue}!new\_queue@{new\_queue}}
+\index{new\_queue@{new\_queue}!Queue@{Queue}}
+\doxysubsubsection{\texorpdfstring{new\_queue()}{new\_queue()}}
+{\footnotesize\ttfamily \label{group__Queue_ga1641e32ca81e22bdf17ae7fdf554973b} 
+\mbox{\hyperlink{structqueue}{queue\+\_\+t}} \texorpdfstring{$\ast$}{*} new\+\_\+queue (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Creates a new queue. 
+
+\begin{DoxyReturn}{Returns}
+queue\+\_\+t\texorpdfstring{$\ast$}{*} Pointer to the newly created queue, or NULL if memory allocation fails. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{queue_8c_source_l00060}{60}} of file \mbox{\hyperlink{queue_8c_source}{queue.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \mbox{\hyperlink{structqueue}{queue\_t}}\ *q\ =\ (\mbox{\hyperlink{structqueue}{queue\_t}}\ *)malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structqueue}{queue\_t}}));}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordflow}{if}\ (q\ ==\ NULL)}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ q-\/>size\ =\ 100;}
+\DoxyCodeLine{00067\ \ \ \ \ q-\/>count\ =\ q-\/>in\ =\ q-\/>out\ =\ 0;}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ q-\/>buf\ =\ (\textcolor{keywordtype}{int}\ *)malloc(q-\/>size\ *\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}));}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordflow}{if}\ (q\ ==\ NULL)\ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ free(q);}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{00073\ \ \ \ \ \}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordflow}{return}\ q;}
+\DoxyCodeLine{00076\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=280pt]{group__Queue_ga1641e32ca81e22bdf17ae7fdf554973b_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Queue_gacf430581987580e06036874af6ec371d}\index{Queue@{Queue}!pop@{pop}}
+\index{pop@{pop}!Queue@{Queue}}
+\doxysubsubsection{\texorpdfstring{pop()}{pop()}}
+{\footnotesize\ttfamily \label{group__Queue_gacf430581987580e06036874af6ec371d} 
+int pop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structqueue}{queue\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{q}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{n}{}\end{DoxyParamCaption})}
+
+
+
+Removes an element from the queue. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em q} & Pointer to the queue structure. \\
+\hline
+{\em n} & Pointer to the variable where the removed element will be stored. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Returns 0 upon success and -\/1 if the queue is empty. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{queue_8c_source_l00117}{117}} of file \mbox{\hyperlink{queue_8c_source}{queue.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordflow}{if}\ (q-\/>count\ >\ 0)\ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ *n\ =\ q-\/>buf[q-\/>out];}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ q-\/>count\ =\ q-\/>count\ -\/\ 1;}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ adjust\_queue(q);}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00123\ \ \ \ \ \}}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00125\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Queue_gacf430581987580e06036874af6ec371d_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Queue_ga095518c09a8928fba317675f1c7984af}\index{Queue@{Queue}!push@{push}}
+\index{push@{push}!Queue@{Queue}}
+\doxysubsubsection{\texorpdfstring{push()}{push()}}
+{\footnotesize\ttfamily \label{group__Queue_ga095518c09a8928fba317675f1c7984af} 
+int push (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structqueue}{queue\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{q}{, }\item[{int}]{n}{}\end{DoxyParamCaption})}
+
+
+
+Adds an element to the queue. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em q} & Pointer to the queue structure. \\
+\hline
+{\em n} & The element to be added. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Returns 0 upon success and 1 upon failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{queue_8c_source_l00097}{97}} of file \mbox{\hyperlink{queue_8c_source}{queue.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordflow}{if}\ (q-\/>count\ ==\ q-\/>size)\ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (resize\_queue(q))}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00101\ \ \ \ \ \}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ q-\/>buf[q-\/>in++]\ =\ n;}
+\DoxyCodeLine{00104\ \ \ \ \ q-\/>count++;}
+\DoxyCodeLine{00105\ \ \ \ \ adjust\_queue(q);}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00107\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Queue_ga095518c09a8928fba317675f1c7984af_icgraph}
+\end{center}
+\end{figure}

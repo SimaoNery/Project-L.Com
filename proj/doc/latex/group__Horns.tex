@@ -1,0 +1,352 @@
+\doxysection{Horns}
+\hypertarget{group__Horns}{}\label{group__Horns}\index{Horns@{Horns}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group__Horns_ga47e27ee03144a85f7fbbdb473cd949c6}{horns\+\_\+on}} (char \texorpdfstring{$\ast$}{*}args\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Turns the horns on with optional timer and blinking period. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__Horns_ga8895695c31f11442044a4f4674aba301}{horns\+\_\+off}} (char \texorpdfstring{$\ast$}{*}args\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Turns the horns off. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{group__Horns_ga8895695c31f11442044a4f4674aba301}\index{Horns@{Horns}!horns\_off@{horns\_off}}
+\index{horns\_off@{horns\_off}!Horns@{Horns}}
+\doxysubsubsection{\texorpdfstring{horns\_off()}{horns\_off()}}
+{\footnotesize\ttfamily \label{group__Horns_ga8895695c31f11442044a4f4674aba301} 
+void horns\+\_\+off (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{args}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Turns the horns off. 
+
+This function turns off the specified horns. If no horns are specified, both horns are turned off.
+
+
+\begin{DoxyParams}{Parameters}
+{\em args} & An array of strings representing the command arguments. The arguments can include\+:
+\begin{DoxyItemize}
+\item Horn numbers ("{}1"{} or "{}2"{}) to specify which horns to turn off.
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+If no horn numbers are provided, both horns will be turned off. 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{horns_8c_source_l00238}{238}} of file \mbox{\hyperlink{horns_8c_source}{horns.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00240\ \ \ uint8\_t\ command\_aux\ =\ command\_horns;}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00242\ \ \ \textcolor{keywordtype}{bool}\ turn\_off[2]\ =\ \{\textcolor{keyword}{false}\};}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00244\ \ \ \textcolor{keywordflow}{if}\ (args[0]\ ==\ NULL)\ \{}
+\DoxyCodeLine{00245\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 2;\ i++)\ \{}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ turn\_off[i]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00247\ \ \ \ \ \}}
+\DoxyCodeLine{00248\ \ \ \ \ command\_aux\ =\ HORN\_ID;}
+\DoxyCodeLine{00249\ \ \ \}}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00251\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ args[i]\ !=\ NULL;\ i++)\ \{}
+\DoxyCodeLine{00252\ \ \ \ \ \textcolor{keywordflow}{if}\ (strcmp(args[i],\ \textcolor{stringliteral}{"{}1"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ turn\_off[i]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00255\ \ \ \ \ \ \ command\_aux\ \&=\ \string~(HORN\_1);}
+\DoxyCodeLine{00256\ }
+\DoxyCodeLine{00257\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(args[i],\ \textcolor{stringliteral}{"{}2"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00259\ \ \ \ \ \ \ turn\_off[i]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00260\ }
+\DoxyCodeLine{00261\ \ \ \ \ \ \ command\_aux\ \&=\ \string~(HORN\_2);}
+\DoxyCodeLine{00262\ }
+\DoxyCodeLine{00263\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}There\ is\ no\ such\ horn:\ \%s\(\backslash\)n"{}},\ args[i]);}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00266\ \ \ \ \ \}}
+\DoxyCodeLine{00267\ \ \ \}}
+\DoxyCodeLine{00268\ }
+\DoxyCodeLine{00269\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 2;\ i++)\ \{}
+\DoxyCodeLine{00270\ \ \ \ \ \textcolor{keywordflow}{if}\ (turn\_off[i])\ \{}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ count\_time\_horns[i]\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ horns\_counter[i]\ =\ 0;}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ blink\_time\_horns[i]\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ blink\_counter\_horns[i]\ =\ 0;}
+\DoxyCodeLine{00275\ \ \ \ \ \}}
+\DoxyCodeLine{00276\ \ \ \}}
+\DoxyCodeLine{00277\ }
+\DoxyCodeLine{00278\ \ \ command\_horns\ =\ command\_aux;}
+\DoxyCodeLine{00279\ \ \ \mbox{\hyperlink{group__Serial_ga16017eb641d6cfecc03e1591b8226554}{send\_serial\_port\_msg}}(command\_horns);}
+\DoxyCodeLine{00280\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Horns_ga8895695c31f11442044a4f4674aba301_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Horns_ga8895695c31f11442044a4f4674aba301_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Horns_ga47e27ee03144a85f7fbbdb473cd949c6}\index{Horns@{Horns}!horns\_on@{horns\_on}}
+\index{horns\_on@{horns\_on}!Horns@{Horns}}
+\doxysubsubsection{\texorpdfstring{horns\_on()}{horns\_on()}}
+{\footnotesize\ttfamily \label{group__Horns_ga47e27ee03144a85f7fbbdb473cd949c6} 
+void horns\+\_\+on (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{args}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Turns the horns on with optional timer and blinking period. 
+
+This function turns on the specified horns. If no horns are specified, both horns are turned on. Optionally, a timer can be set to turn off the horns after a specified duration, and a blinking period can be set.
+
+
+\begin{DoxyParams}{Parameters}
+{\em args} & An array of strings representing the command arguments. The arguments can include\+:
+\begin{DoxyItemize}
+\item Horn numbers ("{}1"{} or "{}2"{}) to specify which horns to turn on.
+\item "{}-\/t $<$time$>$$<$unit$>$"{} to set a timer, where $<$unit$>$ can be \textquotesingle{}s\textquotesingle{} (seconds), \textquotesingle{}m\textquotesingle{} (minutes), or \textquotesingle{}h\textquotesingle{} (hours).
+\item "{}-\/p $<$period$>$$<$unit$>$"{} to set a blinking period, where $<$unit$>$ can be \textquotesingle{}s\textquotesingle{} (seconds) or \textquotesingle{}m\textquotesingle{} (minutes).
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+If no horn numbers are provided, both horns will be turned on. 
+
+The maximum timer duration is 86400 seconds (24 hours). 
+
+The maximum blinking period is 300 seconds (5 minutes). 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{horns_8c_source_l00032}{32}} of file \mbox{\hyperlink{horns_8c_source}{horns.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ uint8\_t\ command\_aux\ =\ 0;}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ uint32\_t\ horns\_counter\_aux[2]\ =\ \{0\};}
+\DoxyCodeLine{00037\ \ \ \textcolor{keywordtype}{bool}\ count\_time\_horns\_aux[2]\ =\ \{\textcolor{keyword}{false}\};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ uint32\_t\ blink\_counter\_horns\_aux[2]\ =\ \{0\};}
+\DoxyCodeLine{00040\ \ \ \textcolor{keywordtype}{bool}\ blink\_time\_horns\_aux[2]\ =\ \{\textcolor{keyword}{false}\};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ uint8\_t\ lights[]\ =\ \{HORN\_1,\ HORN\_2\};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \textcolor{keywordflow}{if}\ (args[0]\ ==\ NULL)\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ command\_aux\ |=\ HORN\_2\ |\ HORN\_1;}
+\DoxyCodeLine{00046\ \ \ \}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \textcolor{keywordtype}{bool}\ parsing\_args\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \textcolor{keywordtype}{bool}\ parsing\_lights\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00051\ \ \ \textcolor{keywordtype}{bool}\ parsing\_blinking\_period\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00052\ \ \ \textcolor{keywordtype}{bool}\ parsing\_time\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ args[i]\ !=\ NULL;\ i++)\ \{}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordflow}{if}\ (parsing\_args)\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (strcmp(args[i],\ \textcolor{stringliteral}{"{}-\/t"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ 0)}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ command\_aux\ |=\ HORN\_2\ |\ HORN\_1;}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ parsing\_args\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ parsing\_lights\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ parsing\_time\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(args[i],\ \textcolor{stringliteral}{"{}-\/p"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ 0)}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ command\_aux\ |=\ HORN\_2\ |\ HORN\_1;}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ parsing\_args\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ parsing\_lights\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ parsing\_blinking\_period\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (parsing\_lights)\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (strcmp(args[i],\ \textcolor{stringliteral}{"{}1"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ command\_aux\ |=\ HORN\_1;}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(args[i],\ \textcolor{stringliteral}{"{}2"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ command\_aux\ |=\ HORN\_2;}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}There\ is\ no\ such\ horn:\ \%s\(\backslash\)n"{}},\ args[i]);}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Invalid\ argument:\ \%s\(\backslash\)n"{}},\ args[i]);}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00090\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (parsing\_time)\ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ *string\_part;}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \ \ uint32\_t\ time\ =\ strtod(args[i],\ \&string\_part);}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (time\ >\ 0)\ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((strcmp(string\_part,\ \textcolor{stringliteral}{"{}s"{}})\ ==\ 0)\ ||\ (strlen(string\_part)\ ==\ 0))\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (time\ <=\ 86400)\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 2;\ i++)\ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (command\_aux\ \&\ lights[i])\ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ horns\_counter\_aux[i]\ =\ time;}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ count\_time\_horns\_aux[i]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ parsing\_time\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ parsing\_args\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Please\ provide\ a\ time\ in\ seconds\ up\ to\ 86400\ and\ no\ more\ "{}}}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}than\ that.\(\backslash\)n"{}});}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(string\_part,\ \textcolor{stringliteral}{"{}m"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (time\ <=\ 1440)\ \{}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ time\ *=\ 60;}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 2;\ i++)\ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (command\_aux\ \&\ lights[i])\ \{}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ horns\_counter\_aux[i]\ =\ time;}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ count\_time\_horns\_aux[i]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ parsing\_time\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ parsing\_args\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Please\ provide\ a\ time\ in\ minutes\ up\ to\ 1440\ and\ no\ more\ "{}}}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}than\ that.\(\backslash\)n"{}});}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(string\_part,\ \textcolor{stringliteral}{"{}h"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (time\ <=\ 24)\ \{}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ time\ *=\ 3600;}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 2;\ i++)\ \{}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (command\_aux\ \&\ lights[i])\ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ horns\_counter\_aux[i]\ =\ time;}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ count\_time\_horns\_aux[i]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ parsing\_time\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ parsing\_args\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Please\ provide\ a\ time\ in\ hours\ up\ to\ 24\ and\ no\ more\ than\ "{}}}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}that.\(\backslash\)n"{}});}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%s\ is\ not\ a\ valid\ unit\ of\ time.\(\backslash\)n"{}},\ string\_part);}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (args[i]\ ==\ NULL)\ \{}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}No\ time\ was\ provided.\(\backslash\)n"{}});}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Invalid\ time\ provided:\ \%s\(\backslash\)n"{}},\ args[i]);}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (parsing\_blinking\_period)\ \{}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ *string\_part;}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \ \ \ \ \ \ uint32\_t\ time\ =\ strtod(args[i],\ \&string\_part);}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (time\ >\ 0)\ \{}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((strcmp(string\_part,\ \textcolor{stringliteral}{"{}s"{}})\ ==\ 0)\ ||\ (strlen(string\_part)\ ==\ 0))\ \{}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (time\ <=\ 300)\ \{}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 2;\ i++)\ \{}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (command\_aux\ \&\ lights[i])\ \{}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ blink\_counter\_horns\_aux[i]\ =\ time;}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ blink\_time\_horns\_aux[i]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ parsing\_time\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ parsing\_args\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Please\ provide\ a\ period\ in\ seconds\ up\ to\ 300\ and\ no\ more\ "{}}}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}than\ that.\(\backslash\)n"{}});}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(string\_part,\ \textcolor{stringliteral}{"{}m"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (time\ <=\ 5)\ \{}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ time\ *=\ 60;}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 2;\ i++)\ \{}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (command\_aux\ \&\ lights[i])\ \{}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ blink\_counter\_horns\_aux[i]\ =\ time;}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ blink\_time\_horns\_aux[i]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ parsing\_time\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ parsing\_args\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Please\ provide\ a\ period\ in\ minutes\ up\ to\ 5\ and\ no\ more\ "{}}}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}than\ that.\(\backslash\)n"{}});}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%s\ is\ not\ a\ valid\ unit\ of\ time\(\backslash\)n"{}},\ string\_part);}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (args[i]\ ==\ NULL)\ \{}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}No\ period\ was\ provided.\(\backslash\)n"{}});}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Invalid\ period\ provided:\ \%s\(\backslash\)n"{}},\ args[i]);}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00209\ \ \ \ \ \}}
+\DoxyCodeLine{00210\ \ \ \}}
+\DoxyCodeLine{00211\ \ \ command\_horns\ |=\ command\_aux;}
+\DoxyCodeLine{00212\ \ \ \mbox{\hyperlink{group__Serial_ga16017eb641d6cfecc03e1591b8226554}{send\_serial\_port\_msg}}(command\_horns);}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00214\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 2;\ i++)\ \{}
+\DoxyCodeLine{00215\ \ \ \ \ \textcolor{keywordflow}{if}\ (count\_time\_horns\_aux[i])\ \{}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ count\_time\_horns[i]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ horns\_counter[i]\ =\ horns\_counter\_aux[i];}
+\DoxyCodeLine{00218\ \ \ \ \ \}}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00220\ \ \ \ \ \textcolor{keywordflow}{if}\ (blink\_time\_horns\_aux[i])\ \{}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ blink\_time\_horns[i]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ blink\_counter\_horns[i]\ =\ blink\_counter\_horns\_aux[i];}
+\DoxyCodeLine{00223\ \ \ \ \ \}}
+\DoxyCodeLine{00224\ \ \ \}}
+\DoxyCodeLine{00225\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Horns_ga47e27ee03144a85f7fbbdb473cd949c6_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Horns_ga47e27ee03144a85f7fbbdb473cd949c6_icgraph}
+\end{center}
+\end{figure}

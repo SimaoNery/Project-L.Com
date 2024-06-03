@@ -1,0 +1,5 @@
+<map id="load_sprites_800x600" name="load_sprites_800x600">
+<area shape="rect" id="Node000001" title="Loads sprites for the 800x600 resolution.This function creates and initializes all the sprites needed..." alt="" coords="5,5,153,31"/>
+<area shape="rect" id="Node000002" href="$group__Sprite.html#gac7d3801d2d8cb4108c171766c8cfaff1" title="Creates a sprite from the given XPM map.This function allocates memory for a new Sprite object,..." alt="" coords="201,5,297,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="153,16,185,16,185,21,153,21"/>
+</map>

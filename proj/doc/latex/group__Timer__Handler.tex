@@ -1,0 +1,199 @@
+\doxysection{Timer\+\_\+\+Handler}
+\hypertarget{group__Timer__Handler}{}\label{group__Timer__Handler}\index{Timer\_Handler@{Timer\_Handler}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group__Timer__Handler_ga67384da4f2c923d94548c81b4ca3a064}{handle\+\_\+update\+\_\+int}} ()
+\begin{DoxyCompactList}\small\item\em Handles the update interrupt.
+
+This function retrieves the current time from the RTC and updates the display. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__Timer__Handler_gaddb71b7aac0da3d609aca2b47940d0c8}{timer\+\_\+main\+\_\+menu\+\_\+handler}} ()
+\begin{DoxyCompactList}\small\item\em Handles timer interrupts for the main menu.
+
+This function increments the RTC counter and updates the display every hour. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__Timer__Handler_gae95ddd25d9b09c60f8dbf50c1fb27ff8}{timer\+\_\+control\+\_\+shell\+\_\+handler}} ()
+\begin{DoxyCompactList}\small\item\em Handles timer interrupts for the control shell.
+
+This function manages the countdown and blinking timers for lights, horns, and the fan. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{group__Timer__Handler_ga67384da4f2c923d94548c81b4ca3a064}\index{Timer\_Handler@{Timer\_Handler}!handle\_update\_int@{handle\_update\_int}}
+\index{handle\_update\_int@{handle\_update\_int}!Timer\_Handler@{Timer\_Handler}}
+\doxysubsubsection{\texorpdfstring{handle\_update\_int()}{handle\_update\_int()}}
+{\footnotesize\ttfamily \label{group__Timer__Handler_ga67384da4f2c923d94548c81b4ca3a064} 
+void handle\+\_\+update\+\_\+int (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Handles the update interrupt.
+
+This function retrieves the current time from the RTC and updates the display. 
+
+
+
+Definition at line \mbox{\hyperlink{timer__handler_8c_source_l00039}{39}} of file \mbox{\hyperlink{timer__handler_8c_source}{timer\+\_\+handler.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00040\ \ \ \mbox{\hyperlink{group__Real__time__clock_ga6028be0c2f6834191783cd629f324a2b}{rtc\_get\_time}}();}
+\DoxyCodeLine{00041\ \ \ \mbox{\hyperlink{group__Draw_ga77aa5892dbaec23e07aa9523bf2e2e60}{draw\_date\_time}}();}
+\DoxyCodeLine{00042\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Timer__Handler_ga67384da4f2c923d94548c81b4ca3a064_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=341pt]{group__Timer__Handler_ga67384da4f2c923d94548c81b4ca3a064_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Timer__Handler_gae95ddd25d9b09c60f8dbf50c1fb27ff8}\index{Timer\_Handler@{Timer\_Handler}!timer\_control\_shell\_handler@{timer\_control\_shell\_handler}}
+\index{timer\_control\_shell\_handler@{timer\_control\_shell\_handler}!Timer\_Handler@{Timer\_Handler}}
+\doxysubsubsection{\texorpdfstring{timer\_control\_shell\_handler()}{timer\_control\_shell\_handler()}}
+{\footnotesize\ttfamily \label{group__Timer__Handler_gae95ddd25d9b09c60f8dbf50c1fb27ff8} 
+void timer\+\_\+control\+\_\+shell\+\_\+handler (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Handles timer interrupts for the control shell.
+
+This function manages the countdown and blinking timers for lights, horns, and the fan. 
+
+
+
+Definition at line \mbox{\hyperlink{timer__handler_8c_source_l00064}{64}} of file \mbox{\hyperlink{timer__handler_8c_source}{timer\+\_\+handler.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 5;\ i++)\ \{}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordflow}{if}\ (count\_time[i])\ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ counter\_t[i]++;}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (counter\_t[i]\ /\ 60\ ==\ lights\_counter[i])\ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ count\_time[i]\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ blink\_time[i]\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ counter\_t[i]\ =\ 0;}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ lights\_counter[i]\ =\ 0;}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ counter\_b[i]\ =\ 0;}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ blink\_counter[i]\ =\ 0;}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ command\ \&=\ \string~(BIT(i));}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__Serial_ga16017eb641d6cfecc03e1591b8226554}{send\_serial\_port\_msg}}(command);}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00082\ \ \ \ \ \}}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordflow}{if}\ (blink\_time[i])\ \{}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \ \ counter\_b[i]++;}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (counter\_b[i]\ /\ 30\ ==\ blink\_counter[i])\ \{}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ counter\_b[i]\ =\ 0;}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ command\ \string^=\ BIT(i);}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__Serial_ga16017eb641d6cfecc03e1591b8226554}{send\_serial\_port\_msg}}(command);}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00093\ \ \ \ \ \}}
+\DoxyCodeLine{00094\ \ \ \}}
+\DoxyCodeLine{00095\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 2;\ i++)\ \{}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordflow}{if}\ (count\_time\_horns[i])\ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ counter\_horns\_t[i]++;}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (counter\_horns\_t[i]\ /\ 60\ ==\ horns\_counter[i])\ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ count\_time\_horns[i]\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ blink\_time\_horns[i]\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ counter\_horns\_t[i]\ =\ 0;}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ horns\_counter[i]\ =\ 0;}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ counter\_horns\_b[i]\ =\ 0;}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ blink\_counter\_horns[i]\ =\ 0;}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ command\_horns\ \&=\ \string~(BIT(i));}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__Serial_ga16017eb641d6cfecc03e1591b8226554}{send\_serial\_port\_msg}}(command\_horns);}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00111\ \ \ \ \ \}}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordflow}{if}\ (blink\_time\_horns[i])\ \{}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \ \ \ \ counter\_horns\_b[i]++;}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (counter\_horns\_b[i]\ /\ 30\ ==\ blink\_counter\_horns[i])\ \{}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ counter\_horns\_b[i]\ =\ 0;}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ command\_horns\ \string^=\ BIT(i);}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__Serial_ga16017eb641d6cfecc03e1591b8226554}{send\_serial\_port\_msg}}(command\_horns);}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00122\ \ \ \ \ \}}
+\DoxyCodeLine{00123\ \ \ \}}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \textcolor{keywordflow}{if}\ (fan\_time)\ \{}
+\DoxyCodeLine{00126\ \ \ \ \ counter\_fan++;}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordflow}{if}\ (counter\_fan\ /\ 60\ ==\ fan\_counter)\ \{}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ \ \ \ \ fan\_time\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ fan\_counter\ =\ 0;}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ counter\_fan\ =\ 0;}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \ \ \ \ command\_fan\ =\ FAN\_ID;}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \mbox{\hyperlink{group__Serial_ga16017eb641d6cfecc03e1591b8226554}{send\_serial\_port\_msg}}(command\_fan);}
+\DoxyCodeLine{00135\ \ \ \ \ \}}
+\DoxyCodeLine{00136\ \ \ \}}
+\DoxyCodeLine{00137\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Timer__Handler_gae95ddd25d9b09c60f8dbf50c1fb27ff8_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Timer__Handler_gaddb71b7aac0da3d609aca2b47940d0c8}\index{Timer\_Handler@{Timer\_Handler}!timer\_main\_menu\_handler@{timer\_main\_menu\_handler}}
+\index{timer\_main\_menu\_handler@{timer\_main\_menu\_handler}!Timer\_Handler@{Timer\_Handler}}
+\doxysubsubsection{\texorpdfstring{timer\_main\_menu\_handler()}{timer\_main\_menu\_handler()}}
+{\footnotesize\ttfamily \label{group__Timer__Handler_gaddb71b7aac0da3d609aca2b47940d0c8} 
+void timer\+\_\+main\+\_\+menu\+\_\+handler (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Handles timer interrupts for the main menu.
+
+This function increments the RTC counter and updates the display every hour. 
+
+
+
+Definition at line \mbox{\hyperlink{timer__handler_8c_source_l00052}{52}} of file \mbox{\hyperlink{timer__handler_8c_source}{timer\+\_\+handler.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00053\ \ \ count\_rtc++;}
+\DoxyCodeLine{00054\ \ \ \textcolor{keywordflow}{if}\ (count\_rtc\ \%\ 3600\ ==\ 0)\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{group__Timer__Handler_ga67384da4f2c923d94548c81b4ca3a064}{handle\_update\_int}}();}
+\DoxyCodeLine{00056\ \ \ \}}
+\DoxyCodeLine{00057\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Timer__Handler_gaddb71b7aac0da3d609aca2b47940d0c8_cgraph}
+\end{center}
+\end{figure}

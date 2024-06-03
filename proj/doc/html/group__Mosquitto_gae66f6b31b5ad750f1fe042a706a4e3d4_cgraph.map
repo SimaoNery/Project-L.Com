@@ -1,0 +1,15 @@
+<map id="main" name="main">
+<area shape="rect" id="Node000001" title="Main function to initialize and run the MQTT and socket server." alt="" coords="5,63,55,88"/>
+<area shape="rect" id="Node000002" href="$group__Mosquitto.html#ga5ef2455688ddea6a88fed6feabf9c70f" title="Cleans up the Mosquitto library and disconnects from the MQTT broker." alt="" coords="123,13,240,39"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="54,64,102,48,120,42,122,47,104,53,56,69"/>
+<area shape="rect" id="Node000003" href="$group__Mosquitto.html#ga5b1032f1bcabf3e6072efe46811dec02" title="Initializes the Mosquitto library and connects to the MQTT broker." alt="" coords="103,63,260,88"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="55,73,87,73,87,78,55,78"/>
+<area shape="rect" id="Node000006" href="$group__Mosquitto.html#ga5025b066f93febe70ff06a183b614cee" title="Thread function to handle server&#45;side socket communication." alt="" coords="131,120,232,146"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="56,82,132,111,130,116,54,87"/>
+<area shape="rect" id="Node000004" href="$group__Mosquitto.html#gabc659c5801704589564eb1c9ef9ebfdd" title="Function for initial connection to the MQTT broker." alt="" coords="308,5,493,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="233,59,333,33,334,38,234,65"/>
+<area shape="rect" id="Node000005" href="$group__Mosquitto.html#ga9ec76b81a42ba9f0ee4baa1cfffce939" title="Function for receiving MQTT messages." alt="" coords="321,55,480,96"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="260,73,306,73,306,78,260,78"/>
+<area shape="rect" id="Node000007" href="$group__Mosquitto.html#gad7d41d403223a45509d8029b10fdac85" title="Publishes a command byte to the appropriate MQTT topic." alt="" coords="324,121,477,161"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="232,132,308,135,308,140,232,137"/>
+</map>

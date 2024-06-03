@@ -1,0 +1,129 @@
+\doxysection{timer\+\_\+handler.\+c}
+\hypertarget{timer__handler_8c_source}{}\label{timer__handler_8c_source}\index{/Users/wagner/Desktop/faculdade/2 ano/LCOM/MINIX-\/LCOM/shared/g4/proj/src/handlers/timer\_handler.c@{/Users/wagner/Desktop/faculdade/2 ano/LCOM/MINIX-\/LCOM/shared/g4/proj/src/handlers/timer\_handler.c}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}timer\_handler.h"{}}}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00008}00008\ \textcolor{keyword}{extern}\ uint8\_t\ command;}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00010}00010\ \textcolor{keyword}{extern}\ uint32\_t\ lights\_counter[5];}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00011}00011\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ count\_time[5];}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00012}00012\ uint32\_t\ counter\_t[5]\ =\ \{0\};}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00014}00014\ \textcolor{keyword}{extern}\ uint32\_t\ blink\_counter[5];}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00015}00015\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ blink\_time[5];}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00016}00016\ uint32\_t\ counter\_b[5]\ =\ \{0\};}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00018}00018\ \textcolor{keyword}{extern}\ uint8\_t\ command\_fan;}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00020}00020\ \textcolor{keyword}{extern}\ uint32\_t\ fan\_counter;}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00021}00021\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ fan\_time;}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00022}00022\ uint32\_t\ counter\_fan\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00024}00024\ \textcolor{keyword}{extern}\ uint8\_t\ command\_horns;}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00026}00026\ \textcolor{keyword}{extern}\ uint32\_t\ horns\_counter[2];}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00027}00027\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ count\_time\_horns[2];}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00028}00028\ uint32\_t\ counter\_horns\_t[2]\ =\ \{0\};}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00030}00030\ \textcolor{keyword}{extern}\ uint32\_t\ blink\_counter\_horns[2];}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00031}00031\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ blink\_time\_horns[2];}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00032}00032\ uint32\_t\ counter\_horns\_b[2]\ =\ \{0\};}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00039}\mbox{\hyperlink{group__Timer__Handler_ga67384da4f2c923d94548c81b4ca3a064}{00039}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group__Timer__Handler_ga67384da4f2c923d94548c81b4ca3a064}{handle\_update\_int}}()\ \{}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00040}00040\ \ \ \mbox{\hyperlink{group__Real__time__clock_ga6028be0c2f6834191783cd629f324a2b}{rtc\_get\_time}}();}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00041}00041\ \ \ \mbox{\hyperlink{group__Draw_ga77aa5892dbaec23e07aa9523bf2e2e60}{draw\_date\_time}}();}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00042}00042\ \}}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00044}00044\ \textcolor{keyword}{extern}\ uint8\_t\ config\_RTC;}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00045}00045\ \textcolor{keywordtype}{int}\ count\_rtc\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00052}\mbox{\hyperlink{group__Timer__Handler_gaddb71b7aac0da3d609aca2b47940d0c8}{00052}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group__Timer__Handler_gaddb71b7aac0da3d609aca2b47940d0c8}{timer\_main\_menu\_handler}}()\ \{}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00053}00053\ \ \ count\_rtc++;}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00054}00054\ \ \ \textcolor{keywordflow}{if}\ (count\_rtc\ \%\ 3600\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00055}00055\ \ \ \ \ \mbox{\hyperlink{group__Timer__Handler_ga67384da4f2c923d94548c81b4ca3a064}{handle\_update\_int}}();}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00056}00056\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00057}00057\ \}}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00064}\mbox{\hyperlink{group__Timer__Handler_gae95ddd25d9b09c60f8dbf50c1fb27ff8}{00064}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group__Timer__Handler_gae95ddd25d9b09c60f8dbf50c1fb27ff8}{timer\_control\_shell\_handler}}()\ \{}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00066}00066\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 5;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00068}00068\ \ \ \ \ \textcolor{keywordflow}{if}\ (count\_time[i])\ \{}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00069}00069\ \ \ \ \ \ \ counter\_t[i]++;}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00070}00070\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (counter\_t[i]\ /\ 60\ ==\ lights\_counter[i])\ \{}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00071}00071\ \ \ \ \ \ \ \ \ count\_time[i]\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00072}00072\ \ \ \ \ \ \ \ \ blink\_time[i]\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00073}00073\ \ \ \ \ \ \ \ \ counter\_t[i]\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00074}00074\ \ \ \ \ \ \ \ \ lights\_counter[i]\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00076}00076\ \ \ \ \ \ \ \ \ counter\_b[i]\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00077}00077\ \ \ \ \ \ \ \ \ blink\_counter[i]\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00079}00079\ \ \ \ \ \ \ \ \ command\ \&=\ \string~(BIT(i));}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00080}00080\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__Serial_ga16017eb641d6cfecc03e1591b8226554}{send\_serial\_port\_msg}}(command);}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00081}00081\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00082}00082\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00083}00083\ \ \ \ \ \textcolor{keywordflow}{if}\ (blink\_time[i])\ \{}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00085}00085\ \ \ \ \ \ \ counter\_b[i]++;}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00086}00086\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (counter\_b[i]\ /\ 30\ ==\ blink\_counter[i])\ \{}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00088}00088\ \ \ \ \ \ \ \ \ counter\_b[i]\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00090}00090\ \ \ \ \ \ \ \ \ command\ \string^=\ BIT(i);}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00091}00091\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__Serial_ga16017eb641d6cfecc03e1591b8226554}{send\_serial\_port\_msg}}(command);}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00092}00092\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00093}00093\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00094}00094\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00095}00095\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 2;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00097}00097\ \ \ \ \ \textcolor{keywordflow}{if}\ (count\_time\_horns[i])\ \{}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00098}00098\ \ \ \ \ \ \ counter\_horns\_t[i]++;}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00099}00099\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (counter\_horns\_t[i]\ /\ 60\ ==\ horns\_counter[i])\ \{}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00100}00100\ \ \ \ \ \ \ \ \ count\_time\_horns[i]\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00101}00101\ \ \ \ \ \ \ \ \ blink\_time\_horns[i]\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00102}00102\ \ \ \ \ \ \ \ \ counter\_horns\_t[i]\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00103}00103\ \ \ \ \ \ \ \ \ horns\_counter[i]\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00105}00105\ \ \ \ \ \ \ \ \ counter\_horns\_b[i]\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00106}00106\ \ \ \ \ \ \ \ \ blink\_counter\_horns[i]\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00108}00108\ \ \ \ \ \ \ \ \ command\_horns\ \&=\ \string~(BIT(i));}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00109}00109\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__Serial_ga16017eb641d6cfecc03e1591b8226554}{send\_serial\_port\_msg}}(command\_horns);}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00110}00110\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00111}00111\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00112}00112\ \ \ \ \ \textcolor{keywordflow}{if}\ (blink\_time\_horns[i])\ \{}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00114}00114\ \ \ \ \ \ \ counter\_horns\_b[i]++;}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00115}00115\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (counter\_horns\_b[i]\ /\ 30\ ==\ blink\_counter\_horns[i])\ \{}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00117}00117\ \ \ \ \ \ \ \ \ counter\_horns\_b[i]\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00119}00119\ \ \ \ \ \ \ \ \ command\_horns\ \string^=\ BIT(i);}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00120}00120\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__Serial_ga16017eb641d6cfecc03e1591b8226554}{send\_serial\_port\_msg}}(command\_horns);}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00121}00121\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00122}00122\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00123}00123\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00125}00125\ \ \ \textcolor{keywordflow}{if}\ (fan\_time)\ \{}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00126}00126\ \ \ \ \ counter\_fan++;}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00127}00127\ \ \ \ \ \textcolor{keywordflow}{if}\ (counter\_fan\ /\ 60\ ==\ fan\_counter)\ \{}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00129}00129\ \ \ \ \ \ \ fan\_time\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00130}00130\ \ \ \ \ \ \ fan\_counter\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00131}00131\ \ \ \ \ \ \ counter\_fan\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00133}00133\ \ \ \ \ \ \ command\_fan\ =\ FAN\_ID;}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00134}00134\ \ \ \ \ \ \ \mbox{\hyperlink{group__Serial_ga16017eb641d6cfecc03e1591b8226554}{send\_serial\_port\_msg}}(command\_fan);}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00135}00135\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00136}00136\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00137}00137\ \}}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00138}00138\ }
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00139}00139\ \textcolor{keywordtype}{void}\ timer\_house\_plant\_handler()\ \{\}}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00140}00140\ }
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00141}00141\ \textcolor{keywordtype}{void}\ timer\_settings\_handler\ ()\ \{\}}
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00142}00142\ }
+\DoxyCodeLine{\Hypertarget{timer__handler_8c_source_l00143}00143\ \textcolor{keywordtype}{void}\ timer\_help\_handler()\ \{\}}
+
+\end{DoxyCode}

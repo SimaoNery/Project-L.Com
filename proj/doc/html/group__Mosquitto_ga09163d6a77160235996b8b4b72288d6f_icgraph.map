@@ -1,0 +1,9 @@
+<map id="serial_port_send_message" name="serial_port_send_message">
+<area shape="rect" id="Node000001" title="Sends a message through the serial port." alt="" coords="236,70,412,96"/>
+<area shape="rect" id="Node000002" href="$group__Mosquitto.html#ga6bdffe4ec8b7dd1902628909ec82a79e" title="Callback function for receiving camera photo data via MQTT." alt="" coords="13,5,180,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="255,68,179,49,181,44,256,63"/>
+<area shape="rect" id="Node000003" href="$group__Mosquitto.html#gac06ebbfab570b0b73d361a2ba37aa7c1" title="Callback function for receiving decibel data via MQTT." alt="" coords="5,70,188,96"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="221,86,188,86,188,80,221,80"/>
+<area shape="rect" id="Node000004" href="$group__Mosquitto.html#ga5783173947246c5fc7cb4fbe5c799add" title="Callback function for receiving humidity data via MQTT." alt="" coords="29,120,164,161"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="256,103,165,126,164,121,255,98"/>
+</map>

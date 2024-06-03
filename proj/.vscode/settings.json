@@ -1,7 +1,9 @@
 {
     "files.associations": {
         "*.embeddedhtml": "html",
-        "unistd.h": "c"
+        "unistd.h": "c",
+        "algorithm": "c",
+        "*.xpm": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

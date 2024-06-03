@@ -1,0 +1,44 @@
+\doxysection{utils.\+c}
+\hypertarget{utils_8c_source}{}\label{utils_8c_source}\index{/Users/wagner/Desktop/faculdade/2 ano/LCOM/MINIX-\/LCOM/shared/g4/proj/src/drivers/utils.c@{/Users/wagner/Desktop/faculdade/2 ano/LCOM/MINIX-\/LCOM/shared/g4/proj/src/drivers/utils.c}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <lcom/lcf.h>}}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00017}\mbox{\hyperlink{group__Utils_ga31ab374573517f8a5ba31c52a49a8606}{00017}}\ int(\mbox{\hyperlink{group__Utils_ga31ab374573517f8a5ba31c52a49a8606}{util\_get\_LSB}})(uint16\_t\ val,\ uint8\_t\ *lsb)\ \{}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00019}00019\ \ \ \textcolor{keywordflow}{if}\ (lsb\ !=\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00020}00020\ \ \ \ \ uint8\_t\ mask\ =\ 0xFF;}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00021}00021\ \ \ \ \ *lsb\ =\ val\ \&\ mask;}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00022}00022\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00023}00023\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00025}00025\ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00026}00026\ \}}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00036}\mbox{\hyperlink{group__Utils_gafc6ca7a9a39943ff1792d206da514a59}{00036}}\ int(\mbox{\hyperlink{group__Utils_gafc6ca7a9a39943ff1792d206da514a59}{util\_get\_MSB}})(uint16\_t\ val,\ uint8\_t\ *msb)\ \{}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00038}00038\ \ \ \textcolor{keywordflow}{if}\ (msb\ !=\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00039}00039\ \ \ \ \ uint16\_t\ mask\ =\ 0xFF00;}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00040}00040\ \ \ \ \ *msb\ =\ (val\ \&\ mask)\ >>\ 8;}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00041}00041\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00042}00042\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00044}00044\ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00045}00045\ \}}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00055}\mbox{\hyperlink{group__Utils_ga2b56f50ba159e9d5115ed1a75eff15d9}{00055}}\ int\ (\mbox{\hyperlink{group__Utils_ga2b56f50ba159e9d5115ed1a75eff15d9}{util\_sys\_inb}})(\textcolor{keywordtype}{int}\ port,\ uint8\_t\ *value)\ \{}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00057}00057\ \ \ \textcolor{keywordflow}{if}\ (value\ !=\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00058}00058\ \ \ \ \ uint32\_t\ temp;}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00059}00059\ \ \ \ \ \textcolor{keywordtype}{int}\ res\ =\ sys\_inb(port,\ \&temp);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00061}00061\ \ \ \ \ \textcolor{keywordflow}{if}\ (res\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00062}00062\ \ \ \ \ \ \ *value\ =\ 0xFF\ \&\ temp;}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00063}00063\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00064}00064\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00065}00065\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00067}00067\ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00068}00068\ \}}
+
+\end{DoxyCode}

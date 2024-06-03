@@ -1,0 +1,375 @@
+\doxysection{Command\+\_\+\+Line}
+\hypertarget{group__Command__Line}{}\label{group__Command__Line}\index{Command\_Line@{Command\_Line}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group__Command__Line_gaf30ad16b140d480d643e6a2451b6d9db}{input\+\_\+to\+\_\+command\+\_\+line}} (uint8\+\_\+t scancode)
+\begin{DoxyCompactList}\small\item\em Processes the input scancode and updates the command line buffer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__Command__Line_gae141d38d475a307cc500ab62784cec18}{delete\+\_\+character}} ()
+\begin{DoxyCompactList}\small\item\em Deletes the character at the current cursor position in the command line buffer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__Command__Line_gae41d0c7726ec24bdeb2abae1be6090b8}{translate\+\_\+scancode}} (uint8\+\_\+t scancode)
+\begin{DoxyCompactList}\small\item\em Translates a scancode to a character and updates the command line buffer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__Command__Line_gade3acfa451eec0d44bfd76a45c652cb1}{tokenize\+\_\+line}} (char \texorpdfstring{$\ast$}{*}line\+\_\+buffer)
+\begin{DoxyCompactList}\small\item\em Tokenizes the command line buffer into individual tokens. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__Command__Line_ga5b45f56b0bc963c356a7cc16f211ed4d}{handle\+\_\+command}} (char \texorpdfstring{$\ast$}{*}line\+\_\+buffer)
+\begin{DoxyCompactList}\small\item\em Handles the command entered in the command line buffer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{group__Command__Line_gae141d38d475a307cc500ab62784cec18}\index{Command\_Line@{Command\_Line}!delete\_character@{delete\_character}}
+\index{delete\_character@{delete\_character}!Command\_Line@{Command\_Line}}
+\doxysubsubsection{\texorpdfstring{delete\_character()}{delete\_character()}}
+{\footnotesize\ttfamily \label{group__Command__Line_gae141d38d475a307cc500ab62784cec18} 
+void delete\+\_\+character (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Deletes the character at the current cursor position in the command line buffer. 
+
+This function removes the character at the current cursor position and updates the buffer and cursor position accordingly. 
+
+Definition at line \mbox{\hyperlink{command__line_8c_source_l00075}{75}} of file \mbox{\hyperlink{command__line_8c_source}{command\+\_\+line.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00076\ \ \ \textcolor{keywordflow}{if}\ (cursor\_pos\ >\ 0)\ \{}
+\DoxyCodeLine{00077\ \ \ \ \ memmove(\&line\_buffer[cursor\_pos\ -\/\ 1],\ \&line\_buffer[cursor\_pos],}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ line\_length\ -\/\ cursor\_pos);}
+\DoxyCodeLine{00079\ \ \ \ \ cursor\_pos-\/-\/;}
+\DoxyCodeLine{00080\ \ \ \ \ line\_length-\/-\/;}
+\DoxyCodeLine{00081\ \ \ \ \ line\_buffer[line\_length]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00082\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)b\ \(\backslash\)b"{}});}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordflow}{if}\ (cursor\_pos\ <\ line\_length)\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%s"{}},\ \&line\_buffer[cursor\_pos]);}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \(\backslash\)b"{}});}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ line\_length;\ i\ >\ cursor\_pos;\ i-\/-\/)\ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)033[D"{}});}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00089\ \ \ \ \ \}}
+\DoxyCodeLine{00090\ \ \ \}}
+\DoxyCodeLine{00091\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Command__Line_gae141d38d475a307cc500ab62784cec18_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Command__Line_ga5b45f56b0bc963c356a7cc16f211ed4d}\index{Command\_Line@{Command\_Line}!handle\_command@{handle\_command}}
+\index{handle\_command@{handle\_command}!Command\_Line@{Command\_Line}}
+\doxysubsubsection{\texorpdfstring{handle\_command()}{handle\_command()}}
+{\footnotesize\ttfamily \label{group__Command__Line_ga5b45f56b0bc963c356a7cc16f211ed4d} 
+void handle\+\_\+command (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{line\+\_\+buffer}{}\end{DoxyParamCaption})}
+
+
+
+Handles the command entered in the command line buffer. 
+
+This function processes the command entered in the command line buffer and executes the corresponding action.
+
+
+\begin{DoxyParams}{Parameters}
+{\em line\+\_\+buffer} & The command line buffer containing the command to handle. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{command__line_8c_source_l00227}{227}} of file \mbox{\hyperlink{command__line_8c_source}{command\+\_\+line.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00229\ \ \ \mbox{\hyperlink{group__Command__Line_gade3acfa451eec0d44bfd76a45c652cb1}{tokenize\_line}}(line\_buffer);}
+\DoxyCodeLine{00230\ \ \ \textcolor{keywordflow}{if}\ (tokens[0]\ ==\ NULL)\ \{}
+\DoxyCodeLine{00231\ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00232\ \ \ \}}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00234\ \ \ \textcolor{keywordtype}{char}\ *command\ =\ tokens[0];}
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00236\ \ \ \textcolor{keywordflow}{if}\ (strcmp(command,\ \textcolor{stringliteral}{"{}lights\_on"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{00237\ \ \ \ \ \mbox{\hyperlink{group__Lights_ga99352435ec80f8b277bfee1286ec4743}{lights\_on}}(\&tokens[1]);}
+\DoxyCodeLine{00238\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(command,\ \textcolor{stringliteral}{"{}lights\_off"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{00239\ \ \ \ \ \mbox{\hyperlink{group__Lights_gad76dec403ede9b90c305f1359d7215cb}{lights\_off}}(\&tokens[1]);}
+\DoxyCodeLine{00240\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(command,\ \textcolor{stringliteral}{"{}horns\_on"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{00241\ \ \ \ \ \mbox{\hyperlink{group__Horns_ga47e27ee03144a85f7fbbdb473cd949c6}{horns\_on}}(\&tokens[1]);}
+\DoxyCodeLine{00242\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(command,\ \textcolor{stringliteral}{"{}horns\_off"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{00243\ \ \ \ \ \mbox{\hyperlink{group__Horns_ga8895695c31f11442044a4f4674aba301}{horns\_off}}(\&tokens[1]);}
+\DoxyCodeLine{00244\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(command,\ \textcolor{stringliteral}{"{}write\_message"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{00245\ \ \ \ \ \mbox{\hyperlink{group__Display__Text_ga8114f5893ca5abf7574a43b3efd39ce0}{display\_text}}(\&tokens[1]);}
+\DoxyCodeLine{00246\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(command,\ \textcolor{stringliteral}{"{}fan\_on"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{00247\ \ \ \ \ \mbox{\hyperlink{group__Fan_ga2013bd7ad8f2a334b5c5b5cf655747b1}{fan\_on}}(\&tokens[1]);}
+\DoxyCodeLine{00248\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(command,\ \textcolor{stringliteral}{"{}fan\_off"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{00249\ \ \ \ \ \mbox{\hyperlink{group__Fan_gaf1d36feee8a9fb72efd3ac19af589467}{fan\_off}}();}
+\DoxyCodeLine{00250\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(command,\ \textcolor{stringliteral}{"{}livestream"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{00251\ \ \ \ \ printf(\textcolor{stringliteral}{"{}dnqjwq"{}});}
+\DoxyCodeLine{00252\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(command,\ \textcolor{stringliteral}{"{}take\_photo"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{00253\ \ \ \ \ printf(\textcolor{stringliteral}{"{}dnqjwq"{}});}
+\DoxyCodeLine{00254\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(command,\ \textcolor{stringliteral}{"{}get\_humidity\_and\_temperature"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{00255\ \ \ \ \ \mbox{\hyperlink{group__House__state_gacd86dbf1562e3a472761a4cb1861360b}{get\_humidity\_and\_temperature}}();}
+\DoxyCodeLine{00256\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(command,\ \textcolor{stringliteral}{"{}get\_sound\_intensity"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{00257\ \ \ \ \ \mbox{\hyperlink{group__House__state_ga5450b7a3318d0c811bf32a8799c9ff1e}{get\_sound\_intensity}}();}
+\DoxyCodeLine{00258\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(command,\ \textcolor{stringliteral}{"{}help"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{00259\ \ \ \ \ \mbox{\hyperlink{group__Help_gad1a89d01ea36e3c49e7dc5085d67e6c5}{help}}(\&tokens[1]);}
+\DoxyCodeLine{00260\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(command,\ \textcolor{stringliteral}{"{}exit"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{00261\ \ \ \ \ \mbox{\hyperlink{group__Graphics_ga4bee13c4e0e366ce99296add8b64bc45}{vg\_set\_graphics\_mode}}(resolution);}
+\DoxyCodeLine{00262\ \ \ \ \ page\_state\ =\ MAIN\_MENU;}
+\DoxyCodeLine{00263\ \ \ \ \ \mbox{\hyperlink{group__Draw_gab708de60ac9ff4a5ec5f067b8965fda3}{draw\_page}}();}
+\DoxyCodeLine{00264\ \ \ \ \ \mbox{\hyperlink{group__Mouse_gaecdd51f940be83961956458c45d902e4}{write\_mouse\_cmd}}(ENABLE\_DATA\_REPORTING);}
+\DoxyCodeLine{00265\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00266\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%s:\ not\ found\(\backslash\)n"{}},\ command);}
+\DoxyCodeLine{00267\ \ \ \}}
+\DoxyCodeLine{00268\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Command__Line_ga5b45f56b0bc963c356a7cc16f211ed4d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Command__Line_ga5b45f56b0bc963c356a7cc16f211ed4d_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Command__Line_gaf30ad16b140d480d643e6a2451b6d9db}\index{Command\_Line@{Command\_Line}!input\_to\_command\_line@{input\_to\_command\_line}}
+\index{input\_to\_command\_line@{input\_to\_command\_line}!Command\_Line@{Command\_Line}}
+\doxysubsubsection{\texorpdfstring{input\_to\_command\_line()}{input\_to\_command\_line()}}
+{\footnotesize\ttfamily \label{group__Command__Line_gaf30ad16b140d480d643e6a2451b6d9db} 
+void input\+\_\+to\+\_\+command\+\_\+line (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{scancode}{}\end{DoxyParamCaption})}
+
+
+
+Processes the input scancode and updates the command line buffer. 
+
+This function translates the scancode to a character and updates the command line buffer. If the Enter key is pressed, it handles the command in the buffer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em scancode} & The scancode of the key pressed. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{command__line_8c_source_l00024}{24}} of file \mbox{\hyperlink{command__line_8c_source}{command\+\_\+line.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00025\ \ \ \textcolor{keywordflow}{if}\ (line\_length\ <\ MAX\_LINE\_LENGTH)}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{group__Command__Line_gae41d0c7726ec24bdeb2abae1be6090b8}{translate\_scancode}}(scancode);}
+\DoxyCodeLine{00027\ \ \ \textcolor{keywordflow}{if}\ (scancode\ ==\ ENTER\_MAKE\_CODE)\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{group__Command__Line_ga5b45f56b0bc963c356a7cc16f211ed4d}{handle\_command}}(line\_buffer);}
+\DoxyCodeLine{00030\ \ \ \ \ printf(\textcolor{stringliteral}{"{}minix\$\ "{}});}
+\DoxyCodeLine{00031\ \ \ \ \ line\_buffer[0]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00032\ \ \ \ \ cursor\_pos\ =\ line\_length\ =\ 0;}
+\DoxyCodeLine{00033\ \ \ \}}
+\DoxyCodeLine{00034\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Command__Line_gaf30ad16b140d480d643e6a2451b6d9db_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Command__Line_gaf30ad16b140d480d643e6a2451b6d9db_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Command__Line_gade3acfa451eec0d44bfd76a45c652cb1}\index{Command\_Line@{Command\_Line}!tokenize\_line@{tokenize\_line}}
+\index{tokenize\_line@{tokenize\_line}!Command\_Line@{Command\_Line}}
+\doxysubsubsection{\texorpdfstring{tokenize\_line()}{tokenize\_line()}}
+{\footnotesize\ttfamily \label{group__Command__Line_gade3acfa451eec0d44bfd76a45c652cb1} 
+void tokenize\+\_\+line (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{line\+\_\+buffer}{}\end{DoxyParamCaption})}
+
+
+
+Tokenizes the command line buffer into individual tokens. 
+
+This function splits the command line buffer into tokens separated by spaces.
+
+
+\begin{DoxyParams}{Parameters}
+{\em line\+\_\+buffer} & The command line buffer to tokenize. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{command__line_8c_source_l00204}{204}} of file \mbox{\hyperlink{command__line_8c_source}{command\+\_\+line.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00205\ \ \ \ \ }
+\DoxyCodeLine{00206\ \ \ memset(tokens,\ 0,\ \textcolor{keyword}{sizeof}(tokens));}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00208\ \ \ \textcolor{keywordtype}{char}\ *token\ =\ strtok(line\_buffer,\ \textcolor{stringliteral}{"{}\ "{}});}
+\DoxyCodeLine{00209\ \ \ \textcolor{keywordtype}{int}\ index\ =\ 0;}
+\DoxyCodeLine{00210\ \ \ \textcolor{keywordflow}{while}\ (token\ !=\ NULL\ \&\&\ index\ <\ MAX\_TOKENS\ -\/\ 1)\ \{}
+\DoxyCodeLine{00211\ \ \ \ \ tokens[index++]\ =\ token;}
+\DoxyCodeLine{00212\ \ \ \ \ token\ =\ strtok(NULL,\ \textcolor{stringliteral}{"{}\ "{}});}
+\DoxyCodeLine{00213\ \ \ \}}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \ \ tokens[index]\ =\ NULL;}
+\DoxyCodeLine{00216\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Command__Line_gade3acfa451eec0d44bfd76a45c652cb1_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__Command__Line_gae41d0c7726ec24bdeb2abae1be6090b8}\index{Command\_Line@{Command\_Line}!translate\_scancode@{translate\_scancode}}
+\index{translate\_scancode@{translate\_scancode}!Command\_Line@{Command\_Line}}
+\doxysubsubsection{\texorpdfstring{translate\_scancode()}{translate\_scancode()}}
+{\footnotesize\ttfamily \label{group__Command__Line_gae41d0c7726ec24bdeb2abae1be6090b8} 
+void translate\+\_\+scancode (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{scancode}{}\end{DoxyParamCaption})}
+
+
+
+Translates a scancode to a character and updates the command line buffer. 
+
+This function handles special keys (e.\+g., Shift, Caps Lock, Backspace) and translates scancodes to characters. It updates the command line buffer and cursor position accordingly.
+
+
+\begin{DoxyParams}{Parameters}
+{\em scancode} & The scancode of the key pressed. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{command__line_8c_source_l00102}{102}} of file \mbox{\hyperlink{command__line_8c_source}{command\+\_\+line.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00103\ \ \ \textcolor{keywordtype}{char}\ ch;}
+\DoxyCodeLine{00104\ \ \ \textcolor{keywordflow}{switch}\ (scancode)\ \{}
+\DoxyCodeLine{00105\ \ \ \textcolor{keywordflow}{case}\ WAITING\_FOR\_ANOTHER\_CHAR:}
+\DoxyCodeLine{00106\ \ \ \ \ waiting\_for\_another\_char\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00108\ \ \ \textcolor{keywordflow}{case}\ LEFT\_SHIFT\_MAKE\_CODE:}
+\DoxyCodeLine{00109\ \ \ \ \ left\_shift\_pressed\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00111\ \ \ \textcolor{keywordflow}{case}\ RIGHT\_SHIFT\_MAKE\_CODE:}
+\DoxyCodeLine{00112\ \ \ \ \ right\_shift\_pressed\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00114\ \ \ \textcolor{keywordflow}{case}\ LEFT\_SHIFT\_BREAK\_CODE:}
+\DoxyCodeLine{00115\ \ \ \ \ left\_shift\_pressed\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00117\ \ \ \textcolor{keywordflow}{case}\ RIGHT\_SHIFT\_BREAK\_CODE:}
+\DoxyCodeLine{00118\ \ \ \ \ right\_shift\_pressed\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00120\ \ \ \textcolor{keywordflow}{case}\ CAPS\_LOCK\_MAKE\_CODE:}
+\DoxyCodeLine{00121\ \ \ \ \ caps\_lock\ =\ !caps\_lock;}
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00123\ \ \ \textcolor{keywordflow}{case}\ BACKSPACE\_MAKE\_CODE:}
+\DoxyCodeLine{00124\ \ \ \ \ \mbox{\hyperlink{group__Command__Line_gae141d38d475a307cc500ab62784cec18}{delete\_character}}();}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00126\ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordflow}{if}\ (waiting\_for\_another\_char)\ \{}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ waiting\_for\_another\_char\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (scancode)\ \{}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ ALTGR\_MAKE\_CODE:}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ altgr\_pressed\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ ALTGR\_BREAK\_CODE:}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ altgr\_pressed\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LEFT\_ARROW\_MAKE\_CODE:\ \textcolor{comment}{//\ Left\ arrow\ key}}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cursor\_pos\ >\ 0)\ \{}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)033[D"{}});\ \textcolor{comment}{//\ Move\ cursor\ left}}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ cursor\_pos-\/-\/;}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ RIGHT\_ARROW\_MAKE\_CODE:\ \textcolor{comment}{//\ Right\ arrow\ key}}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cursor\_pos\ <\ line\_length)\ \{}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)033[C"{}});\ \textcolor{comment}{//\ Move\ cursor\ right}}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ cursor\_pos++;}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ DOWN\_ARROW\_MAKE\_CODE:\ \textcolor{comment}{//\ Down\ arrow\ key\ (not\ handled)}}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ UP\_ARROW\_MAKE\_CODE:\ \textcolor{comment}{//\ Up\ arrow\ key\ (not\ handled)}}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ DELETE\_MAKE\_CODE:}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__Command__Line_gae141d38d475a307cc500ab62784cec18}{delete\_character}}();}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00156\ \ \ \ \ \}}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keywordflow}{if}\ ((scancode\ \&\ BIT(7))\ ==\ 0)\ \{}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ ch\ =\ scancode\_to\_char[scancode];}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (caps\_lock\ \&\&\ ch\ >=\ \textcolor{charliteral}{'a'}\ \&\&\ ch\ <=\ \textcolor{charliteral}{'z'})\ \{}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!left\_shift\_pressed\ \&\&\ !right\_shift\_pressed)}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ ch\ -\/=\ 32;}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (left\_shift\_pressed\ ||\ right\_shift\_pressed)\ \{}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ char\_to\_print\ =\ shift\_scancode\_to\_char[scancode];}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (char\_to\_print)}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ ch\ =\ char\_to\_print;}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (altgr\_pressed)\ \{}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ char\_to\_print\ =\ altgr\_scancode\_to\_char[scancode];}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (char\_to\_print)}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ ch\ =\ char\_to\_print;}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ch)\ \{}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cursor\_pos\ <\ line\_length)}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ memmove(\&line\_buffer[cursor\_pos\ +\ 1],\ \&line\_buffer[cursor\_pos],}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ line\_length\ -\/\ cursor\_pos);}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ line\_buffer[cursor\_pos]\ =\ ch;}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ line\_length++;}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ line\_buffer[line\_length]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%c"{}},\ ch);}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cursor\_pos\ <\ line\_length)\ \{}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%s"{}},\ \&line\_buffer[cursor\_pos\ +\ 1]);}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ line\_length;\ i\ >\ cursor\_pos\ +\ 1;\ i-\/-\/)\ \{}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)033[D"{}});}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ cursor\_pos++;}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00188\ \ \ \ \ \}}
+\DoxyCodeLine{00189\ \ \ \}}
+\DoxyCodeLine{00190\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=305pt]{group__Command__Line_gae41d0c7726ec24bdeb2abae1be6090b8_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__Command__Line_gae41d0c7726ec24bdeb2abae1be6090b8_icgraph}
+\end{center}
+\end{figure}

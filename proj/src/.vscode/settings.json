@@ -4,7 +4,17 @@
   "diffEditor.ignoreTrimWhitespace": true,
   "editor.formatOnSave": false,
   "editor.tabSize": 2,
-  "editor.wordWrap": "bounded",
-  "editor.wordWrapColumn": 100,
-  "files.associations": { },
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.wordWrapColumn": 10000,
+  "files.associations": {
+    "sprite.h": "c",
+    "lcf.h": "c",
+    "stdint.h": "c",
+    "graphics.h": "c",
+    "*.xpm": "c",
+    "serial_port_handler.h": "c",
+    "mouse.h": "c",
+    "lights.h": "c",
+    "real_time_clock.h": "c"
+  },
 }

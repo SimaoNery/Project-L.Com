@@ -1,0 +1,33 @@
+<map id="draw_main_menu" name="draw_main_menu">
+<area shape="rect" id="Node000001" title="Draws the main menu page.This function draws the main menu sprite, main buttons, and the mouse pointe..." alt="" coords="5,276,129,301"/>
+<area shape="rect" id="Node000002" href="$group__Graphics.html#ga4f129396b28e32728e9f92e8858c4f00" title="Manages the buffering method based on the resolution." alt="" coords="183,128,305,153"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="82,273,214,161,217,165,86,277"/>
+<area shape="rect" id="Node000009" href="$group__Draw.html#ga77aa5892dbaec23e07aa9523bf2e2e60" title="Draws the current date and time on the screen." alt="" coords="187,250,301,276"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="129,277,171,271,172,276,130,282"/>
+<area shape="rect" id="Node000011" href="$group__Sprite.html#ga6c75fbf31230126d2f19b29deaf24b2f" title="Draws a sprite on the screen.This function draws the sprite&#39;s pixels on the screen,..." alt="" coords="734,301,822,327"/>
+<area shape="poly" id="edge17_Node000001_Node000011" title=" " alt="" coords="129,288,718,309,718,314,129,293"/>
+<area shape="rect" id="Node000014" href="$group__Draw.html#gaf4eaa4b2b77231bf1696747c632af8a7" title="Draws the main menu buttons.This function draws the control shell button, house plant button,..." alt="" coords="177,352,311,377"/>
+<area shape="poly" id="edge15_Node000001_Node000014" title=" " alt="" coords="100,299,199,343,197,347,98,304"/>
+<area shape="rect" id="Node000003" href="$group__Graphics.html#gad1d0642d73fd9d01692127e5daa39219" title="Swaps the front and back buffers." alt="" coords="371,70,470,96"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="285,124,364,99,365,104,287,129"/>
+<area shape="rect" id="Node000006" href="$group__Graphics.html#gaa74f5c4ff747396f4fc47ff7b6e54d40" title="Copies the buffers for triple buffering." alt="" coords="379,128,463,153"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="305,138,363,138,363,143,305,143"/>
+<area shape="rect" id="Node000004" href="$group__Graphics.html#ga0f35f330c5fc115729ebd486a1a4e7da" title="Clears the back buffer." alt="" coords="546,70,670,96"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="471,80,530,80,530,86,471,86"/>
+<area shape="rect" id="Node000005" href="$group__Graphics.html#ga36f9ffa14b373e0c27abbb6a48060758" title="Sets the display start for page flipping." alt="" coords="530,5,686,46"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="465,67,524,48,526,54,466,72"/>
+<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="463,125,548,98,550,103,464,130"/>
+<area shape="rect" id="Node000007" href="$group__Graphics.html#ga38896d3324498790d6c2324d14deac2f" title="Sets the display start for triple buffering." alt="" coords="530,120,686,161"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="463,138,515,138,515,143,463,143"/>
+<area shape="rect" id="Node000008" href="$group__Graphics.html#gad36fbad5794d448fb823db87ca9a0b2f" title="Waits until the last scheduled change has occured." alt="" coords="545,185,671,226"/>
+<area shape="poly" id="edge8_Node000006_Node000008" title=" " alt="" coords="461,151,534,177,532,182,459,156"/>
+<area shape="rect" id="Node000010" href="$group__Draw.html#gac1f43f29e9853b35feda6ab6a19bf84b" title="Draws a digit date sprite at the specified position." alt="" coords="552,250,664,276"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="294,247,359,235,421,231,483,235,538,244,537,249,482,240,421,236,359,240,295,252"/>
+<area shape="rect" id="Node000013" href="$group__Draw.html#ga37a02de713c35021c8b8dfa71d4e1371" title="Draws unit sprites based on the given time value." alt="" coords="359,250,482,276"/>
+<area shape="poly" id="edge13_Node000009_Node000013" title=" " alt="" coords="301,260,344,260,344,266,301,266"/>
+<area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="654,274,720,294,718,299,653,279"/>
+<area shape="rect" id="Node000012" href="$group__Graphics.html#ga6f895de9725f9f231f9a7f74b6087f60" title="Draws a pixel on the screen." alt="" coords="870,301,974,327"/>
+<area shape="poly" id="edge12_Node000011_Node000012" title=" " alt="" coords="822,311,854,311,854,316,822,316"/>
+<area shape="poly" id="edge14_Node000013_Node000010" title=" " alt="" coords="483,260,536,260,536,266,483,266"/>
+<area shape="poly" id="edge16_Node000014_Node000011" title=" " alt="" coords="311,360,481,350,685,330,718,324,719,329,686,335,482,356,312,365"/>
+</map>

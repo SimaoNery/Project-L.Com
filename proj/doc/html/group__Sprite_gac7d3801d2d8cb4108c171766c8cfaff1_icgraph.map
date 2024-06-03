@@ -1,0 +1,14 @@
+<map id="create_sprite" name="create_sprite">
+<area shape="rect" id="Node000001" title="Creates a sprite from the given XPM map.This function allocates memory for a new Sprite object,..." alt="" coords="732,31,828,56"/>
+<area shape="rect" id="Node000002" href="$group__Sprite.html#ga683f039988a3d9079ed293102af29dba" title="Loads sprites for the 1152x864 resolution.This function creates and initializes all the sprites neede..." alt="" coords="529,5,684,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="716,37,684,32,685,27,717,32"/>
+<area shape="rect" id="Node000006" href="$group__Sprite.html#ga40ccb13fdbc9085d728c2e4432553794" title="Loads sprites for the 800x600 resolution.This function creates and initializes all the sprites needed..." alt="" coords="533,55,680,80"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="717,55,681,60,680,55,716,50"/>
+<area shape="rect" id="Node000003" href="$group__Sprite.html#ga2d93fb9c89baec3742fba552f7213682" title="Loads sprites based on the specified resolution.This function determines which resolution&#45;specific sp..." alt="" coords="390,31,481,56"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="515,35,482,39,481,34,514,29"/>
+<area shape="rect" id="Node000004" href="$group__Graphics.html#gae3e0f491782c537cbd9ba342164c6f96" title="Changes the screen resolution." alt="" coords="216,31,342,56"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="375,46,342,46,342,41,375,41"/>
+<area shape="rect" id="Node000005" href="$group__Mouse__Handler.html#gac63ee6f5260e431a9252b78077fe37c2" title="Handles mouse input for the settings menu.This function processes mouse packets, updates the cursor p..." alt="" coords="5,31,168,56"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="200,46,168,46,168,41,200,41"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="517,58,481,53,482,47,518,52"/>
+</map>

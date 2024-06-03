@@ -8,6 +8,8 @@
 #include "../drivers/serial_port/queue.h"
 #include "../drivers/serial_port/serial.h"
 
+#include "../visuals/draw.h"
+
 void serial_port_main_menu_handler ();
 void serial_port_control_shell_handler ();
 void serial_port_house_plant_handler ();

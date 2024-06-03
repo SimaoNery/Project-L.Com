@@ -51,24 +51,33 @@ void serial_port_settings_handler () {
   }
 }
 
+extern bool asking_for_humidity;
+extern bool asking_for_temp;
+extern bool asking_for_sound_plant;
+
 void serial_port_house_plant_handler() {
+  printf("coise");
   serial_port_int_handler();
-  if (asking_for_humidity_and_temp) {
+  if (asking_for_humidity || asking_for_temp) {
     pop(get_queue(), &humidity_temp[counter_serial_port++]);
     if (counter_serial_port == 4) {
       counter_serial_port = 0;
-      asking_for_humidity_and_temp = false;
+      if (asking_for_humidity) draw_humidity();
+      if (asking_for_temp) draw_temperature();
+      asking_for_humidity = false;
+      asking_for_temp = false;
     }
     serial_port_clear_int();
   }
 
-  if (asking_for_sound) {
+  if (asking_for_sound_plant) {
     pop(get_queue(), &sound_intensity[counter_serial_port++]);
     if (counter_serial_port == 2) {
       counter_serial_port = 0;
-      asking_for_sound = false;
+      asking_for_sound_plant = false;
     }
     serial_port_clear_int();
+    draw_sound_intensity();
   }
 }
 

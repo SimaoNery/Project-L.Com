@@ -104,6 +104,10 @@ void mouse_control_shell_handler () {
   }
 }
 
+bool asking_for_humidity = false;
+bool asking_for_temp = false;
+bool asking_for_sound_plant = false;
+
 /*!
  * @brief Handles mouse input for the house plant section.
  * 
@@ -124,11 +128,11 @@ void mouse_house_plant_handler() {
   }
   else if (mouse_packet.x >= fan->x && mouse_packet.x <= fan->x + fan->width && mouse_packet.y >= fan->y && mouse_packet.y <= fan->y + fan->height)  {
     if (mouse_packet.left_button) {
-      if (db->hover) {
-        db->hover = false;
+      if (fan->hover) {
+        fan->hover = false;
         send_serial_port_msg(0x70);
       } else {
-        db->hover = false;
+        fan->hover = true;
         send_serial_port_msg(0x7F);
       }
     }
@@ -144,6 +148,7 @@ void mouse_house_plant_handler() {
         }
         
       } else {
+        horn1->hover = true;
         if (horn2->hover) {
           send_serial_port_msg(0x23);
         } else {
@@ -163,6 +168,7 @@ void mouse_house_plant_handler() {
         }
 
       } else {
+        horn2->hover = true;
         if (horn1->hover) {
           send_serial_port_msg(0x23);
         } else {
@@ -173,33 +179,115 @@ void mouse_house_plant_handler() {
   }
   else if (mouse_packet.x >= humidity_and_temperature->x && mouse_packet.x <= humidity_and_temperature->x + humidity_and_temperature->width && mouse_packet.y >= humidity_and_temperature->y && mouse_packet.y <= humidity_and_temperature->y + humidity_and_temperature->height)  {
     humidity_and_temperature->hover = true;
+    if (mouse_packet.left_button) {
+      asking_for_humidity = true;
+      asking_for_temp = true;
+      send_serial_port_msg(0x80);
+    }
   }
   else if (mouse_packet.x >= light_horizontal1->x && mouse_packet.x <= light_horizontal1->x + light_horizontal1->width && mouse_packet.y >= light_horizontal1->y && mouse_packet.y <= light_horizontal1->y + light_horizontal1->height)  {
-    light_horizontal1->hover = true;
+   uint8_t lights_hover = (light_vertical3->hover << 4) | (light_vertical2->hover << 3) | (light_vertical1->hover << 2) | (light_horizontal2->hover << 1);
+   if (mouse_packet.left_button) {
+      if (light_horizontal1->hover) {
+        light_horizontal1->hover = false;
+        send_serial_port_msg(lights_hover);
+
+      } else {
+        light_horizontal1->hover = true;
+        lights_hover |= BIT(0);
+        send_serial_port_msg(lights_hover);
+      }
+    }
   }
   else if (mouse_packet.x >= light_horizontal2->x && mouse_packet.x <= light_horizontal2->x + light_horizontal2->width && mouse_packet.y >= light_horizontal2->y && mouse_packet.y <= light_horizontal2->y + light_horizontal2->height)  {
-    light_horizontal2->hover = true;
+   uint8_t lights_hover = (light_vertical3->hover << 4) | (light_vertical2->hover << 3) | (light_vertical1->hover << 2) | (light_horizontal1->hover);
+   if (mouse_packet.left_button) {
+      if (light_horizontal2->hover) {
+        light_horizontal2->hover = false;
+        send_serial_port_msg(lights_hover);
+
+      } else {
+        light_horizontal2->hover = true;
+        lights_hover |= BIT(1);
+        send_serial_port_msg(lights_hover);
+      }
+    }
   }
   else if (mouse_packet.x >= light_vertical1->x && mouse_packet.x <= light_vertical1->x + light_vertical1->width && mouse_packet.y >= light_vertical1->y && mouse_packet.y <= light_vertical1->y + light_vertical1->height)  {
-    light_vertical1->hover = true;
+   uint8_t lights_hover = (light_vertical3->hover << 4) | (light_vertical2->hover << 3) | (light_horizontal2->hover << 1) | (light_horizontal1->hover);
+   if (mouse_packet.left_button) {
+      if (light_vertical1->hover) {
+        light_vertical1->hover = false;
+        send_serial_port_msg(lights_hover);
+
+      } else {
+        light_vertical1->hover = true;
+        lights_hover |= BIT(2);
+        send_serial_port_msg(lights_hover);
+      }
+    }
   }
   else if (mouse_packet.x >= light_vertical2->x && mouse_packet.x <= light_vertical2->x + light_vertical2->width && mouse_packet.y >= light_vertical2->y && mouse_packet.y <= light_vertical2->y + light_vertical2->height)  {
-    light_vertical2->hover = true;
+   uint8_t lights_hover = (light_vertical3->hover << 4) | (light_vertical1->hover << 2) | (light_horizontal2->hover << 1) | (light_horizontal1->hover);
+   if (mouse_packet.left_button) {
+      if (light_vertical2->hover) {
+        light_vertical2->hover = false;
+        send_serial_port_msg(lights_hover);
+
+      } else {
+        light_vertical2->hover = true;
+        lights_hover |= BIT(3);
+        send_serial_port_msg(lights_hover);
+      }
+    }
   }
   else if (mouse_packet.x >= light_vertical3->x && mouse_packet.x <= light_vertical3->x + light_vertical3->width && mouse_packet.y >= light_vertical3->y && mouse_packet.y <= light_vertical3->y + light_vertical3->height)  {
-    light_vertical3->hover = true;
-  }
-  else if (mouse_packet.x >= percentage->x && mouse_packet.x <= percentage->x + percentage->width && mouse_packet.y >= percentage->y && mouse_packet.y <= percentage->y + percentage->height)  {
-    percentage->hover = true;
+   uint8_t lights_hover = (light_vertical2->hover << 3) | (light_vertical1->hover << 2) | (light_horizontal2->hover << 1) | (light_horizontal1->hover);
+   if (mouse_packet.left_button) {
+      if (light_vertical3->hover) {
+        light_vertical3->hover = false;
+        send_serial_port_msg(lights_hover);
+
+      } else {
+        light_vertical3->hover = true;
+        lights_hover |= BIT(4);
+        send_serial_port_msg(lights_hover);
+      }
+    }
   }
   else if (mouse_packet.x >= read_humidity->x && mouse_packet.x <= read_humidity->x + read_humidity->width && mouse_packet.y >= read_humidity->y && mouse_packet.y <= read_humidity->y + read_humidity->height)  {
     read_humidity->hover = true;
+    if (mouse_packet.left_button) {
+      asking_for_humidity = true;
+      send_serial_port_msg(0x80);
+    }
+
   }
   else if (mouse_packet.x >= read_sound_intensity->x && mouse_packet.x <= read_sound_intensity->x + read_sound_intensity->width && mouse_packet.y >= read_sound_intensity->y && mouse_packet.y <= read_sound_intensity->y + read_sound_intensity->height)  {
+    
     read_sound_intensity->hover = true;
+    if (mouse_packet.left_button) {
+      asking_for_sound_plant = true;
+      send_serial_port_msg(0xA0);
+    }
+
   }
+  else if (mouse_packet.x >= sound_int->x && mouse_packet.x <= sound_int->x + sound_int->width && mouse_packet.y >= sound_int->y && mouse_packet.y <= sound_int->y + sound_int->height)  {
+    
+    sound_int->hover = true;
+    if (mouse_packet.left_button) {
+      asking_for_sound_plant = true;
+      send_serial_port_msg(0xA0);
+    }
+  }
+
   else if (mouse_packet.x >= read_temperature->x && mouse_packet.x <= read_temperature->x + read_temperature->width && mouse_packet.y >= read_temperature->y && mouse_packet.y <= read_temperature->y + read_temperature->height)  {
     read_temperature->hover = true;
+
+    if (mouse_packet.left_button) {
+      asking_for_temp = true;
+      send_serial_port_msg(0x80);
+    }
   }
 
   else if (mouse_packet.x >= backArrow->x && mouse_packet.x <= backArrow->x + bigResolutionButton->width && mouse_packet.y >= backArrow->y && mouse_packet.y <= backArrow->y + backArrow->height)  {
@@ -207,19 +295,7 @@ void mouse_house_plant_handler() {
   }
 
   else {
-    adjustFanPower->hover = false;
-    db->hover = false;
-    degrees_celcius->hover = false;
-    fan->hover = false;
-    horn1->hover = false;
-    horn2->hover = false;
     humidity_and_temperature->hover = false;
-    light_horizontal1->hover = false;
-    light_horizontal2->hover = false;
-    light_vertical1->hover = false;
-    light_vertical2->hover = false;
-    light_vertical3->hover = false;
-    percentage->hover = false;
     read_humidity->hover = false;
     read_sound_intensity->hover = false;
     read_temperature->hover = false;

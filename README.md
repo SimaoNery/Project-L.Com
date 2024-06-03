@@ -8,3 +8,5 @@ Group members:
 2. Wagner Pedrosa  (up201908556@fe.up.pt)
 3. Simão Neri      (up202206370@fe.up.pt)
 4. Nelson Neto     (up202108117@fe.up.pt)
+
+Link to Project Video: https://youtu.be/O_-ZMdLtOPU

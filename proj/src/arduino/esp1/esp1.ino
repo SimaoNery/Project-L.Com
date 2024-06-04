@@ -45,7 +45,8 @@ static const on_message_t on_message[] = {
   { LIGHT_TOPIC, turn_light },
   { BUZZER_TOPIC, turn_buzzer },
   { MOTOR_TOPIC, motor },
-  { HUMIDITY_SENSOR_TOPIC, turn_humidity_sensor }
+  { HUMIDITY_SENSOR_TOPIC, turn_humidity_sensor },
+  { DECIBEL_SENSOR_TOPIC, turn_decibel_sensor},
 };
 
 int pow(int exp) {
@@ -99,20 +100,34 @@ void motor(byte *payload, unsigned int length) {
   //Serial.print("Motor Spinning!!");
 }
 
+void turn_decibel_sensor(byte *payload, unsigned int length) {
+  float db = 1050;
+
+  if (isnan(db)) {
+    client.publish(DECIBEL_TOPIC_RX, "failed");
+    return;
+  }
+  char message[4];
+  snprintf(message, sizeof(message), "%d", db);
+
+  client.publish(DECIBEL_TOPIC_RX, message);
+  Serial.println("Decibel sent!");
+}
+
 void turn_humidity_sensor(byte *payload, unsigned int length) {
 
   //float humidity = dht.readHumidity();
   //float temperature = dht.readTemperature();
 
-  float humidity = 0.40;
-  float temperature = 28.3;
+  float humidity = 0040;
+  float temperature = 2830; 
 
   if (isnan(humidity) || isnan(temperature)) {
     client.publish(HUMIDITY_TOPIC_RX, "failed");
     return;
   }
-  char message[9];
-  snprintf(message, sizeof(message), "%d_%d", temperature, humidity);
+  char message[8];
+  snprintf(message, sizeof(message), "%d%d", temperature, humidity);
 
   client.publish(HUMIDITY_TOPIC_RX, message);
   Serial.println("Humidity and Temperature sent!");
@@ -142,21 +157,20 @@ void turn_buzzer(byte *payload, unsigned int length) {
         digitalWrite(PIN_BUZZER_1, HIGH);
         tone(PIN_BUZZER_2, 1000);
         Serial.println("Buzzer 1 and 2 turned on");
-        delay(1000);
         break;
       }
     case 0x02:
       {
         tone(PIN_BUZZER_2, 1000);
         Serial.println("Buzzer 2 turned on");
-        delay(1000);
+        digitalWrite(PIN_BUZZER_1, LOW);
         break;
       }
     case 0x01:
       {
         digitalWrite(PIN_BUZZER_1, HIGH);
+        noTone(PIN_BUZZER_2);
         Serial.println("Buzzer 1 turned on");
-        delay(1000);
         break;
       }
     default:
@@ -166,9 +180,6 @@ void turn_buzzer(byte *payload, unsigned int length) {
         break;
       }
   }
-
-  digitalWrite(PIN_BUZZER_1, LOW);
-  noTone(PIN_BUZZER_2);
 }
 
 void turn_light(byte *payload, unsigned int length) {

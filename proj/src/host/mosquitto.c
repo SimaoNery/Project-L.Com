@@ -7,6 +7,7 @@
 
 struct mosquitto *mosq = NULL;
 int sockfd;
+int virtualBox;
 
 /*!
  * @brief Structure to map device masks to MQTT topics.
@@ -48,8 +49,8 @@ void mosquitto_humidity_received(const struct mosquitto_message *msg) {
 
   printf("%s",(const char*) msg->payload);
   for (int i = 0; i < 4; i++) {
-    int attempts = 5;
-    while ((attempts--) && serial_port_send_message(sockfd, &humidity[i]));
+    serial_port_send_message(virtualBox, &humidity[i]);
+    usleep(1000);
   }
 }
 
@@ -63,8 +64,8 @@ void mosquitto_decibel_received(const struct mosquitto_message *msg) {
   memcpy(decibel, msg->payload, sizeof(decibel));
 
   for (int i = 0; i < 2; i++) {
-    int attempts = 5;
-    while ((attempts--) && serial_port_send_message(sockfd, &decibel[i]));
+    serial_port_send_message(virtualBox, &decibel[i]);
+    usleep(1000);
   }
 }
 
@@ -77,7 +78,7 @@ void mosquitto_camera_photo_received(const struct mosquitto_message *msg) {
   for (int i = 0; i < 153600; i += 8) {
     char buffer[8];
     memcpy(buffer, (char *) msg->payload + i, 8);
-    serial_port_send_message(sockfd, buffer);
+    serial_port_send_message(virtualBox, buffer);
   }
 }
 
@@ -227,6 +228,8 @@ void *server_thread(void *arg) {
             perror("Accept failed");
             continue;
         }
+
+        virtualBox = client_socket;
 
         printf("Client connected\n");
 

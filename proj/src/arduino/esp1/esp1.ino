@@ -1,7 +1,6 @@
 #include "esp_headers.h"
 #include "mosquitto_headers.hpp"
 #include <Arduino.h>
-#include <DHT.h>
 #include <PubSubClient.h>
 #include <WiFi.h>
 #include <esp_camera.h>
@@ -10,8 +9,6 @@
 
 WiFiClient espClient;
 PubSubClient client(espClient);
-
-DHT dht(PIN_HUMIDITY_AND_TEMPERATURE, DHTTYPE);
 
 
 void setup() {
@@ -101,14 +98,14 @@ void motor(byte *payload, unsigned int length) {
 }
 
 void turn_decibel_sensor(byte *payload, unsigned int length) {
-  float db = 1050;
+  float db = 10.50;
 
   if (isnan(db)) {
     client.publish(DECIBEL_TOPIC_RX, "failed");
     return;
   }
-  char message[4];
-  snprintf(message, sizeof(message), "%d", db);
+  char message[32];
+  snprintf(message, sizeof(message), "%.2f", db);
 
   client.publish(DECIBEL_TOPIC_RX, message);
   Serial.println("Decibel sent!");
@@ -116,22 +113,25 @@ void turn_decibel_sensor(byte *payload, unsigned int length) {
 
 void turn_humidity_sensor(byte *payload, unsigned int length) {
 
-  //float humidity = dht.readHumidity();
-  //float temperature = dht.readTemperature();
+  // Assuming these functions return float values
+  // float humidity = dht.readHumidity();
+  // float temperature = dht.readTemperature();
 
-  float humidity = 0040;
-  float temperature = 2830; 
+  float humidity = 40.0; // example humidity value
+  float temperature = 28.30; // example temperature value
 
   if (isnan(humidity) || isnan(temperature)) {
     client.publish(HUMIDITY_TOPIC_RX, "failed");
     return;
   }
-  char message[8];
-  snprintf(message, sizeof(message), "%d%d", temperature, humidity);
+
+  char message[32];
+  snprintf(message, sizeof(message), "%.2f %.2f", temperature, humidity);
 
   client.publish(HUMIDITY_TOPIC_RX, message);
   Serial.println("Humidity and Temperature sent!");
 }
+
 
 void take_picture(byte *payload, unsigned int length) {
   Serial.println("Sending photo!");

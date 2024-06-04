@@ -32,7 +32,7 @@ static const redirect_t redirect[] = {
  */
 int serial_port_send_message(int socketfd, const void *message) {
   if (send(socketfd, message, 1, 0) != 1) {
-    perror("Send failed");
+    //perror("Send failed");
     return 1;
   }
 
@@ -45,15 +45,38 @@ int serial_port_send_message(int socketfd, const void *message) {
  * @param msg The received MQTT message.
  */
 void mosquitto_humidity_received(const struct mosquitto_message *msg) {
-  uint8_t humidity[4];
-  memcpy(humidity, msg->payload, sizeof(humidity));
+  char *payload = (char*)msg->payload;
+  char temperatureStr[6], humidityStr[6];
+  sscanf(payload, "%s %s", temperatureStr, humidityStr);
 
-  printf("%s",(const char*) msg->payload);
-  for (int i = 0; i < 4; i++) {
-    serial_port_send_message(virtualBox, &humidity[i]);
-    usleep(1000);
+  char *decimalPoint = strchr(humidityStr, '.');
+  if (decimalPoint == NULL) {
+      return;
   }
+  
+  uint8_t humidityInt = atoi(humidityStr);
+  uint8_t humidityFrac = atoi(decimalPoint + 1);
+  
+  char *tempDecimalPoint = strchr(temperatureStr, '.');
+  if (tempDecimalPoint == NULL) {
+      return;
+  }
+  
+  uint8_t temperatureInt = atoi(temperatureStr);
+  uint8_t temperatureFrac = atoi(tempDecimalPoint + 1);
+
+  serial_port_send_message(virtualBox, &humidityInt);
+  usleep(100);
+  serial_port_send_message(virtualBox, &humidityFrac);
+  usleep(100);
+  serial_port_send_message(virtualBox, &temperatureInt);
+  usleep(100);
+  serial_port_send_message(virtualBox, &temperatureFrac);
+
+  printf("Humidity & Temperature Sent!\n");
 }
+
+
 
 /*!
  * @brief Callback function for receiving decibel data via MQTT.
@@ -61,13 +84,22 @@ void mosquitto_humidity_received(const struct mosquitto_message *msg) {
  * @param msg The received MQTT message.
  */
 void mosquitto_decibel_received(const struct mosquitto_message *msg) {
-  uint8_t decibel[2];
-  memcpy(decibel, msg->payload, sizeof(decibel));
+  char *payload = (char*)msg->payload;
+  char decibelStr[6];
+  sscanf(payload, "%s", decibelStr);
 
-  for (int i = 0; i < 2; i++) {
-    serial_port_send_message(virtualBox, &decibel[i]);
-    usleep(1000);
+  char *decimalPoint = strchr(decibelStr, '.');
+  if (decimalPoint == NULL) {
+      return;
   }
+  
+  uint8_t dbInt = atoi(decibelStr);
+  uint8_t dbFrac = atoi(decimalPoint + 1);
+
+  serial_port_send_message(virtualBox, &dbInt);
+  usleep(100);
+  serial_port_send_message(virtualBox, &dbFrac);
+  printf("Decibel sent!\n");
 }
 
 /*!

@@ -11,7 +11,7 @@ def send_byte_to_socket():
         s.connect((host, port))
         
         # Define the byte to send
-        byte_to_send = bytes([0x1f])
+        byte_to_send = bytes([0xA0])
         
         # Send the byte
         s.sendall(byte_to_send)
